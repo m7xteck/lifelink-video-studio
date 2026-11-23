@@ -93,7 +93,7 @@ export const renderLesson = async (): Promise<RenderResult> => {
     const f1 = (e >= manifest.durationSec - 1e-6 ? totalFrames : Math.min(totalFrames, Math.round(e * fps))) - 1;
     if (f1 < f0) continue;
     // Scenes touching this chunk (incl. neighbours whose cross-dissolve spills in).
-    const touching = manifest.scenes.filter((sc) => sc.startSec < e + 1 && sc.endSec + 1 > s);
+    const touching = manifest.scenes.filter((sc) => sc.startSec < e + 1.5 && sc.endSec + 1.5 > s); // 1.5 s ≥ MAX_SCENE_OVERLAP_SEC
     const key = createHash("sha256").update(JSON.stringify({ touching, f0, f1, fps, portrait, scale, engineHash, encoder, watermark: manifest.watermark, w: manifest.width, h: manifest.height })).digest("hex").slice(0, 16);
     const file = join(chunkDir, `${sec.id}_${f0}-${f1}_${key}.mp4`);
     const qaFile = file.replace(/\.mp4$/, ".qa.json");

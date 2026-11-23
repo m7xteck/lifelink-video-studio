@@ -23,17 +23,24 @@ export const useProgress = (at: number, durSec = motion.durationsSec.base, easin
   });
 };
 
+/** Scenes stay mounted this long after their end so a longer fade-out can complete. */
+export const MAX_SCENE_OVERLAP_SEC = 1.4;
+
 /** Scene-level envelope: fade in at scene start, fade out across the overlap after scene end. */
-export const useSceneEnvelope = () => {
+export const useSceneEnvelope = (opts: { fadeIn?: number; fadeOut?: number } = {}) => {
+  const fadeIn = opts.fadeIn ?? motion.durationsSec.sceneFadeIn;
+  const fadeOut = Math.min(opts.fadeOut ?? motion.durationsSec.sceneFadeOut, MAX_SCENE_OVERLAP_SEC);
   const t = useNarrationTime();
   const { startSec, endSec } = useContext(SceneClock);
   // Incoming scene waits until the outgoing one is mostly gone: a clean hand-off, never text on text.
+  // The very first scene of a video starts fully visible (nothing to hand off from).
   const inStart = startSec + motion.durationsSec.sceneFadeOut * 0.6;
-  const inP = interpolate(t, [inStart, inStart + motion.durationsSec.sceneFadeIn], [0, 1], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.enter,
+  const inP = startSec <= 0.001 ? 1 : interpolate(t, [inStart, inStart + fadeIn], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle,
   });
-  const outP = interpolate(t, [endSec, endSec + motion.durationsSec.sceneFadeOut], [1, 0], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.enter,
+  // Ease-in-out on both sides: large brightness changes (dark ground ↔ paper) are spread evenly, never a jump.
+  const outP = interpolate(t, [endSec, endSec + fadeOut], [1, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle,
   });
   return { opacity: Math.min(inP, outP), inP, outP, t, startSec, endSec };
 };

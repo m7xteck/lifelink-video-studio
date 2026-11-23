@@ -1,13 +1,23 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import { colors } from "../brand/tokens";
+import { PaperGround } from "./brand";
 
 /**
  * Persistent background: deep tonal gradient, two very slow light pools,
  * vignette and static fine grain. Deliberately quiet — it should never
  * compete with the teaching.
  */
-export const Atmosphere: React.FC<{ mood?: number }> = ({ mood = 0 }) => {
+const luminance = (hex: string) => {
+  const n = parseInt(hex.slice(1), 16);
+  return (0.2126 * ((n >> 16) & 255) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255)) / 255;
+};
+
+export const Atmosphere: React.FC<{ mood?: number }> = (props) =>
+  // Light brand grounds (e.g. LifeLink paper) get a paper texture; dark grounds keep the light-pool atmosphere.
+  luminance(colors.background) > 0.6 ? <PaperGround color={colors.background} deep={colors.backgroundDeep} seed={1} /> : <DarkAtmosphere {...props} />;
+
+const DarkAtmosphere: React.FC<{ mood?: number }> = ({ mood = 0 }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;

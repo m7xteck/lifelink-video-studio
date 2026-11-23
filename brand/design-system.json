@@ -1,57 +1,112 @@
 {
-  "$comment": "Single source of truth for every visual decision. All components read from here. Edit only through the brand approval workflow (workflows/brand-onboarding.md).",
-  "version": "0.1.0-neutral",
-  "status": "NEUTRAL_TEST",
-  "statusNote": "This is NOT the LifeLink brand. It is a deliberately neutral technical palette used only to test the engine until real brand materials are supplied and approved.",
+  "$comment": "Single source of truth for every visual decision. PROPOSAL built from the client's brand pack (2026-11-23). Not approved; fonts, colours and logo usage are provisional. Neutral test system archived at brand/archive/design-system-0.1.0-neutral.json.",
+  "version": "1.0.0-proposal.2",
+  "status": "PROPOSAL",
+  "statusNote": "LifeLink brand PROPOSAL for client review. Colour codes sampled from a screenshot, fonts awaiting licence confirmation, logo artwork not supplied. Every render carries a watermark until status is APPROVED.",
   "approvedBy": null,
   "approvedAt": null,
+  "sources": [
+    "brand/intake/BRAND_INTAKE.md",
+    "brand/proposals/interpretation-1.0.md"
+  ],
+  "palette": {
+    "$comment": "Brand palette as sampled from the artboard (provisional hex values).",
+    "paper": "#F3F0E8",
+    "oxblood": "#500002",
+    "royal": "#3961BC",
+    "sky": "#9BB9D6",
+    "black": "#060606",
+    "rose": "#AF3E46"
+  },
+  "derived": {
+    "$comment": "Tints/shades DERIVED from the palette for depth and legibility. Not client colours; listed for approval.",
+    "paperShade": "#E7E0D2",
+    "paperLight": "#FAF8F3",
+    "oxbloodDeep": "#360002",
+    "royalDeep": "#2A4B97",
+    "oxbloodMuted": "#7D4A4B",
+    "hairline": "#D3C8B6"
+  },
   "colors": {
-    "background": "#14161A",
-    "backgroundDeep": "#0D0F12",
-    "surface": "#1D2026",
-    "ink": "#F2F0EC",
-    "inkMuted": "#A7A9AE",
-    "accent": "#C9B48A",
-    "accentSoft": "#6E6553",
-    "secondary": "#8FA3B0",
-    "line": "#3A3E46"
+    "$comment": "Semantic roles used by components. Values reference palette/derived above.",
+    "background": "#F3F0E8",
+    "backgroundDeep": "#E7E0D2",
+    "surface": "#FAF8F3",
+    "ink": "#500002",
+    "inkMuted": "#7D4A4B",
+    "accent": "#3961BC",
+    "accentSoft": "#9BB9D6",
+    "secondary": "#AF3E46",
+    "line": "#D3C8B6"
   },
   "typography": {
     "display": {
-      "family": "Newsreader",
+      "family": "LifeLink Script",
+      "source": "Australian Mirages Bold (Fikryal Studio)",
       "weights": [
-        "400",
-        "500"
+        "700"
       ],
-      "italicAllowed": true
+      "italicAllowed": false,
+      "rules": [
+        "Wordmark and short accent words/phrases only (\u2264 4 words)",
+        "Never all-caps",
+        "Never for body copy, numbers in diagrams or anything under 56 px at 1080p",
+        "Avoid words starting with capital I in script (the glyph reads as J)",
+        "No numerals in script; numbers use the text face"
+      ]
     },
     "text": {
-      "family": "Inter",
+      "family": "LifeLink Text",
+      "source": "Geneva (22 Soft, 1992)",
       "weights": [
-        "400",
-        "500",
-        "600"
+        "400"
+      ],
+      "rules": [
+        "Headlines, statements, labels, body",
+        "Single weight: hierarchy comes from size, colour, case and tracking",
+        "Font has very wide default word spaces: apply wordSpacing token"
       ]
     },
     "scale": {
-      "hero": 112,
-      "h1": 84,
-      "h2": 60,
+      "hero": 128,
+      "h1": 88,
+      "h2": 62,
       "h3": 44,
       "body": 36,
-      "label": 26,
+      "label": 24,
       "caption": 22
     },
     "minReadablePx": 22,
     "lineHeight": {
-      "display": 1.08,
-      "text": 1.35
+      "display": 1.05,
+      "text": 1.3
     },
     "letterSpacing": {
-      "label": "0.14em"
+      "label": "0.22em",
+      "headline": "-0.01em"
+    },
+    "wordSpacing": {
+      "text": "-0.44em",
+      "$note": "Body font's space glyph is 0.715 em (normal \u2248 0.27 em); corrected optically."
     }
   },
   "fontFiles": [
+    {
+      "family": "LifeLink Script",
+      "file": "fonts/lifelink-provisional/AustralianMirages-Bold.ttf",
+      "weight": "400 900",
+      "style": "normal"
+    },
+    {
+      "family": "LifeLink Text",
+      "file": "fonts/lifelink-provisional/Geneva-22Soft.rebuilt.ttf",
+      "weight": "100 900",
+      "style": "normal",
+      "ascentOverride": "93%",
+      "descentOverride": "22%",
+      "lineGapOverride": "0%",
+      "$note": "Display-time metric override: the font declares 1.557 em line metrics but its glyphs use ~1.14 em (OS/2 win metrics). File unchanged."
+    },
     {
       "family": "Inter",
       "file": "fonts/neutral/Inter-Variable.woff2",
@@ -72,35 +127,36 @@
     }
   ],
   "motion": {
+    "$comment": "Motion language: 'paper and ink'. Elements move like heavy stationery (slide, settle, never bounce); words appear like ink (mask wipes). No zooms, spins, particles or elastic easing.",
     "easing": {
       "enter": [
-        0.16,
+        0.22,
         1,
-        0.3,
+        0.36,
         1
       ],
       "exit": [
-        0.7,
+        0.64,
         0,
-        0.84,
+        0.78,
         0
       ],
       "settle": [
-        0.33,
+        0.45,
         0,
-        0.2,
+        0.15,
         1
       ]
     },
     "durationsSec": {
-      "fast": 0.35,
-      "base": 0.7,
-      "slow": 1.2,
+      "fast": 0.4,
+      "base": 0.8,
+      "slow": 1.4,
       "sceneFadeIn": 0.6,
-      "sceneFadeOut": 0.45
+      "sceneFadeOut": 0.5
     },
-    "wordStaggerSec": 0.06,
-    "cameraDriftMaxScale": 1.035,
+    "wordStaggerSec": 0.07,
+    "cameraDriftMaxScale": 1.02,
     "minTextHoldSec": 1.5
   },
   "layout": {
@@ -109,14 +165,33 @@
       "y": 0.09
     },
     "gridColumns": 12,
-    "radius": 18
+    "radius": 6
+  },
+  "texture": {
+    "paperGrainOpacity": 0.07,
+    "embossDepthPx": 2
   },
   "logo": {
     "provided": false,
-    "rules": []
+    "rules": [
+      "Wordmark set in LifeLink Script until vector artwork is supplied",
+      "Do not redraw or approximate the two-ring mark"
+    ]
+  },
+  "motifs": {
+    "twoPaths": "Two lines (two people) that travel separately and join into one two-tone line: each remains whole. Used once per lesson at most, structurally (e.g. a process that ends in an introduction). PROPOSED.",
+    "blindEmboss": "Wordmark or type pressed into card stock, revealed by a raking light. PROPOSED.",
+    "rejected": [
+      "Two-ring motif (v1.0.0-proposal.1): read as wedding bands in independent review; removed before client presentation"
+    ]
   },
   "imagery": {
-    "rules": []
+    "rules": [
+      "No hearts, wedding rings or ring-like pairs, romantic clich\u00e9s",
+      "No generic Islamic geometric patterns or crescent motifs",
+      "No people until imagery rules are confirmed",
+      "Do not redraw or imitate the logo mark (solid disc with offset counter-form)"
+    ]
   },
   "audio": {
     "musicApproved": false,
@@ -124,7 +199,20 @@
     "rules": []
   },
   "values": {
-    "rules": []
+    "rules": [
+      "Warm, sincere, never preachy or flirtatious",
+      "No compatibility percentages or guarantees",
+      "No dating-app language",
+      "Welcoming across cultures and levels of practice"
+    ]
   },
-  "prohibited": []
+  "prohibited": [
+    "hearts",
+    "wedding rings",
+    "crescent moons",
+    "generic Islamic patterns",
+    "bouncy/elastic motion",
+    "gamified UI",
+    "percent-match graphics"
+  ]
 }

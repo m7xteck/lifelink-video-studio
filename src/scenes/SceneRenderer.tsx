@@ -7,6 +7,11 @@ import { StepsDiagram } from "../components/StepsDiagram";
 import { ConnectionMetaphor } from "../components/ConnectionMetaphor";
 import { Comparison } from "../components/Comparison";
 import { Takeaway } from "../components/Takeaway";
+import { CourseIntro } from "../components/brand/CourseIntro";
+import { StatementCollision } from "../components/brand/StatementCollision";
+import { IntroductionPath } from "../components/brand/IntroductionPath";
+import { ReflectionField } from "../components/brand/ReflectionField";
+import { SummaryLedger } from "../components/brand/SummaryLedger";
 
 /** Maps a manifest scene "type" to its motion-library component. */
 export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
@@ -18,5 +23,10 @@ export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
     case "connectionMetaphor": return <ConnectionMetaphor scene={scene} />;
     case "comparison": return <Comparison scene={scene} />;
     case "takeaway": return <Takeaway scene={scene} />;
+    case "courseIntro": return <CourseIntro scene={scene} />;
+    case "statementCollision": return <StatementCollision scene={scene} />;
+    case "introductionPath": return <IntroductionPath scene={scene} />;
+    case "reflectionField": return <ReflectionField scene={scene} />;
+    case "summaryLedger": return <SummaryLedger scene={scene} />;
   }
 };

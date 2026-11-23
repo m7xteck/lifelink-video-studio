@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "concepts-v1",
+  "courseId": "_brand-concepts",
+  "title": "LifeLink brand concepts v1",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationSec": 57,
+  "audio": null,
+  "watermark": "Concept for approval \u00b7 provisional brand \u00b7 sample copy",
+  "sections": [
+    {
+      "id": "c1-intro",
+      "title": "Concept 1 \u00b7 Course introduction",
+      "startSec": 0,
+      "endSec": 11
+    },
+    {
+      "id": "c2-statement",
+      "title": "Concept 2 \u00b7 Important statement",
+      "startSec": 11,
+      "endSec": 22
+    },
+    {
+      "id": "c3-diagram",
+      "title": "Concept 3 \u00b7 Educational diagram",
+      "startSec": 22,
+      "endSec": 35
+    },
+    {
+      "id": "c4-reflection",
+      "title": "Concept 4 \u00b7 Reflective moment",
+      "startSec": 35,
+      "endSec": 46
+    },
+    {
+      "id": "c5-summary",
+      "title": "Concept 5 \u00b7 Lesson summary",
+      "startSec": 46,
+      "endSec": 57
+    }
+  ],
+  "scenes": [
+    {
+      "id": "c1",
+      "sectionId": "c1-intro",
+      "type": "courseIntro",
+      "startSec": 0,
+      "endSec": 11,
+      "props": {
+        "courseLabel": "Course",
+        "courseTitle": "Preparing for Marriage",
+        "lessonLabel": "Lesson 01",
+        "lessonTitle": "Why intention matters",
+        "at": 0.4
+      }
+    },
+    {
+      "id": "c2",
+      "sectionId": "c2-statement",
+      "type": "statementCollision",
+      "startSec": 11,
+      "endSec": 22,
+      "props": {
+        "label": "A LifeLink principle",
+        "first": {
+          "text": "Compatibility",
+          "at": 11.8
+        },
+        "script": {
+          "text": "before",
+          "at": 13.0
+        },
+        "second": {
+          "text": "conversation.",
+          "at": 13.9
+        },
+        "caption": {
+          "text": "Understand whether someone is genuinely suitable before taking the next step.",
+          "at": 16.0
+        }
+      }
+    },
+    {
+      "id": "c3",
+      "sectionId": "c3-diagram",
+      "type": "introductionPath",
+      "startSec": 22,
+      "endSec": 35,
+      "props": {
+        "label": "How an introduction happens",
+        "heading": "From profile to introduction",
+        "stages": [
+          {
+            "label": "Complete your profile",
+            "detail": "Values, lifestyle, intentions",
+            "at": 23.8
+          },
+          {
+            "label": "Receive compatible recommendations",
+            "at": 25.8
+          },
+          {
+            "label": "Express interest",
+            "detail": "Both sides, independently",
+            "at": 27.8
+          }
+        ],
+        "outcome": {
+          "text": "Introduction",
+          "caption": "with mutual consent",
+          "at": 29.8
+        }
+      }
+    },
+    {
+      "id": "c4",
+      "sectionId": "c4-reflection",
+      "type": "reflectionField",
+      "startSec": 35,
+      "endSec": 46,
+      "props": {
+        "ground": "oxblood",
+        "lines": [
+          {
+            "text": "Finding a spouse",
+            "at": 35.9
+          },
+          {
+            "text": "should be about finding",
+            "at": 36.9
+          }
+        ],
+        "script": {
+          "text": "the right person,",
+          "at": 38.4
+        },
+        "after": [
+          {
+            "text": "not collecting the most matches.",
+            "at": 40.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "c5",
+      "sectionId": "c5-summary",
+      "type": "summaryLedger",
+      "startSec": 46,
+      "endSec": 57,
+      "props": {
+        "heading": "Summary",
+        "sublabel": "Lesson 01",
+        "points": [
+          {
+            "text": "Introductions, not conversations",
+            "at": 47.2
+          },
+          {
+            "text": "Compatibility before attraction",
+            "at": 49.0
+          },
+          {
+            "text": "Technology combined with human matchmaking",
+            "at": 50.8
+          },
+          {
+            "text": "A premium, trustworthy experience",
+            "at": 52.6
+          }
+        ],
+        "signoff": {
+          "text": "Built for introductions. Designed for marriage.",
+          "at": 54.4
+        }
+      }
+    }
+  ]
+}

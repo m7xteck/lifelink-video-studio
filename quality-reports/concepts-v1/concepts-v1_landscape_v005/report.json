@@ -1,0 +1,180 @@
+{
+  "lessonId": "concepts-v1",
+  "video": "renders/concepts-v1/landscape/concepts-v1_landscape_v005.mp4",
+  "createdAt": "2026-11-23T15:03:06.567Z",
+  "result": "PASS",
+  "summary": "12 pass, 0 fail, 0 warn",
+  "checks": [
+    {
+      "id": "manifest.order",
+      "status": "PASS",
+      "detail": "Scenes are in narration order"
+    },
+    {
+      "id": "manifest.coverage",
+      "status": "PASS",
+      "detail": "Scenes cover the timeline without gaps",
+      "data": []
+    },
+    {
+      "id": "manifest.text-hold",
+      "status": "PASS",
+      "detail": "Every text cue stays on screen ≥ 1.5s",
+      "data": []
+    },
+    {
+      "id": "file.decode",
+      "status": "PASS",
+      "detail": "Full decode with no errors"
+    },
+    {
+      "id": "video.resolution",
+      "status": "PASS",
+      "detail": "1920×1080 (expected 1920×1080)"
+    },
+    {
+      "id": "video.codec",
+      "status": "PASS",
+      "detail": "h264 High yuv420p"
+    },
+    {
+      "id": "video.fps",
+      "status": "PASS",
+      "detail": "30.000 fps (expected 30)"
+    },
+    {
+      "id": "duration",
+      "status": "PASS",
+      "detail": "57.000s (expected 57.000s)"
+    },
+    {
+      "id": "picture.black-frames",
+      "status": "PASS",
+      "detail": "No unexpected black frames"
+    },
+    {
+      "id": "picture.flashes",
+      "status": "PASS",
+      "detail": "No frame-to-frame brightness jumps (max Δ 18.6 of 255)"
+    },
+    {
+      "id": "picture.long-stillness",
+      "status": "PASS",
+      "detail": "No unintended frozen picture (>8s)"
+    },
+    {
+      "id": "layout.text",
+      "status": "PASS",
+      "detail": "No clipped, undersized or overlapping text held on screen (2 momentary mid-animation contacts ignored)",
+      "data": {
+        "persistent": [],
+        "transient": [
+          "outside-frame: Course @1.37s (1 consecutive frames)",
+          "outside-frame: Preparing for Marriage @1.43s (2 consecutive frames)"
+        ]
+      }
+    },
+    {
+      "id": "subtitles.srt",
+      "status": "INFO",
+      "detail": "No SRT for this lesson"
+    }
+  ],
+  "frames": [
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/00_0.00s.jpg",
+      "t": 0,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/01_0.25s.jpg",
+      "t": 0.25,
+      "why": "c1 transition-in"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/02_10.70s.jpg",
+      "t": 10.7,
+      "why": "c1 settled"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/03_11.25s.jpg",
+      "t": 11.25,
+      "why": "c2 transition-in"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/04_12.00s.jpg",
+      "t": 12,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/05_16.49s.jpg",
+      "t": 16.49,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/06_18.77s.jpg",
+      "t": 18.77,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/07_21.70s.jpg",
+      "t": 21.7,
+      "why": "c2 settled"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/08_22.25s.jpg",
+      "t": 22.25,
+      "why": "c3 transition-in"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/09_30.36s.jpg",
+      "t": 30.36,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/10_34.70s.jpg",
+      "t": 34.7,
+      "why": "c3 settled"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/11_35.25s.jpg",
+      "t": 35.25,
+      "why": "c4 transition-in"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/12_41.57s.jpg",
+      "t": 41.57,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/13_42.87s.jpg",
+      "t": 42.87,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/14_45.70s.jpg",
+      "t": 45.7,
+      "why": "c4 settled"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/15_46.25s.jpg",
+      "t": 46.25,
+      "why": "c5 transition-in"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/16_52.48s.jpg",
+      "t": 52.48,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/concepts-v1/concepts-v1_landscape_v005/frames/17_56.70s.jpg",
+      "t": 56.7,
+      "why": "c5 settled"
+    }
+  ],
+  "contactSheet": "quality-reports/concepts-v1/concepts-v1_landscape_v005/contact-sheet.jpg",
+  "creativeReview": {
+    "status": "PENDING",
+    "note": "Objective checks only. Creative/brand review is recorded separately and never inferred from these results."
+  }
+}

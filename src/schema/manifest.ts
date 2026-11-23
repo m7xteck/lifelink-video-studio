@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const Emphasis = z.array(z.string()).default([]);
 
-export const SceneSchema = z.discriminatedUnion("type", [
+const CoreSceneSchemas = [
   z.object({
     type: z.literal("sectionTitle"),
     id: z.string(), sectionId: z.string(), startSec: z.number(), endSec: z.number(),
@@ -67,7 +67,41 @@ export const SceneSchema = z.discriminatedUnion("type", [
       points: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(5),
     }),
   }),
-]);
+] as const;
+
+
+/* ---- LifeLink brand-proposal scene types (concepts v1) ---- */
+const Base = { id: z.string(), sectionId: z.string(), startSec: z.number(), endSec: z.number() };
+export const BrandSceneSchemas = [
+  z.object({ ...Base, type: z.literal("courseIntro"), props: z.object({
+    courseLabel: z.string().default("Course"), courseTitle: z.string(), lessonLabel: z.string(), lessonTitle: z.string(), at: z.number(),
+  }) }),
+  z.object({ ...Base, type: z.literal("statementCollision"), props: z.object({
+    label: z.string().optional(),
+    first: z.object({ text: z.string(), at: z.number() }),
+    script: z.object({ text: z.string(), at: z.number() }),
+    second: z.object({ text: z.string(), at: z.number() }),
+    caption: z.object({ text: z.string(), at: z.number() }).optional(),
+  }) }),
+  z.object({ ...Base, type: z.literal("introductionPath"), props: z.object({
+    label: z.string().optional(), heading: z.string(),
+    stages: z.array(z.object({ label: z.string(), detail: z.string().optional(), at: z.number() })).min(2).max(4),
+    outcome: z.object({ text: z.string(), caption: z.string().optional(), at: z.number() }),
+  }) }),
+  z.object({ ...Base, type: z.literal("reflectionField"), props: z.object({
+    lines: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(4),
+    script: z.object({ text: z.string(), at: z.number() }).optional(),
+    after: z.array(z.object({ text: z.string(), at: z.number() })).max(2).optional(),
+    ground: z.enum(["oxblood", "royal"]).default("oxblood"),
+  }) }),
+  z.object({ ...Base, type: z.literal("summaryLedger"), props: z.object({
+    heading: z.string().default("In summary"), sublabel: z.string().optional(),
+    points: z.array(z.object({ text: z.string(), at: z.number() })).min(2).max(5),
+    signoff: z.object({ text: z.string(), at: z.number() }).optional(),
+  }) }),
+] as const;
+
+export const SceneSchema = z.discriminatedUnion("type", [...CoreSceneSchemas, ...BrandSceneSchemas]);
 
 export const ManifestSchema = z.object({
   schemaVersion: z.literal(1),

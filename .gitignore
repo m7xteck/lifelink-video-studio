@@ -14,3 +14,6 @@ deliverables/
 quality-reports/**/frames/
 storyboards/**/frames/
 exports/
+
+# Provisional brand fonts: licence for video use not yet confirmed, so they are kept out of Git
+public/fonts/lifelink-provisional/*.ttf

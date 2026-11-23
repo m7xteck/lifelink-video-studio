@@ -2,10 +2,10 @@ import React from "react";
 import { AbsoluteFill, Audio, CalculateMetadataFunction, Sequence, staticFile, useVideoConfig } from "remotion";
 import { ManifestSchema, type Manifest } from "../schema/manifest";
 import { Atmosphere } from "../motion/Atmosphere";
-import { SceneClock } from "../motion/time";
+import { MAX_SCENE_OVERLAP_SEC, SceneClock } from "../motion/time";
 import { SceneRenderer } from "../scenes/SceneRenderer";
 import { QaGuard } from "../motion/QaGuard";
-import { colors, fonts, motion } from "../brand/tokens";
+import { brandWatermark, colors, fonts, motion } from "../brand/tokens";
 
 export type LessonProps = { manifest: Manifest; orientation?: "landscape" | "portrait"; muted?: boolean; qa?: boolean };
 
@@ -24,7 +24,7 @@ export const calculateLessonMetadata: CalculateMetadataFunction<LessonProps> = (
 
 export const Lesson: React.FC<LessonProps> = ({ manifest, muted = false, qa = true }) => {
   const { fps } = useVideoConfig();
-  const overlap = motion.durationsSec.sceneFadeOut; // scenes cross-dissolve over this window
+  const overlap = MAX_SCENE_OVERLAP_SEC; // scenes stay mounted while their fade-out completes
   return (
     <AbsoluteFill style={{ backgroundColor: colors.backgroundDeep }}>
       <Atmosphere />
@@ -40,9 +40,10 @@ export const Lesson: React.FC<LessonProps> = ({ manifest, muted = false, qa = tr
         );
       })}
       {manifest.audio && !muted && <Audio src={staticFile(manifest.audio)} />}
-      {manifest.watermark && (
-        <div style={{ position: "absolute", top: 28, right: 36, fontFamily: fonts.text, fontSize: 18, letterSpacing: "0.12em", color: colors.inkMuted, opacity: 0.7, textTransform: "uppercase" }}>
-          {manifest.watermark}
+      {(manifest.watermark || brandWatermark) && (
+        <div style={{ position: "absolute", top: 28, right: 36, fontFamily: fonts.text, fontSize: 18, letterSpacing: "0.12em", color: colors.inkMuted, background: `${colors.surface}cc`, padding: "6px 12px", borderRadius: 4, textTransform: "uppercase", zIndex: 10 }}>
+          {/* While the brand is unapproved the watermark is mandatory, whatever the manifest says. */}
+          {manifest.watermark ?? brandWatermark}
         </div>
       )}
       {qa && <QaGuard />}

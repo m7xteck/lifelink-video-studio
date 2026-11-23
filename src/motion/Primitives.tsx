@@ -7,15 +7,17 @@ export const MaskedWords: React.FC<{
   text: string; at: number; emphasis?: string[]; style?: React.CSSProperties; emphasisStyle?: React.CSSProperties;
 }> = ({ text, at, emphasis = [], style, emphasisStyle }) => {
   const words = text.split(/\s+/).filter(Boolean);
-  const emph = new Set(emphasis.map((e) => e.toLowerCase()));
+  const norm = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}'’-]/gu, "");
+  // Emphasis entries are normalised exactly like on-screen words, so "guess." matches "guess".
+  const emph = new Set(emphasis.map(norm));
   return (
     <span style={{ display: "inline", ...style }}>
       {words.map((w, i) => {
-        const bare = w.toLowerCase().replace(/[^\p{L}\p{N}'’-]/gu, "");
+        const bare = norm(w);
         const isEm = emph.has(bare);
         return (
           <React.Fragment key={i}>
-            <Word at={at + i * motion.wordStaggerSec} style={isEm ? { color: colors.accent, fontStyle: "italic", ...emphasisStyle } : undefined}>
+            <Word at={at + i * motion.wordStaggerSec} style={isEm ? { color: colors.accent, fontFamily: fonts.script, fontSize: "1.12em", letterSpacing: 0, ...emphasisStyle } : undefined}>
               {w}
             </Word>
             {i < words.length - 1 ? " " : null}
