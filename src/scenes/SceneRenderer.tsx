@@ -12,6 +12,7 @@ import { StatementCollision } from "../components/brand/StatementCollision";
 import { IntroductionPath } from "../components/brand/IntroductionPath";
 import { ReflectionField } from "../components/brand/ReflectionField";
 import { SummaryLedger } from "../components/brand/SummaryLedger";
+import { ParallelPhrases } from "../components/brand/ParallelPhrases";
 
 /** Maps a manifest scene "type" to its motion-library component. */
 export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
@@ -28,5 +29,15 @@ export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
     case "introductionPath": return <IntroductionPath scene={scene} />;
     case "reflectionField": return <ReflectionField scene={scene} />;
     case "summaryLedger": return <SummaryLedger scene={scene} />;
+    case "parallelPhrases": return <ParallelPhrases scene={scene} />;
+  }
+};
+
+/** The ground (background) colour each scene paints, so the backdrop between scenes can match it. */
+export const groundOf = (scene: Scene, palette: Record<string, string>, fallback: string): string => {
+  switch (scene.type) {
+    case "courseIntro": case "summaryLedger": return palette.royal ?? fallback;
+    case "reflectionField": return (scene.props.ground === "royal" ? palette.royal : palette.oxblood) ?? fallback;
+    default: return fallback;
   }
 };

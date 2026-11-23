@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { ease, fonts, motion, textStyle, texture } from "../brand/tokens";
 import { useProgress } from "./time";
 
@@ -9,27 +9,21 @@ import { useProgress } from "./time";
  * and the link-rings device. All colours come from tokens via props.
  */
 
-/** Textured paper/card ground. `deep` adds a soft vignette toward the given colour. */
+/**
+ * Textured paper/card ground. `deep` adds a soft vignette toward the given colour.
+ * Grain and fibre textures are pre-rendered once (public/textures, generated from the same SVG
+ * turbulence filters) instead of being recomputed every frame: identical look, far faster renders.
+ * `seed` offsets the texture so adjacent grounds don't share an identical pattern.
+ */
 export const PaperGround: React.FC<{ color: string; deep?: string; grain?: number; seed?: number }> = ({ color, deep, grain = texture.paperGrainOpacity, seed = 3 }) => {
-  const { width, height } = useVideoConfig();
+  // <Img> (not CSS backgrounds) so Remotion waits for the texture before capturing any frame.
+  const flip = `scale(${seed % 2 ? -1 : 1}, ${Math.floor(seed / 2) % 2 ? -1 : 1})`;
+  const img: React.CSSProperties = { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "multiply", transform: flip };
   return (
     <AbsoluteFill style={{ background: color }}>
       {deep && <AbsoluteFill style={{ background: `radial-gradient(ellipse 80% 75% at 45% 45%, transparent 40%, ${deep} 100%)`, opacity: 0.55 }} />}
-      <svg width={width} height={height} style={{ position: "absolute", inset: 0, opacity: grain, mixBlendMode: "multiply" }}>
-        <filter id={`paper-${seed}`}>
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed={seed} stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter={`url(#paper-${seed})`} />
-      </svg>
-      {/* long paper fibres: very low-frequency mottling */}
-      <svg width={width} height={height} style={{ position: "absolute", inset: 0, opacity: grain * 0.9, mixBlendMode: "multiply" }}>
-        <filter id={`fibre-${seed}`}>
-          <feTurbulence type="fractalNoise" baseFrequency="0.004 0.03" numOctaves="2" seed={seed + 11} />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter={`url(#fibre-${seed})`} />
-      </svg>
+      <Img src={staticFile("textures/paper-grain.png")} style={{ ...img, opacity: grain }} />
+      <Img src={staticFile("textures/paper-fibre.png")} style={{ ...img, opacity: grain * 0.9 }} />
     </AbsoluteFill>
   );
 };
@@ -76,7 +70,7 @@ const Char: React.FC<{ ch: string; at: number }> = ({ ch, at }) => {
 export const Script: React.FC<{ text: string; at: number; size: number; color: string; dur?: number; style?: React.CSSProperties; overlapOk?: boolean; knockout?: string }> = ({ text, at, size, color, dur, style, overlapOk, knockout }) => (
   <InkWipe at={at} dur={dur ?? Math.min(1.8, 0.6 + text.length * 0.07)} inline style={style}>
     <span data-qa-text="" data-qa-overlap-ok={overlapOk ? "" : undefined} style={{
-      fontFamily: fonts.script, fontSize: size, color, lineHeight: 1.25, whiteSpace: "nowrap", display: "inline-block", padding: "0.1em 0.18em 0.2em 0.05em",
+      fontFamily: fonts.script, fontSize: size, color, lineHeight: 1.25, whiteSpace: "nowrap", wordSpacing: "normal", display: "inline-block", padding: "0.1em 0.18em 0.2em 0.05em",
       // knock-out: a thin halo in the ground colour where script crosses other type (editorial convention)
       textShadow: knockout ? [0, 45, 90, 135, 180, 225, 270, 315].map((a) => `${(Math.cos((a * Math.PI) / 180) * size * 0.035).toFixed(1)}px ${(Math.sin((a * Math.PI) / 180) * size * 0.035).toFixed(1)}px 0 ${knockout}`).join(", ") : undefined,
     }}>

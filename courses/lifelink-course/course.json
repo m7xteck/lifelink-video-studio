@@ -1,0 +1,12 @@
+{
+  "courseId": "lifelink-course",
+  "title": null,
+  "createdAt": "2026-11-23T15:38:15.631Z",
+  "lessons": [
+    {
+      "lessonId": "lifelink-course-L01",
+      "sha256": "d34c415bf8482852c308cb459df85e2d8c83133ccbfc44487af562a8741aa850",
+      "sourceName": "01 audio_ll_1.m4a"
+    }
+  ]
+}

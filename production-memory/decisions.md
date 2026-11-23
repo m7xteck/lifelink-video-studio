@@ -10,3 +10,4 @@
 | 2026-11-23 | "Geneva" font rebuilt with fontTools for Chromium compatibility (outlines/cmap/widths verified identical); original kept | Director (technical) | public/fonts/lifelink-provisional/README.md |
 | 2026-11-23 | Watermark now mandatory in code while brand status ≠ APPROVED | Director (technical, closes audit gap) | src/brand/tokens.ts |
 | 2026-11-23 | Five concepts presented for approval. NOT approved yet | Pending client | previews/concepts-v1/ |
+| 2026-11-23 | Client on concepts v1: "i really like it its a bit buggy on some parts but other than that its really good, lets start on the first one. give me a small preview of a little bit first like 30 seconds and let me confirm it". Treated as approval to use the concepts v1 direction for a ~30 s PREVIEW of lesson 1. Brand NOT locked (licences, colours, logo outstanding); specific "buggy" parts not yet identified | Client | This conversation |

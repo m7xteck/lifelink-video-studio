@@ -19,7 +19,7 @@ export const SummaryLedger: React.FC<{ scene: SceneOf<"summaryLedger"> }> = ({ s
   const L = useLayout();
   const env = useSceneEnvelope();
   const t = useNarrationTime();
-  const card = useProgress(scene.startSec + 0.1, 1.4, ease.enter);
+  const card = useProgress(scene.startSec + 0.1, 1.6, ease.settle);
   const hold = interpolate(t, [scene.startSec + 1.5, scene.endSec], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   const cardW = L.portrait ? L.innerW : L.width * 0.72;

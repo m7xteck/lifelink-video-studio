@@ -1,0 +1,75 @@
+{
+  "lessonId": "lifelink-course-L01",
+  "courseId": "lifelink-course",
+  "state": "AWAITING_APPROVAL",
+  "approval": {
+    "creative": "none"
+  },
+  "history": [
+    {
+      "from": null,
+      "to": "IMPORTED",
+      "at": "2026-11-23T15:38:30.393Z",
+      "note": "Recording ingested",
+      "evidence": {
+        "original": "media/originals/lifelink-course-L01.m4a",
+        "sha256": "d34c415bf8482852c308cb459df85e2d8c83133ccbfc44487af562a8741aa850"
+      }
+    },
+    {
+      "from": "IMPORTED",
+      "to": "AUDIO_ANALYSED",
+      "at": "2026-11-23T15:38:30.393Z",
+      "note": "Decoded fully, metadata extracted, working copy created",
+      "evidence": {
+        "durationSec": 2165.259333,
+        "decodeErrors": 0,
+        "workingAudio": "public/audio/lifelink-course-L01.wav"
+      }
+    },
+    {
+      "from": "AUDIO_ANALYSED",
+      "to": "TRANSCRIBED",
+      "at": "2026-11-23T15:46:19.645Z",
+      "note": "Timestamped transcript created",
+      "evidence": {
+        "lessonId": "lifelink-course-L01",
+        "model": "small.en",
+        "durationSec": 2165.259,
+        "processingSec": 459.7,
+        "wordCount": 4470,
+        "uncertainWordCount": 90,
+        "files": [
+          "courses/lifelink-course/lifelink-course-L01/transcript/lifelink-course-L01.srt",
+          "courses/lifelink-course/lifelink-course-L01/transcript/lifelink-course-L01.transcript.json",
+          "courses/lifelink-course/lifelink-course-L01/transcript/lifelink-course-L01.txt",
+          "courses/lifelink-course/lifelink-course-L01/transcript/lifelink-course-L01.uncertain.json"
+        ]
+      }
+    },
+    {
+      "from": "TRANSCRIBED",
+      "to": "CREATIVE_PLAN_READY",
+      "at": "2026-11-23T15:48:30.244Z",
+      "note": "Preview plan (0–40.7 s) written from transcript cues",
+      "evidence": {
+        "manifest": "manifest.json",
+        "plan": "creative-plan.md",
+        "window": [
+          0,
+          40.7
+        ]
+      }
+    },
+    {
+      "from": "CREATIVE_PLAN_READY",
+      "to": "AWAITING_APPROVAL",
+      "at": "2026-11-23T16:00:39.003Z",
+      "note": "40.7 s preview sent to client for confirmation",
+      "evidence": {
+        "video": "renders/lifelink-course-L01/landscape-sample/lifelink-course-L01_landscape-sample_v003.mp4",
+        "qa": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v003/report.md"
+      }
+    }
+  ]
+}

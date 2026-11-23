@@ -23,6 +23,7 @@ const CoreSceneSchemas = [
       emphasis: Emphasis,
       align: z.enum(["left", "center"]).default("left"),
       scale: z.enum(["hero", "h1", "h2"]).default("h1"),
+      kicker: z.object({ text: z.string(), at: z.number() }).optional(),
     }),
   }),
   z.object({
@@ -98,6 +99,11 @@ export const BrandSceneSchemas = [
     heading: z.string().default("In summary"), sublabel: z.string().optional(),
     points: z.array(z.object({ text: z.string(), at: z.number() })).min(2).max(5),
     signoff: z.object({ text: z.string(), at: z.number() }).optional(),
+  }) }),
+  z.object({ ...Base, type: z.literal("parallelPhrases"), props: z.object({
+    kicker: z.object({ text: z.string(), at: z.number() }).optional(),
+    items: z.array(z.object({ text: z.string(), at: z.number() })).min(2).max(4),
+    closing: z.object({ lead: z.string().optional(), leadAt: z.number().optional(), text: z.string(), at: z.number() }).optional(),
   }) }),
 ] as const;
 

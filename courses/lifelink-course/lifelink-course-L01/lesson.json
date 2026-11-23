@@ -1,0 +1,26 @@
+{
+  "lessonId": "lifelink-course-L01",
+  "courseId": "lifelink-course",
+  "sequence": 1,
+  "title": "audio ll 1",
+  "sourceName": "01 audio_ll_1.m4a",
+  "original": "media/originals/lifelink-course-L01.m4a",
+  "sha256": "d34c415bf8482852c308cb459df85e2d8c83133ccbfc44487af562a8741aa850",
+  "workingAudio": "public/audio/lifelink-course-L01.wav",
+  "durationSec": 2165.259333,
+  "source": {
+    "format": "mov,mp4,m4a,3gp,3g2,mj2",
+    "codec": "aac",
+    "sampleRate": 44100,
+    "channels": 2,
+    "bitRate": 101629,
+    "tags": {
+      "major_brand": "M4A ",
+      "minor_version": "0",
+      "compatible_brands": "M4A isommp42",
+      "creation_time": "2026-11-23T15:33:19.000000Z",
+      "iTunSMPB": " 00000000 00000840 00000000 0000000005B107C0 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000"
+    }
+  },
+  "importedAt": "2026-11-23T15:38:30.393Z"
+}

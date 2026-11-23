@@ -3,9 +3,10 @@ import { AbsoluteFill, Audio, CalculateMetadataFunction, Sequence, staticFile, u
 import { ManifestSchema, type Manifest } from "../schema/manifest";
 import { Atmosphere } from "../motion/Atmosphere";
 import { MAX_SCENE_OVERLAP_SEC, SceneClock } from "../motion/time";
-import { SceneRenderer } from "../scenes/SceneRenderer";
+import { SceneRenderer, groundOf } from "../scenes/SceneRenderer";
+import { GroundBackdrop } from "../motion/GroundBackdrop";
 import { QaGuard } from "../motion/QaGuard";
-import { brandWatermark, colors, fonts, motion } from "../brand/tokens";
+import { brandWatermark, colors, fonts, palette, textStyle } from "../brand/tokens";
 
 export type LessonProps = { manifest: Manifest; orientation?: "landscape" | "portrait"; muted?: boolean; qa?: boolean };
 
@@ -27,7 +28,10 @@ export const Lesson: React.FC<LessonProps> = ({ manifest, muted = false, qa = tr
   const overlap = MAX_SCENE_OVERLAP_SEC; // scenes stay mounted while their fade-out completes
   return (
     <AbsoluteFill style={{ backgroundColor: colors.backgroundDeep }}>
+      {/* Word-spacing correction for the body face, resolved at each text element's own size (em). Script sets its own. */}
+      <style>{`[data-scene] [data-qa-text] { word-spacing: ${textStyle.wordSpacing}; }`}</style>
       <Atmosphere />
+      <GroundBackdrop grounds={manifest.scenes.map((s) => ({ startSec: s.startSec, endSec: s.endSec, color: groundOf(s, palette, colors.background) }))} />
       {manifest.scenes.map((s) => {
         const from = Math.round(s.startSec * fps);
         const dur = Math.max(1, Math.round((s.endSec + overlap) * fps) - from);

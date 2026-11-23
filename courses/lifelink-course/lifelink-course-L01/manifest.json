@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "lifelink-course-L01",
+  "courseId": "lifelink-course",
+  "title": "Module 01: The sacred purpose of marriage",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationSec": 2165.26,
+  "audio": "audio/lifelink-course-L01.wav",
+  "watermark": "Preview for approval \u00b7 provisional brand",
+  "sections": [
+    {
+      "id": "sec-01-welcome",
+      "title": "Welcome to LifeLink Marriage Academy",
+      "startSec": 0,
+      "endSec": 40.7
+    }
+  ],
+  "scenes": [
+    {
+      "id": "s001",
+      "sectionId": "sec-01-welcome",
+      "type": "courseIntro",
+      "startSec": 0,
+      "endSec": 7.6,
+      "props": {
+        "courseLabel": "Welcome to",
+        "courseTitle": "LifeLink Marriage Academy",
+        "lessonLabel": "Module 01",
+        "lessonTitle": "The sacred purpose of marriage",
+        "at": 0.3
+      }
+    },
+    {
+      "id": "s002",
+      "sectionId": "sec-01-welcome",
+      "type": "reflectionField",
+      "startSec": 7.6,
+      "endSec": 16.4,
+      "props": {
+        "ground": "royal",
+        "lines": [
+          {
+            "text": "This important first step",
+            "at": 9.62
+          },
+          {
+            "text": "towards one of the most significant",
+            "at": 12.5
+          }
+        ],
+        "script": {
+          "text": "relationships of your life.",
+          "at": 13.86
+        }
+      }
+    },
+    {
+      "id": "s003",
+      "sectionId": "sec-01-welcome",
+      "type": "parallelPhrases",
+      "startSec": 16.4,
+      "endSec": 29.0,
+      "props": {
+        "kicker": {
+          "text": "Whether you are",
+          "at": 16.96
+        },
+        "items": [
+          {
+            "text": "Considering marriage for the first time",
+            "at": 17.62
+          },
+          {
+            "text": "Previously married",
+            "at": 20.24
+          },
+          {
+            "text": "Exploring remarriage",
+            "at": 22.74
+          }
+        ],
+        "closing": {
+          "lead": "This programme has been developed",
+          "leadAt": 25.58,
+          "text": "to support you.",
+          "at": 27.34
+        }
+      }
+    },
+    {
+      "id": "s004",
+      "sectionId": "sec-01-welcome",
+      "type": "kineticStatement",
+      "startSec": 29.0,
+      "endSec": 40.7,
+      "props": {
+        "kicker": {
+          "text": "At LifeLink we believe",
+          "at": 29.4
+        },
+        "lines": [
+          {
+            "text": "Finding the right life partner",
+            "at": 31.08
+          },
+          {
+            "text": "is important.",
+            "at": 32.68
+          },
+          {
+            "text": "Becoming the right life partner",
+            "at": 36.02
+          },
+          {
+            "text": "is equally important.",
+            "at": 37.94
+          }
+        ],
+        "emphasis": [
+          "Becoming",
+          "equally"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    }
+  ]
+}

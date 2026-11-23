@@ -21,9 +21,11 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
   const light = useProgress(at, 2.6, ease.settle);
   const sweep = interpolate(t, [at, at + 3.2, at + 3.21, scene.endSec], [-30, 130, -40, 140], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const hold = interpolate(t, [at + 2.4, scene.endSec], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const card = useProgress(at + 0.9, 1.5, ease.enter);
+  // Short, eased travel + fade: never a long fast slide (judders at 30 fps). See motion rule in design system.
+  const card = useProgress(at + 0.8, 1.8, ease.settle);
+  const cardFade = useProgress(at + 0.8, 0.8, ease.settle);
 
-  const cardW = L.portrait ? L.innerW : L.width * 0.44;
+  const cardW = L.portrait ? L.innerW : L.width * 0.47;
   const cardH = L.portrait ? L.height * 0.42 : L.height * 0.54;
   const cardX = L.portrait ? L.safeX : L.width - L.safeX - cardW;
   const cardY = L.portrait ? L.height * 0.46 : (L.height - cardH) / 2 + 30 * L.u;
@@ -48,8 +50,8 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
       {/* the index card */}
       <div style={{
         position: "absolute", left: cardX, top: cardY, width: cardW, height: cardH,
-        transform: `translateY(${(1 - card) * (L.height - cardY + tabH + 40) - hold * 14 * L.u}px) rotate(${(1 - card) * -2.5}deg)`,
-        transformOrigin: "left bottom",
+        transform: `translateY(${(1 - card) * 120 * L.u - hold * 14 * L.u}px)`,
+        opacity: cardFade,
       }}>
         <div style={{ position: "absolute", left: 0, top: -tabH + 2, width: tabW, height: tabH, background: P.paper, borderRadius: `${10 * L.u}px ${10 * L.u}px 0 0`, display: "flex", alignItems: "center", paddingLeft: 26 * L.u }}>
           <div style={{ opacity: useProgress(at + 2.0, 0.9) }}><BrandLabel size={L.size("label")} color={P.royal}>{lessonLabel}</BrandLabel></div>
@@ -59,7 +61,7 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
           <div style={{ position: "absolute", inset: 0, padding: pad, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
             <div>
               <BrandLabel size={L.size("label")} color={D.oxbloodMuted}>{courseLabel}</BrandLabel>
-              <div style={{ marginTop: 22 * L.u, fontFamily: fonts.text, fontSize: L.size("hero") - 12, lineHeight: 1.0, color: P.oxblood, letterSpacing: "-0.015em" }}>
+              <div style={{ marginTop: 22 * L.u, fontFamily: fonts.text, fontSize: courseTitle.length > 18 ? L.size("h1") : L.size("hero") - 12, lineHeight: 1.0, color: P.oxblood, letterSpacing: "-0.015em" }}>
                 <CharRise text={courseTitle} at={at + 1.9} stagger={0.022} />
               </div>
             </div>

@@ -130,9 +130,9 @@
     "$comment": "Motion language: 'paper and ink'. Elements move like heavy stationery (slide, settle, never bounce); words appear like ink (mask wipes). No zooms, spins, particles or elastic easing.",
     "easing": {
       "enter": [
-        0.22,
-        1,
-        0.36,
+        0.25,
+        0.1,
+        0.2,
         1
       ],
       "exit": [
@@ -146,7 +146,8 @@
         0,
         0.15,
         1
-      ]
+      ],
+      "$note": "enter = soft start, long settle (was [0.22,1,0.36,1], which started at full speed and read as choppy: client feedback 2026-11-23)"
     },
     "durationsSec": {
       "fast": 0.4,
@@ -157,7 +158,12 @@
     },
     "wordStaggerSec": 0.07,
     "cameraDriftMaxScale": 1.02,
-    "minTextHoldSec": 1.5
+    "minTextHoldSec": 1.5,
+    "rules": [
+      "Maximum travel for an entering element: ~160 px at 1080p, with ease-in-out and a fade. Long, fast slides judder at 30 fps.",
+      "No element should go from rest to full speed in one frame: every move accelerates and decelerates.",
+      "Avoid rotating flat cards/text during motion (edge shimmer)."
+    ]
   },
   "layout": {
     "safeAreaPct": {
