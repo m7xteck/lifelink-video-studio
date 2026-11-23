@@ -1,0 +1,548 @@
+{
+ "section": {
+  "id": "sec-13",
+  "title": "Unrealistic Expectations and Marriage Myths",
+  "startSec": 1513.9,
+  "endSec": 1667.9
+ },
+ "scenes": [
+  {
+   "id": "sec-13-01",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1513.9,
+   "endSec": 1523.5,
+   "props": {
+    "kicker": {
+     "text": "A common cause of disappointment",
+     "at": 1517.54
+    },
+    "lines": [
+     {
+      "text": "Unrealistic expectations",
+      "at": 1521.26
+     }
+    ],
+    "emphasis": [
+     "Unrealistic"
+    ],
+    "align": "center",
+    "scale": "hero"
+   }
+  },
+  {
+   "id": "sec-13-02",
+   "sectionId": "sec-13",
+   "type": "parallelPhrases",
+   "startSec": 1523.5,
+   "endSec": 1535.9,
+   "props": {
+    "kicker": {
+     "text": "Ideas about married life",
+     "at": 1525.36
+    },
+    "items": [
+     {
+      "text": "Upbringing",
+      "at": 1530.52
+     },
+     {
+      "text": "Cultural experiences",
+      "at": 1531.36
+     },
+     {
+      "text": "Family relationships",
+      "at": 1532.64
+     },
+     {
+      "text": "Films and social media",
+      "at": 1533.84
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-13-03",
+   "sectionId": "sec-13",
+   "type": "parallelPhrases",
+   "startSec": 1535.9,
+   "endSec": 1545.2,
+   "props": {
+    "kicker": {
+     "text": "Healthy and reasonable expectations",
+     "at": 1537.46
+    },
+    "items": [
+     {
+      "text": "Respect",
+      "at": 1540.44
+     },
+     {
+      "text": "Honesty",
+      "at": 1541.24
+     },
+     {
+      "text": "Safety",
+      "at": 1541.88
+     },
+     {
+      "text": "Kindness",
+      "at": 1542.46
+     }
+    ],
+    "closing": {
+     "text": "Entirely appropriate",
+     "at": 1543.42
+    }
+   }
+  },
+  {
+   "id": "sec-13-04",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1545.2,
+   "endSec": 1553.5,
+   "props": {
+    "lines": [
+     {
+      "text": "Other expectations can place",
+      "at": 1545.68
+     },
+     {
+      "text": "unnecessary pressure",
+      "at": 1547.32
+     },
+     {
+      "text": "on a relationship",
+      "at": 1548.46
+     }
+    ],
+    "emphasis": [
+     "unnecessary",
+     "pressure"
+    ],
+    "align": "left",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-13-05",
+   "sectionId": "sec-13",
+   "type": "statementCollision",
+   "startSec": 1553.5,
+   "endSec": 1561.4,
+   "props": {
+    "label": "The first myth",
+    "first": {
+     "text": "A spouse will",
+     "at": 1555.24
+    },
+    "script": {
+     "text": "always",
+     "at": 1555.82
+    },
+    "second": {
+     "text": "make you happy",
+     "at": 1556.32
+    },
+    "caption": {
+     "text": "Marriage can bring happiness and companionship",
+     "at": 1558.4
+    }
+   }
+  },
+  {
+   "id": "sec-13-06",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1561.4,
+   "endSec": 1567.5,
+   "props": {
+    "lines": [
+     {
+      "text": "Our spouse cannot be responsible",
+      "at": 1562.28
+     },
+     {
+      "text": "for every aspect of",
+      "at": 1563.94
+     },
+     {
+      "text": "our emotional wellbeing",
+      "at": 1565.66
+     }
+    ],
+    "emphasis": [
+     "every",
+     "aspect"
+    ],
+    "align": "left",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-13-07",
+   "sectionId": "sec-13",
+   "type": "parallelPhrases",
+   "startSec": 1567.5,
+   "endSec": 1574.2,
+   "props": {
+    "kicker": {
+     "text": "Both need their own",
+     "at": 1567.7
+    },
+    "items": [
+     {
+      "text": "Personal growth",
+      "at": 1570.12
+     },
+     {
+      "text": "Interests",
+      "at": 1571.58
+     },
+     {
+      "text": "Sources of support",
+      "at": 1572.34
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-13-08",
+   "sectionId": "sec-13",
+   "type": "statementCollision",
+   "startSec": 1574.2,
+   "endSec": 1581.2,
+   "props": {
+    "label": "The second myth",
+    "first": {
+     "text": "Successful couples",
+     "at": 1575.84
+    },
+    "script": {
+     "text": "never",
+     "at": 1576.96
+    },
+    "second": {
+     "text": "disagree",
+     "at": 1577.32
+    },
+    "caption": {
+     "text": "This is simply unrealistic",
+     "at": 1579.22
+    }
+   }
+  },
+  {
+   "id": "sec-13-09",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1581.2,
+   "endSec": 1593.3,
+   "props": {
+    "kicker": {
+     "text": "Individuals naturally have different opinions",
+     "at": 1581.86
+    },
+    "lines": [
+     {
+      "text": "Not whether disagreements occur,",
+      "at": 1588.48
+     },
+     {
+      "text": "but whether they are",
+      "at": 1590.3
+     },
+     {
+      "text": "managed respectfully",
+      "at": 1591.16
+     }
+    ],
+    "emphasis": [
+     "managed",
+     "respectfully"
+    ],
+    "align": "left",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-13-10",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1593.3,
+   "endSec": 1598.4,
+   "props": {
+    "kicker": {
+     "text": "The third myth",
+     "at": 1593.52
+    },
+    "lines": [
+     {
+      "text": "Our spouse should automatically",
+      "at": 1594.76
+     },
+     {
+      "text": "know what we need",
+      "at": 1596.44
+     }
+    ],
+    "emphasis": [
+     "automatically"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-13-11",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1598.4,
+   "endSec": 1610.5,
+   "props": {
+    "kicker": {
+     "text": "Sometimes people become disappointed",
+     "at": 1598.64
+    },
+    "lines": [
+     {
+      "text": "An expectation that was",
+      "at": 1602.62
+     },
+     {
+      "text": "never communicated",
+      "at": 1604.4
+     },
+     {
+      "text": "Healthy relationships require",
+      "at": 1606.76
+     },
+     {
+      "text": "clear conversations",
+      "at": 1608.36
+     }
+    ],
+    "emphasis": [
+     "clear",
+     "conversations"
+    ],
+    "align": "left",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-13-12",
+   "sectionId": "sec-13",
+   "type": "statementCollision",
+   "startSec": 1610.5,
+   "endSec": 1615.7,
+   "props": {
+    "label": "The fourth myth",
+    "first": {
+     "text": "Love",
+     "at": 1612.32
+    },
+    "script": {
+     "text": "alone",
+     "at": 1612.64
+    },
+    "second": {
+     "text": "is enough",
+     "at": 1613.06
+    },
+    "caption": {
+     "text": "Love is important",
+     "at": 1614.13
+    }
+   }
+  },
+  {
+   "id": "sec-13-13",
+   "sectionId": "sec-13",
+   "type": "parallelPhrases",
+   "startSec": 1615.7,
+   "endSec": 1624.7,
+   "props": {
+    "kicker": {
+     "text": "Lasting relationships also require",
+     "at": 1615.88
+    },
+    "items": [
+     {
+      "text": "Trust",
+      "at": 1618.28
+     },
+     {
+      "text": "Compatibility",
+      "at": 1619.3
+     },
+     {
+      "text": "Communication",
+      "at": 1620.54
+     },
+     {
+      "text": "Responsibility",
+      "at": 1621.78
+     }
+    ],
+    "closing": {
+     "lead": "and",
+     "leadAt": 1622.28,
+     "text": "effort",
+     "at": 1623.12
+    }
+   }
+  },
+  {
+   "id": "sec-13-14",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1624.7,
+   "endSec": 1630.2,
+   "props": {
+    "kicker": {
+     "text": "Another common misconception",
+     "at": 1624.58
+    },
+    "lines": [
+     {
+      "text": "Marriage will solve",
+      "at": 1626.5
+     },
+     {
+      "text": "all our personal problems",
+      "at": 1627.44
+     }
+    ],
+    "emphasis": [
+     "all"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-13-15",
+   "sectionId": "sec-13",
+   "type": "parallelPhrases",
+   "startSec": 1630.2,
+   "endSec": 1640.2,
+   "props": {
+    "kicker": {
+     "text": "Marriage can support, but cannot automatically resolve",
+     "at": 1630.98
+    },
+    "items": [
+     {
+      "text": "Emotional difficulties",
+      "at": 1633.94
+     },
+     {
+      "text": "Financial challenges",
+      "at": 1635.82
+     },
+     {
+      "text": "Unresolved personal issues",
+      "at": 1637.36
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-13-16",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1640.2,
+   "endSec": 1648.5,
+   "props": {
+    "kicker": {
+     "text": "Finally",
+     "at": 1640.42
+    },
+    "lines": [
+     {
+      "text": "Expecting their spouse",
+      "at": 1642.94
+     },
+     {
+      "text": "to change completely",
+      "at": 1644.24
+     }
+    ],
+    "emphasis": [
+     "change",
+     "completely"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-13-17",
+   "sectionId": "sec-13",
+   "type": "kineticStatement",
+   "startSec": 1648.5,
+   "endSec": 1655.4,
+   "props": {
+    "lines": [
+     {
+      "text": "Marriage should not begin",
+      "at": 1648.72
+     },
+     {
+      "text": "with the assumption that",
+      "at": 1650.18
+     },
+     {
+      "text": "we can transform another person",
+      "at": 1651.34
+     },
+     {
+      "text": "into someone entirely different",
+      "at": 1652.96
+     }
+    ],
+    "emphasis": [
+     "transform"
+    ],
+    "align": "left",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-13-18",
+   "sectionId": "sec-13",
+   "type": "reflectionField",
+   "startSec": 1655.4,
+   "endSec": 1667.9,
+   "props": {
+    "lines": [
+     {
+      "text": "Honest conversations",
+      "at": 1656.4
+     },
+     {
+      "text": "before marriage",
+      "at": 1657.62
+     },
+     {
+      "text": "Not only what we hope for",
+      "at": 1661.28
+     }
+    ],
+    "after": [
+     {
+      "text": "Also what we are realistically",
+      "at": 1663.58
+     },
+     {
+      "text": "prepared to contribute",
+      "at": 1665.16
+     }
+    ],
+    "ground": "oxblood"
+   }
+  }
+ ]
+}

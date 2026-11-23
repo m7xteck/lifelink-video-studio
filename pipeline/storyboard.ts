@@ -16,12 +16,14 @@ import { P, lessonDir } from "./lib/paths";
 import { ff } from "./lib/media";
 import { readStatus, transition } from "./lib/status";
 import { loadWords } from "./lib/transcript";
+import { loadMerged } from "./sections";
 
-const { values: a } = parseArgs({ options: { course: { type: "string" }, lesson: { type: "string" }, orientation: { type: "string", default: "landscape" } } });
+const { values: a } = parseArgs({ options: { course: { type: "string" }, lesson: { type: "string" }, orientation: { type: "string", default: "landscape" }, section: { type: "string" } } });
 const dir = lessonDir(a.course!, a.lesson!);
-const m = ManifestSchema.parse(JSON.parse(readFileSync(join(dir, "manifest.json"), "utf8")));
+// --section: base manifest + that section file merged in memory; stills for that section only
+const m = a.section ? loadMerged(a.course!, a.lesson!, a.section) : ManifestSchema.parse(JSON.parse(readFileSync(join(dir, "manifest.json"), "utf8")));
 const portrait = a.orientation === "portrait";
-const out = join(P.root, "storyboards", m.lessonId, portrait ? "portrait" : "landscape");
+const out = join(P.root, "storyboards", m.lessonId, portrait ? "portrait" : "landscape", ...(a.section ? [a.section] : []));
 mkdirSync(join(out, "frames"), { recursive: true });
 
 const words = (() => { try { return loadWords(a.course!, a.lesson!); } catch { return []; } })();
@@ -45,12 +47,13 @@ const fmt = (t: number) => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart
   const composition = await selectComposition({ serveUrl, id: portrait ? "LessonPortrait" : "Lesson", inputProps, browserExecutable: BROWSER ?? undefined });
   const rows: string[] = [];
   for (const [i, s] of m.scenes.entries()) {
+    if (a.section && s.sectionId !== a.section) continue;
     const frame = Math.max(0, Math.round((s.endSec - 0.35) * m.fps));
     const file = join(out, "frames", `${String(i + 1).padStart(2, "0")}_${s.id}.jpg`);
     await renderStill({ composition, serveUrl, output: file, inputProps, frame, scale: 0.5, imageFormat: "jpeg", jpegQuality: 88, browserExecutable: BROWSER ?? undefined });
     rows.push(`### ${i + 1}. ${s.id} · ${s.type} · ${fmt(s.startSec)}–${fmt(s.endSec)} (${(s.endSec - s.startSec).toFixed(1)}s)\n\n![${s.id}](frames/${relative(join(out, "frames"), file)})\n\n**On screen:** ${onScreen(s)}  \n**Narration:** ${spoken(s) || "_(no transcript)_"}\n`);
   }
-  ff(["-v", "error", "-pattern_type", "glob", "-i", join(out, "frames", "*.jpg"), "-vf", `scale=${portrait ? 270 : 480}:-2,tile=${portrait ? 6 : 4}x${Math.ceil(m.scenes.length / (portrait ? 6 : 4))}:padding=6:color=0x222222`, "-frames:v", "1", "-q:v", "3", join(out, "contact-sheet.jpg")]);
+  ff(["-v", "error", "-pattern_type", "glob", "-i", join(out, "frames", "*.jpg"), "-vf", `scale=${portrait ? 270 : 480}:-2,tile=${portrait ? 6 : 4}x${Math.max(1, Math.ceil(rows.length / (portrait ? 6 : 4)))}:padding=6:color=0x222222`, "-frames:v", "1", "-q:v", "3", join(out, "contact-sheet.jpg")]);
   const planFile = join(dir, "creative-plan.md");
   const md = [`# Storyboard — ${m.title}`, "", `Lesson \`${m.lessonId}\` · ${fmt(m.durationSec)} · ${m.scenes.length} scenes · ${m.sections.length} sections · ${portrait ? "9:16" : "16:9"}`, "",
     existsSync(planFile) ? readFileSync(planFile, "utf8") : "_No creative-plan.md yet._", "", "![contact sheet](contact-sheet.jpg)", "", "## Scenes", "", ...rows].join("\n");

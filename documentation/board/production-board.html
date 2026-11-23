@@ -1,0 +1,120 @@
+<title>LifeLink Production Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  /* Layout: run header → stage pipeline (cards wrap) → agent lanes inside each stage → activity log */
+  :root {
+    --bg: #f3f0e8; --panel: #faf8f3; --ink: #500002; --muted: #7d4a4b; --line: #ddd3c3; --accent: #3961bc;
+    --ok: #2f7d4f; --run: #3961bc; --wait: #9a8f80; --fail: #af3e46;
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #1c1214; --panel: #261a1c; --ink: #f3e9e4; --muted: #c7aaa8; --line: #3d2c2e; --accent: #8fb0f0;
+    --ok: #6cc28f; --run: #8fb0f0; --wait: #8a7d78; --fail: #e07a82; color-scheme: dark } }
+  :root[data-theme="dark"] {
+    --bg: #1c1214; --panel: #261a1c; --ink: #f3e9e4; --muted: #c7aaa8; --line: #3d2c2e; --accent: #8fb0f0;
+    --ok: #6cc28f; --run: #8fb0f0; --wait: #8a7d78; --fail: #e07a82; color-scheme: dark }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 24px; }
+  header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; justify-content: space-between; }
+  .eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  h1 { margin: 4px 0 0; font-size: clamp(22px, 3vw, 30px); font-weight: 600; text-wrap: balance; }
+  .meta { color: var(--muted); font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-variant-numeric: tabular-nums; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid currentColor; }
+  .pill.working { color: var(--run); } .pill.done { color: var(--ok); } .pill.failed { color: var(--fail); } .pill.waiting, .pill.queued { color: var(--wait); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+  .working .dot { animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: .25; } }
+  @media (prefers-reduced-motion: reduce) { .working .dot { animation: none; } }
+  .stages { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .stage { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+  .stage.working { border-color: var(--run); }
+  .stage-head { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+  .stage-name { font-weight: 600; font-size: 15px; }
+  .stage-step { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .agent { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; padding: 8px 0; border-top: 1px solid var(--line); }
+  .agent .dot { margin-top: 6px; }
+  .agent.working { color: var(--run); } .agent.done { color: var(--ok); } .agent.failed { color: var(--fail); } .agent.queued { color: var(--wait); }
+  .agent-name { color: var(--ink); font-size: 14px; font-weight: 500; min-width: 0; }
+  .agent-sub { grid-column: 2; color: var(--muted); font-size: 12.5px; line-height: 1.4; overflow-wrap: anywhere; }
+  .empty { color: var(--muted); font-size: 13px; }
+  section h2 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
+  .log { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 4px 14px; max-height: 340px; overflow: auto; }
+  .log div { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; display: grid; grid-template-columns: 64px 1fr; gap: 10px; }
+  .log div:last-child { border-bottom: 0; }
+  .log time { color: var(--muted); font-variant-numeric: tabular-nums; }
+  #status { font-size: 13px; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">LifeLink Video Studio · Agent team</div>
+      <h1 id="title">Production board</h1>
+    </div>
+    <div class="meta"><span id="runpill" class="pill waiting"><span class="dot"></span><span id="runstate">Waiting</span></span><span id="elapsed"></span><span id="updated"></span></div>
+  </header>
+  <p id="status">Connecting to the live board…</p>
+  <div class="stages" id="stages"></div>
+  <section>
+    <h2>Activity</h2>
+    <div class="log" id="log"><div><time></time><span class="empty">Events appear here as agents start and finish.</span></div></div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const LABEL = { queued: "Queued", working: "Working", done: "Done", failed: "Failed", waiting: "Waiting" };
+  let run = {}, stages = [], agents = [], events = [];
+  const fmtTime = (iso) => { try { return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); } catch { return ""; } };
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+  function render() {
+    $("title").textContent = run.title || "Production board";
+    const st = run.state || "waiting";
+    $("runpill").className = "pill " + st; $("runstate").textContent = LABEL[st] || st;
+    if (run.startedAt) {
+      const end = run.finishedAt ? new Date(run.finishedAt) : new Date();
+      const mins = Math.max(0, Math.round((end - new Date(run.startedAt)) / 60000));
+      $("elapsed").textContent = (run.finishedAt ? "Took " : "Running for ") + mins + " min";
+    }
+    $("status").textContent = run.note || (stages.length ? "" : "No run yet. When Claude starts the agent team, its stages appear here.");
+    const box = $("stages"); box.replaceChildren();
+    [...stages].sort((a, b) => (a.order || 0) - (b.order || 0)).forEach((s, i) => {
+      const card = el("div", "stage " + (s.state || "queued"));
+      const head = el("div", "stage-head");
+      const left = el("div"); left.append(el("div", "stage-step", "Stage " + (i + 1)), el("div", "stage-name", s.name || s.id));
+      const pill = el("span", "pill " + (s.state || "queued")); pill.append(el("span", "dot"), el("span", null, LABEL[s.state] || "Queued"));
+      head.append(left, pill); card.append(head);
+      if (s.detail) card.append(el("div", "agent-sub", s.detail));
+      const mine = agents.filter((a) => a.stage === s.id).sort((a, b) => (a.order || 0) - (b.order || 0));
+      if (!mine.length) card.append(el("div", "empty", "No agents yet"));
+      mine.forEach((a) => {
+        const row = el("div", "agent " + (a.state || "queued"));
+        row.append(el("span", "dot"), el("span", "agent-name", a.name + (a.state === "working" ? " · working" : "")));
+        if (a.summary) row.append(el("span", "agent-sub", a.summary));
+        card.append(row);
+      });
+      box.append(card);
+    });
+    const log = $("log"); log.replaceChildren();
+    const list = [...events].sort((a, b) => (b.at || "").localeCompare(a.at || "")).slice(0, 80);
+    if (!list.length) { const d = el("div"); d.append(el("time"), el("span", "empty", "Events appear here as agents start and finish.")); log.append(d); }
+    list.forEach((e) => { const d = el("div"); const t = el("time", null, fmtTime(e.at)); d.append(t, el("span", null, e.text)); log.append(d); });
+    $("updated").textContent = run.updatedAt ? "Updated " + fmtTime(run.updatedAt) : "";
+  }
+  render();
+  setInterval(render, 30000);
+
+  const timer = setTimeout(() => { $("status").textContent = "The live board is not available in this view."; }, 10000);
+  window.claude?.use?.("db").then((db) => {
+    if (!db) { clearTimeout(timer); $("status").textContent = "Sign in to see the live board."; return; }
+    const done = () => clearTimeout(timer);
+    const fail = () => { done(); $("status").textContent = "Couldn't load the board. Reopen the page to try again."; };
+    db.doc("board/run").onSnapshot((d) => { done(); run = d.exists ? d.data() : {}; render(); }, fail);
+    db.collection("stages").onSnapshot((q) => { done(); stages = q.docs.map((d) => ({ id: d.id, ...d.data() })); render(); }, fail);
+    db.collection("agents").onSnapshot((q) => { agents = q.docs.map((d) => ({ id: d.id, ...d.data() })); render(); }, fail);
+    db.collection("events").onSnapshot((q) => { events = q.docs.map((d) => d.data()); render(); }, fail);
+  }).catch(() => { clearTimeout(timer); $("status").textContent = "The live board is not available in this view."; });
+})();
+</script>

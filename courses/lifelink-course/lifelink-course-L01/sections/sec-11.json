@@ -1,0 +1,429 @@
+{
+ "section": {
+  "id": "sec-11",
+  "title": "Qualities of a Successful Marriage",
+  "startSec": 1228.5,
+  "endSec": 1373.9
+ },
+ "scenes": [
+  {
+   "type": "parallelPhrases",
+   "id": "sec-11-01",
+   "sectionId": "sec-11",
+   "startSec": 1228.5,
+   "endSec": 1242.9,
+   "props": {
+    "kicker": {
+     "text": "We have now explored",
+     "at": 1229.58
+    },
+    "items": [
+     {
+      "text": "Spiritual foundations",
+      "at": 1231.54
+     },
+     {
+      "text": "Partnership",
+      "at": 1234.46
+     },
+     {
+      "text": "Trust",
+      "at": 1236.04
+     }
+    ],
+    "closing": {
+     "lead": "Bringing these ideas together",
+     "leadAt": 1237.18,
+     "text": "The qualities of a successful marriage",
+     "at": 1239.6
+    }
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-02",
+   "sectionId": "sec-11",
+   "startSec": 1242.9,
+   "endSec": 1252.9,
+   "props": {
+    "kicker": {
+     "text": "Qualities in three areas",
+     "at": 1244.92
+    },
+    "lines": [
+     {
+      "text": "The first:",
+      "at": 1247.06
+     },
+     {
+      "text": "Core foundation",
+      "at": 1247.8
+     }
+    ],
+    "emphasis": [
+     "Core foundation"
+    ],
+    "align": "left",
+    "scale": "hero"
+   }
+  },
+  {
+   "type": "stepsDiagram",
+   "id": "sec-11-03",
+   "sectionId": "sec-11",
+   "startSec": 1252.9,
+   "endSec": 1267.9,
+   "props": {
+    "heading": "Core foundation",
+    "layout": "stack",
+    "steps": [
+     {
+      "label": "Faith",
+      "detail": "A moral and spiritual foundation",
+      "at": 1253.1
+     },
+     {
+      "label": "Respect",
+      "detail": "Your spouse's dignity, opinions, needs and feelings",
+      "at": 1256.54
+     },
+     {
+      "label": "Trust",
+      "detail": "Honest, reliable and consistent",
+      "at": 1262.64
+     }
+    ]
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-04",
+   "sectionId": "sec-11",
+   "startSec": 1267.9,
+   "endSec": 1279.9,
+   "props": {
+    "kicker": {
+     "text": "The second area · Action",
+     "at": 1268.7
+    },
+    "lines": [
+     {
+      "text": "Not built on good intentions alone.",
+      "at": 1273.04
+     },
+     {
+      "text": "Values reflected in everyday behaviour.",
+      "at": 1276.4
+     }
+    ],
+    "emphasis": [
+     "everyday behaviour"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "type": "parallelPhrases",
+   "id": "sec-11-05",
+   "sectionId": "sec-11",
+   "startSec": 1279.9,
+   "endSec": 1291.5,
+   "props": {
+    "kicker": {
+     "text": "Communication",
+     "at": 1280.36
+    },
+    "items": [
+     {
+      "text": "Listen carefully",
+      "at": 1283.62
+     },
+     {
+      "text": "Express feelings respectfully",
+      "at": 1284.4
+     },
+     {
+      "text": "Discuss difficult subjects",
+      "at": 1286.86
+     }
+    ],
+    "closing": {
+     "text": "Helps prevent misunderstandings",
+     "at": 1288.32
+    }
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-06",
+   "sectionId": "sec-11",
+   "startSec": 1291.5,
+   "endSec": 1300.9,
+   "props": {
+    "kicker": {
+     "text": "Responsibility",
+     "at": 1291.86
+    },
+    "lines": [
+     {
+      "text": "Both spouses understand their commitments",
+      "at": 1294.88
+     },
+     {
+      "text": "and take accountability for their actions.",
+      "at": 1298.06
+     }
+    ],
+    "emphasis": [
+     "accountability"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-07",
+   "sectionId": "sec-11",
+   "startSec": 1300.9,
+   "endSec": 1306.9,
+   "props": {
+    "kicker": {
+     "text": "Cooperation",
+     "at": 1301.3
+    },
+    "lines": [
+     {
+      "text": "Working together,",
+      "at": 1302.66
+     },
+     {
+      "text": "rather than treating every disagreement",
+      "at": 1303.2
+     },
+     {
+      "text": "as a competition.",
+      "at": 1305.18
+     }
+    ],
+    "emphasis": [
+     "together"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "type": "reflectionField",
+   "id": "sec-11-08",
+   "sectionId": "sec-11",
+   "startSec": 1306.9,
+   "endSec": 1316.45,
+   "props": {
+    "lines": [
+     {
+      "text": "The third area",
+      "at": 1307.48
+     }
+    ],
+    "script": {
+     "text": "grace and repair",
+     "at": 1308.54
+    },
+    "after": [
+     {
+      "text": "No marriage will be free from mistakes.",
+      "at": 1313.1
+     }
+    ],
+    "ground": "oxblood"
+   }
+  },
+  {
+   "type": "parallelPhrases",
+   "id": "sec-11-09",
+   "sectionId": "sec-11",
+   "startSec": 1316.45,
+   "endSec": 1331.45,
+   "props": {
+    "kicker": {
+     "text": "Grace and repair",
+     "at": 1316.54
+    },
+    "items": [
+     {
+      "text": "Compassion",
+      "at": 1316.54
+     },
+     {
+      "text": "Patience",
+      "at": 1321.98
+     },
+     {
+      "text": "Appreciation",
+      "at": 1327.1
+     }
+    ]
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-10",
+   "sectionId": "sec-11",
+   "startSec": 1331.45,
+   "endSec": 1337.0,
+   "props": {
+    "kicker": {
+     "text": "Forgiveness",
+     "at": 1332.26
+    },
+    "lines": [
+     {
+      "text": "Where appropriate,",
+      "at": 1332.84
+     },
+     {
+      "text": "address mistakes and move forward.",
+      "at": 1334.88
+     }
+    ],
+    "emphasis": [
+     "Where appropriate"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-11a",
+   "sectionId": "sec-11",
+   "startSec": 1337.0,
+   "endSec": 1343.3,
+   "props": {
+    "kicker": {
+     "text": "However",
+     "at": 1337.5
+    },
+    "lines": [
+     {
+      "text": "Forgiveness should not be confused with",
+      "at": 1338.06
+     },
+     {
+      "text": "ignoring repeated harmful behaviour.",
+      "at": 1339.98
+     }
+    ],
+    "emphasis": [
+     "not"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-11b",
+   "sectionId": "sec-11",
+   "startSec": 1343.3,
+   "endSec": 1347.6,
+   "props": {
+    "lines": [
+     {
+      "text": "Genuine repair requires",
+      "at": 1343.52
+     },
+     {
+      "text": "accountability and meaningful change.",
+      "at": 1344.82
+     }
+    ],
+    "emphasis": [
+     "accountability",
+     "meaningful change"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "type": "kineticStatement",
+   "id": "sec-11-12",
+   "sectionId": "sec-11",
+   "startSec": 1347.6,
+   "endSec": 1355.0,
+   "props": {
+    "kicker": {
+     "text": "Consider a couple",
+     "at": 1348.02
+    },
+    "lines": [
+     {
+      "text": "A disagreement.",
+      "at": 1350.16
+     },
+     {
+      "text": "An insensitive comment.",
+      "at": 1352.72
+     }
+    ],
+    "emphasis": [],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "type": "stepsDiagram",
+   "id": "sec-11-13",
+   "sectionId": "sec-11",
+   "startSec": 1355.0,
+   "endSec": 1365.0,
+   "props": {
+    "heading": "A healthy response",
+    "layout": "path",
+    "steps": [
+     {
+      "label": "Recognise the impact",
+      "at": 1356.66
+     },
+     {
+      "label": "Apologise sincerely",
+      "at": 1359.68
+     },
+     {
+      "label": "Don't repeat it",
+      "at": 1361.56
+     }
+    ]
+   }
+  },
+  {
+   "type": "statementCollision",
+   "id": "sec-11-14",
+   "sectionId": "sec-11",
+   "startSec": 1365.0,
+   "endSec": 1373.9,
+   "props": {
+    "label": "This is how relationships grow",
+    "first": {
+     "text": "Not through perfection,",
+     "at": 1367.6
+    },
+    "script": {
+     "text": "but through",
+     "at": 1369.06
+    },
+    "second": {
+     "text": "responsibility,",
+     "at": 1369.4
+    },
+    "caption": {
+     "text": "reflection and consistent effort.",
+     "at": 1370.86
+    }
+   }
+  }
+ ]
+}

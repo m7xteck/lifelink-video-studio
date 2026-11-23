@@ -1,0 +1,455 @@
+{
+ "section": {
+  "id": "sec-15",
+  "title": "Applied Scenarios: Family Time and Loneliness",
+  "startSec": 1800.6,
+  "endSec": 1939
+ },
+ "scenes": [
+  {
+   "id": "sec-15-01",
+   "sectionId": "sec-15",
+   "startSec": 1800.6,
+   "endSec": 1806.0,
+   "type": "kineticStatement",
+   "props": {
+    "kicker": {
+     "text": "Applied scenarios",
+     "at": 1801.38
+    },
+    "lines": [
+     {
+      "text": "Apply what we have learned",
+      "at": 1801.38
+     },
+     {
+      "text": "to situations couples may experience.",
+      "at": 1802.76
+     }
+    ],
+    "emphasis": [
+     "situations"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-15-02",
+   "sectionId": "sec-15",
+   "startSec": 1806.0,
+   "endSec": 1816.4,
+   "type": "kineticStatement",
+   "props": {
+    "kicker": {
+     "text": "Scenario · Family time",
+     "at": 1806.32
+    },
+    "lines": [
+     {
+      "text": "Imagine a couple disagree",
+      "at": 1810.26
+     },
+     {
+      "text": "about how much time to spend",
+      "at": 1812.18
+     },
+     {
+      "text": "visiting their families.",
+      "at": 1813.74
+     }
+    ],
+    "emphasis": [
+     "disagree"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-15-03",
+   "sectionId": "sec-15",
+   "startSec": 1816.4,
+   "endSec": 1828.9,
+   "type": "parallelPhrases",
+   "props": {
+    "kicker": {
+     "text": "Each spouse feels",
+     "at": 1816.58
+    },
+    "items": [
+     {
+      "text": "Visit parents every weekend",
+      "at": 1818.32
+     },
+     {
+      "text": "More time together as a couple",
+      "at": 1822.28
+     }
+    ],
+    "closing": {
+     "text": "Both may have understandable reasons.",
+     "at": 1824.86
+    }
+   }
+  },
+  {
+   "id": "sec-15-04",
+   "sectionId": "sec-15",
+   "startSec": 1828.9,
+   "endSec": 1837.4,
+   "type": "kineticStatement",
+   "props": {
+    "kicker": {
+     "text": "However",
+     "at": 1829.22
+    },
+    "lines": [
+     {
+      "text": "Problems can arise",
+      "at": 1829.96
+     },
+     {
+      "text": "if either person assumes their own expectation",
+      "at": 1831.1
+     },
+     {
+      "text": "should automatically take priority.",
+      "at": 1833.82
+     }
+    ],
+    "emphasis": [
+     "automatically",
+     "priority."
+    ],
+    "align": "left",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-15-05",
+   "sectionId": "sec-15",
+   "startSec": 1837.4,
+   "endSec": 1851.6,
+   "type": "comparison",
+   "props": {
+    "left": {
+     "title": "An unhealthy response",
+     "points": [
+      "Dismiss the other person's feelings"
+     ],
+     "at": 1837.76
+    },
+    "right": {
+     "title": "A healthier response",
+     "points": [
+      "Discuss their needs",
+      "Explore a fair arrangement"
+     ],
+     "at": 1845.62
+    },
+    "preferred": "right"
+   }
+  },
+  {
+   "id": "sec-15-06",
+   "sectionId": "sec-15",
+   "startSec": 1851.6,
+   "endSec": 1862.6,
+   "type": "parallelPhrases",
+   "props": {
+    "kicker": {
+     "text": "They might agree to",
+     "at": 1852.02
+    },
+    "items": [
+     {
+      "text": "Alternate visits",
+      "at": 1853.24
+     },
+     {
+      "text": "Arrange different days",
+      "at": 1855.06
+     },
+     {
+      "text": "Identify a routine",
+      "at": 1856.52
+     }
+    ],
+    "closing": {
+     "lead": "respecting family commitments,",
+     "leadAt": 1858.26,
+     "text": "protecting time together.",
+     "at": 1860.1
+    }
+   }
+  },
+  {
+   "id": "sec-15-07",
+   "sectionId": "sec-15",
+   "startSec": 1862.6,
+   "endSec": 1870.4,
+   "type": "statementCollision",
+   "props": {
+    "label": "The important lesson",
+    "first": {
+     "text": "Respectful",
+     "at": 1864.54
+    },
+    "script": {
+     "text": "consultation",
+     "at": 1865.08
+    },
+    "second": {
+     "text": "can help couples",
+     "at": 1865.84
+    },
+    "caption": {
+     "text": "manage competing expectations.",
+     "at": 1866.9
+    }
+   }
+  },
+  {
+   "id": "sec-15-08",
+   "sectionId": "sec-15",
+   "startSec": 1870.4,
+   "endSec": 1883.0,
+   "type": "kineticStatement",
+   "props": {
+    "kicker": {
+     "text": "Scenario · Loneliness",
+     "at": 1871.42
+    },
+    "lines": [
+     {
+      "text": "Entering marriage believing",
+      "at": 1874.92
+     },
+     {
+      "text": "a spouse will automatically",
+      "at": 1877.08
+     },
+     {
+      "text": "eliminate every feeling of loneliness",
+      "at": 1878.3
+     },
+     {
+      "text": "or emotional difficulty.",
+      "at": 1880.68
+     }
+    ],
+    "emphasis": [
+     "automatically"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-15-09",
+   "sectionId": "sec-15",
+   "startSec": 1883.0,
+   "endSec": 1888.4,
+   "type": "kineticStatement",
+   "props": {
+    "lines": [
+     {
+      "text": "This expectation places",
+      "at": 1883.38
+     },
+     {
+      "text": "an enormous responsibility",
+      "at": 1884.94
+     },
+     {
+      "text": "on the other person.",
+      "at": 1886.44
+     }
+    ],
+    "emphasis": [
+     "enormous",
+     "responsibility"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-15-10",
+   "sectionId": "sec-15",
+   "startSec": 1888.4,
+   "endSec": 1899.6,
+   "type": "comparison",
+   "props": {
+    "left": {
+     "title": "A spouse can provide",
+     "points": [
+      "Companionship",
+      "Affection",
+      "Emotional support"
+     ],
+     "at": 1888.86
+    },
+    "right": {
+     "title": "But cannot be expected to",
+     "points": [
+      "Meet every emotional need",
+      "Resolve every personal challenge"
+     ],
+     "at": 1893.32
+    },
+    "preferred": "none"
+   }
+  },
+  {
+   "id": "sec-15-11",
+   "sectionId": "sec-15",
+   "startSec": 1899.6,
+   "endSec": 1904.8,
+   "type": "statementCollision",
+   "props": {
+    "label": "Healthy relationships involve",
+    "first": {
+     "text": "Connection",
+     "at": 1901.94
+    },
+    "script": {
+     "text": "and",
+     "at": 1902.58
+    },
+    "second": {
+     "text": "individual wellbeing.",
+     "at": 1902.96
+    }
+   }
+  },
+  {
+   "id": "sec-15-12",
+   "sectionId": "sec-15",
+   "startSec": 1904.8,
+   "endSec": 1914.4,
+   "type": "parallelPhrases",
+   "props": {
+    "kicker": {
+     "text": "This means",
+     "at": 1905.36
+    },
+    "items": [
+     {
+      "text": "Appropriate relationships with family and friends",
+      "at": 1905.88
+     },
+     {
+      "text": "Pursuing meaningful interests",
+      "at": 1909.6
+     },
+     {
+      "text": "Seeking professional support when needed",
+      "at": 1911.76
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-15-13",
+   "sectionId": "sec-15",
+   "startSec": 1914.4,
+   "endSec": 1919.4,
+   "type": "quietReflection",
+   "props": {
+    "text": "As you reflect on these scenarios, consider how you would respond.",
+    "at": 1914.9
+   }
+  },
+  {
+   "sectionId": "sec-15",
+   "type": "reflectionField",
+   "id": "sec-15-14",
+   "startSec": 1919.4,
+   "endSec": 1922.7,
+   "props": {
+    "lines": [
+     {
+      "text": "Would you be willing to listen",
+      "at": 1919.72
+     },
+     {
+      "text": "to a different perspective?",
+      "at": 1920.9
+     }
+    ],
+    "ground": "oxblood"
+   }
+  },
+  {
+   "sectionId": "sec-15",
+   "type": "reflectionField",
+   "id": "sec-15-14b",
+   "startSec": 1922.7,
+   "endSec": 1927.0,
+   "props": {
+    "lines": [
+     {
+      "text": "Could you acknowledge that your spouse's needs",
+      "at": 1922.88
+     },
+     {
+      "text": "may differ from your own?",
+      "at": 1925.16
+     }
+    ],
+    "ground": "oxblood"
+   }
+  },
+  {
+   "sectionId": "sec-15",
+   "type": "reflectionField",
+   "id": "sec-15-14c",
+   "startSec": 1927.0,
+   "endSec": 1931.6,
+   "props": {
+    "lines": [
+     {
+      "text": "Would you be prepared to compromise",
+      "at": 1927.2
+     },
+     {
+      "text": "without feeling that you had lost?",
+      "at": 1929.16
+     }
+    ],
+    "ground": "oxblood"
+   }
+  },
+  {
+   "id": "sec-15-15",
+   "sectionId": "sec-15",
+   "startSec": 1931.6,
+   "endSec": 1939.0,
+   "type": "kineticStatement",
+   "props": {
+    "lines": [
+     {
+      "text": "These questions help us develop",
+      "at": 1932.02
+     },
+     {
+      "text": "the emotional maturity",
+      "at": 1935.76
+     },
+     {
+      "text": "required for marriage.",
+      "at": 1936.66
+     }
+    ],
+    "emphasis": [
+     "emotional",
+     "maturity"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  }
+ ]
+}

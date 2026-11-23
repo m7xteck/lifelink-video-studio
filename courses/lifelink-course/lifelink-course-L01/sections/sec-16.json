@@ -1,0 +1,810 @@
+{
+ "section": {
+  "id": "sec-16",
+  "title": "The Mirror Check and Closing",
+  "startSec": 1939,
+  "endSec": 2165.26
+ },
+ "scenes": [
+  {
+   "id": "sec-16-01",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 1939,
+   "endSec": 1953.5,
+   "props": {
+    "kicker": {
+     "text": "Module 1 · A final message",
+     "at": 1940.36
+    },
+    "lines": [
+     {
+      "text": "Throughout the process of finding the spouse,",
+      "at": 1946.9
+     },
+     {
+      "text": "we think about the qualities we want in another person",
+      "at": 1949.16
+     }
+    ],
+    "emphasis": [
+     "finding"
+    ],
+    "align": "left",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-02",
+   "sectionId": "sec-16",
+   "type": "parallelPhrases",
+   "startSec": 1953.5,
+   "endSec": 1965.3,
+   "props": {
+    "kicker": {
+     "text": "We may think about",
+     "at": 1953.82
+    },
+    "items": [
+     {
+      "text": "Faith and personality",
+      "at": 1954.96
+     },
+     {
+      "text": "Appearance and education",
+      "at": 1956.62
+     },
+     {
+      "text": "Background and ambition",
+      "at": 1958.34
+     }
+    ],
+    "closing": {
+     "text": "All may influence compatibility",
+     "at": 1962.38
+    }
+   }
+  },
+  {
+   "id": "sec-16-03",
+   "sectionId": "sec-16",
+   "type": "findingBecoming",
+   "startSec": 1965.3,
+   "endSec": 1973.9,
+   "props": {
+    "kicker": {
+     "text": "However",
+     "at": 1965.62
+    },
+    "lines": [
+     {
+      "text": "Another question deserves",
+      "at": 1966.28
+     },
+     {
+      "text": "just as much attention",
+      "at": 1967.84
+     },
+     {
+      "text": "Am I preparing myself",
+      "at": 1970.58
+     },
+     {
+      "text": "to be a good spouse?",
+      "at": 1972.16
+     }
+    ],
+    "emphasis": [
+     "preparing myself"
+    ],
+    "findAt": 1966.28,
+    "becomeAt": 1970.86
+   }
+  },
+  {
+   "id": "sec-16-04",
+   "sectionId": "sec-16",
+   "type": "statementCollision",
+   "startSec": 1973.9,
+   "endSec": 1982.0,
+   "props": {
+    "first": {
+     "text": "We call this",
+     "at": 1974.12
+    },
+    "script": {
+     "text": "the mirror check",
+     "at": 1975.54
+    },
+    "second": {
+     "text": "Six questions",
+     "at": 1979.14
+    },
+    "caption": {
+     "text": "for you to reflect on",
+     "at": 1979.66
+    }
+   }
+  },
+  {
+   "id": "sec-16-05",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 1982.0,
+   "endSec": 1987.2,
+   "props": {
+    "kicker": {
+     "text": "Firstly",
+     "at": 1982.36
+    },
+    "lines": [
+     {
+      "text": "Am I emotionally ready",
+      "at": 1983.06
+     },
+     {
+      "text": "to share my life with another person?",
+      "at": 1984.6
+     }
+    ],
+    "emphasis": [
+     "ready"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-06",
+   "sectionId": "sec-16",
+   "type": "reflectionField",
+   "startSec": 1987.2,
+   "endSec": 1994.9,
+   "props": {
+    "lines": [
+     {
+      "text": "A marriage involves considering another person's needs,",
+      "at": 1987.36
+     },
+     {
+      "text": "feelings and circumstances alongside our own",
+      "at": 1990.24
+     }
+    ],
+    "ground": "royal"
+   }
+  },
+  {
+   "id": "sec-16-07",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 1994.9,
+   "endSec": 1999.7,
+   "props": {
+    "kicker": {
+     "text": "Secondly",
+     "at": 1995.28
+    },
+    "lines": [
+     {
+      "text": "Can I truly listen",
+      "at": 1995.62
+     },
+     {
+      "text": "to views that differ from my own?",
+      "at": 1997.32
+     }
+    ],
+    "emphasis": [
+     "listen"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-08",
+   "sectionId": "sec-16",
+   "type": "comparison",
+   "startSec": 1999.7,
+   "endSec": 2007.4,
+   "props": {
+    "left": {
+     "title": "Listening does not mean",
+     "points": [
+      "Agreeing with everything"
+     ],
+     "at": 2001.02
+    },
+    "right": {
+     "title": "It means",
+     "points": [
+      "Being willing to understand another person's perspective"
+     ],
+     "at": 2003.08
+    },
+    "preferred": "right"
+   }
+  },
+  {
+   "id": "sec-16-09",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2007.4,
+   "endSec": 2010.8,
+   "props": {
+    "kicker": {
+     "text": "Thirdly",
+     "at": 2007.82
+    },
+    "lines": [
+     {
+      "text": "Am I willing",
+      "at": 2008.26
+     },
+     {
+      "text": "to acknowledge my mistakes?",
+      "at": 2009.18
+     }
+    ],
+    "emphasis": [
+     "acknowledge"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-10",
+   "sectionId": "sec-16",
+   "type": "statementCollision",
+   "startSec": 2010.8,
+   "endSec": 2018.4,
+   "props": {
+    "label": "We all make mistakes",
+    "first": {
+     "text": "Maturity",
+     "at": 2012.82
+    },
+    "script": {
+     "text": "take responsibility",
+     "at": 2014.32
+    },
+    "second": {
+     "text": "not blame others",
+     "at": 2015.8
+    }
+   }
+  },
+  {
+   "id": "sec-16-11",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2018.4,
+   "endSec": 2024.28,
+   "props": {
+    "kicker": {
+     "text": "Fourthly",
+     "at": 2018.76
+    },
+    "lines": [
+     {
+      "text": "Do I understand the practical responsibilities",
+      "at": 2019.72
+     },
+     {
+      "text": "involved in marriage?",
+      "at": 2022.76
+     }
+    ],
+    "emphasis": [
+     "practical"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-12",
+   "sectionId": "sec-16",
+   "type": "takeaway",
+   "startSec": 2024.28,
+   "endSec": 2034.6,
+   "props": {
+    "heading": "These may include",
+    "points": [
+     {
+      "text": "Financial commitments",
+      "at": 2024.94
+     },
+     {
+      "text": "Household responsibilities",
+      "at": 2026.8
+     },
+     {
+      "text": "Communication",
+      "at": 2028.32
+     },
+     {
+      "text": "Family responsibilities and relationships",
+      "at": 2029.24
+     },
+     {
+      "text": "Making decisions together",
+      "at": 2032.46
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-16-13",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2034.6,
+   "endSec": 2040.6,
+   "props": {
+    "kicker": {
+     "text": "Fifthly",
+     "at": 2035.04
+    },
+    "lines": [
+     {
+      "text": "Am I prepared to support someone",
+      "at": 2036.06
+     },
+     {
+      "text": "during their difficult circumstances?",
+      "at": 2038.06
+     }
+    ],
+    "emphasis": [
+     "support"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-14",
+   "sectionId": "sec-16",
+   "type": "reflectionField",
+   "startSec": 2040.6,
+   "endSec": 2048.0,
+   "props": {
+    "lines": [
+     {
+      "text": "Marriage is not simply about sharing happy moments",
+      "at": 2040.8
+     },
+     {
+      "text": "It also involves showing",
+      "at": 2043.16
+     }
+    ],
+    "script": {
+     "text": "compassion and support",
+     "at": 2044.62
+    },
+    "after": [
+     {
+      "text": "during challenges",
+      "at": 2046.22
+     }
+    ],
+    "ground": "oxblood"
+   }
+  },
+  {
+   "id": "sec-16-15",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2048.0,
+   "endSec": 2054.6,
+   "props": {
+    "kicker": {
+     "text": "Finally",
+     "at": 2048.02
+    },
+    "lines": [
+     {
+      "text": "Can I respect",
+      "at": 2049.7
+     },
+     {
+      "text": "another person's boundaries and independence?",
+      "at": 2050.46
+     }
+    ],
+    "emphasis": [
+     "boundaries",
+     "independence"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-16",
+   "sectionId": "sec-16",
+   "type": "parallelPhrases",
+   "startSec": 2054.6,
+   "endSec": 2060.3,
+   "props": {
+    "kicker": {
+     "text": "A healthy marriage requires",
+     "at": 2054.9
+    },
+    "items": [
+     {
+      "text": "Mutual respect",
+      "at": 2056.28
+     },
+     {
+      "text": "Dignity",
+      "at": 2057.86
+     },
+     {
+      "text": "Trust",
+      "at": 2058.6
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-16-17",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2060.3,
+   "endSec": 2065.2,
+   "props": {
+    "lines": [
+     {
+      "text": "Spend some time considering these questions",
+      "at": 2060.86
+     },
+     {
+      "text": "after completing this lesson",
+      "at": 2063.1
+     }
+    ],
+    "emphasis": [
+     "questions"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-18",
+   "sectionId": "sec-16",
+   "type": "statementCollision",
+   "startSec": 2065.2,
+   "endSec": 2074.6,
+   "props": {
+    "label": "You do not need perfect answers",
+    "first": {
+     "text": "Reflect on",
+     "at": 2068.76
+    },
+    "script": {
+     "text": "where you are now",
+     "at": 2070.34
+    },
+    "second": {
+     "text": "and how you can grow",
+     "at": 2072.24
+    }
+   }
+  },
+  {
+   "id": "sec-16-19",
+   "sectionId": "sec-16",
+   "type": "parallelPhrases",
+   "startSec": 2074.6,
+   "endSec": 2087.6,
+   "props": {
+    "kicker": {
+     "text": "Remember the three foundations",
+     "at": 2075.88
+    },
+    "items": [
+     {
+      "text": "Sakinah",
+      "at": 2080.96
+     },
+     {
+      "text": "Mawaddah",
+      "at": 2082.18
+     },
+     {
+      "text": "Rahmah",
+      "at": 2083.44
+     }
+    ],
+    "closing": {
+     "text": "Tranquility, affection and mercy",
+     "at": 2084.76
+    }
+   }
+  },
+  {
+   "id": "sec-16-20",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2087.6,
+   "endSec": 2094.0,
+   "props": {
+    "kicker": {
+     "text": "These qualities remind us",
+     "at": 2087.88
+    },
+    "lines": [
+     {
+      "text": "Marriage should be a source of",
+      "at": 2089.7
+     },
+     {
+      "text": "peace, compassion and meaningful connection",
+      "at": 2091.14
+     }
+    ],
+    "emphasis": [
+     "peace",
+     "compassion",
+     "connection"
+    ],
+    "align": "center",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-16-21",
+   "sectionId": "sec-16",
+   "type": "findingBecoming",
+   "startSec": 2094.0,
+   "endSec": 2102.4,
+   "props": {
+    "kicker": {
+     "text": "A successful marriage",
+     "at": 2094.4
+    },
+    "lines": [
+     {
+      "text": "is not built simply by finding",
+      "at": 2095.5
+     },
+     {
+      "text": "someone who appears perfect",
+      "at": 2097.18
+     },
+     {
+      "text": "It is built when",
+      "at": 2098.76
+     },
+     {
+      "text": "two individuals commit",
+      "at": 2100.4
+     }
+    ],
+    "emphasis": [],
+    "findAt": 2096.78,
+    "becomeAt": 2099.38
+   }
+  },
+  {
+   "id": "sec-16-22",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2102.4,
+   "endSec": 2108.3,
+   "props": {
+    "lines": [
+     {
+      "text": "Treating one another with",
+      "at": 2102.48
+     },
+     {
+      "text": "kindness, respect,",
+      "at": 2103.86
+     },
+     {
+      "text": "honesty and responsibility",
+      "at": 2106.36
+     }
+    ],
+    "emphasis": [
+     "kindness",
+     "respect",
+     "honesty",
+     "responsibility"
+    ],
+    "align": "center",
+    "scale": "h1"
+   }
+  },
+  {
+   "id": "sec-16-23",
+   "sectionId": "sec-16",
+   "type": "parallelPhrases",
+   "startSec": 2108.3,
+   "endSec": 2120.6,
+   "props": {
+    "kicker": {
+     "text": "We want you to enter marriage with",
+     "at": 2109.74
+    },
+    "items": [
+     {
+      "text": "Knowledge",
+      "at": 2111.38
+     },
+     {
+      "text": "Confidence",
+      "at": 2112.18
+     },
+     {
+      "text": "Realistic expectations",
+      "at": 2113.06
+     }
+    ],
+    "closing": {
+     "text": "Your learning journey continues",
+     "at": 2116.08
+    }
+   }
+  },
+  {
+   "id": "sec-16-24",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2120.6,
+   "endSec": 2127.2,
+   "props": {
+    "kicker": {
+     "text": "Module 2",
+     "at": 2121.32
+    },
+    "lines": [
+     {
+      "text": "Finding the right",
+      "at": 2123.04
+     },
+     {
+      "text": "life partner",
+      "at": 2124.06
+     }
+    ],
+    "emphasis": [
+     "partner"
+    ],
+    "align": "center",
+    "scale": "hero"
+   }
+  },
+  {
+   "id": "sec-16-25",
+   "sectionId": "sec-16",
+   "type": "takeaway",
+   "startSec": 2127.2,
+   "endSec": 2138.4,
+   "props": {
+    "heading": "In Module 2",
+    "points": [
+     {
+      "text": "Character",
+      "at": 2127.48
+     },
+     {
+      "text": "Religious and emotional compatibility",
+      "at": 2128.62
+     },
+     {
+      "text": "Family background",
+      "at": 2132.02
+     },
+     {
+      "text": "Attraction and shared values",
+      "at": 2133.38
+     },
+     {
+      "text": "Recognising potential warning signs",
+      "at": 2135.5
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-16-26",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2138.4,
+   "endSec": 2146.0,
+   "props": {
+    "kicker": {
+     "text": "Before moving on",
+     "at": 2138.78
+    },
+    "lines": [
+     {
+      "text": "Complete the end-of-module assessment",
+      "at": 2140.04
+     },
+     {
+      "text": "to check your understanding of the three principles",
+      "at": 2142.34
+     }
+    ],
+    "emphasis": [
+     "principles"
+    ],
+    "align": "left",
+    "scale": "h2"
+   }
+  },
+  {
+   "id": "sec-16-27",
+   "sectionId": "sec-16",
+   "type": "quietReflection",
+   "startSec": 2146.0,
+   "endSec": 2150.6,
+   "props": {
+    "text": "Thank you for joining us",
+    "at": 2146.3,
+    "attribution": "Module 1 · LifeLink Marriage Academy"
+   }
+  },
+  {
+   "id": "sec-16-28",
+   "sectionId": "sec-16",
+   "type": "reflectionField",
+   "startSec": 2150.6,
+   "endSec": 2159.6,
+   "props": {
+    "lines": [
+     {
+      "text": "May Allah grant you beneficial knowledge,",
+      "at": 2150.86
+     },
+     {
+      "text": "wisdom in your decisions,",
+      "at": 2153.5
+     },
+     {
+      "text": "and a marriage founded upon",
+      "at": 2154.98
+     },
+     {
+      "text": "tranquility, affection and mercy",
+      "at": 2156.58
+     }
+    ],
+    "ground": "royal"
+   }
+  },
+  {
+   "id": "sec-16-29",
+   "sectionId": "sec-16",
+   "type": "kineticStatement",
+   "startSec": 2159.6,
+   "endSec": 2165.26,
+   "props": {
+    "kicker": {
+     "text": "Ameen",
+     "at": 2159.76
+    },
+    "lines": [
+     {
+      "text": "Assalamu alaikum",
+      "at": 2160.8
+     },
+     {
+      "text": "wa rahmatullahi wa barakatuh",
+      "at": 2161.9
+     }
+    ],
+    "align": "center",
+    "scale": "h2"
+   }
+  }
+ ]
+}
