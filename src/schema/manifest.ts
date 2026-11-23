@@ -76,6 +76,7 @@ const Base = { id: z.string(), sectionId: z.string(), startSec: z.number(), endS
 export const BrandSceneSchemas = [
   z.object({ ...Base, type: z.literal("courseIntro"), props: z.object({
     courseLabel: z.string().default("Course"), courseTitle: z.string(), lessonLabel: z.string(), lessonTitle: z.string(), at: z.number(),
+    titleAt: z.number().optional(), credit: z.object({ text: z.string(), at: z.number() }).optional(),
   }) }),
   z.object({ ...Base, type: z.literal("statementCollision"), props: z.object({
     label: z.string().optional(),

@@ -27,7 +27,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 4 scenes · 1 sections · 16:9
 
 ![s001](frames/01_s001.jpg)
 
-**On screen:** Welcome to / LifeLink Marriage Academy / Module 01 / The sacred purpose of marriage  
+**On screen:** Welcome to / LifeLink Marriage Academy / Module 01 / The sacred purpose of marriage / Brought to you by Educating Excellence Group  
 **Narration:** Assalamu Alaikum, welcome to LifeLink Marriage Academy brought to you by Educating Excellence Group.
 
 ### 2. s002 · pathLandscape · 0:07.6–0:16.4 (8.8s)

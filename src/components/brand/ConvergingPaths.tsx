@@ -4,7 +4,7 @@ import { brand, ease, fonts, textStyle } from "../../brand/tokens";
 import { BrandLabel, CharRise, PaperGround, Script } from "../../motion/brand";
 import { useLayout } from "../../motion/layout";
 import { useProgress, useSceneEnvelope } from "../../motion/time";
-import { Ink, Layer, PaperDefs } from "../../illustrations/paper";
+import { Ink, PaperDefs } from "../../illustrations/paper";
 import type { SceneOf } from "../../schema/manifest";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
@@ -43,8 +43,8 @@ export const ConvergingPaths: React.FC<{ scene: SceneOf<"convergingPaths"> }> = 
           </linearGradient>
         </defs>
         {/* soft paper hills framing the lower corners */}
-        <Layer id={id} at={s0 + 0.1} depth={2} rise={30} fill={D.paperShade} d="M-50,1080 L-50,860 C180,820 420,900 600,1080 Z" />
-        <Layer id={id} at={s0 + 0.2} depth={2} rise={30} fill={D.paperShade} d="M1970,1080 L1970,840 C1720,810 1480,900 1320,1080 Z" />
+        <path filter={`url(#${id}-shadow-2)`} fill={D.paperShade} d="M-50,1080 L-50,860 C180,820 420,900 600,1080 Z" />
+        <path filter={`url(#${id}-shadow-2)`} fill={D.paperShade} d="M1970,1080 L1970,840 C1720,810 1480,900 1320,1080 Z" />
         {/* the doorway */}
         <g opacity={door} transform={`translate(0 ${(1 - door) * 20})`}>
           <path d={`M${doorX - 150},${doorBottom + 140} L${doorX - 64},${doorBottom} L${doorX + 64},${doorBottom} L${doorX + 150},${doorBottom + 140} Z`} fill={`url(#${id}-spill)`} opacity={0.25 + light * 0.75} />

@@ -29,7 +29,12 @@
         "courseTitle": "LifeLink Marriage Academy",
         "lessonLabel": "Module 01",
         "lessonTitle": "The sacred purpose of marriage",
-        "at": 0.3
+        "at": 0.3,
+        "titleAt": 2.3,
+        "credit": {
+          "text": "Brought to you by Educating Excellence Group",
+          "at": 5.6
+        }
       }
     },
     {
