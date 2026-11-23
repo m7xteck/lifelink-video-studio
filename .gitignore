@@ -13,3 +13,4 @@ deliverables/
 .locks/
 quality-reports/**/frames/
 storyboards/**/frames/
+exports/
