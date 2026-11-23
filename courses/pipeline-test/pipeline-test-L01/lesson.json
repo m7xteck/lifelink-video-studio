@@ -1,0 +1,20 @@
+{
+  "lessonId": "pipeline-test-L01",
+  "courseId": "pipeline-test",
+  "sequence": 1,
+  "title": "Pipeline test one",
+  "sourceName": "01 Pipeline test one.wav",
+  "original": "media/originals/pipeline-test-L01.wav",
+  "sha256": "d1739708acadaf354c1afef8ddb79e994f4ea16fffcc0c1cd3b1df7aae4528cb",
+  "workingAudio": "public/audio/pipeline-test-L01.wav",
+  "durationSec": 11.431208,
+  "source": {
+    "format": "wav",
+    "codec": "pcm_s16le",
+    "sampleRate": 22050,
+    "channels": 1,
+    "bitRate": 352830,
+    "tags": {}
+  },
+  "importedAt": "2026-11-23T13:21:23.234Z"
+}

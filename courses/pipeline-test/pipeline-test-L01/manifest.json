@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1, "lessonId": "pipeline-test-L01", "courseId": "pipeline-test", "title": "Pipeline test one",
+  "fps": 30, "width": 1920, "height": 1080, "durationSec": 11.431,
+  "audio": "audio/pipeline-test-L01.wav", "watermark": "Pipeline test · synthetic voice · not LifeLink content",
+  "sections": [ { "id": "sec-1", "title": "Test", "startSec": 0, "endSec": 11.431 } ],
+  "scenes": [
+    { "id": "s01", "sectionId": "sec-1", "type": "sectionTitle", "startSec": 0, "endSec": 3.4,
+      "props": { "index": 1, "kicker": "Pipeline test", "title": "Transcription pipeline" } },
+    { "id": "s02", "sectionId": "sec-1", "type": "kineticStatement", "startSec": 3.4, "endSec": 6.3,
+      "props": { "lines": [ { "text": "Good communication begins with listening.", "at": 3.62 } ], "emphasis": ["listening."], "align": "left", "scale": "h1" } },
+    { "id": "s03", "sectionId": "sec-1", "type": "takeaway", "startSec": 6.3, "endSec": 11.431,
+      "props": { "heading": "Listening", "points": [ { "text": "Listen carefully", "at": 6.5 }, { "text": "Respond with care", "at": 9.72 } ] } }
+  ]
+}

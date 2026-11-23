@@ -1,0 +1,17 @@
+{
+  "courseId": "pipeline-test",
+  "title": null,
+  "createdAt": "2026-11-23T13:21:22.999Z",
+  "lessons": [
+    {
+      "lessonId": "pipeline-test-L01",
+      "sha256": "d1739708acadaf354c1afef8ddb79e994f4ea16fffcc0c1cd3b1df7aae4528cb",
+      "sourceName": "01 Pipeline test one.wav"
+    },
+    {
+      "lessonId": "pipeline-test-L02",
+      "sha256": "2a72e7e794df7305d71935e642d93cd0c669acab6f7f7fada7d08d7844dbe34b",
+      "sourceName": "02 Pipeline test two.mp3"
+    }
+  ]
+}

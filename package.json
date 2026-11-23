@@ -1,0 +1,38 @@
+{
+  "name": "lifelink-video-studio",
+  "version": "1.0.0",
+  "description": "LifeLink AI Video Production Studio — Remotion production engine",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc -p .",
+    "ingest": "tsx pipeline/ingest.ts",
+    "transcribe": "tsx pipeline/transcribe.ts",
+    "render": "tsx pipeline/render.ts",
+    "qa": "tsx pipeline/qa.ts",
+    "produce": "tsx pipeline/produce.ts",
+    "status": "tsx pipeline/status.ts",
+    "approve": "tsx pipeline/approve.ts",
+    "test:engine": "tsx pipeline/selftest.ts"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@remotion/bundler": "4.0.546",
+    "@remotion/cli": "4.0.546",
+    "@remotion/fonts": "4.0.546",
+    "@remotion/layout-utils": "4.0.546",
+    "@remotion/media-utils": "4.0.546",
+    "@remotion/renderer": "4.0.546",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "remotion": "4.0.546",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.12",
+    "tsx": "4.20.5",
+    "typescript": "5.9.3"
+  },
+  "private": true,
+  "type": "module"
+}

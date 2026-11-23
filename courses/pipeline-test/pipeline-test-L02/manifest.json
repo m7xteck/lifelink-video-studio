@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1, "lessonId": "pipeline-test-L02", "courseId": "pipeline-test", "title": "Pipeline test two",
+  "fps": 30, "width": 1920, "height": 1080, "durationSec": 5.645,
+  "audio": "audio/pipeline-test-L02.wav", "watermark": "Pipeline test · synthetic voice · not LifeLink content",
+  "sections": [ { "id": "sec-1", "title": "Test", "startSec": 0, "endSec": 5.645 } ],
+  "scenes": [
+    { "id": "s01", "sectionId": "sec-1", "type": "quietReflection", "startSec": 0, "endSec": 5.645,
+      "props": { "text": "Trust is built slowly, through small consistent actions.", "at": 1.9 } }
+  ]
+}

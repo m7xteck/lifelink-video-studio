@@ -1,0 +1,130 @@
+{
+  "lessonId": "pipeline-test-L02",
+  "courseId": "pipeline-test",
+  "state": "FINAL_RENDERED",
+  "approval": {
+    "creative": "approved",
+    "by": "engine-selftest",
+    "at": "2026-11-23T13:24:03.117Z",
+    "note": "Technical pipeline test only — not a client approval"
+  },
+  "history": [
+    {
+      "from": null,
+      "to": "IMPORTED",
+      "at": "2026-11-23T13:21:23.447Z",
+      "note": "Recording ingested",
+      "evidence": {
+        "original": "media/originals/pipeline-test-L02.mp3",
+        "sha256": "2a72e7e794df7305d71935e642d93cd0c669acab6f7f7fada7d08d7844dbe34b"
+      }
+    },
+    {
+      "from": "IMPORTED",
+      "to": "AUDIO_ANALYSED",
+      "at": "2026-11-23T13:21:23.447Z",
+      "note": "Decoded fully, metadata extracted, working copy created",
+      "evidence": {
+        "durationSec": 5.644583,
+        "decodeErrors": 0,
+        "workingAudio": "public/audio/pipeline-test-L02.wav"
+      }
+    },
+    {
+      "from": "FAILED",
+      "to": "AUDIO_ANALYSED",
+      "at": "2026-11-23T13:25:00Z",
+      "note": "Reset after transcriber fix (PyAV incompatibility)",
+      "evidence": {}
+    },
+    {
+      "from": "AUDIO_ANALYSED",
+      "to": "TRANSCRIBED",
+      "at": "2026-11-23T13:21:54.849Z",
+      "note": "Timestamped transcript created",
+      "evidence": {
+        "lessonId": "pipeline-test-L02",
+        "model": "small.en",
+        "durationSec": 5.645,
+        "processingSec": 3.1,
+        "wordCount": 11,
+        "uncertainWordCount": 0,
+        "files": [
+          "courses/pipeline-test/pipeline-test-L02/transcript/pipeline-test-L02.srt",
+          "courses/pipeline-test/pipeline-test-L02/transcript/pipeline-test-L02.transcript.json",
+          "courses/pipeline-test/pipeline-test-L02/transcript/pipeline-test-L02.txt",
+          "courses/pipeline-test/pipeline-test-L02/transcript/pipeline-test-L02.uncertain.json"
+        ]
+      }
+    },
+    {
+      "from": "TRANSCRIBED",
+      "to": "CREATIVE_PLAN_READY",
+      "at": "2026-11-23T13:23:49.178Z",
+      "note": "Test manifest written from transcript cues",
+      "evidence": {
+        "manifest": "manifest.json"
+      }
+    },
+    {
+      "from": "CREATIVE_PLAN_READY",
+      "to": "AWAITING_APPROVAL",
+      "at": "2026-11-23T13:23:53.826Z",
+      "note": "Storyboard package generated",
+      "evidence": {
+        "storyboard": "storyboards/pipeline-test-L02/landscape/storyboard.md"
+      }
+    },
+    {
+      "from": "AWAITING_APPROVAL",
+      "to": "APPROVED",
+      "at": "2026-11-23T13:24:03.118Z",
+      "note": "Client approved creative plan",
+      "evidence": {
+        "note": "Technical pipeline test only — not a client approval"
+      }
+    },
+    {
+      "from": "APPROVED",
+      "to": "IN_PRODUCTION",
+      "at": "2026-11-23T13:24:03.530Z",
+      "note": "Production started by orchestrator",
+      "evidence": {}
+    },
+    {
+      "from": "IN_PRODUCTION",
+      "to": "PREVIEW_RENDERED",
+      "at": "2026-11-23T13:24:41.025Z",
+      "note": "Full render complete",
+      "evidence": {
+        "video": "/home/user/lifelink-video-studio/renders/pipeline-test-L02/landscape/pipeline-test-L02_landscape_v001.mp4"
+      }
+    },
+    {
+      "from": "PREVIEW_RENDERED",
+      "to": "QA_IN_PROGRESS",
+      "at": "2026-11-23T13:24:41.026Z",
+      "note": "Automated QA started",
+      "evidence": {}
+    },
+    {
+      "from": "QA_IN_PROGRESS",
+      "to": "QA_PASSED",
+      "at": "2026-11-23T13:24:44.985Z",
+      "note": "Automated QA PASS: 17 pass, 0 fail, 0 warn",
+      "evidence": {
+        "video": "/home/user/lifelink-video-studio/renders/pipeline-test-L02/landscape/pipeline-test-L02_landscape_v001.mp4",
+        "failed": []
+      }
+    },
+    {
+      "from": "QA_PASSED",
+      "to": "FINAL_RENDERED",
+      "at": "2026-11-23T13:24:45.646Z",
+      "note": "Deliverables packaged",
+      "evidence": {
+        "folder": "deliverables/pipeline-test/pipeline-test-L02"
+      }
+    }
+  ]
+}

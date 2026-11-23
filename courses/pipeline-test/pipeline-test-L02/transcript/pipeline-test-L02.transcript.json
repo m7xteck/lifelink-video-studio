@@ -1,0 +1,89 @@
+{
+ "lessonId": "pipeline-test-L02",
+ "model": "small.en",
+ "language": "en",
+ "language_probability": 1,
+ "durationSec": 5.645,
+ "processingSec": 3.1,
+ "wordCount": 11,
+ "uncertainWordCount": 0,
+ "pauses": [],
+ "segments": [
+  {
+   "id": 1,
+   "start": 0.0,
+   "end": 5.06,
+   "text": "Second test recording. Trust is built slowly through small consistent actions.",
+   "avg_logprob": -0.301,
+   "no_speech_prob": 0.019,
+   "words": [
+    {
+     "w": "Second",
+     "start": 0.0,
+     "end": 0.38,
+     "p": 0.613
+    },
+    {
+     "w": "test",
+     "start": 0.38,
+     "end": 0.7,
+     "p": 0.908
+    },
+    {
+     "w": "recording.",
+     "start": 0.7,
+     "end": 1.38,
+     "p": 0.997
+    },
+    {
+     "w": "Trust",
+     "start": 1.9,
+     "end": 2.1,
+     "p": 0.891
+    },
+    {
+     "w": "is",
+     "start": 2.1,
+     "end": 2.32,
+     "p": 0.994
+    },
+    {
+     "w": "built",
+     "start": 2.32,
+     "end": 2.6,
+     "p": 0.976
+    },
+    {
+     "w": "slowly",
+     "start": 2.6,
+     "end": 3.12,
+     "p": 0.99
+    },
+    {
+     "w": "through",
+     "start": 3.12,
+     "end": 3.52,
+     "p": 0.773
+    },
+    {
+     "w": "small",
+     "start": 3.52,
+     "end": 3.9,
+     "p": 0.979
+    },
+    {
+     "w": "consistent",
+     "start": 3.9,
+     "end": 4.44,
+     "p": 0.893
+    },
+    {
+     "w": "actions.",
+     "start": 4.44,
+     "end": 5.06,
+     "p": 0.983
+    }
+   ]
+  }
+ ]
+}

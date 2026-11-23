@@ -1,0 +1,209 @@
+{
+ "lessonId": "pipeline-test-L01",
+ "model": "small.en",
+ "language": "en",
+ "language_probability": 1,
+ "durationSec": 11.431,
+ "processingSec": 4.1,
+ "wordCount": 26,
+ "uncertainWordCount": 1,
+ "pauses": [],
+ "segments": [
+  {
+   "id": 1,
+   "start": 0.0,
+   "end": 3.12,
+   "text": "This is a technical test of the transcription pipeline.",
+   "avg_logprob": -0.241,
+   "no_speech_prob": 0.003,
+   "words": [
+    {
+     "w": "This",
+     "start": 0.0,
+     "end": 0.18,
+     "p": 0.863
+    },
+    {
+     "w": "is",
+     "start": 0.18,
+     "end": 0.32,
+     "p": 0.997
+    },
+    {
+     "w": "a",
+     "start": 0.32,
+     "end": 0.48,
+     "p": 0.964
+    },
+    {
+     "w": "technical",
+     "start": 0.48,
+     "end": 0.88,
+     "p": 0.992
+    },
+    {
+     "w": "test",
+     "start": 0.88,
+     "end": 1.28,
+     "p": 0.999
+    },
+    {
+     "w": "of",
+     "start": 1.28,
+     "end": 1.48,
+     "p": 0.989
+    },
+    {
+     "w": "the",
+     "start": 1.48,
+     "end": 1.68,
+     "p": 0.985
+    },
+    {
+     "w": "transcription",
+     "start": 1.68,
+     "end": 2.18,
+     "p": 0.96
+    },
+    {
+     "w": "pipeline.",
+     "start": 2.18,
+     "end": 3.12,
+     "p": 0.984
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "start": 3.62,
+   "end": 5.98,
+   "text": "Good communication begins with listening.",
+   "avg_logprob": -0.241,
+   "no_speech_prob": 0.003,
+   "words": [
+    {
+     "w": "Good",
+     "start": 3.62,
+     "end": 3.82,
+     "p": 0.973
+    },
+    {
+     "w": "communication",
+     "start": 3.82,
+     "end": 4.68,
+     "p": 0.985
+    },
+    {
+     "w": "begins",
+     "start": 4.68,
+     "end": 5.16,
+     "p": 0.996
+    },
+    {
+     "w": "with",
+     "start": 5.16,
+     "end": 5.5,
+     "p": 0.997
+    },
+    {
+     "w": "listening.",
+     "start": 5.5,
+     "end": 5.98,
+     "p": 0.99
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "start": 6.5,
+   "end": 9.34,
+   "text": "When we listen carefully, we understand more",
+   "avg_logprob": -0.241,
+   "no_speech_prob": 0.003,
+   "words": [
+    {
+     "w": "When",
+     "start": 6.5,
+     "end": 6.72,
+     "p": 0.994
+    },
+    {
+     "w": "we",
+     "start": 6.72,
+     "end": 6.92,
+     "p": 0.998
+    },
+    {
+     "w": "listen",
+     "start": 6.92,
+     "end": 7.24,
+     "p": 0.998
+    },
+    {
+     "w": "carefully,",
+     "start": 7.24,
+     "end": 7.8,
+     "p": 0.999
+    },
+    {
+     "w": "we",
+     "start": 8.16,
+     "end": 8.28,
+     "p": 0.993
+    },
+    {
+     "w": "understand",
+     "start": 8.28,
+     "end": 8.82,
+     "p": 0.998
+    },
+    {
+     "w": "more",
+     "start": 8.82,
+     "end": 9.34,
+     "p": 0.997
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "start": 9.34,
+   "end": 10.98,
+   "text": "and we respond with care.",
+   "avg_logprob": -0.241,
+   "no_speech_prob": 0.003,
+   "words": [
+    {
+     "w": "and",
+     "start": 9.34,
+     "end": 9.72,
+     "p": 0.467
+    },
+    {
+     "w": "we",
+     "start": 9.72,
+     "end": 9.92,
+     "p": 0.988
+    },
+    {
+     "w": "respond",
+     "start": 9.92,
+     "end": 10.28,
+     "p": 0.997
+    },
+    {
+     "w": "with",
+     "start": 10.28,
+     "end": 10.6,
+     "p": 0.995
+    },
+    {
+     "w": "care.",
+     "start": 10.6,
+     "end": 10.98,
+     "p": 0.991
+    }
+   ]
+  }
+ ]
+}

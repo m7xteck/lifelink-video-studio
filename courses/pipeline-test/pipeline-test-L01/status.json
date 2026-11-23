@@ -1,0 +1,139 @@
+{
+  "lessonId": "pipeline-test-L01",
+  "courseId": "pipeline-test",
+  "state": "FINAL_RENDERED",
+  "approval": {
+    "creative": "approved",
+    "by": "engine-selftest",
+    "at": "2026-11-23T13:24:02.752Z",
+    "note": "Technical pipeline test only — not a client approval"
+  },
+  "history": [
+    {
+      "from": null,
+      "to": "IMPORTED",
+      "at": "2026-11-23T13:21:23.235Z",
+      "note": "Recording ingested",
+      "evidence": {
+        "original": "media/originals/pipeline-test-L01.wav",
+        "sha256": "d1739708acadaf354c1afef8ddb79e994f4ea16fffcc0c1cd3b1df7aae4528cb"
+      }
+    },
+    {
+      "from": "IMPORTED",
+      "to": "AUDIO_ANALYSED",
+      "at": "2026-11-23T13:21:23.235Z",
+      "note": "Decoded fully, metadata extracted, working copy created",
+      "evidence": {
+        "durationSec": 11.431208,
+        "decodeErrors": 0,
+        "workingAudio": "public/audio/pipeline-test-L01.wav"
+      }
+    },
+    {
+      "from": "AUDIO_ANALYSED",
+      "to": "FAILED",
+      "at": "2026-11-23T13:21:30.960Z",
+      "note": "Transcription failed",
+      "evidence": {
+        "stderr": "Traceback (most recent call last):\n  File \"/home/user/lifelink-video-studio/pipeline/transcribe.py\", line 20, in <module>\n    segments, info = model.transcribe(audio, word_timestamps=True, vad_filter=False, beam_size=5, condition_on_previous_text=True)\n                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/site-packages/faster_whisper/transcribe.py\", line 876, in transcribe\n    audio = decode_audio(audio, sampling_rate=sampling_rate)\n  File \"/usr/local/lib/python3.13/site-packages/faster_whisper/audio.py\", line 46, in decode_audio\n    with av.open(input_file, mode=\"r\", metadata_errors=\"ignore\") as container:\n         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"av/container/core.py\", line 479, in av.container.core.open\n    def open(\nTypeError: open() got an unexpected keyword argument 'metadata_errors'\n"
+      }
+    },
+    {
+      "from": "FAILED",
+      "to": "AUDIO_ANALYSED",
+      "at": "2026-11-23T13:25:00Z",
+      "note": "Reset after transcriber fix (PyAV incompatibility)",
+      "evidence": {}
+    },
+    {
+      "from": "AUDIO_ANALYSED",
+      "to": "TRANSCRIBED",
+      "at": "2026-11-23T13:21:51.526Z",
+      "note": "Timestamped transcript created",
+      "evidence": {
+        "lessonId": "pipeline-test-L01",
+        "model": "small.en",
+        "durationSec": 11.431,
+        "processingSec": 4.1,
+        "wordCount": 26,
+        "uncertainWordCount": 1,
+        "files": [
+          "courses/pipeline-test/pipeline-test-L01/transcript/pipeline-test-L01.srt",
+          "courses/pipeline-test/pipeline-test-L01/transcript/pipeline-test-L01.transcript.json",
+          "courses/pipeline-test/pipeline-test-L01/transcript/pipeline-test-L01.txt",
+          "courses/pipeline-test/pipeline-test-L01/transcript/pipeline-test-L01.uncertain.json"
+        ]
+      }
+    },
+    {
+      "from": "TRANSCRIBED",
+      "to": "CREATIVE_PLAN_READY",
+      "at": "2026-11-23T13:23:49.176Z",
+      "note": "Test manifest written from transcript cues",
+      "evidence": {
+        "manifest": "manifest.json"
+      }
+    },
+    {
+      "from": "CREATIVE_PLAN_READY",
+      "to": "AWAITING_APPROVAL",
+      "at": "2026-11-23T13:23:54.575Z",
+      "note": "Storyboard package generated",
+      "evidence": {
+        "storyboard": "storyboards/pipeline-test-L01/landscape/storyboard.md"
+      }
+    },
+    {
+      "from": "AWAITING_APPROVAL",
+      "to": "APPROVED",
+      "at": "2026-11-23T13:24:02.752Z",
+      "note": "Client approved creative plan",
+      "evidence": {
+        "note": "Technical pipeline test only — not a client approval"
+      }
+    },
+    {
+      "from": "APPROVED",
+      "to": "IN_PRODUCTION",
+      "at": "2026-11-23T13:24:03.526Z",
+      "note": "Production started by orchestrator",
+      "evidence": {}
+    },
+    {
+      "from": "IN_PRODUCTION",
+      "to": "PREVIEW_RENDERED",
+      "at": "2026-11-23T13:24:25.978Z",
+      "note": "Full render complete",
+      "evidence": {
+        "video": "/home/user/lifelink-video-studio/renders/pipeline-test-L01/landscape/pipeline-test-L01_landscape_v001.mp4"
+      }
+    },
+    {
+      "from": "PREVIEW_RENDERED",
+      "to": "QA_IN_PROGRESS",
+      "at": "2026-11-23T13:24:25.979Z",
+      "note": "Automated QA started",
+      "evidence": {}
+    },
+    {
+      "from": "QA_IN_PROGRESS",
+      "to": "QA_PASSED",
+      "at": "2026-11-23T13:24:34.968Z",
+      "note": "Automated QA PASS: 17 pass, 0 fail, 0 warn",
+      "evidence": {
+        "video": "/home/user/lifelink-video-studio/renders/pipeline-test-L01/landscape/pipeline-test-L01_landscape_v001.mp4",
+        "failed": []
+      }
+    },
+    {
+      "from": "QA_PASSED",
+      "to": "FINAL_RENDERED",
+      "at": "2026-11-23T13:24:35.888Z",
+      "note": "Deliverables packaged",
+      "evidence": {
+        "folder": "deliverables/pipeline-test/pipeline-test-L01"
+      }
+    }
+  ]
+}

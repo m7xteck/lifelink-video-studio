@@ -1,0 +1,15 @@
+node_modules/
+# Large / private media never goes into Git (see documentation/STORAGE.md)
+media/
+public/audio/
+renders/
+previews/**/*.mp4
+previews/**/*.png
+quality-reports/**/frames/
+.cache/
+out/
+*.log
+deliverables/
+.locks/
+quality-reports/**/frames/
+storyboards/**/frames/

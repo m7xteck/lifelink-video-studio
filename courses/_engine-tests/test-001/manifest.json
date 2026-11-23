@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "test-001",
+  "courseId": "_engine-tests",
+  "title": "Engine test — neutral style",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationSec": 40,
+  "audio": "audio/test-001.wav",
+  "watermark": "Engine test · neutral style · not LifeLink brand",
+  "sections": [
+    { "id": "sec-a", "title": "Opening and principle", "startSec": 0, "endSec": 10 },
+    { "id": "sec-b", "title": "Frameworks", "startSec": 10, "endSec": 30 },
+    { "id": "sec-c", "title": "Reflection and recap", "startSec": 30, "endSec": 40 }
+  ],
+  "scenes": [
+    { "id": "s01", "sectionId": "sec-a", "type": "sectionTitle", "startSec": 0, "endSec": 4.5,
+      "props": { "index": 1, "kicker": "Engine test", "title": "Every scene follows the voice" } },
+    { "id": "s02", "sectionId": "sec-a", "type": "kineticStatement", "startSec": 4.5, "endSec": 10,
+      "props": { "lines": [ { "text": "Timing comes from the narration,", "at": 5.0 }, { "text": "not from a guess.", "at": 6.6 } ],
+                 "emphasis": ["narration", "guess."], "align": "left", "scale": "h1" } },
+    { "id": "s03", "sectionId": "sec-b", "type": "stepsDiagram", "startSec": 10, "endSec": 18,
+      "props": { "heading": "A four-step process diagram", "layout": "path",
+                 "steps": [ { "label": "Listen", "detail": "Step one", "at": 10.8 }, { "label": "Reflect", "detail": "Step two", "at": 12.4 },
+                            { "label": "Respond", "detail": "Step three", "at": 14.0 }, { "label": "Review", "detail": "Step four", "at": 15.6 } ] } },
+    { "id": "s04", "sectionId": "sec-b", "type": "connectionMetaphor", "startSec": 18, "endSec": 24,
+      "props": { "leftLabel": "Person A", "rightLabel": "Person B", "sharedLabel": "Shared space", "convergeAt": 19, "caption": "Visual metaphor test: two whole forms, one shared space" } },
+    { "id": "s05", "sectionId": "sec-b", "type": "comparison", "startSec": 24, "endSec": 30,
+      "props": { "left": { "title": "Option one", "points": ["First contrasting point", "Second contrasting point"], "at": 24.4 },
+                 "right": { "title": "Option two", "points": ["First matching point", "Second matching point"], "at": 25.6 },
+                 "preferred": "right" } },
+    { "id": "s06", "sectionId": "sec-c", "type": "quietReflection", "startSec": 30, "endSec": 34.5,
+      "props": { "text": "A restrained scene for reflective moments.", "at": 30.4 } },
+    { "id": "s07", "sectionId": "sec-c", "type": "takeaway", "startSec": 34.5, "endSec": 40,
+      "props": { "heading": "Engine checks", "points": [ { "text": "Scenes are driven by data", "at": 35.2 }, { "text": "Timing follows the audio", "at": 36.6 }, { "text": "Layouts adapt to orientation", "at": 38.0 } ] } }
+  ]
+}

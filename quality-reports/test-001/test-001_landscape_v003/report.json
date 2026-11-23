@@ -1,0 +1,223 @@
+{
+  "lessonId": "test-001",
+  "video": "renders/test-001/landscape/test-001_landscape_v003.mp4",
+  "createdAt": "2026-11-23T13:17:51.820Z",
+  "result": "PASS",
+  "summary": "16 pass, 0 fail, 0 warn",
+  "checks": [
+    {
+      "id": "manifest.order",
+      "status": "PASS",
+      "detail": "Scenes are in narration order"
+    },
+    {
+      "id": "manifest.coverage",
+      "status": "PASS",
+      "detail": "Scenes cover the timeline without gaps",
+      "data": []
+    },
+    {
+      "id": "manifest.text-hold",
+      "status": "PASS",
+      "detail": "Every text cue stays on screen ≥ 1.5s",
+      "data": []
+    },
+    {
+      "id": "file.decode",
+      "status": "PASS",
+      "detail": "Full decode with no errors"
+    },
+    {
+      "id": "video.resolution",
+      "status": "PASS",
+      "detail": "1920×1080 (expected 1920×1080)"
+    },
+    {
+      "id": "video.codec",
+      "status": "PASS",
+      "detail": "h264 High yuv420p"
+    },
+    {
+      "id": "video.fps",
+      "status": "PASS",
+      "detail": "30.000 fps (expected 30)"
+    },
+    {
+      "id": "duration",
+      "status": "PASS",
+      "detail": "40.000s (expected 40.000s)"
+    },
+    {
+      "id": "audio.present",
+      "status": "PASS",
+      "detail": "aac 48000 Hz 2ch"
+    },
+    {
+      "id": "audio.duration",
+      "status": "PASS",
+      "detail": "audio 40.000s vs expected 40.000s"
+    },
+    {
+      "id": "audio.loudness",
+      "status": "PASS",
+      "detail": "Integrated -16 LUFS, true peak -4.8 dBFS (target −16 LUFS, ≤ −1 dBTP)"
+    },
+    {
+      "id": "audio.sync",
+      "status": "PASS",
+      "detail": "Narration offset vs original recording: 0 ms (correlation 0.9634); tolerance ±33.3 ms",
+      "data": {
+        "lag_ms": 0,
+        "peak_corr": 0.9634
+      }
+    },
+    {
+      "id": "picture.black-frames",
+      "status": "PASS",
+      "detail": "No unexpected black frames"
+    },
+    {
+      "id": "picture.flashes",
+      "status": "PASS",
+      "detail": "No frame-to-frame brightness jumps (max Δ 0.5 of 255)"
+    },
+    {
+      "id": "picture.long-stillness",
+      "status": "PASS",
+      "detail": "No unintended frozen picture (>8s)"
+    },
+    {
+      "id": "layout.text",
+      "status": "PASS",
+      "detail": "No clipped, undersized or overlapping text held on screen (1 momentary mid-animation contacts ignored)",
+      "data": {
+        "persistent": [],
+        "transient": [
+          "text-overlap: Timing comes from the narration, ⟷ not from a guess. @4.57s (24 consecutive frames)"
+        ]
+      }
+    },
+    {
+      "id": "subtitles.srt",
+      "status": "INFO",
+      "detail": "No SRT for this lesson"
+    }
+  ],
+  "frames": [
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/00_0.00s.jpg",
+      "t": 0,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/01_0.25s.jpg",
+      "t": 0.25,
+      "why": "s01 transition-in"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/02_4.20s.jpg",
+      "t": 4.2,
+      "why": "s01 settled"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/03_4.75s.jpg",
+      "t": 4.75,
+      "why": "s02 transition-in"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/04_8.42s.jpg",
+      "t": 8.42,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/05_9.70s.jpg",
+      "t": 9.7,
+      "why": "s02 settled"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/06_10.25s.jpg",
+      "t": 10.25,
+      "why": "s03 transition-in"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/07_11.57s.jpg",
+      "t": 11.57,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/08_13.17s.jpg",
+      "t": 13.17,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/09_17.70s.jpg",
+      "t": 17.7,
+      "why": "s03 settled"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/10_18.25s.jpg",
+      "t": 18.25,
+      "why": "s04 transition-in"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/11_21.31s.jpg",
+      "t": 21.31,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/12_23.70s.jpg",
+      "t": 23.7,
+      "why": "s04 settled"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/13_24.25s.jpg",
+      "t": 24.25,
+      "why": "s05 transition-in"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/14_29.17s.jpg",
+      "t": 29.17,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/15_29.70s.jpg",
+      "t": 29.7,
+      "why": "s05 settled"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/16_30.08s.jpg",
+      "t": 30.08,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/17_30.25s.jpg",
+      "t": 30.25,
+      "why": "s06 transition-in"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/18_34.20s.jpg",
+      "t": 34.2,
+      "why": "s06 settled"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/19_34.75s.jpg",
+      "t": 34.75,
+      "why": "s07 transition-in"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/20_36.83s.jpg",
+      "t": 36.83,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/test-001/test-001_landscape_v003/frames/21_39.70s.jpg",
+      "t": 39.7,
+      "why": "s07 settled"
+    }
+  ],
+  "contactSheet": "quality-reports/test-001/test-001_landscape_v003/contact-sheet.jpg",
+  "creativeReview": {
+    "status": "PENDING",
+    "note": "Objective checks only. Creative/brand review is recorded separately and never inferred from these results."
+  }
+}
