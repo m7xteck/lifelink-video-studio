@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1, "lessonId": "test-002", "courseId": "_engine-tests", "title": "Audit render test",
+  "fps": 30, "width": 1920, "height": 1080, "durationSec": 20,
+  "audio": "audio/test-002.wav",
+  "watermark": "Audit test · placeholder graphics · not LifeLink brand",
+  "sections": [
+    { "id": "sec-a", "title": "First half", "startSec": 0, "endSec": 10 },
+    { "id": "sec-b", "title": "Second half", "startSec": 10, "endSec": 20 }
+  ],
+  "scenes": [
+    { "id": "s01", "sectionId": "sec-a", "type": "kineticStatement", "startSec": 0, "endSec": 4.5,
+      "props": { "lines": [ { "text": "A placeholder statement,", "at": 0.6 }, { "text": "centred this time.", "at": 1.8 } ], "emphasis": ["centred"], "align": "center", "scale": "hero" } },
+    { "id": "s02", "sectionId": "sec-a", "type": "stepsDiagram", "startSec": 4.5, "endSec": 10,
+      "props": { "heading": "Stacked layout test", "layout": "stack",
+                 "steps": [ { "label": "First item", "at": 5.2 }, { "label": "Second item", "at": 6.4 }, { "label": "Third item", "at": 7.6 } ] } },
+    { "id": "s03", "sectionId": "sec-b", "type": "comparison", "startSec": 10, "endSec": 15.5,
+      "props": { "left": { "title": "Column A", "points": ["Placeholder point"], "at": 10.5 },
+                 "right": { "title": "Column B", "points": ["Placeholder point"], "at": 11.5 }, "preferred": "none" } },
+    { "id": "s04", "sectionId": "sec-b", "type": "quietReflection", "startSec": 15.5, "endSec": 20,
+      "props": { "text": "End of audit test.", "at": 16.0 } }
+  ]
+}
