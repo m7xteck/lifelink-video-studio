@@ -33,7 +33,8 @@
       "portrait": true,
       "usedIn": [
         "_engine-tests/test-001",
-        "pipeline-test/pipeline-test-L01"
+        "pipeline-test/pipeline-test-L01",
+        "lifelink-course/lifelink-course-L01"
       ]
     },
     {
@@ -201,7 +202,7 @@
       "version": "1.0.0-proposal",
       "status": "PROPOSED (in L01 preview, awaiting client confirmation)",
       "purpose": "Equal, non-ranked phrases",
-      "character": "Ruled equal columns; superseded in L01 preview by ConvergingPaths",
+      "character": "Ruled equal columns (2\u20133 items in one row; 4 items in landscape as a 2x2 grid at h2). Used in L01 for s003 (text version, client preferred over ConvergingPaths) and s006",
       "brand": "LifeLink proposal 1.0",
       "portrait": "untested",
       "usedIn": [
@@ -227,14 +228,12 @@
       "type": "convergingPaths",
       "file": "src/components/brand/ConvergingPaths.tsx",
       "version": "1.0.0-proposal",
-      "status": "PROPOSED (in L01 preview, awaiting client confirmation)",
+      "status": "PROPOSED; withdrawn from L01 (client: 'looks cheap and extra with no meaning'); s003 reverted to parallelPhrases",
       "purpose": "Several kinds of people/starting points leading to one shared thing",
       "character": "Coloured paths from labelled starts join into one road to a doorway that opens and lights up",
       "brand": "LifeLink proposal 1.0",
       "portrait": "untested",
-      "usedIn": [
-        "lifelink-course/lifelink-course-L01"
-      ]
+      "usedIn": []
     },
     {
       "name": "FindingBecoming",

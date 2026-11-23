@@ -14,7 +14,13 @@
       "id": "sec-01-welcome",
       "title": "Welcome to LifeLink Marriage Academy",
       "startSec": 0,
-      "endSec": 40.7
+      "endSec": 39.9
+    },
+    {
+      "id": "sec-02-purpose",
+      "title": "The purpose of marriage",
+      "startSec": 39.9,
+      "endSec": 60.0
     }
   ],
   "scenes": [
@@ -64,7 +70,7 @@
     {
       "id": "s003",
       "sectionId": "sec-01-welcome",
-      "type": "convergingPaths",
+      "type": "parallelPhrases",
       "startSec": 16.4,
       "endSec": 29.0,
       "props": {
@@ -99,7 +105,7 @@
       "sectionId": "sec-01-welcome",
       "type": "findingBecoming",
       "startSec": 29.0,
-      "endSec": 40.7,
+      "endSec": 39.9,
       "props": {
         "kicker": {
           "text": "At LifeLink we believe",
@@ -129,6 +135,102 @@
         ],
         "findAt": 31.08,
         "becomeAt": 36.02
+      }
+    },
+    {
+      "id": "s005",
+      "sectionId": "sec-02-purpose",
+      "type": "kineticStatement",
+      "startSec": 39.9,
+      "endSec": 45.3,
+      "props": {
+        "lines": [
+          {
+            "text": "Marriage is not simply",
+            "at": 40.7
+          },
+          {
+            "text": "about finding someone",
+            "at": 41.68
+          },
+          {
+            "text": "who meets a list",
+            "at": 42.84
+          },
+          {
+            "text": "of expectations.",
+            "at": 43.72
+          }
+        ],
+        "emphasis": [],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "id": "s006",
+      "sectionId": "sec-02-purpose",
+      "type": "parallelPhrases",
+      "startSec": 45.3,
+      "endSec": 54.4,
+      "props": {
+        "kicker": {
+          "text": "It is about developing",
+          "at": 45.34
+        },
+        "items": [
+          {
+            "text": "Knowledge",
+            "at": 46.7
+          },
+          {
+            "text": "Emotional maturity",
+            "at": 47.66
+          },
+          {
+            "text": "Understanding",
+            "at": 49.4
+          },
+          {
+            "text": "Character",
+            "at": 50.46
+          }
+        ],
+        "closing": {
+          "lead": "needed to build",
+          "leadAt": 51.0,
+          "text": "a successful relationship.",
+          "at": 52.26
+        }
+      }
+    },
+    {
+      "id": "s007",
+      "sectionId": "sec-02-purpose",
+      "type": "kineticStatement",
+      "startSec": 54.4,
+      "endSec": 60.0,
+      "props": {
+        "kicker": {
+          "text": "In Islam",
+          "at": 54.88
+        },
+        "lines": [
+          {
+            "text": "Marriage, or nikah,",
+            "at": 56.24
+          },
+          {
+            "text": "is a sacred covenant.",
+            "at": 57.58
+          }
+        ],
+        "emphasis": [
+          "sacred",
+          "covenant"
+        ],
+        "align": "center",
+        "scale": "h1"
       }
     }
   ]

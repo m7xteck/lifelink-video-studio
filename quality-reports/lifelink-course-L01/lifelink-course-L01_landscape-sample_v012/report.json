@@ -1,0 +1,223 @@
+{
+  "lessonId": "lifelink-course-L01",
+  "video": "renders/lifelink-course-L01/landscape-sample/lifelink-course-L01_landscape-sample_v012.mp4",
+  "createdAt": "2026-11-23T22:23:53.427Z",
+  "result": "PASS",
+  "summary": "16 pass, 0 fail, 1 warn",
+  "checks": [
+    {
+      "id": "manifest.order",
+      "status": "PASS",
+      "detail": "Scenes are in narration order"
+    },
+    {
+      "id": "manifest.coverage",
+      "status": "PASS",
+      "detail": "Scenes cover the timeline without gaps",
+      "data": []
+    },
+    {
+      "id": "manifest.text-hold",
+      "status": "PASS",
+      "detail": "Every text cue stays on screen ≥ 1.5s",
+      "data": []
+    },
+    {
+      "id": "file.decode",
+      "status": "PASS",
+      "detail": "Full decode with no errors"
+    },
+    {
+      "id": "video.resolution",
+      "status": "PASS",
+      "detail": "1920×1080 (expected 1920×1080)"
+    },
+    {
+      "id": "video.codec",
+      "status": "PASS",
+      "detail": "h264 High yuv420p"
+    },
+    {
+      "id": "video.fps",
+      "status": "PASS",
+      "detail": "30.000 fps (expected 30)"
+    },
+    {
+      "id": "duration",
+      "status": "PASS",
+      "detail": "60.000s (expected 60.000s)"
+    },
+    {
+      "id": "audio.present",
+      "status": "PASS",
+      "detail": "aac 48000 Hz 2ch"
+    },
+    {
+      "id": "audio.duration",
+      "status": "PASS",
+      "detail": "audio 60.000s vs expected 60.000s"
+    },
+    {
+      "id": "audio.loudness",
+      "status": "WARN",
+      "detail": "Integrated -21.8 LUFS, true peak -1.5 dBFS (target −16 LUFS, ≤ −1 dBTP)"
+    },
+    {
+      "id": "audio.sync",
+      "status": "PASS",
+      "detail": "Narration offset vs original recording: 0 ms (correlation 0.9983); tolerance ±33.3 ms",
+      "data": {
+        "lag_ms": 0,
+        "peak_corr": 0.9983
+      }
+    },
+    {
+      "id": "picture.black-frames",
+      "status": "PASS",
+      "detail": "No unexpected black frames"
+    },
+    {
+      "id": "picture.flashes",
+      "status": "PASS",
+      "detail": "No frame-to-frame brightness jumps (max Δ 14.0 of 255)"
+    },
+    {
+      "id": "picture.long-stillness",
+      "status": "PASS",
+      "detail": "No unintended frozen picture (>8s)"
+    },
+    {
+      "id": "layout.text",
+      "status": "PASS",
+      "detail": "No clipped, undersized or overlapping text held on screen (1 momentary mid-animation contacts ignored)",
+      "data": {
+        "persistent": [],
+        "transient": [
+          "text-overlap: Marriage, or nikah, ⟷ is a sacred covenant. @56.27s (18 consecutive frames)"
+        ]
+      }
+    },
+    {
+      "id": "subtitles.srt",
+      "status": "PASS",
+      "detail": "525 cues; timing monotonic and within duration: true"
+    }
+  ],
+  "frames": [
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/00_0.00s.jpg",
+      "t": 0,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/01_0.25s.jpg",
+      "t": 0.25,
+      "why": "s001 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/02_7.30s.jpg",
+      "t": 7.3,
+      "why": "s001 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/03_7.85s.jpg",
+      "t": 7.85,
+      "why": "s002 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/04_12.63s.jpg",
+      "t": 12.63,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/05_16.10s.jpg",
+      "t": 16.1,
+      "why": "s002 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/06_16.65s.jpg",
+      "t": 16.65,
+      "why": "s003 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/07_17.35s.jpg",
+      "t": 17.35,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/08_19.76s.jpg",
+      "t": 19.76,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/09_28.70s.jpg",
+      "t": 28.7,
+      "why": "s003 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/10_29.25s.jpg",
+      "t": 29.25,
+      "why": "s004 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/11_31.96s.jpg",
+      "t": 31.96,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/12_40.40s.jpg",
+      "t": 40.4,
+      "why": "s004 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/13_40.95s.jpg",
+      "t": 40.95,
+      "why": "s005 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/14_43.76s.jpg",
+      "t": 43.76,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/15_45.00s.jpg",
+      "t": 45,
+      "why": "s005 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/16_45.12s.jpg",
+      "t": 45.12,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/17_45.55s.jpg",
+      "t": 45.55,
+      "why": "s006 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/18_54.10s.jpg",
+      "t": 54.1,
+      "why": "s006 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/19_54.65s.jpg",
+      "t": 54.65,
+      "why": "s007 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/20_55.25s.jpg",
+      "t": 55.25,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/frames/21_59.70s.jpg",
+      "t": 59.7,
+      "why": "s007 settled"
+    }
+  ],
+  "contactSheet": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape-sample_v012/contact-sheet.jpg",
+  "creativeReview": {
+    "status": "PENDING",
+    "note": "Objective checks only. Creative/brand review is recorded separately and never inferred from these results."
+  }
+}
