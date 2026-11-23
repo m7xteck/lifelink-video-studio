@@ -13,6 +13,9 @@ import { IntroductionPath } from "../components/brand/IntroductionPath";
 import { ReflectionField } from "../components/brand/ReflectionField";
 import { SummaryLedger } from "../components/brand/SummaryLedger";
 import { ParallelPhrases } from "../components/brand/ParallelPhrases";
+import { PathLandscape } from "../components/brand/PathLandscape";
+import { ConvergingPaths } from "../components/brand/ConvergingPaths";
+import { FindingBecoming } from "../components/brand/FindingBecoming";
 
 /** Maps a manifest scene "type" to its motion-library component. */
 export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
@@ -30,13 +33,16 @@ export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
     case "reflectionField": return <ReflectionField scene={scene} />;
     case "summaryLedger": return <SummaryLedger scene={scene} />;
     case "parallelPhrases": return <ParallelPhrases scene={scene} />;
+    case "pathLandscape": return <PathLandscape scene={scene} />;
+    case "convergingPaths": return <ConvergingPaths scene={scene} />;
+    case "findingBecoming": return <FindingBecoming scene={scene} />;
   }
 };
 
 /** The ground (background) colour each scene paints, so the backdrop between scenes can match it. */
 export const groundOf = (scene: Scene, palette: Record<string, string>, fallback: string): string => {
   switch (scene.type) {
-    case "courseIntro": case "summaryLedger": return palette.royal ?? fallback;
+    case "courseIntro": case "summaryLedger": case "pathLandscape": return palette.royal ?? fallback;
     case "reflectionField": return (scene.props.ground === "royal" ? palette.royal : palette.oxblood) ?? fallback;
     default: return fallback;
   }

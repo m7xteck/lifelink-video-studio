@@ -105,6 +105,22 @@ export const BrandSceneSchemas = [
     items: z.array(z.object({ text: z.string(), at: z.number() })).min(2).max(4),
     closing: z.object({ lead: z.string().optional(), leadAt: z.number().optional(), text: z.string(), at: z.number() }).optional(),
   }) }),
+  z.object({ ...Base, type: z.literal("pathLandscape"), props: z.object({
+    lines: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(3),
+    script: z.object({ text: z.string(), at: z.number() }).optional(),
+    firstStepAt: z.number(),
+  }) }),
+  z.object({ ...Base, type: z.literal("convergingPaths"), props: z.object({
+    kicker: z.object({ text: z.string(), at: z.number() }).optional(),
+    items: z.array(z.object({ text: z.string(), at: z.number() })).min(2).max(4),
+    closing: z.object({ lead: z.string().optional(), leadAt: z.number().optional(), text: z.string(), at: z.number() }).optional(),
+  }) }),
+  z.object({ ...Base, type: z.literal("findingBecoming"), props: z.object({
+    kicker: z.object({ text: z.string(), at: z.number() }).optional(),
+    lines: z.array(z.object({ text: z.string(), at: z.number() })).min(2).max(4),
+    emphasis: z.array(z.string()).default([]),
+    findAt: z.number(), becomeAt: z.number(),
+  }) }),
 ] as const;
 
 export const SceneSchema = z.discriminatedUnion("type", [...CoreSceneSchemas, ...BrandSceneSchemas]);

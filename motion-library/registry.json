@@ -193,6 +193,62 @@
       "usedIn": [
         "_brand-concepts/concepts-v1"
       ]
+    },
+    {
+      "name": "ParallelPhrases",
+      "type": "parallelPhrases",
+      "file": "src/components/brand/ParallelPhrases.tsx",
+      "version": "1.0.0-proposal",
+      "status": "PROPOSED (in L01 preview, awaiting client confirmation)",
+      "purpose": "Equal, non-ranked phrases",
+      "character": "Ruled equal columns; superseded in L01 preview by ConvergingPaths",
+      "brand": "LifeLink proposal 1.0",
+      "portrait": "untested",
+      "usedIn": [
+        "lifelink-course/lifelink-course-L01"
+      ]
+    },
+    {
+      "name": "PathLandscape",
+      "type": "pathLandscape",
+      "file": "src/components/brand/PathLandscape.tsx",
+      "version": "1.0.0-proposal",
+      "status": "PROPOSED (in L01 preview, awaiting client confirmation)",
+      "purpose": "Beginnings, journeys, 'first step' moments",
+      "character": "Paper-cut layered hills with parallax, path unrolling to a rising sun, stepping stones (first one glows on cue)",
+      "brand": "LifeLink proposal 1.0",
+      "portrait": "untested",
+      "usedIn": [
+        "lifelink-course/lifelink-course-L01"
+      ]
+    },
+    {
+      "name": "ConvergingPaths",
+      "type": "convergingPaths",
+      "file": "src/components/brand/ConvergingPaths.tsx",
+      "version": "1.0.0-proposal",
+      "status": "PROPOSED (in L01 preview, awaiting client confirmation)",
+      "purpose": "Several kinds of people/starting points leading to one shared thing",
+      "character": "Coloured paths from labelled starts join into one road to a doorway that opens and lights up",
+      "brand": "LifeLink proposal 1.0",
+      "portrait": "untested",
+      "usedIn": [
+        "lifelink-course/lifelink-course-L01"
+      ]
+    },
+    {
+      "name": "FindingBecoming",
+      "type": "findingBecoming",
+      "file": "src/components/brand/FindingBecoming.tsx",
+      "version": "1.0.0-proposal",
+      "status": "PROPOSED (in L01 preview, awaiting client confirmation)",
+      "purpose": "Contrast between searching outward and growing inward",
+      "character": "Compass needle searches; seedling grows in a pot; compass recedes",
+      "brand": "LifeLink proposal 1.0",
+      "portrait": "untested",
+      "usedIn": [
+        "lifelink-course/lifelink-course-L01"
+      ]
     }
   ],
   "primitives": [
@@ -211,7 +267,11 @@
     "LinkRings",
     "BlindEmboss",
     "Rule",
-    "BrandLabel"
+    "BrandLabel",
+    "Layer (paper-cut shape)",
+    "Ink (self-drawing line)",
+    "PaperDefs (depth shadows)",
+    "GroundBackdrop (colour-matched hand-offs)"
   ],
   "plannedGaps": [
     "Branded intro sting",

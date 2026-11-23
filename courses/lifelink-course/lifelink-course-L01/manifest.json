@@ -35,11 +35,10 @@
     {
       "id": "s002",
       "sectionId": "sec-01-welcome",
-      "type": "reflectionField",
+      "type": "pathLandscape",
       "startSec": 7.6,
       "endSec": 16.4,
       "props": {
-        "ground": "royal",
         "lines": [
           {
             "text": "This important first step",
@@ -53,13 +52,14 @@
         "script": {
           "text": "relationships of your life.",
           "at": 13.86
-        }
+        },
+        "firstStepAt": 9.9
       }
     },
     {
       "id": "s003",
       "sectionId": "sec-01-welcome",
-      "type": "parallelPhrases",
+      "type": "convergingPaths",
       "startSec": 16.4,
       "endSec": 29.0,
       "props": {
@@ -92,7 +92,7 @@
     {
       "id": "s004",
       "sectionId": "sec-01-welcome",
-      "type": "kineticStatement",
+      "type": "findingBecoming",
       "startSec": 29.0,
       "endSec": 40.7,
       "props": {
@@ -122,8 +122,8 @@
           "Becoming",
           "equally"
         ],
-        "align": "left",
-        "scale": "h1"
+        "findAt": 31.08,
+        "becomeAt": 36.02
       }
     }
   ]

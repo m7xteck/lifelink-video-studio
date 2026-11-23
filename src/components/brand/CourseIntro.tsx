@@ -24,6 +24,8 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
   // Short, eased travel + fade: never a long fast slide (judders at 30 fps). See motion rule in design system.
   const card = useProgress(at + 0.8, 1.8, ease.settle);
   const cardFade = useProgress(at + 0.8, 0.8, ease.settle);
+  const envIn = useProgress(at + 1.3, 1.4, ease.settle);
+  const penIn = useProgress(at + 2.2, 1.4, ease.settle);
 
   const cardW = L.portrait ? L.innerW : L.width * 0.47;
   const cardH = L.portrait ? L.height * 0.42 : L.height * 0.54;
@@ -47,6 +49,17 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
         )}
       </BlindEmboss>
 
+      {/* stationery elements: an envelope tucked behind the card */}
+      <div style={{
+        position: "absolute", left: cardX - 70 * L.u, top: cardY + cardH * 0.56, width: cardW * 0.56, height: cardH * 0.54,
+        transform: `translate(${(1 - envIn) * 50 * L.u}px, ${(1 - envIn) * 20 * L.u}px) rotate(-8deg)`, opacity: envIn,
+        background: D.paperShade, borderRadius: 4 * L.u, boxShadow: `0 ${18 * L.u}px ${40 * L.u}px rgba(10,20,60,0.35)`, overflow: "hidden",
+      }}>
+        <svg width="100%" height="100%" viewBox="0 0 100 60" preserveAspectRatio="none" style={{ position: "absolute", inset: 0 }}>
+          <path d="M0,0 L50,34 L100,0" fill="none" stroke={D.oxbloodMuted} strokeWidth={0.5} opacity={0.6} />
+          <path d="M0,60 L38,26 M100,60 L62,26" fill="none" stroke={D.oxbloodMuted} strokeWidth={0.35} opacity={0.4} />
+        </svg>
+      </div>
       {/* the index card */}
       <div style={{
         position: "absolute", left: cardX, top: cardY, width: cardW, height: cardH,
@@ -74,6 +87,25 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
           </div>
         </div>
       </div>
+      {/* a fountain pen resting across the card's corner */}
+      <svg width={L.width} height={L.height} style={{ position: "absolute", inset: 0, overflow: "visible", opacity: penIn }}>
+        <defs><filter id={`pen-sh-${scene.id}`} x="-20%" y="-50%" width="140%" height="300%"><feDropShadow dx="0" dy={10 * L.u} stdDeviation={8 * L.u} floodColor="#0a1440" floodOpacity="0.4" /></filter></defs>
+        <g transform={`translate(${cardX + cardW * 0.58 + (1 - penIn) * 60 * L.u} ${cardY + cardH + 46 * L.u - hold * 14 * L.u}) rotate(-24)`} filter={`url(#pen-sh-${scene.id})`}>
+          {/* barrel */}
+          <rect x={0} y={-13 * L.u} width={250 * L.u} height={26 * L.u} rx={13 * L.u} fill={P.oxblood} />
+          {/* cap band + cap */}
+          <rect x={250 * L.u} y={-14 * L.u} width={10 * L.u} height={28 * L.u} fill={P.rose} />
+          <rect x={260 * L.u} y={-14 * L.u} width={150 * L.u} height={28 * L.u} rx={14 * L.u} fill={D.oxbloodDeep} />
+          {/* clip */}
+          <rect x={290 * L.u} y={-19 * L.u} width={100 * L.u} height={6 * L.u} rx={3 * L.u} fill={P.rose} />
+          {/* grip + nib */}
+          <path d={`M0,${-11 * L.u} L${-40 * L.u},${-8 * L.u} L${-40 * L.u},${8 * L.u} L0,${11 * L.u} Z`} fill={D.royalDeep} />
+          <path d={`M${-40 * L.u},${-8 * L.u} L${-92 * L.u},0 L${-40 * L.u},${8 * L.u} Z`} fill={P.paper} />
+          <path d={`M${-44 * L.u},0 L${-86 * L.u},0`} stroke={D.oxbloodMuted} strokeWidth={1.2 * L.u} />
+          {/* highlight */}
+          <rect x={14 * L.u} y={-9 * L.u} width={220 * L.u} height={3 * L.u} rx={1.5 * L.u} fill="#ffffff" opacity={0.18} />
+        </g>
+      </svg>
     </AbsoluteFill>
   );
 };

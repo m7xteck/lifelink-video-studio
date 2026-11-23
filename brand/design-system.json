@@ -25,7 +25,11 @@
     "oxbloodDeep": "#360002",
     "royalDeep": "#2A4B97",
     "oxbloodMuted": "#7D4A4B",
-    "hairline": "#D3C8B6"
+    "hairline": "#D3C8B6",
+    "skyTint": "#C8D7E8",
+    "hillFar": "#7EA0D6",
+    "hillMid": "#5778C6",
+    "$illustration": "skyTint/hillFar/hillMid: tints between royal and sky for paper-cut landscape depth (derived, need approval)"
   },
   "colors": {
     "$comment": "Semantic roles used by components. Values reference palette/derived above.",
@@ -189,7 +193,8 @@
     "blindEmboss": "Wordmark or type pressed into card stock, revealed by a raking light. PROPOSED.",
     "rejected": [
       "Two-ring motif (v1.0.0-proposal.1): read as wedding bands in independent review; removed before client presentation"
-    ]
+    ],
+    "paperCut": "Layered cut-paper illustrations in palette colours with soft shadows; ink lines that draw themselves. PROPOSED (client asked for more pictorial content, 2026-11-23)."
   },
   "imagery": {
     "rules": [
