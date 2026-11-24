@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "status": "APPROVED",
   "statusNote": "LifeLink brand PROPOSAL for client review. Colour codes sampled from a screenshot, fonts awaiting licence confirmation, logo artwork not supplied. Every render carries a watermark until status is APPROVED.",
-  "approvedBy": {
-    "client": "LifeLink",
-    "date": "2026-11-24",
-    "how": "Client chose 'Lock it (Recommended)' after approving fonts (licensed), exact colours, tints and logo; see production-memory/decisions.md"
-  },
+  "approvedBy": "LifeLink client, 2026-11-24: chose 'Lock it' after approving licensed fonts, exact colours, tints and logo (production-memory/decisions.md)",
   "approvedAt": null,
   "sources": [
     "brand/intake/BRAND_INTAKE.md",
