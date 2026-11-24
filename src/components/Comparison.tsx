@@ -37,7 +37,11 @@ export const Comparison: React.FC<{ scene: SceneOf<"comparison"> }> = ({ scene }
   // both sheets are laid at the start (the spread is balanced from the first frame; no empty half while the
   // first side is discussed); each heading, rule and point still waits for its own spoken cue
   const laidAt = Math.min(left.at, right.at) - 0.55;
-  const common = { script, ptSize, rows: maxPts, preferred, focus, titleLines, laidAt };
+  // the side whose heading comes later is laid as a ghost (~25 %) that reads as "to come", and becomes solid on its
+  // heading cue (v004 review: an empty full-strength card for 4–11 s while the first side was discussed)
+  const later: "left" | "right" | null = Math.abs(right.at - left.at) >= 1 ? (right.at > left.at ? "right" : "left") : null;
+  const laterAt = later === "right" ? right.at : left.at;
+  const common = { script, ptSize, rows: maxPts, preferred, focus, titleLines, laidAt, later, laterAt };
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <PaperGround color={P.paper} deep={D.paperShade} seed={53} />
@@ -53,10 +57,12 @@ export const Comparison: React.FC<{ scene: SceneOf<"comparison"> }> = ({ scene }
 
 const Sheet: React.FC<{
   side: "left" | "right"; data: Side; pts: Pt[]; seed: number; script: boolean; ptSize: number; rows: number;
-  preferred: "left" | "right" | "none"; focus: number; titleLines: number; laidAt: number;
-}> = ({ side, data, pts, seed, script, ptSize, rows, preferred, focus, titleLines, laidAt }) => {
+  preferred: "left" | "right" | "none"; focus: number; titleLines: number; laidAt: number; later: "left" | "right" | null; laterAt: number;
+}> = ({ side, data, pts, seed, script, ptSize, rows, preferred, focus, titleLines, laidAt, later, laterAt }) => {
   const L = useLayout();
   const lift = useProgress(laidAt + (side === "right" ? 0.3 : 0), 1.2, ease.settle);
+  const solid = useProgress(laterAt - 0.35, 0.8, ease.settle);
+  const ghost = later === side ? GHOST + (1 - GHOST) * solid : 1;
   const rule = useProgress(data.at + 0.15, 1.1, ease.settle);
   const isPref = preferred === side, isOther = preferred !== "none" && !isPref;
   const depth = 0.55 + (isPref ? 0.45 * focus : 0) - (isOther ? 0.35 * focus : 0);
@@ -68,7 +74,7 @@ const Sheet: React.FC<{
   const rowH = ptSize * 1.25 * (rows <= 2 ? 2 : 1) + 30 * L.u; // single/double points may wrap to two lines
   const shadow = `0 ${(2 + depth * 8).toFixed(1)}px ${(4 + depth * 20).toFixed(1)}px rgba(26,10,10,${(0.05 + depth * 0.11).toFixed(3)}), 0 1px 1px rgba(26,10,10,0.07)`;
   return (
-    <div style={{ flex: 1, position: "relative", transform: `translateY(${((1 - lift) * 40 - (isPref ? 6 * focus : 0)).toFixed(1)}px)`, opacity: Math.min(1, lift * 5) }}>
+    <div style={{ flex: 1, position: "relative", transform: `translateY(${((1 - lift) * 40 - (isPref ? 6 * focus : 0)).toFixed(1)}px)`, opacity: Math.min(1, lift * 5) * ghost }}>
       {/* under-sheet: a darker layer just visible below, so the spread reads as stacked paper */}
       <div style={{ position: "absolute", left: 10 * L.u, right: -8 * L.u, top: 12 * L.u, bottom: -12 * L.u, background: D.paperShade, borderRadius: 3, boxShadow: "0 2px 6px rgba(26,10,10,0.08)" }} />
       <div style={{ position: "relative", height: "100%", borderRadius: 3, overflow: "hidden", boxShadow: shadow }}>
@@ -124,6 +130,8 @@ const Rise: React.FC<{ at: number; rise: number; children: React.ReactNode }> = 
   const p = useProgress(at, 1.0, ease.settle);
   return <div style={{ opacity: p < 0.02 ? 0 : Math.min(1, p * 1.5), transform: `translateY(${((1 - p) * rise).toFixed(1)}px)` }}>{children}</div>;
 };
+
+const GHOST = 0.25;
 
 const mix = (a: string, b: string, k: number) => {
   const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16)), pb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));

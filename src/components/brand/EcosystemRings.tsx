@@ -59,6 +59,14 @@ const anchorX = (cx: number, i: number, y: number) => {
   return (outer.left + (inner.ok ? inner.left : outer.left + 2 * BAND)) / 2;
 };
 
+/** The centre word appears only at the centre (v004 review: "faith" twice): a ring named "faith and character" around a
+ *  "faith" centre is labelled "character" — the part of the spoken phrase that is new at that ring. */
+const withoutCentre = (label: string, centre: string) => {
+  const parts = label.split(/\s+(?:and|&)\s+/i);
+  const kept = parts.filter((p) => p.trim().toLowerCase() !== centre.trim().toLowerCase());
+  return kept.length && kept.length < parts.length ? kept.join(" and ") : label;
+};
+
 export const EcosystemRings: React.FC<{ scene: SceneOf<"ecosystemRings"> }> = ({ scene }) => {
   const { centre, rings, focus } = scene.props;
   const L = useLayout();
@@ -127,7 +135,7 @@ export const EcosystemRings: React.FC<{ scene: SceneOf<"ecosystemRings"> }> = ({
         <CentreWord id={`${id}-cw`} text={centre.label} at={centre.labelAt ?? centre.at + 0.4} cx={c0.x} hasSub={!!centre.sub} />
         {/* names + leader rules (on top of every sheet) */}
         {rings.map((r, i) => (
-          <RingLabel key={i} cx={CX} i={i} at={r.at} label={r.label} labelX={labelX} weight={w[i]} lift={lift[i]} />
+          <RingLabel key={i} cx={CX} i={i} at={r.at} label={withoutCentre(r.label, centre.label)} labelX={labelX} weight={w[i]} lift={lift[i]} />
         ))}
       </svg>
       <TextureGate />
@@ -138,7 +146,7 @@ export const EcosystemRings: React.FC<{ scene: SceneOf<"ecosystemRings"> }> = ({
             interpolate(t, [r.at, r.at + 0.6], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
             next ? interpolate(t, [next.at - 0.5, next.at], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1);
         if (show <= 0) return null;
-        return <Notes key={i} label={r.label} notes={r.notes ?? []} opacity={show} color={FILLS[i % FILLS.length]} u={L.width / 1920} left={centreOf(880, rings.length - 1).x + radius(rings.length - 1) + 70} />;
+        return <Notes key={i} label={withoutCentre(r.label, centre.label)} notes={r.notes ?? []} opacity={show} color={FILLS[i % FILLS.length]} u={L.width / 1920} left={centreOf(880, rings.length - 1).x + radius(rings.length - 1) + 70} />;
       })}
     </AbsoluteFill>
   );

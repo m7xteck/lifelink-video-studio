@@ -49,14 +49,21 @@ export const MythTruth: React.FC<{ scene: SceneOf<"mythTruth"> }> = ({ scene }) 
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const t = useNarrationTime();
   const slip = useProgress(myth.at - 0.25, 1.2, ease.settle);
-  const stamp = useProgress(myth.at + 0.5, 0.45, ease.settle);
+  const stamp = useProgress(Math.min(myth.at + 0.5, tearAt - 0.5), 0.45, ease.settle);
   // rip: the tear runs down the slip (0.5 s) · part: the halves lift, separate and drop away
   const rip = useProgress(tearAt, 0.5, ease.settle);
   const part = useProgress(tearAt + 0.3, 1.5, ease.settle);
   const fade = interpolate(part, [0.35, 0.9], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const ripping = t >= tearAt;
-  const mythSize = fitLines(myth.text, [66, 60, 54, 48], W - PAD * 2, 2);
-  const truthSize = fitLines(truth.text, [60, 54, 48, 44], W - PAD * 2, notes.length ? 2 : 3);
+  // every myth fits its slip and every truth its sheet (short myths cued close to the tear, long truths with notes):
+  // two lines at the larger sizes, else three lines at a size that still clears the notes row
+  const fits = (text: string, sizes: number[], lines: number) => sizes.find((z) => Math.ceil((text.length * 0.56 * z) / ((W - PAD * 2) * 0.86)) <= lines);
+  const mythSize = fits(myth.text, [66, 60, 54, 48], 2) ?? fits(myth.text, [48, 44], 3) ?? 40;
+  const truthSize = notes.length
+    ? fits(truth.text, [60, 54, 48], 2) ?? fits(truth.text, [44], 3) ?? 40
+    : fitLines(truth.text, [60, 54, 48, 44], W - PAD * 2, 3);
+  // the myth is fully written before the tear, however close the correcting phrase follows ("is that …" → "however")
+  const mythInk = Math.max(0.6, Math.min(inkDur(myth.text) + 0.3, tearAt - myth.at - 0.15));
   const noteChars = notes.reduce((s, n) => s + n.text.length, 0);
   const noteSize = Math.max(26, Math.min(36, Math.floor((W - PAD * 2 - (notes.length - 1) * 70) / Math.max(1, noteChars * 0.56))));
   const labelAt = tearAt + 1.2; // once the halves have cleared
@@ -69,7 +76,7 @@ export const MythTruth: React.FC<{ scene: SceneOf<"mythTruth"> }> = ({ scene }) 
         opacity: stamp > 0 ? Math.min(1, stamp * 3) * 0.92 : 0, transform: `scale(${(1.1 - 0.1 * stamp).toFixed(4)})`, transformOrigin: "left center" }}>
         <span style={tracked(26, P.rose)}><span data-qa-text="">Myth</span></span>
       </div>
-      <Ink at={myth.at} dur={inkDur(myth.text) + 0.3} style={{ position: "absolute", left: PAD, top: 142, width: W - PAD * 2 }}>
+      <Ink at={myth.at} dur={mythInk} style={{ position: "absolute", left: PAD, top: 142, width: W - PAD * 2 }}>
         <div data-qa-text="" data-qa-overlap-ok="" style={txt(mythSize, P.oxblood)}>{myth.text}</div>
       </Ink>
     </div>

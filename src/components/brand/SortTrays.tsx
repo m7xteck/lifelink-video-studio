@@ -4,7 +4,7 @@ import { brand, ease, fonts } from "../../brand/tokens";
 import { useLayout } from "../../motion/layout";
 import { useNarrationTime, useProgress, useSceneEnvelope } from "../../motion/time";
 import { PaperDefs } from "../../illustrations/paper";
-import { focusWeights } from "../../motion/focus";
+import { DIM, focusWeights, type Focus } from "../../motion/focus";
 import type { SceneOf } from "../../schema/manifest";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
@@ -21,6 +21,23 @@ const TAB_H = 66;
 const CARD_H = 84, CARD_GAP = 12, CARD_BOTTOM = 846, LIP_TOP = 834, LIP_BOT = 900;
 const DROP = 110;
 const COLORS = [P.royal, P.rose, D.oxbloodMuted];
+
+/** Calm focus (v004 review: ~8 toggles in 60 s, some on single words): a focus step that would be held < MIN_HOLD
+ *  before the next one is skipped, repeats are merged, and the other tray only softens (to ~60 %) instead of 35 %. */
+const MIN_HOLD = 2.0, SOFT_DIM = 0.6;
+const calmFocus = (focus: Focus): Focus => {
+  if (!Array.isArray(focus)) return focus;
+  const steps = [...focus].sort((a, b) => a.at - b.at);
+  const kept: { index: number | null; at: number }[] = [];
+  steps.forEach((s, i) => {
+    const next = steps[i + 1];
+    if (next && next.at - s.at < MIN_HOLD) return;
+    if (kept.length && kept[kept.length - 1].index === s.index) return;
+    kept.push(s);
+  });
+  return kept;
+};
+const soften = (w: number) => SOFT_DIM + ((w - DIM) / (1 - DIM)) * (1 - SOFT_DIM);
 
 const geom = (n: number) => (n >= 3 ? { w: 520, cx: [380, 960, 1540] } : { w: 660, cx: [570, 1350] });
 
@@ -50,7 +67,7 @@ export const SortTrays: React.FC<{ scene: SceneOf<"sortTrays"> }> = ({ scene }) 
   const id = `st-${scene.id}`;
   const n = Math.min(3, trays.length);
   const g = geom(n);
-  const w = focusWeights(n, focus, t);
+  const w = focusWeights(n, calmFocus(focus), t).map(soften);
   // a third tray that arrives mid-scene: the pair sits nearer centre until then, and the set eases left (≤160 px) to make room on its cue
   const k3 = useProgress(n >= 3 ? trays[2].at : -1e6, 1.2, ease.settle);
   const shiftX = n >= 3 ? Math.round(160 * (1 - k3) * 100) / 100 : 0;

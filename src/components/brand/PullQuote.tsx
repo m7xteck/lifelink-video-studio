@@ -1,9 +1,9 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { brand, ease, fonts, textStyle } from "../../brand/tokens";
-import { InkWipe, PaperGround } from "../../motion/brand";
+import { InkWipe, PaperGround, Rule } from "../../motion/brand";
 import { useLayout } from "../../motion/layout";
-import { useProgress, useSceneEnvelope } from "../../motion/time";
+import { useLeadIn, useProgress, useSceneEnvelope } from "../../motion/time";
 import { PaperDefs } from "../../illustrations/paper";
 import type { SceneOf } from "../../schema/manifest";
 
@@ -16,11 +16,13 @@ const norm = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}'’-]/gu, "");
  * left→right with an ink wipe as it is spoken. Key words take the royal ink. No kicker, no rule.
  */
 export const PullQuote: React.FC<{ scene: SceneOf<"pullQuote"> }> = ({ scene }) => {
+  if (scene.props.variant === "scripture") return <ScriptureQuote scene={scene} />;
   const { lines, emphasis, attribution } = scene.props;
   const L = useLayout();
   const env = useSceneEnvelope();
   const id = `pq-${scene.id}`;
-  const markAt = lines[0].at - 0.55;
+  // the quote mark is the first element: it lands with the narrator's first words, never after a blank second
+  const markAt = useLeadIn(scene, lines[0].at - 0.55);
   const emph = new Set(emphasis.flatMap((e) => e.split(/\s+/)).map(norm));
   const textLeft = L.portrait ? L.safeX : L.safeX + 330 * L.u;
   const textW = L.width - textLeft - L.safeX;
@@ -78,4 +80,64 @@ const QuoteMark: React.FC<{ id: string; cx: number; cy: number; r: number; at: n
     `A ${R} ${R} 0 0 1 ${cx + R} ${cy} Z`,
   ].join(" ");
   return <path d={d} fill={fill} filter={`url(#${id}-shadow-2)`} opacity={Math.min(1, p * 4)} transform={`translate(0 ${((1 - p) * 36).toFixed(2)})`} />;
+};
+
+/**
+ * "Scripture" (v004 review): Qur'an and hadith get their own restrained treatment, visibly distinct from the narrator's
+ * pull quotes. Centred, generous space, no decorative quote marks, no colour emphasis: each line comes softly into focus
+ * as it is spoken; a fine royal rule draws beneath; the attribution sits under it in the text face.
+ * `attributionFirst`: the attribution is set ABOVE the rule and text and enters on its own cue (e.g. on "Prophet
+ * Muhammad"), so the honorific is visible as it is spoken; the text then surfaces beneath it.
+ */
+const ScriptureQuote: React.FC<{ scene: SceneOf<"pullQuote"> }> = ({ scene }) => {
+  const { lines, attribution, attributionFirst } = scene.props;
+  const L = useLayout();
+  const env = useSceneEnvelope();
+  const first = !!attribution && !!attributionFirst;
+  const firstAt = first ? Math.min(attribution!.at, lines[0].at) : lines[0].at;
+  const lead = useLeadIn(scene, firstAt);
+  const line0At = first ? lines[0].at : lead;
+  const attrAt = attribution ? (first ? Math.min(attribution.at, lead) : attribution.at) : scene.endSec + 99;
+  const maxW = L.portrait ? L.innerW : L.innerW * 0.84;
+  const longest = Math.max(...lines.map((l) => l.text.length));
+  const fs = Math.round(Math.min(L.size("h2"), maxW / (longest * 0.55)));
+  const ruleW = 120 * L.u;
+  const ruleAt = first ? attrAt + 0.5 : Math.min(attrAt, (lines[lines.length - 1]?.at ?? line0At) + 0.8);
+  const attr = attribution && <ScriptureAttribution text={attribution.text} at={attrAt} />;
+  const rule = <div style={{ display: "flex", justifyContent: "center", margin: `${Math.round(40 * L.u)}px 0` }}><Rule at={ruleAt} length={ruleW} color={P.royal} thickness={1.5} dur={1.2} /></div>;
+  return (
+    <AbsoluteFill style={{ opacity: env.opacity }}>
+      <PaperGround color={P.paper} deep={D.paperShade} seed={29} />
+      <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: `${L.safeY * 1.3}px ${L.safeX * 1.4}px` }}>
+        <div style={{ maxWidth: maxW, textAlign: "center", marginTop: -20 * L.u }}>
+          {first && attr}
+          {first && rule}
+          {lines.map((ln, i) => <ScriptureLine key={i} text={ln.text} at={i === 0 ? line0At : ln.at} size={fs} />)}
+          {!first && attribution && rule}
+          {!first && attr}
+        </div>
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+const ScriptureLine: React.FC<{ text: string; at: number; size: number }> = ({ text, at, size }) => {
+  const p = useProgress(at - 0.1, 1.1, ease.settle);
+  return (
+    <div data-qa-text="" style={{
+      fontFamily: fonts.text, fontSize: size, lineHeight: 1.36, color: P.oxblood, wordSpacing: textStyle.wordSpacing, whiteSpace: "nowrap",
+      opacity: p, filter: p < 1 ? `blur(${((1 - p) * 5).toFixed(2)}px)` : undefined, transform: `translateY(${((1 - p) * 8).toFixed(1)}px)`,
+    }}>{text}</div>
+  );
+};
+
+const ScriptureAttribution: React.FC<{ text: string; at: number }> = ({ text, at }) => {
+  const L = useLayout();
+  const p = useProgress(at - 0.1, 1.0, ease.settle);
+  return (
+    <div data-qa-text="" style={{
+      fontFamily: fonts.text, fontSize: L.size("body"), lineHeight: 1.35, color: D.oxbloodMuted, wordSpacing: textStyle.wordSpacing, letterSpacing: "0.02em",
+      opacity: p, filter: p < 1 ? `blur(${((1 - p) * 4).toFixed(2)}px)` : undefined,
+    }}>{text}</div>
+  );
 };

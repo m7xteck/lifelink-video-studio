@@ -66,6 +66,22 @@ const Char: React.FC<{ ch: string; at: number }> = ({ ch, at }) => {
   );
 };
 
+/**
+ * Script legibility guard (v004 review): LifeLink Script's x-height is ~60 % of the text face and its stroke is lighter, so a
+ * short word or a negation set in Script reads SMALLER and fainter than its neighbours, inverting the emphasis
+ * ("is not a healthy…"). Such words/phrases must fall back to the accent colour in LifeLink Text. True when `text` contains a
+ * negation, or is a single word of ≤ 3 letters.
+ */
+const NEGATIONS = new Set(["not", "never", "no", "nor", "none", "cannot", "can't", "don't", "doesn't", "isn't", "won't", "shouldn't", "mustn't"]);
+export const avoidScript = (text: string) => {
+  const ws = text.toLowerCase().replace(/’/g, "'").replace(/[^\p{L}\s'-]/gu, "").split(/\s+/).filter(Boolean);
+  if (!ws.length) return false;
+  if (ws.some((w) => NEGATIONS.has(w))) return true;
+  return ws.length === 1 && ws[0].replace(/['-]/g, "").length <= 3;
+};
+/** Where Script is kept for a content word inside a line of text, it is scaled so its x-height matches the line's. */
+export const SCRIPT_INLINE_EM = "1.3em";
+
 /** Script word/phrase, revealed with ink. Use for ≤ 4 words only (brand rule). */
 export const Script: React.FC<{ text: string; at: number; size: number; color: string; dur?: number; style?: React.CSSProperties; overlapOk?: boolean; knockout?: string }> = ({ text, at, size, color, dur, style, overlapOk, knockout }) => (
   <InkWipe at={at} dur={dur ?? Math.min(1.8, 0.6 + text.length * 0.07)} inline style={style}>

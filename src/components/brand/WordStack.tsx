@@ -3,7 +3,7 @@ import { AbsoluteFill } from "remotion";
 import { brand, ease, fonts, textStyle } from "../../brand/tokens";
 import { PaperGround } from "../../motion/brand";
 import { useLayout } from "../../motion/layout";
-import { useNarrationTime, useProgress, useSceneEnvelope } from "../../motion/time";
+import { useLeadIn, useNarrationTime, useProgress, useSceneEnvelope } from "../../motion/time";
 import type { SceneOf } from "../../schema/manifest";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
@@ -22,6 +22,10 @@ const TABS = [P.royal, P.sky, P.rose, D.royalDeep];
  * spoken a small cut-paper tab lands and the word slides out from behind it; the word being spoken
  * is in full ink, words already said settle to the muted ink so the eye follows the narration.
  * An optional plain lead-in sentence sits in its own column at the left. No kicker, no rule.
+ *
+ * Lead (v004 review: "small grey lead alone in a corner"): set larger than h3 and in full ink while it is the only thing
+ * being said, composed with the stack (never in a corner on its own); it settles to the muted ink as the first word lands.
+ * It enters with the narrator's first words. No item numerals (the narration gives no order); no container bar.
  */
 export const WordStack: React.FC<{ scene: SceneOf<"wordStack"> }> = ({ scene }) => {
   const L = useLayout();
@@ -49,7 +53,9 @@ const ColumnStack: React.FC<{ scene: SceneOf<"wordStack"> }> = ({ scene }) => {
   const tabW = 0.3; // em
   const fs = Math.round(Math.min(L.size("hero"), (L.height * 0.66) / (words.length * 1.2), stackW / ((longest + tabW / 0.56 + 1) * 0.56)));
   const current = words.reduce((c, w, i) => (t >= w.at ? i : c), -1);
-  const leadP = useProgress(lead?.at ?? 0, 1.1, ease.settle);
+  const leadAt = useLeadIn(scene, lead?.at ?? words[0].at);
+  const leadP = useProgress(leadAt, 1.1, ease.settle);
+  const leadMute = useProgress(words[0].at, 0.8, ease.settle);
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <PaperGround color={P.paper} deep={D.paperShade} seed={61} />
@@ -57,7 +63,7 @@ const ColumnStack: React.FC<{ scene: SceneOf<"wordStack"> }> = ({ scene }) => {
         <div data-qa-text="" style={{
           position: "absolute", left: L.safeX, width: twoCol ? leadW : L.innerW,
           ...(twoCol ? { top: "50%", transform: `translateY(-50%) translateY(${((1 - leadP) * 12).toFixed(1)}px)` } : { top: L.safeY + 20 * L.u, transform: `translateY(${((1 - leadP) * 12).toFixed(1)}px)` }),
-          fontFamily: fonts.text, fontSize: L.size("h3"), lineHeight: 1.3, color: D.oxbloodMuted, textWrap: "balance", wordSpacing: textStyle.wordSpacing, opacity: leadP,
+          fontFamily: fonts.text, fontSize: leadSize(L, lead.text), lineHeight: 1.25, color: mix(P.oxblood, D.oxbloodMuted, leadMute), textWrap: "balance", wordSpacing: textStyle.wordSpacing, opacity: leadP,
         }}>{lead.text}</div>
       )}
       <AbsoluteFill style={{ justifyContent: "center", paddingLeft: stackLeft, paddingRight: L.safeX, paddingTop: !twoCol && lead ? L.safeY : 0 }}>
@@ -129,12 +135,16 @@ const useCurrent = (words: { at: number }[]) => {
   return words.reduce((c, w, i) => (t >= w.at ? i : c), -1);
 };
 
-const Lead: React.FC<{ text: string; at: number; style?: React.CSSProperties }> = ({ text, at, style }) => {
+/** Lead size: h2 for a short lead, stepping down (never below ~1.2× h3) for a long sentence. */
+const leadSize = (L: ReturnType<typeof useLayout>, text: string) => Math.round(text.length <= 40 ? L.size("h2") : Math.max(L.size("h3") * 1.2, L.size("h2") * Math.sqrt(40 / text.length)));
+
+const Lead: React.FC<{ text: string; at: number; muteAt: number; style?: React.CSSProperties }> = ({ text, at, muteAt, style }) => {
   const L = useLayout();
   const p = useProgress(at, 1.1, ease.settle);
+  const m = useProgress(muteAt, 0.8, ease.settle);
   return (
     <div data-qa-text="" style={{
-      fontFamily: fonts.text, fontSize: L.size("h3"), lineHeight: 1.3, color: D.oxbloodMuted, textWrap: "balance", wordSpacing: textStyle.wordSpacing,
+      fontFamily: fonts.text, fontSize: leadSize(L, text), lineHeight: 1.25, color: mix(P.oxblood, D.oxbloodMuted, m), textWrap: "balance", wordSpacing: textStyle.wordSpacing,
       opacity: p, transform: `translateY(${((1 - p) * 12).toFixed(1)}px)`, ...style,
     }}>{text}</div>
   );
@@ -164,23 +174,24 @@ const RowStack: React.FC<{ scene: SceneOf<"wordStack"> }> = ({ scene }) => {
   const tabH = 12 * L.u;
   const bandH = tabH + 56 * L.u + rows * fs * 1.12 + 64 * L.u;
   const firstAt = words[0].at;
-  const bandP = useProgress(Math.min(firstAt - 0.9, (lead?.at ?? firstAt) + 0.4), 1.3, ease.settle);
+  const leadAt = useLeadIn(scene, lead?.at ?? firstAt);
+  const bandP = useProgress(Math.min(firstAt - 0.9, (lead ? leadAt : firstAt) + 0.4), 1.3, ease.settle);
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <PaperGround color={P.paper} deep={D.paperShade} seed={63} />
       <AbsoluteFill style={{ padding: `${L.safeY}px ${L.safeX}px`, justifyContent: "center" }}>
-        {lead && <Lead text={lead.text} at={lead.at} style={{ maxWidth: bandW * 0.72, marginBottom: 54 * L.u }} />}
+        {lead && <Lead text={lead.text} at={leadAt} muteAt={firstAt} style={{ maxWidth: bandW * 0.72, marginBottom: 54 * L.u }} />}
         <div style={{ position: "relative", height: bandH, transform: `translateY(${((1 - bandP) * 36).toFixed(1)}px)` }}>
-          {/* under-sheet: a second, darker layer peeking below the band */}
-          <div style={{ position: "absolute", left: 14 * L.u, right: -10 * L.u, top: 14 * L.u, bottom: -12 * L.u, background: D.paperShade, borderRadius: 3, opacity: Math.min(1, bandP * 5), boxShadow: SHADOW(bandP, 0.2) }} />
-          <Sheet seed={64} lift={0.6 * bandP} show={bandP} style={{ position: "absolute", inset: 0 }}>
+          {/* no container bar (it read as a UI tab bar): a fine ink rule draws across, the cells hang from it */}
+          <div style={{ position: "absolute", left: 0, top: 0, width: bandW * bandP, height: 1.5, background: D.oxbloodMuted, opacity: 0.55 }} />
+          <div style={{ position: "absolute", inset: 0 }}>
             <div style={{ display: "flex", height: bandH }}>
               {words.map((w, i) => (
                 <RowCell key={i} lines={lines[i]} at={w.at} size={fs} width={cellW} padX={padX} tabH={tabH} tab={TABS[i % TABS.length]}
                   mutedAt={words[i + 1]?.at ?? 1e9} active={current === i} rule={i > 0} bandH={bandH} />
               ))}
             </div>
-          </Sheet>
+          </div>
         </div>
       </AbsoluteFill>
     </AbsoluteFill>
@@ -234,7 +245,8 @@ const OffsetStack: React.FC<{ scene: SceneOf<"wordStack"> }> = ({ scene }) => {
   const n = words.length;
   const slipPadX = 0.42, edge = 10 * L.u; // em, px
   const em = (w: { text: string }) => w.text.length * 0.57 + slipPadX * 2.1;
-  const rowsH = L.innerH - (lead ? 190 * L.u : 0);
+  const leadAt = useLeadIn(scene, lead?.at ?? words[0].at);
+  const rowsH = L.innerH - (lead ? (leadSize(L, lead.text) * 1.25 * (lead.text.length > 40 ? 2 : 1) + 70 * L.u) : 0);
   const fs0 = Math.min(L.size("h1"), rowsH / (n * 1.62));
   // the cascade spans the frame: the widest step at which every slip still fits (so the last word reaches the
   // right-hand side), within an editorial range; if even the minimum step is too wide, the type steps down
@@ -247,7 +259,7 @@ const OffsetStack: React.FC<{ scene: SceneOf<"wordStack"> }> = ({ scene }) => {
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <PaperGround color={P.paper} deep={D.paperShade} seed={67} />
       <AbsoluteFill style={{ padding: `${L.safeY}px ${L.safeX}px`, justifyContent: "center" }}>
-        {lead && <Lead text={lead.text} at={lead.at} style={{ maxWidth: L.portrait ? L.innerW : L.innerW * 0.62, marginBottom: 46 * L.u }} />}
+        {lead && <Lead text={lead.text} at={leadAt} muteAt={words[0].at} style={{ maxWidth: L.portrait ? L.innerW : L.innerW * 0.7, marginBottom: 46 * L.u }} />}
         <div style={{ position: "relative", height: rowH * n }}>
           {words.map((w, i) => (
             <OffsetRow key={i} text={w.text} at={w.at} size={fs} top={rowH * i} rowH={rowH} left={step * (i + 1)} index={i}
@@ -276,10 +288,7 @@ const OffsetRow: React.FC<{ text: string; at: number; size: number; top: number;
   const mask = `linear-gradient(90deg, #000 ${e - 12}%, transparent ${e + 3}%)`;
   return (
     <>
-      {/* margin numeral + leader rule (ink), drawn left → right toward the slip */}
-      <div style={{ position: "absolute", left: 0, top: top + rowH / 2 - L.size("label") * 1.6, fontFamily: fonts.text, fontSize: L.size("label"), letterSpacing: "0.18em", color: D.oxbloodMuted, opacity: Math.min(1, ruleP * 2) * 0.9 }}>
-        {String(index + 1).padStart(2, "0")}
-      </div>
+      {/* leader rule (ink), drawn left → right toward the slip (no numerals: the narration gives no order) */}
       <div style={{ position: "absolute", left: 0, top: top + rowH / 2, width: ruleLen * ruleP, height: 1.5, background: D.oxbloodMuted, opacity: 0.5 }} />
       <div style={{ position: "absolute", left, top: y, transform: `translateY(${((1 - slipP) * 30).toFixed(1)}px)` }}>
         <Sheet seed={68 + index} lift={lift * slipP} show={slipP} style={{ height: slipH }}>

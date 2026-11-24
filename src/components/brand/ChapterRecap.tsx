@@ -5,6 +5,7 @@ import { SceneClock, useProgress, useSceneEnvelope } from "../../motion/time";
 import { SceneSchema, type Scene, type SceneOf } from "../../schema/manifest";
 import { SceneRenderer, groundOf } from "../../scenes/SceneRenderer";
 import { D, P, SHADOW_2, Stage, fit1, txt } from "./stage";
+import { PaperDefs } from "../../illustrations/paper";
 
 /*
  * Signature recap: a small, still thumbnail of the chapter's signature picture on a paper card + 1–3 key words.
@@ -96,7 +97,7 @@ export const ChapterRecap: React.FC<{ scene: SceneOf<"chapterRecap"> }> = ({ sce
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <Stage>
-        {items && items.length ? <Grid scene={scene} items={items} title={title} /> : (
+        {items && items.length ? (items.length <= 6 ? <Journey scene={scene} items={items} title={title} /> : <Grid scene={scene} items={items} title={title} />) : (
           <>
             {signature && <Card sig={signature} id={`${scene.id}-sig`} at={cardAt ?? scene.startSec} w={864} x={150} y={297} />}
             <div style={{ position: "absolute", left: signature ? 1130 : 300, top: 0, bottom: 0, width: signature ? 680 : 1320, display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -107,6 +108,70 @@ export const ChapterRecap: React.FC<{ scene: SceneOf<"chapterRecap"> }> = ({ sce
         )}
       </Stage>
     </AbsoluteFill>
+  );
+};
+
+/**
+ * Lesson-end recap (≤ 6 items): the lesson's signature images, LARGE, joined along one journey road (the lessonMap road
+ * vocabulary). The road runs left→right along the top row, turns down at the right and returns along the bottom row
+ * (a snake, so it never crosses itself); each stretch of road is laid just before its card, and the card lands on its cue
+ * (the spoken keyword), its label setting beneath. Earlier cards stay (the journey so far); settled frames are still.
+ */
+const Journey: React.FC<{ scene: SceneOf<"chapterRecap">; items: NonNullable<SceneOf<"chapterRecap">["props"]["items"]>; title?: { text: string; at: number } }> = ({ scene, items, title }) => {
+  const n = items.length;
+  const rows = n <= 3 ? 1 : 2;
+  const cols = Math.ceil(n / rows);
+  const gap = 110, labelH = 70, rowGap = 70;
+  const w = Math.floor(Math.min(n <= 2 ? 700 : 560, (1640 - (cols - 1) * gap) / cols));
+  const h = Math.round((w * 9) / 16);
+  const gridW = cols * w + (cols - 1) * gap;
+  const blockH = rows * (h + labelH) + (rows - 1) * rowGap;
+  const top = title ? 180 : 110;
+  const x0 = Math.round((1920 - gridW) / 2), y0 = Math.round(top + (1000 - top - blockH) / 2);
+  const pos = items.map((_, i) => {
+    const r = i < cols ? 0 : 1;
+    const c = r === 0 ? i : cols - 1 - (i - cols);
+    return { x: x0 + c * (w + gap), y: y0 + r * (h + labelH + rowGap) };
+  });
+  const ctr = pos.map((q) => ({ x: q.x + w / 2, y: q.y + h / 2 }));
+  // one stretch of road per card after the first: straight along a row, a rounded turn outside the right edge between rows
+  const segs = items.map((_, i) => {
+    if (i === 0) return null;
+    const a = ctr[i - 1], b = ctr[i];
+    if (Math.abs(a.y - b.y) < 1) return `M${a.x},${a.y} L${b.x},${b.y}`;
+    const xr = x0 + gridW, k = Math.min(56, 1824 - xr + 16);
+    return `M${a.x},${a.y} L${xr},${a.y} C${xr + k},${a.y} ${xr + k},${b.y} ${xr},${b.y} L${b.x},${b.y}`;
+  });
+  const labelSize = Math.max(32, Math.min(40, Math.round(w / 12)));
+  return (
+    <>
+      {title && <Heading text={title.text} at={title.at} size={46} style={{ position: "absolute", left: x0, top: 92 }} />}
+      <svg viewBox="0 0 1920 1080" width={1920} height={1080} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
+        <PaperDefs id={`${scene.id}-road`} />
+        {segs.map((d, i) => d && <RoadSegment key={i} id={`${scene.id}-road`} d={d} at={items[i].at - 0.75} />)}
+      </svg>
+      {items.map((it, i) => (
+        <React.Fragment key={i}>
+          <Card sig={it.signature} id={`${scene.id}-i${i}`} at={it.at} w={w} x={pos[i].x} y={pos[i].y} />
+          <GridLabel text={it.label} at={it.at + 0.35} x={pos[i].x - 30} y={pos[i].y + h + 22} w={w + 60} size={fit1(it.label, labelSize, w + 40)} />
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+
+/** A stretch of the journey road (paper band, light centre, fine dashed line) laid in the direction of travel. */
+const RoadSegment: React.FC<{ id: string; d: string; at: number }> = ({ id, d, at }) => {
+  const p = useProgress(at, 0.7, ease.settle);
+  if (p <= 0) return null;
+  const draw = { pathLength: 1, strokeDasharray: "1 1", strokeDashoffset: 1 - p } as const;
+  return (
+    <g>
+      <path d={d} stroke={D.paperShade} strokeWidth={34} fill="none" strokeLinecap="round" strokeLinejoin="round" filter={`url(#${id}-shadow-1)`} {...draw} />
+      <path d={d} stroke={D.paperLight} strokeWidth={20} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={0.6} {...draw} />
+      <mask id={`${id}-m-${at.toFixed(2).replace(".", "_")}`}><path d={d} stroke="#fff" strokeWidth={12} fill="none" {...draw} /></mask>
+      <path d={d} stroke={D.hairline} strokeWidth={3} fill="none" strokeDasharray="14 18" strokeLinecap="round" mask={`url(#${id}-m-${at.toFixed(2).replace(".", "_")})`} />
+    </g>
   );
 };
 

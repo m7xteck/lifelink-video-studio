@@ -29,12 +29,17 @@ const CoreSceneSchemas = [
       /** Closing card only: the client's logo as a still sign-off under the lines. `true` = horizontal logo shortly after
        *  the last line is spoken; or set the cue (`at`) and `variant` explicitly. Comes into focus in place, then holds. */
       signoffLogo: z.union([z.boolean(), z.object({ at: z.number().optional(), variant: z.enum(["horizontal", "stacked"]).default("horizontal") })]).optional(),
+      /** Optional: the scene's first spoken word (from the transcript). If the first element's cue is later, it enters here instead (no blank opening). */
+    leadAt: z.number().optional(),
     }),
   }),
   z.object({
     type: z.literal("quietReflection"),
     id: z.string(), sectionId: z.string(), startSec: z.number(), endSec: z.number(),
-    props: z.object({ text: z.string(), at: z.number().optional(), attribution: z.string().optional() }),
+    props: z.object({ text: z.string(), at: z.number().optional(), attribution: z.string().optional(),
+      /** Optional cue for the attribution; earlier than `at` = attribution first (e.g. on the Prophet's name, before the hadith). */
+      attributionAt: z.number().optional(),
+      leadAt: z.number().optional() }),
   }),
   z.object({
     type: z.literal("stepsDiagram"),
@@ -90,6 +95,8 @@ export const BrandSceneSchemas = [
     script: z.object({ text: z.string(), at: z.number() }),
     second: z.object({ text: z.string(), at: z.number() }),
     caption: z.object({ text: z.string(), at: z.number() }).optional(),
+    /** Optional: the scene's first spoken word (from the transcript). If the first element's cue is later, it enters here instead (no blank opening). */
+    leadAt: z.number().optional(),
   }) }),
   z.object({ ...Base, type: z.literal("introductionPath"), props: z.object({
     label: z.string().optional(), heading: z.string(),
@@ -101,6 +108,8 @@ export const BrandSceneSchemas = [
     script: z.object({ text: z.string(), at: z.number() }).optional(),
     after: z.array(z.object({ text: z.string(), at: z.number() })).max(2).optional(),
     ground: z.enum(["oxblood", "royal"]).default("oxblood"),
+    /** Optional: the scene's first spoken word (from the transcript). If the first element's cue is later, it enters here instead (no blank opening). */
+    leadAt: z.number().optional(),
   }) }),
   z.object({ ...Base, type: z.literal("summaryLedger"), props: z.object({
     heading: z.string().default("In summary"), sublabel: z.string().optional(),
@@ -134,19 +143,31 @@ export const BrandSceneSchemas = [
     lines: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(3),
     /** Key words (must sit inside one line, verbatim); a marker sweep draws behind them at `at`. */
     highlight: z.object({ text: z.string(), at: z.number() }),
+    /** Legacy: both values now render the same pale sky tint behind ink (the solid royal block was retired, v004 review). */
     tint: z.enum(["sky", "royal"]).default("sky"),
+    /** Optional: the scene's first spoken word (from the transcript). If the first element's cue is later, it enters here instead (no blank opening). */
+    leadAt: z.number().optional(),
   }) }),
   z.object({ ...Base, type: z.literal("pullQuote"), props: z.object({
     /** The narrator's sentence; the paper quote mark lands just before the first line. */
     lines: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(4),
     emphasis: z.array(z.string()).default([]),
     attribution: z.object({ text: z.string(), at: z.number() }).optional(),
+    /** "scripture": restrained treatment for Qur'an / hadith: centred, generous space, no quote marks, a fine rule, the
+     *  attribution in the text face beneath (e.g. "Qur'an 30:21 (translation of meaning)"). Default: the narrator's pull quote. */
+    variant: z.enum(["quote", "scripture"]).optional(),
+    /** Attribution before the text: it is set above the text and enters on its own cue (e.g. on "Prophet Muhammad"). */
+    attributionFirst: z.boolean().optional(),
+    /** Optional: the scene's first spoken word (from the transcript). If the first element's cue is later, it enters here instead (no blank opening). */
+    leadAt: z.number().optional(),
   }) }),
   z.object({ ...Base, type: z.literal("questionPrompt"), props: z.object({
     lines: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(4),
     /** When the script "?" is cut (defaults to just before the first line). */
     markAt: z.number().optional(),
     ground: z.enum(["paper", "royal"]).default("paper"),
+    /** Optional: the scene's first spoken word (from the transcript). If the first element's cue is later, it enters here instead (no blank opening). */
+    leadAt: z.number().optional(),
   }) }),
   z.object({ ...Base, type: z.literal("wordStack"), props: z.object({
     /** Optional plain lead-in sentence (sentence case, not a tracked kicker). */
@@ -155,6 +176,8 @@ export const BrandSceneSchemas = [
     /** Layout: "column" (stack beside the lead), "row" (set across the frame on a paper band with ruled separators),
      *  "offset" (staggered editorial steps on paper slips). Omitted: chosen deterministically from the scene id. */
     variant: z.enum(["column", "row", "offset"]).optional(),
+    /** Optional: the scene's first spoken word (from the transcript). If the first element's cue is later, it enters here instead (no blank opening). */
+    leadAt: z.number().optional(),
   }) }),
   /* ---- variety v2 signature illustrations (motion designer) ---- */
   z.object({ ...Base, type: z.literal("threePillars"), props: z.object({
@@ -163,6 +186,11 @@ export const BrandSceneSchemas = [
     baseAt: z.number().optional(), lintelAt: z.number().optional(),
     /** Optional plain heading top-left (e.g. "Three pillars of marriage"); clears when the lintel lands. */
     title: z.object({ text: z.string(), at: z.number() }).optional(),
+    /** Three faint column outlines set out on the stylobate on this cue (e.g. "three"); each solid column builds inside its outline on its name. */
+    ghostAt: z.number().optional(),
+    /** Recall (lesson end): the complete temple (steps, columns, roof) is present from the scene start at ~30 %; each column lights and
+     *  its name inks on its cue, the roof lights on `lintelAt` (default: just after the last name). Title stays. */
+    recall: z.boolean().optional(),
     /** Revisits: one column index, or timed steps ({index:null} = all full). Others dim to 35%. */
     focus: z.union([z.number().int().min(0).max(2), z.array(z.object({ index: z.number().int().min(0).max(2).nullable(), at: z.number() }))]).optional(),
   }) }),
@@ -170,6 +198,8 @@ export const BrandSceneSchemas = [
     /** Courses bottom-up; label sets on `at`, each brick (item) laid on its own `at`. */
     courses: z.array(z.object({ label: z.string(), at: z.number(), items: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(4) })).min(1).max(4),
     groundAt: z.number().optional(),
+    /** Ghost courses: pale paper slabs for every course laid bottom-up on this cue (e.g. "three areas"); bricks are set into them. */
+    ghostAt: z.number().optional(),
     focus: z.union([z.number().int().min(0).max(3), z.array(z.object({ index: z.number().int().min(0).max(3).nullable(), at: z.number() }))]).optional(),
   }) }),
   z.object({ ...Base, type: z.literal("iceberg"), props: z.object({
@@ -179,8 +209,9 @@ export const BrandSceneSchemas = [
     above: z.array(z.object({ text: z.string(), at: z.number() })).max(4).optional(),
     below: z.array(z.object({ text: z.string(), at: z.number() })).max(4).optional(),
     /** Script zone labels (≤ 2 words, lowercase), e.g. "seen" / "at home". */
-    aboveLabel: z.object({ text: z.string(), at: z.number() }).optional(),
-    belowLabel: z.object({ text: z.string(), at: z.number() }).optional(),
+    /** `from`: earlier wording held from the scene start that turns into `text` on `at` (returns, e.g. "in public" → "what others see"). */
+    aboveLabel: z.object({ text: z.string(), at: z.number(), from: z.string().optional() }).optional(),
+    belowLabel: z.object({ text: z.string(), at: z.number(), from: z.string().optional() }).optional(),
     /** 0 = above the water, 1 = below; others dim to 35%. */
     focus: z.union([z.number().int().min(0).max(1), z.array(z.object({ index: z.number().int().min(0).max(1).nullable(), at: z.number() }))]).optional(),
   }) }),

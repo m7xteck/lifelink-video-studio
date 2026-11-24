@@ -51,9 +51,18 @@ export const Iceberg: React.FC<{ scene: SceneOf<"iceberg"> }> = ({ scene }) => {
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const t = useNarrationTime();
   const id = `ib-${scene.id}`;
-  const peak = useProgress(peakAt, 1.5, ease.settle);
-  const water = useProgress(waterlineAt, 1.8, ease.settle);
-  const mass = useProgress(massAt, 2.0, ease.settle);
+  // a RETURN (every part cued together at the scene start) opens on the complete, still iceberg at full geometry:
+  // sea, mass, peak and the already-established labels crossfade in with the scene (plus a short eased rise);
+  // the first-time sea wipe and clip reveals are never replayed inside the fade
+  const revisit = Math.abs(massAt - peakAt) < 1 && Math.abs(waterlineAt - peakAt) < 1;
+  const settled = (at: number) => revisit && at <= scene.startSec + 0.6;
+  const peakP = useProgress(peakAt, 1.5, ease.settle);
+  const peak = revisit ? 1 : peakP;
+  const waterP = useProgress(waterlineAt, 1.8, ease.settle);
+  const water = revisit ? 1 : waterP;
+  const massP = useProgress(massAt, 2.0, ease.settle);
+  const mass = revisit ? 1 : massP;
+  const rise = revisit ? 16 * (1 - env.inP) : 0;
   // camera: while only the tip is shown, the view sits 150 px lower so the tip is centred in the frame; it lifts with the
   // reveal of the hidden mass ("at home"). Revisits that open fully built start at the final view.
   const lift = useProgress(massAt - 0.3, 2.4, ease.settle);
@@ -61,13 +70,14 @@ export const Iceberg: React.FC<{ scene: SceneOf<"iceberg"> }> = ({ scene }) => {
   const w = focusWeights(2, focus, t);
   const aboveSize = Math.max(30, Math.min(40, ...above.slice(0, 4).map((a) => fit(a.text, 40, 540))));
   const belowSize = Math.max(30, Math.min(38, ...below.slice(0, 4).map((b) => fit(b.text, 38, 400))));
-  const glint = useProgress(massAt + 0.6, 1.6, ease.settle);
+  const glintP = useProgress(massAt + 0.6, 1.6, ease.settle);
+  const glint = revisit ? 1 : glintP;
 
   return (
     <AbsoluteFill style={{ opacity: env.opacity, wordSpacing: textStyle.wordSpacing }}>
       <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" width={L.width} height={L.height} style={{ position: "absolute", inset: 0 }}>
         <PaperDefs id={id} />
-        <g transform={`translate(0 ${camY.toFixed(2)})`}>
+        <g transform={`translate(0 ${(camY + rise).toFixed(2)})`}>
         <defs>
           <PaperTextureDefs id={id} strength={0.24} />
           <clipPath id={`${id}-sky`}><rect x={0} y={0} width={1920} height={WL} /></clipPath>
@@ -126,12 +136,12 @@ export const Iceberg: React.FC<{ scene: SceneOf<"iceberg"> }> = ({ scene }) => {
 
         {/* labels */}
         <g opacity={0.45 + 0.55 * w[0]}>
-          {aboveLabel && <ScriptLabel id={`${id}-al`} text={aboveLabel.text} at={aboveLabel.at} x={ZONE_X} y={ZONE_ABOVE_Y} />}
-          {above.slice(0, 4).map((a, i) => <InkText key={i} id={`${id}-a${i}`} text={a.text} at={a.at} size={aboveSize} {...ABOVE[i]} />)}
+          {aboveLabel && <ZoneLabel id={`${id}-al`} label={aboveLabel} openAt={scene.startSec} instant={settled} x={ZONE_X} y={ZONE_ABOVE_Y} />}
+          {above.slice(0, 4).map((a, i) => <InkText key={i} id={`${id}-a${i}`} text={a.text} at={a.at} instant={settled(a.at)} size={aboveSize} {...ABOVE[i]} />)}
         </g>
         <g opacity={0.45 + 0.55 * w[1]}>
-          {belowLabel && <ScriptLabel id={`${id}-bl`} text={belowLabel.text} at={Math.max(belowLabel.at, massAt + 0.6)} x={ZONE_X} y={ZONE_BELOW_Y} />}
-          {below.slice(0, 4).map((b, i) => <FocusText key={i} text={b.text} at={Math.max(b.at, massAt + 0.8)} size={belowSize} {...BELOW[i]} />)}
+          {belowLabel && <ZoneLabel id={`${id}-bl`} label={{ ...belowLabel, at: settled(belowLabel.at) ? belowLabel.at : Math.max(belowLabel.at, massAt + 0.6) }} openAt={scene.startSec} instant={settled} x={ZONE_X} y={ZONE_BELOW_Y} />}
+          {below.slice(0, 4).map((b, i) => <FocusText key={i} text={b.text} at={settled(b.at) ? b.at : Math.max(b.at, massAt + 0.8)} instant={settled(b.at)} size={belowSize} {...BELOW[i]} />)}
         </g>
         </g>
       </svg>
@@ -141,8 +151,9 @@ export const Iceberg: React.FC<{ scene: SceneOf<"iceberg"> }> = ({ scene }) => {
 };
 
 /** Text inked left→right (or right→left for end-anchored labels, so the pen moves away from the peak). */
-const InkText: React.FC<{ id: string; text: string; at: number; x: number; y: number; size: number; anchor: "start" | "end" }> = ({ id, text, at, x, y, size, anchor }) => {
-  const p = useProgress(at, Math.min(1.3, 0.5 + text.length * 0.04), ease.settle);
+const InkText: React.FC<{ id: string; text: string; at: number; instant?: boolean; x: number; y: number; size: number; anchor: "start" | "end" }> = ({ id, text, at, instant, x, y, size, anchor }) => {
+  const p0 = useProgress(at, Math.min(1.3, 0.5 + text.length * 0.04), ease.settle);
+  const p = instant ? 1 : p0;
   if (p <= 0) return null;
   const W = 560;
   const cx = anchor === "start" ? x - 10 : x + 10 - W * p;
@@ -155,8 +166,9 @@ const InkText: React.FC<{ id: string; text: string; at: number; x: number; y: nu
 };
 
 /** Text that comes into focus in place (no travel): the hidden things surfacing. */
-const FocusText: React.FC<{ text: string; at: number; x: number; y: number; size: number }> = ({ text, at, x, y, size }) => {
-  const p = useProgress(at, 1.2, ease.settle);
+const FocusText: React.FC<{ text: string; at: number; instant?: boolean; x: number; y: number; size: number }> = ({ text, at, instant, x, y, size }) => {
+  const p0 = useProgress(at, 1.2, ease.settle);
+  const p = instant ? 1 : p0;
   if (p <= 0) return null;
   return (
     <text data-qa-text="" x={x} y={y} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={P.oxblood} opacity={p}
@@ -164,8 +176,26 @@ const FocusText: React.FC<{ text: string; at: number; x: number; y: number; size
   );
 };
 
-const ScriptLabel: React.FC<{ id: string; text: string; at: number; x: number; y: number }> = ({ id, text, at, x, y }) => {
-  const p = useProgress(at, Math.min(1.5, 0.6 + text.length * 0.07), ease.settle);
+/** Zone label; with `from`, the earlier wording (e.g. "in public") holds from the scene start and turns into `text`
+ *  on `at` (old word softens out in place while the new one inks in) — the label never goes missing. */
+const ZoneLabel: React.FC<{ id: string; label: { text: string; at: number; from?: string }; openAt: number; instant: (at: number) => boolean; x: number; y: number }> = ({ id, label, openAt, instant, x, y }) => {
+  const out = useProgress(label.at, 0.6, ease.settle);
+  if (!label.from) return <ScriptLabel id={id} text={label.text} at={label.at} instant={instant(label.at)} x={x} y={y} />;
+  return (
+    <>
+      {out < 1 && (
+        <g opacity={1 - out} style={{ filter: out > 0 ? `blur(${(out * 5).toFixed(2)}px)` : undefined }}>
+          <ScriptLabel id={`${id}-from`} text={label.from} at={openAt} instant={instant(openAt)} x={x} y={y} />
+        </g>
+      )}
+      <ScriptLabel id={id} text={label.text} at={label.at + 0.2} x={x} y={y} />
+    </>
+  );
+};
+
+const ScriptLabel: React.FC<{ id: string; text: string; at: number; instant?: boolean; x: number; y: number }> = ({ id, text, at, instant, x, y }) => {
+  const p0 = useProgress(at, Math.min(1.5, 0.6 + text.length * 0.07), ease.settle);
+  const p = instant ? 1 : p0;
   if (p <= 0) return null;
   const size = Math.max(56, fit(text, 76, 520, 0.48));
   return (

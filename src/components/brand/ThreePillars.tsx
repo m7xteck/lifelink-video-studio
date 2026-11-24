@@ -38,10 +38,18 @@ const PED = { l: 424, r: 1496, base: 270, apex: 150 };
 const WORD_Y = 806, MEAN_Y = 872;
 
 const linear = (x: number) => x;
+const RECALL_DIM = 0.3;
+/** Silhouette of one finished column (plinth, tapered shaft, echinus, abacus) for the ghost setting-out. */
+const columnOutline = (cx: number) => {
+  const pw = PLINTH.w / 2, b = SHAFT_W_BOT / 2, tp = SHAFT_W_TOP / 2, e = ECH.wTop / 2, a = ABACUS.w / 2;
+  return `M${cx - pw},${BASE_TOP} L${cx - pw},${SHAFT_BOT} L${cx - b},${SHAFT_BOT} L${cx - tp},${SHAFT_TOP} L${cx - e},${ECH.top} ` +
+    `L${cx - a},${ECH.top} L${cx - a},${ABACUS.y} L${cx + a},${ABACUS.y} L${cx + a},${ECH.top} L${cx + e},${ECH.top} L${cx + tp},${SHAFT_TOP} ` +
+    `L${cx + b},${SHAFT_BOT} L${cx + pw},${SHAFT_BOT} L${cx + pw},${BASE_TOP} Z`;
+};
 const fit = (text: string, max: number, maxW: number, em = 0.6) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
 export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ scene }) => {
-  const { pillars, baseAt, lintelAt, focus, title } = scene.props;
+  const { pillars, baseAt, lintelAt, focus, title, ghostAt, recall } = scene.props;
   const L = useLayout();
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const t = useNarrationTime();
@@ -49,11 +57,21 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
   const b0 = baseAt ?? scene.startSec;
   const lastAt = Math.max(...pillars.map((p) => p.meaningAt ?? p.at));
   const L0 = lintelAt ?? lastAt + 1;
-  const ent = useProgress(L0, 1.1, ease.settle);
-  const ped = useProgress(L0 + 0.55, 1.4, ease.settle);
-  const entO = useProgress(L0, 0.2, linear), pedO = useProgress(L0 + 0.55, 0.2, linear);
-  const w = focusWeights(3, focus, t);
-  const titleP = title ? Math.min(1, Math.max(0, (t - title.at) / 1.2)) * (1 - Math.min(1, ent * 2)) : 0;
+  const entP = useProgress(L0, 1.1, ease.settle);
+  const pedP = useProgress(L0 + 0.55, 1.4, ease.settle);
+  const entOP = useProgress(L0, 0.2, linear), pedOP = useProgress(L0 + 0.55, 0.2, linear);
+  // recall (lesson end): the complete temple is there from the first frame, quiet (~30 %); each column lights on its
+  // name, the roof on `lintelAt` (default: once the last column is lit) — a memory brought back, not a rebuild
+  const ent = recall ? 1 : entP, ped = recall ? 1 : pedP, entO = recall ? 1 : entOP, pedO = recall ? 1 : pedOP;
+  const roofLit = useProgress(lintelAt ?? Math.max(...pillars.map((p) => p.at)) + 0.9, 0.9, ease.settle);
+  const lit = [0, 1, 2].map((i) => useProgress(pillars[i].at - 0.1, 0.9, ease.settle));
+  const fw = focusWeights(3, focus, t);
+  const w = recall ? fw.map((v, i) => v * (RECALL_DIM + (1 - RECALL_DIM) * lit[i])) : fw;
+  const roofW = recall ? RECALL_DIM + (1 - RECALL_DIM) * roofLit : 1;
+  const titleP = title ? Math.min(1, Math.max(0, (t - title.at) / 1.2)) * (recall ? 1 : 1 - Math.min(1, ent * 2)) : 0;
+  // ghost outlines: on "three", the three columns are set out on the stylobate as faint ink outlines at their final
+  // positions; each solid column is then built inside its outline on its name
+  const ghost = useProgress(ghostAt ?? 1e9, 1.2, ease.settle);
 
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
@@ -67,11 +85,15 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
         <g transform="translate(960 560) scale(1.08) translate(-960 -540)">
         <g filter={`url(#${id}-tex)`}>
           {/* stylobate: three card steps laid bottom-up on the narrator's "three … pillars" */}
-          {STEPS.map((s, i) => <Step key={i} id={id} at={b0 + (STEPS.length - 1 - i) * 0.16} y={BASE_TOP + STEPS.slice(0, i).reduce((a, q) => a + q.h, 0)} {...s} />).reverse()}
-          {pillars.slice(0, 3).map((p, i) => <Column key={i} id={id} cx={CX[i]} at={p.at} weight={w[i]} />)}
+          {STEPS.map((s, i) => <Step key={i} id={id} instant={!!recall} at={b0 + (STEPS.length - 1 - i) * 0.16} y={BASE_TOP + STEPS.slice(0, i).reduce((a, q) => a + q.h, 0)} {...s} />).reverse()}
+          {ghostAt !== undefined && !recall && ghost > 0 && CX.map((cx, i) => (
+            <path key={`g${i}`} d={columnOutline(cx)} fill={D.paperShade} fillOpacity={0.3} stroke={D.oxbloodMuted} strokeWidth={2}
+              strokeDasharray="1 1" pathLength={1} strokeDashoffset={1 - ghost} strokeLinejoin="round" opacity={0.55} />
+          ))}
+          {pillars.slice(0, 3).map((p, i) => <Column key={i} id={id} cx={CX[i]} at={p.at} weight={w[i]} instant={!!recall} />)}
           {/* folded-paper pediment: two faces meeting at a crease, a lighter tympanum inset */}
           {ped > 0 && (
-            <g clipPath={`url(#${id}-ped)`}>
+            <g clipPath={`url(#${id}-ped)`} opacity={roofW}>
               <g transform={`translate(0 ${((1 - ped) * 124).toFixed(2)})`} opacity={pedO}>
                 <g filter={`url(#${id}-shadow-2)`}>
                   <path d={`M${PED.l},${PED.base} L960,${PED.apex} L960,${PED.base} Z`} fill={P.rose} />
@@ -87,7 +109,7 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
           )}
           {/* entablature: architrave + fine cornice, lowered onto the capitals */}
           {ent > 0 && (
-            <g opacity={entO} transform={`translate(0 ${((1 - ent) * -44).toFixed(2)})`}>
+            <g opacity={entO * roofW} transform={`translate(0 ${((1 - ent) * -44).toFixed(2)})`}>
               <rect x={ENT.l} y={ENT.arch} width={ENT.r - ENT.l} height={ABACUS.y - ENT.arch} rx={2} fill={D.paperLight} filter={`url(#${id}-shadow-2)`} />
               <rect x={ENT.l} y={ABACUS.y - 6} width={ENT.r - ENT.l} height={6} fill={D.paperShade} />
               <rect x={PED.l - 6} y={ENT.cornice} width={PED.r - PED.l + 12} height={ENT.arch - ENT.cornice} rx={2} fill={P.oxblood} filter={`url(#${id}-shadow-1)`} />
@@ -95,7 +117,7 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
           )}
         </g>
           {pillars.slice(0, 3).map((p, i) => (
-            <g key={i} opacity={w[i]}>
+            <g key={i} opacity={fw[i]}>
               <ScriptWord id={`${id}-w${i}`} text={p.word} at={p.at + 0.15} cx={CX[i]} />
               {p.meaning && <Meaning text={p.meaning} at={p.meaningAt ?? p.at + 0.8} cx={CX[i]} />}
             </g>
@@ -112,9 +134,10 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
 };
 
 /** One stylobate step: a sheet of card lowered a short way into place. */
-const Step: React.FC<{ id: string; at: number; y: number; w: number; h: number; fill: string; depth: 1 | 2 }> = ({ id, at, y, w, h, fill, depth }) => {
-  const p = useProgress(at, 1.0, ease.settle);
-  const o = useProgress(at, 0.2, linear);
+const Step: React.FC<{ id: string; at: number; instant?: boolean; y: number; w: number; h: number; fill: string; depth: 1 | 2 }> = ({ id, at, instant, y, w, h, fill, depth }) => {
+  const p0 = useProgress(at, 1.0, ease.settle);
+  const o0 = useProgress(at, 0.2, linear);
+  const p = instant ? 1 : p0, o = instant ? 1 : o0;
   if (p <= 0) return null;
   return (
     <g opacity={o} transform={`translate(0 ${((1 - p) * -18).toFixed(2)})`}>
@@ -125,17 +148,19 @@ const Step: React.FC<{ id: string; at: number; y: number; w: number; h: number; 
 };
 
 /** A piece of a column, lowered `drop` px onto the piece below on its own beat. */
-const Piece: React.FC<{ at: number; drop?: number; children: React.ReactNode }> = ({ at, drop = 26, children }) => {
-  const p = useProgress(at, 0.62, ease.enter);
-  const o = useProgress(at, 0.1, linear); // card is opaque almost at once; only its position eases
+const Piece: React.FC<{ at: number; drop?: number; instant?: boolean; children: React.ReactNode }> = ({ at, drop = 26, instant, children }) => {
+  const p0 = useProgress(at, 0.62, ease.enter);
+  const o0 = useProgress(at, 0.1, linear); // card is opaque almost at once; only its position eases
+  const p = instant ? 1 : p0, o = instant ? 1 : o0;
   if (p <= 0) return null;
   return <g opacity={o} transform={`translate(0 ${((1 - p) * -drop).toFixed(2)})`}>{children}</g>;
 };
 
 /** A column assembled from plinth, drums and capital — it is built, not faded in. */
-const Column: React.FC<{ id: string; cx: number; at: number; weight: number }> = ({ id, cx, at, weight }) => {
+const Column: React.FC<{ id: string; cx: number; at: number; weight: number; instant?: boolean }> = ({ id, cx, at, weight, instant }) => {
   const s0 = at - 0.15;                 // the plinth is down as the name begins; drums land while it is spoken
-  const foot = useProgress(s0, 0.62, ease.settle);
+  const foot0 = useProgress(s0, 0.62, ease.settle);
+  const foot = instant ? 1 : foot0;
   if (foot <= 0) return null;
   const drumH = (SHAFT_BOT - SHAFT_TOP) / DRUMS;
   const halfW = (y: number) => (SHAFT_W_BOT + (SHAFT_W_TOP - SHAFT_W_BOT) * ((SHAFT_BOT - y) / (SHAFT_BOT - SHAFT_TOP))) / 2;
@@ -144,7 +169,7 @@ const Column: React.FC<{ id: string; cx: number; at: number; weight: number }> =
     <g opacity={weight}>
       {/* contact shadow on the step: the column's weight arriving */}
       <ellipse cx={cx} cy={BASE_TOP + 2} rx={92} ry={5} fill="#1a0a0a" opacity={0.14 * foot} />
-      <Piece at={s0}>
+      <Piece instant={instant} at={s0}>
         <rect x={cx - PLINTH.w / 2} y={SHAFT_BOT} width={PLINTH.w} height={PLINTH.h} rx={2} fill={D.royalDeep} filter={sh} />
         <rect x={cx - PLINTH.w / 2} y={SHAFT_BOT} width={PLINTH.w} height={2} fill={P.sky} opacity={0.35} />
       </Piece>
@@ -155,7 +180,7 @@ const Column: React.FC<{ id: string; cx: number; at: number; weight: number }> =
         // right third of each drum in shade: the fold of a paper prism catching side light
         const shade = `M${cx + wb * 0.34},${yb} L${cx + wt * 0.34},${yt} L${cx + wt},${yt} L${cx + wb},${yb} Z`;
         return (
-          <Piece key={k} at={s0 + 0.24 + k * 0.2}>
+          <Piece key={k} instant={instant} at={s0 + 0.24 + k * 0.2}>
             <path d={face} fill={P.royal} filter={sh} />
             <path d={shade} fill={D.royalDeep} opacity={0.42} />
             <path d={`M${cx - wb + 8},${yb - 4} L${cx - wt + 8},${yt + 4}`} stroke={P.sky} strokeWidth={3} opacity={0.4} strokeLinecap="round" />
@@ -163,11 +188,11 @@ const Column: React.FC<{ id: string; cx: number; at: number; weight: number }> =
           </Piece>
         );
       })}
-      <Piece at={s0 + 0.24 + DRUMS * 0.2}>
+      <Piece instant={instant} at={s0 + 0.24 + DRUMS * 0.2}>
         <path d={`M${cx - SHAFT_W_TOP / 2},${SHAFT_TOP} L${cx - ECH.wTop / 2},${ECH.top} L${cx + ECH.wTop / 2},${ECH.top} L${cx + SHAFT_W_TOP / 2},${SHAFT_TOP} Z`} fill={P.royal} filter={sh} />
         <path d={`M${cx + SHAFT_W_TOP * 0.17},${SHAFT_TOP} L${cx + ECH.wTop * 0.17},${ECH.top} L${cx + ECH.wTop / 2},${ECH.top} L${cx + SHAFT_W_TOP / 2},${SHAFT_TOP} Z`} fill={D.royalDeep} opacity={0.42} />
       </Piece>
-      <Piece at={s0 + 0.24 + DRUMS * 0.2 + 0.18}>
+      <Piece instant={instant} at={s0 + 0.24 + DRUMS * 0.2 + 0.18}>
         <rect x={cx - ABACUS.w / 2} y={ABACUS.y} width={ABACUS.w} height={ABACUS.h} rx={2} fill={D.royalDeep} filter={sh} />
         <rect x={cx - ABACUS.w / 2} y={ABACUS.y} width={ABACUS.w} height={2} fill={P.sky} opacity={0.35} />
       </Piece>

@@ -1,6 +1,7 @@
 import React from "react";
 import { colors, fonts, motion } from "../brand/tokens";
 import { useProgress } from "./time";
+import { avoidScript } from "./brand";
 
 /** Words rise out of a mask, staggered, starting at absolute second `at`. */
 export const MaskedWords: React.FC<{
@@ -15,9 +16,11 @@ export const MaskedWords: React.FC<{
       {words.map((w, i) => {
         const bare = norm(w);
         const isEm = emph.has(bare);
+        // short words and negations never go into Script (it reads smaller than the text face): accent colour instead
+        const script = isEm && !avoidScript(bare);
         return (
           <React.Fragment key={i}>
-            <Word at={at + i * motion.wordStaggerSec} script={isEm} style={isEm ? { color: colors.accent, fontFamily: fonts.script, fontSize: "1.12em", letterSpacing: 0, ...emphasisStyle } : undefined}>
+            <Word at={at + i * motion.wordStaggerSec} script={script} style={script ? { color: colors.accent, fontFamily: fonts.script, fontSize: "1.12em", letterSpacing: 0, ...emphasisStyle } : isEm ? { color: colors.accent } : undefined}>
               {w}
             </Word>
             {i < words.length - 1 ? " " : null}

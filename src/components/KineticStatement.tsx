@@ -1,8 +1,8 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { brand, fonts, motion, textStyle, type } from "../brand/tokens";
-import { BrandLabel, InkWipe, LogoMark, PaperGround } from "../motion/brand";
-import { useProgress, useSceneEnvelope } from "../motion/time";
+import { BrandLabel, InkWipe, LogoMark, PaperGround, SCRIPT_INLINE_EM, avoidScript } from "../motion/brand";
+import { APPROVED_OPENING_END_SEC, useLeadIn, useProgress, useSceneEnvelope } from "../motion/time";
 import { useLayout } from "../motion/layout";
 import type { SceneOf } from "../schema/manifest";
 
@@ -23,8 +23,16 @@ export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> 
   const L = useLayout();
   const env = useSceneEnvelope();
   const center = align === "center";
-  const kickerP = useProgress(kicker?.at ?? scene.startSec, 0.9);
-  const emph = new Set(emphasis.flatMap((e) => e.split(/\s+/)).map(norm)); // phrases like "most important" mark each word
+  // no blank seconds: the first element (kicker, else the first line) enters with the narrator's first words of the scene
+  const kickerAt = useLeadIn(scene, kicker?.at ?? scene.startSec, { opener: true });
+  const line0At = useLeadIn(scene, lines[0]?.at ?? scene.startSec);
+  const kickerP = useProgress(kickerAt, 0.9);
+  const lineAt = (i: number) => (i === 0 && !kicker ? line0At : lines[i].at);
+  const emphAll = new Set(emphasis.flatMap((e) => e.split(/\s+/)).map(norm)); // phrases like "most important" mark each word
+  // Script only for content words; short words and negations take the accent colour in the text face instead
+  const emph = new Set([...emphAll].filter((w) => !avoidScript(w)));
+  const accent = new Set([...emphAll].filter((w) => avoidScript(w)));
+  const sStyle: React.CSSProperties = { ...scriptStyle, fontSize: scene.startSec < APPROVED_OPENING_END_SEC ? "1.12em" : SCRIPT_INLINE_EM };
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <PaperGround color={P.paper} deep={D.paperShade} seed={33} />
@@ -43,19 +51,20 @@ export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> 
             }}>
               {reveal === "ink" ? (
                 // the whole line is written left to right, one continuous stroke of ink
-                <InkWipe at={ln.at} dur={Math.max(0.9, ln.text.split(/\s+/).length * motion.wordStaggerSec * 1.8)}>
+                <InkWipe at={lineAt(i)} dur={Math.max(0.9, ln.text.split(/\s+/).length * motion.wordStaggerSec * 1.8)}>
                   {ln.text.split(/\s+/).filter(Boolean).map((w, wi, arr) => (
                     <React.Fragment key={wi}>
-                      {emph.has(norm(w)) ? <span style={scriptStyle}>{w}</span> : w}
+                      {emph.has(norm(w)) ? <span style={sStyle}>{w}</span> : accent.has(norm(w)) ? <span style={{ color: P.royal }}>{w}</span> : w}
                       {wi < arr.length - 1 ? " " : null}
                     </React.Fragment>
                   ))}
                 </InkWipe>
               ) : ln.text.split(/\s+/).filter(Boolean).map((w, wi, arr) => {
-                const at = ln.at + wi * motion.wordStaggerSec;
+                const at = lineAt(i) + wi * motion.wordStaggerSec;
+                const color = accent.has(norm(w)) ? P.royal : undefined;
                 return (
                   <React.Fragment key={wi}>
-                    {emph.has(norm(w)) ? <ScriptWord at={at}>{w}</ScriptWord> : reveal === "focus" ? <FocusWord at={at}>{w}</FocusWord> : <RiseWord at={at}>{w}</RiseWord>}
+                    {emph.has(norm(w)) ? <ScriptWord at={at} size={sStyle.fontSize as string}>{w}</ScriptWord> : reveal === "focus" ? <FocusWord at={at} color={color}>{w}</FocusWord> : <RiseWord at={at} color={color}>{w}</RiseWord>}
                     {wi < arr.length - 1 ? " " : null}
                   </React.Fragment>
                 );
@@ -90,17 +99,17 @@ const SignoffLogo: React.FC<{ spec: true | { at?: number; variant: "horizontal" 
 const REVEALS = ["rise", "focus", "ink"] as const;
 
 /** Calm entrance: the word comes into focus where it stands (no movement). */
-const FocusWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => {
+const FocusWord: React.FC<{ at: number; color?: string; children: React.ReactNode }> = ({ at, color, children }) => {
   const p = useProgress(at, motion.durationsSec.base * 1.4);
-  return <span style={{ display: "inline-block", opacity: p, filter: p < 1 ? `blur(${((1 - p) * 6).toFixed(2)}px)` : undefined }}>{children}</span>;
+  return <span style={{ display: "inline-block", color, opacity: p, filter: p < 1 ? `blur(${((1 - p) * 6).toFixed(2)}px)` : undefined }}>{children}</span>;
 };
 
 /** Set type: the word rises out of a baseline mask (generous padding so nothing is clipped). */
-const RiseWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => {
+const RiseWord: React.FC<{ at: number; color?: string; children: React.ReactNode }> = ({ at, color, children }) => {
   const p = useProgress(at, motion.durationsSec.base);
   return (
     <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", padding: "0.06em 0.04em 0.14em", margin: "-0.06em -0.04em -0.14em" }}>
-      <span style={{ display: "inline-block", transform: `translateY(${(1 - p) * 110}%)`, opacity: p < 0.02 ? 0 : 1 }}>{children}</span>
+      <span style={{ display: "inline-block", color, transform: `translateY(${(1 - p) * 110}%)`, opacity: p < 0.02 ? 0 : 1 }}>{children}</span>
     </span>
   );
 };
@@ -108,8 +117,8 @@ const RiseWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, chi
 const scriptStyle: React.CSSProperties = { fontFamily: fonts.script, fontSize: "1.12em", color: P.royal, letterSpacing: 0, wordSpacing: "normal", lineHeight: 1 };
 
 /** Script accent: written with an ink wipe, never masked by a box (swashes keep their full extent). */
-const ScriptWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => (
+const ScriptWord: React.FC<{ at: number; size?: string; children: React.ReactNode }> = ({ at, size = "1.12em", children }) => (
   <InkWipe at={at} dur={1.0} inline style={{ padding: "0.2em 0.22em 0.3em 0.12em", margin: "-0.2em -0.22em -0.3em -0.12em", verticalAlign: "baseline" }}>
-    <span style={{ fontFamily: fonts.script, fontSize: "1.12em", color: P.royal, letterSpacing: 0, wordSpacing: "normal", lineHeight: 1 }}>{children}</span>
+    <span style={{ fontFamily: fonts.script, fontSize: size, color: P.royal, letterSpacing: 0, wordSpacing: "normal", lineHeight: 1 }}>{children}</span>
   </InkWipe>
 );
