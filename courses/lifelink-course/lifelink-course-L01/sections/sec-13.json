@@ -126,145 +126,67 @@
       }
     },
     {
-      "id": "sec-13-05",
-      "sectionId": "sec-13",
-      "type": "statementCollision",
+      "id": "t-m1",
+      "type": "mythTruth",
       "startSec": 1553.5,
-      "endSec": 1561.4,
-      "props": {
-        "label": "The first myth",
-        "first": {
-          "text": "A spouse will",
-          "at": 1555.24
-        },
-        "script": {
-          "text": "always",
-          "at": 1555.82
-        },
-        "second": {
-          "text": "make you happy",
-          "at": 1556.32
-        },
-        "caption": {
-          "text": "Marriage can bring happiness and companionship",
-          "at": 1557.98
-        }
-      }
-    },
-    {
-      "id": "sec-13-06",
-      "sectionId": "sec-13",
-      "type": "kineticStatement",
-      "startSec": 1561.4,
-      "endSec": 1567.5,
-      "props": {
-        "lines": [
-          {
-            "text": "Our spouse cannot be responsible",
-            "at": 1562.28
-          },
-          {
-            "text": "for every aspect",
-            "at": 1563.94
-          },
-          {
-            "text": "of our emotional wellbeing",
-            "at": 1565.28
-          }
-        ],
-        "emphasis": [
-          "every",
-          "aspect"
-        ],
-        "align": "left",
-        "scale": "h2"
-      }
-    },
-    {
-      "id": "sec-13-07",
-      "sectionId": "sec-13",
-      "type": "parallelPhrases",
-      "startSec": 1567.5,
       "endSec": 1574.2,
       "props": {
-        "kicker": {
-          "text": "Both need their own",
-          "at": 1567.7
+        "index": {
+          "text": "first",
+          "at": 1553.86
         },
-        "items": [
+        "myth": {
+          "text": "A spouse will always make you happy",
+          "at": 1555.24
+        },
+        "tearAt": 1561.56,
+        "truth": {
+          "text": "Your spouse cannot be responsible for all of your wellbeing",
+          "at": 1562.1
+        },
+        "notes": [
           {
-            "text": "Personal growth",
+            "text": "growth",
             "at": 1570.12
           },
           {
-            "text": "Interests",
+            "text": "interests",
             "at": 1571.58
           },
           {
-            "text": "Sources of support",
-            "at": 1572.34
+            "text": "support",
+            "at": 1572.78
           }
-        ]
-      }
+        ],
+        "short": "always happy"
+      },
+      "sectionId": "sec-13"
     },
     {
-      "id": "sec-13-08",
-      "sectionId": "sec-13",
-      "type": "statementCollision",
+      "id": "t-m2",
+      "type": "mythTruth",
       "startSec": 1574.2,
-      "endSec": 1581.2,
-      "props": {
-        "label": "The second myth",
-        "first": {
-          "text": "Successful couples",
-          "at": 1575.84
-        },
-        "script": {
-          "text": "never",
-          "at": 1576.96
-        },
-        "second": {
-          "text": "disagree",
-          "at": 1577.32
-        },
-        "caption": {
-          "text": "This is simply unrealistic",
-          "at": 1579.22
-        }
-      }
-    },
-    {
-      "id": "sec-13-09",
-      "sectionId": "sec-13",
-      "type": "kineticStatement",
-      "startSec": 1581.2,
       "endSec": 1593.3,
       "props": {
-        "kicker": {
-          "text": "Individuals naturally have different opinions",
-          "at": 1581.86
+        "index": {
+          "text": "second",
+          "at": 1574.6
         },
-        "lines": [
-          {
-            "text": "Not whether disagreements occur,",
-            "at": 1588.48
-          },
-          {
-            "text": "but whether they are",
-            "at": 1590.3
-          },
-          {
-            "text": "managed respectfully",
-            "at": 1591.16
-          }
+        "myth": {
+          "text": "Successful couples never disagree",
+          "at": 1575.66
+        },
+        "tearAt": 1579.22,
+        "truth": {
+          "text": "What matters is that disagreements are managed respectfully",
+          "at": 1586.36
+        },
+        "past": [
+          "always happy"
         ],
-        "emphasis": [
-          "managed",
-          "respectfully"
-        ],
-        "align": "left",
-        "scale": "h2"
-      }
+        "short": "never disagree"
+      },
+      "sectionId": "sec-13"
     },
     {
       "id": "sec-13-10",

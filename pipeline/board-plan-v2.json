@@ -1,0 +1,119 @@
+{
+ "phases": [
+  {
+   "phase": "Build",
+   "stage": "v2-components",
+   "total": 7,
+   "defaultMin": 35,
+   "names": [
+    "Motion Designer \u00b7 text styles + rhythm check",
+    "Motion Designer \u00b7 three pillars + foundation bricks",
+    "Motion Designer \u00b7 rings + balance scale",
+    "Motion Designer \u00b7 iceberg + house in the wind",
+    "Motion Designer \u00b7 sorting trays + bridge",
+    "Motion Designer \u00b7 myth slip + scenario cards + mirror",
+    "Motion Designer \u00b7 lesson map + chapter recap"
+   ]
+  },
+  {
+   "phase": "Plan",
+   "stage": "v2-plan",
+   "total": 7,
+   "defaultMin": 35,
+   "names": [
+    "Creative Director \u00b7 chapters 3+4",
+    "Creative Director \u00b7 chapters 5+6",
+    "Creative Director \u00b7 chapters 7+8",
+    "Creative Director \u00b7 chapters 9+10",
+    "Creative Director \u00b7 chapters 11+12",
+    "Creative Director \u00b7 chapters 13+14",
+    "Creative Director \u00b7 chapters 15+16"
+   ]
+  },
+  {
+   "phase": "Review",
+   "stage": "v2-review",
+   "total": 7,
+   "defaultMin": 25,
+   "names": [
+    "Quality Director \u00b7 chapters 3+4",
+    "Quality Director \u00b7 chapters 5+6",
+    "Quality Director \u00b7 chapters 7+8",
+    "Quality Director \u00b7 chapters 9+10",
+    "Quality Director \u00b7 chapters 11+12",
+    "Quality Director \u00b7 chapters 13+14",
+    "Quality Director \u00b7 chapters 15+16"
+   ]
+  }
+ ],
+ "pairs": [
+  [
+   "Plan",
+   "Review"
+  ]
+ ],
+ "concurrency": 2,
+ "after": [
+  {
+   "stage": "v2-render",
+   "min": 100
+  },
+  {
+   "stage": "v2-videoqa",
+   "min": 60
+  },
+  {
+   "stage": "v2-revise",
+   "min": 60
+  },
+  {
+   "stage": "v2-deliver",
+   "min": 20
+  }
+ ],
+ "run": {
+  "title": "Module 01 \u00b7 v2 variety & memory pass",
+  "state": "working",
+  "startedAt": "2026-11-24T07:47:00Z",
+  "note": "Client feedback: too repetitive, not enough purposeful animation. Each chapter gets its own picture that builds as it is explained, returns when the idea returns, and is recapped at the end. Text gets new entrance styles.",
+  "evidence": [
+   {
+    "at": "2026-11-24T04:29:00Z",
+    "text": "v003 rendered: 36:05, 1920\u00d71080 H.264, AAC. Automatic QA 15 pass / 1 fail (one 1.4 s caption hold) / 1 warning (loudness)."
+   },
+   {
+    "at": "2026-11-24T07:30:00Z",
+    "text": "Text entrances 'focus' and 'ink' added to statements; checked in 4 rendered stills."
+   },
+   {
+    "at": "2026-11-24T07:32:00Z",
+    "text": "Disk cleanup: 147 leaked 450 MB render bundles removed; still/render/storyboard tools now delete their bundles."
+   }
+  ],
+  "qaFindings": [
+   {
+    "text": "v003 automatic QA: 'individual?' at 3:06 holds 1.4 s (target 1.5 s). Awaiting client view.",
+    "state": "open"
+   },
+   {
+    "text": "v003 automatic QA: loudness \u221226.1 LUFS vs \u221216 target; peaks block raising gain without a limiter.",
+    "state": "open"
+   },
+   {
+    "text": "Client review of v003: lesson feels repetitive; too little purposeful animation. Being addressed by this v2 pass.",
+    "state": "in progress"
+   }
+  ],
+  "blockers": [
+   {
+    "text": "Volume limiter needs client yes/no (no change applied)."
+   },
+   {
+    "text": "Brand still a proposal: fonts' licences, exact colour codes and vector logo not yet confirmed; watermark stays on."
+   },
+   {
+    "text": "No GitHub repository connected: work is saved only in this container."
+   }
+  ]
+ }
+}

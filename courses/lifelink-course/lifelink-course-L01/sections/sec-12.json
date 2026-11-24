@@ -152,102 +152,61 @@
       }
     },
     {
-      "type": "kineticStatement",
-      "id": "sec-12-07",
-      "sectionId": "sec-12",
+      "id": "t-s2",
+      "type": "scenarioCard",
       "startSec": 1428.9,
-      "endSec": 1438.8,
+      "endSec": 1469.3,
       "props": {
-        "kicker": {
-          "text": "Scenario 2 \u00b7 Disagreement",
-          "at": 1431.06
+        "ordinal": {
+          "text": "second",
+          "at": 1429.48
         },
-        "lines": [
+        "topic": {
+          "text": "disagreement",
+          "at": 1430.52
+        },
+        "situation": [
           {
-            "text": "Different opinions about a significant financial decision",
-            "at": 1435.04
-          }
-        ],
-        "emphasis": [
-          "financial"
-        ],
-        "align": "left",
-        "scale": "h1"
-      }
-    },
-    {
-      "type": "parallelPhrases",
-      "id": "sec-12-08",
-      "sectionId": "sec-12",
-      "startSec": 1438.8,
-      "endSec": 1445.5,
-      "props": {
-        "items": [
+            "text": "Different opinions on a financial decision",
+            "at": 1435.4
+          },
           {
-            "text": "One spouse wants a major purchase",
+            "text": "One wants a major purchase",
             "at": 1439.2
           },
           {
             "text": "The other is concerned about affordability",
             "at": 1442.24
           }
-        ]
-      }
-    },
-    {
-      "type": "comparison",
-      "id": "sec-12-09",
-      "sectionId": "sec-12",
-      "startSec": 1445.5,
-      "endSec": 1460.4,
-      "props": {
-        "left": {
-          "title": "Unhealthy response",
-          "points": [
-            "Dismiss the other's concerns",
-            "Decide without consultation"
-          ],
-          "at": 1445.88
+        ],
+        "avoid": {
+          "text": "Dismiss concerns, decide without consultation",
+          "at": 1446.4,
+          "strikeAt": 1453.64
         },
-        "right": {
-          "title": "Healthy response",
-          "points": [
-            "Listen carefully",
-            "Explain perspectives",
-            "Work towards agreement"
-          ],
-          "at": 1453.82
-        },
-        "preferred": "right"
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-12-10",
-      "sectionId": "sec-12",
-      "startSec": 1460.4,
-      "endSec": 1469.3,
-      "props": {
-        "kicker": {
-          "text": "The aim",
-          "at": 1461.0
-        },
-        "lines": [
+        "response": [
           {
-            "text": "Not to win the argument",
-            "at": 1461.5
+            "text": "Listen carefully",
+            "at": 1455.46
           },
           {
-            "text": "A decision both understand and can support",
-            "at": 1465.1
+            "text": "Explain perspectives",
+            "at": 1456.66
+          },
+          {
+            "text": "Work towards an agreement",
+            "at": 1458.5
           }
         ],
-        "emphasis": [
-          "both"
-        ],
-        "align": "center",
-        "scale": "h1"
-      }
+        "outcome": {
+          "text": "both can support",
+          "at": 1466.04
+        },
+        "past": [
+          "appreciation"
+        ]
+      },
+      "sectionId": "sec-12"
     },
     {
       "type": "kineticStatement",

@@ -16,6 +16,21 @@ import { ParallelPhrases } from "../components/brand/ParallelPhrases";
 import { PathLandscape } from "../components/brand/PathLandscape";
 import { ConvergingPaths } from "../components/brand/ConvergingPaths";
 import { FindingBecoming } from "../components/brand/FindingBecoming";
+import { ThreePillars } from "../components/brand/ThreePillars";
+import { FoundationLayers } from "../components/brand/FoundationLayers";
+import { EcosystemRings } from "../components/brand/EcosystemRings";
+import { BalanceScale } from "../components/brand/BalanceScale";
+import { Iceberg } from "../components/brand/Iceberg";
+import { PressuresShelter } from "../components/brand/PressuresShelter";
+import { HighlightLine } from "../components/brand/HighlightLine";
+import { PullQuote } from "../components/brand/PullQuote";
+import { QuestionPrompt } from "../components/brand/QuestionPrompt";
+import { WordStack } from "../components/brand/WordStack";
+import { MythTruth } from "../components/brand/MythTruth";
+import { ScenarioCard } from "../components/brand/ScenarioCard";
+import { MirrorCheck } from "../components/brand/MirrorCheck";
+import { SortTrays } from "../components/brand/SortTrays";
+import { BridgePlanks } from "../components/brand/BridgePlanks";
 
 /** Maps a manifest scene "type" to its motion-library component. */
 export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
@@ -36,6 +51,21 @@ export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
     case "pathLandscape": return <PathLandscape scene={scene} />;
     case "convergingPaths": return <ConvergingPaths scene={scene} />;
     case "findingBecoming": return <FindingBecoming scene={scene} />;
+    case "threePillars": return <ThreePillars scene={scene} />;
+    case "foundationLayers": return <FoundationLayers scene={scene} />;
+    case "ecosystemRings": return <EcosystemRings scene={scene} />;
+    case "balanceScale": return <BalanceScale scene={scene} />;
+    case "iceberg": return <Iceberg scene={scene} />;
+    case "pressuresShelter": return <PressuresShelter scene={scene} />;
+    case "highlightLine": return <HighlightLine scene={scene} />;
+    case "pullQuote": return <PullQuote scene={scene} />;
+    case "questionPrompt": return <QuestionPrompt scene={scene} />;
+    case "wordStack": return <WordStack scene={scene} />;
+    case "mythTruth": return <MythTruth scene={scene} />;
+    case "scenarioCard": return <ScenarioCard scene={scene} />;
+    case "mirrorCheck": return <MirrorCheck scene={scene} />;
+    case "sortTrays": return <SortTrays scene={scene} />;
+    case "bridgePlanks": return <BridgePlanks scene={scene} />;
   }
 };
 
@@ -43,6 +73,7 @@ export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
 export const groundOf = (scene: Scene, palette: Record<string, string>, fallback: string): string => {
   switch (scene.type) {
     case "courseIntro": case "summaryLedger": case "pathLandscape": return palette.royal ?? fallback;
+    case "questionPrompt": return scene.props.ground === "royal" ? palette.royal ?? fallback : fallback;
     case "reflectionField": return (scene.props.ground === "royal" ? palette.royal : palette.oxblood) ?? fallback;
     default: return fallback;
   }

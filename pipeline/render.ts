@@ -20,6 +20,7 @@
  *     the visuals in one pass, so audio is never re-chunked and sync is exact.
  *  5. Each output is versioned; earlier versions are never overwritten.
  */
+import { rmSync } from "node:fs";
 import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
 import { createHash } from "node:crypto";
@@ -77,6 +78,7 @@ export const renderLesson = async (): Promise<RenderResult> => {
   const t0 = Date.now();
   log("bundling project…");
   const serveUrl = await bundle({ entryPoint: join(P.root, "src/index.ts"), publicDir: join(P.root, "public") });
+  process.on("exit", () => rmSync(serveUrl, { recursive: true, force: true })); // ~450 MB per bundle
   const inputProps = { manifest, orientation: portrait ? "portrait" : "landscape", muted: true, qa: true };
   const composition = await selectComposition({ serveUrl, id: portrait ? "LessonPortrait" : "Lesson", inputProps, browserExecutable: BROWSER ?? undefined });
 

@@ -17,6 +17,9 @@ const norm = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}'’-]/gu, "");
  */
 export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> = ({ scene }) => {
   const { lines, emphasis, align, scale, kicker } = scene.props;
+  // Entrance style varies so consecutive statements don't all "drop up" the same way (client feedback v003).
+  // Explicit `reveal` wins; otherwise picked deterministically from the scene id.
+  const reveal = scene.props.reveal ?? REVEALS[[...scene.id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % REVEALS.length];
   const L = useLayout();
   const env = useSceneEnvelope();
   const center = align === "center";
@@ -38,11 +41,21 @@ export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> 
               color: P.oxblood, wordSpacing: textStyle.wordSpacing, letterSpacing: type.letterSpacing.headline,
               marginBottom: Math.round(14 * L.u), textWrap: "balance" as React.CSSProperties["textWrap"],
             }}>
-              {ln.text.split(/\s+/).filter(Boolean).map((w, wi, arr) => {
+              {reveal === "ink" ? (
+                // the whole line is written left to right, one continuous stroke of ink
+                <InkWipe at={ln.at} dur={Math.max(0.9, ln.text.split(/\s+/).length * motion.wordStaggerSec * 1.8)}>
+                  {ln.text.split(/\s+/).filter(Boolean).map((w, wi, arr) => (
+                    <React.Fragment key={wi}>
+                      {emph.has(norm(w)) ? <span style={scriptStyle}>{w}</span> : w}
+                      {wi < arr.length - 1 ? " " : null}
+                    </React.Fragment>
+                  ))}
+                </InkWipe>
+              ) : ln.text.split(/\s+/).filter(Boolean).map((w, wi, arr) => {
                 const at = ln.at + wi * motion.wordStaggerSec;
                 return (
                   <React.Fragment key={wi}>
-                    {emph.has(norm(w)) ? <ScriptWord at={at}>{w}</ScriptWord> : <RiseWord at={at}>{w}</RiseWord>}
+                    {emph.has(norm(w)) ? <ScriptWord at={at}>{w}</ScriptWord> : reveal === "focus" ? <FocusWord at={at}>{w}</FocusWord> : <RiseWord at={at}>{w}</RiseWord>}
                     {wi < arr.length - 1 ? " " : null}
                   </React.Fragment>
                 );
@@ -55,6 +68,14 @@ export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> 
   );
 };
 
+const REVEALS = ["rise", "focus", "ink"] as const;
+
+/** Calm entrance: the word comes into focus where it stands (no movement). */
+const FocusWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => {
+  const p = useProgress(at, motion.durationsSec.base * 1.4);
+  return <span style={{ display: "inline-block", opacity: p, filter: p < 1 ? `blur(${((1 - p) * 6).toFixed(2)}px)` : undefined }}>{children}</span>;
+};
+
 /** Set type: the word rises out of a baseline mask (generous padding so nothing is clipped). */
 const RiseWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => {
   const p = useProgress(at, motion.durationsSec.base);
@@ -64,6 +85,8 @@ const RiseWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, chi
     </span>
   );
 };
+
+const scriptStyle: React.CSSProperties = { fontFamily: fonts.script, fontSize: "1.12em", color: P.royal, letterSpacing: 0, wordSpacing: "normal", lineHeight: 1 };
 
 /** Script accent: written with an ink wipe, never masked by a box (swashes keep their full extent). */
 const ScriptWord: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => (

@@ -28,6 +28,8 @@ const QaGuardFrame: React.FC<{ frame: number }> = ({ frame }) => {
         await document.fonts.ready;
         const els = Array.from(document.querySelectorAll<HTMLElement>("[data-qa-text]"));
         const visible = els.filter((el) => {
+          // Miniature thumbnails (e.g. chapterRecap's still signature cards) are pictures, not reading text.
+          if (el.closest("[data-qa-ignore]")) return false;
           const r = textRect(el, width, height);
           const onScreen = r.right > 0 && r.bottom > 0 && r.left < width && r.top < height;
           return r.width > 0 && r.height > 0 && onScreen && effectiveOpacity(el) > 0.5;

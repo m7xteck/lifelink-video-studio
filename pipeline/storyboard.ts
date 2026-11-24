@@ -5,6 +5,7 @@
  *
  *   npx tsx pipeline/storyboard.ts --course <id> --lesson <id> [--orientation portrait]
  */
+import { rmSync } from "node:fs";
 import { bundle } from "@remotion/bundler";
 import { renderStill, selectComposition } from "@remotion/renderer";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -43,6 +44,7 @@ const fmt = (t: number) => `${Math.floor(t / 60)}:${(t % 60).toFixed(1).padStart
 
 (async () => {
   const serveUrl = await bundle({ entryPoint: join(P.root, "src/index.ts"), publicDir: join(P.root, "public") });
+  process.on("exit", () => rmSync(serveUrl, { recursive: true, force: true })); // ~450 MB per bundle
   const inputProps = { manifest: m, orientation: portrait ? "portrait" : "landscape", muted: true, qa: false };
   const composition = await selectComposition({ serveUrl, id: portrait ? "LessonPortrait" : "Lesson", inputProps, browserExecutable: BROWSER ?? undefined });
   const rows: string[] = [];

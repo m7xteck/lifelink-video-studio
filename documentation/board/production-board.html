@@ -1,48 +1,99 @@
 <title>LifeLink Production Board</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
 <style>
-  /* Layout: run header → stage pipeline (cards wrap) → agent lanes inside each stage → activity log */
+  /* Layout: summary band (time left, progress, tokens) → working-now cards → stage timeline with agent rows → activity log */
   :root {
-    --bg: #f3f0e8; --panel: #faf8f3; --ink: #500002; --muted: #7d4a4b; --line: #ddd3c3; --accent: #3961bc;
-    --ok: #2f7d4f; --run: #3961bc; --wait: #9a8f80; --fail: #af3e46;
-    --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --bg: #f3f0e8; --panel: #fbf9f4; --ink: #3a0d10; --muted: #7d5a5b; --line: #e2d9ca; --accent: #3961bc; --accent-soft: #e3e9f6;
+    --oxblood: #500002; --ok: #2f7d4f; --run: #3961bc; --wait: #a0968a; --fail: #af3e46; --track: #e8e0d2;
+    --font: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-    --bg: #1c1214; --panel: #261a1c; --ink: #f3e9e4; --muted: #c7aaa8; --line: #3d2c2e; --accent: #8fb0f0;
-    --ok: #6cc28f; --run: #8fb0f0; --wait: #8a7d78; --fail: #e07a82; color-scheme: dark } }
+    --bg: #1b1214; --panel: #251a1c; --ink: #f3e9e4; --muted: #c4a9a7; --line: #3b2b2d; --accent: #8fb0f0; --accent-soft: #263049;
+    --oxblood: #f0b9bc; --ok: #6cc28f; --run: #8fb0f0; --wait: #8a7d78; --fail: #e07a82; --track: #34262a; color-scheme: dark } }
   :root[data-theme="dark"] {
-    --bg: #1c1214; --panel: #261a1c; --ink: #f3e9e4; --muted: #c7aaa8; --line: #3d2c2e; --accent: #8fb0f0;
-    --ok: #6cc28f; --run: #8fb0f0; --wait: #8a7d78; --fail: #e07a82; color-scheme: dark }
-  body { background: var(--bg); color: var(--ink); font-family: var(--font); }
-  .wrap { max-width: 1240px; margin: 0 auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 24px; }
-  header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; justify-content: space-between; }
-  .eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
-  h1 { margin: 4px 0 0; font-size: clamp(22px, 3vw, 30px); font-weight: 600; text-wrap: balance; }
-  .meta { color: var(--muted); font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-variant-numeric: tabular-nums; }
-  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid currentColor; }
-  .pill.working { color: var(--run); } .pill.done { color: var(--ok); } .pill.failed { color: var(--fail); } .pill.waiting, .pill.queued { color: var(--wait); }
+    --bg: #1b1214; --panel: #251a1c; --ink: #f3e9e4; --muted: #c4a9a7; --line: #3b2b2d; --accent: #8fb0f0; --accent-soft: #263049;
+    --oxblood: #f0b9bc; --ok: #6cc28f; --run: #8fb0f0; --wait: #8a7d78; --fail: #e07a82; --track: #34262a; color-scheme: dark }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+  .num { font-variant-numeric: tabular-nums; }
+  header { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: flex-end; justify-content: space-between; }
+  .eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  h1 { margin: 6px 0 0; font-size: clamp(22px, 3.2vw, 32px); font-weight: 600; text-wrap: balance; color: var(--oxblood); }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid currentColor; white-space: nowrap; }
+  .working { color: var(--run); } .done { color: var(--ok); } .failed { color: var(--fail); } .waiting, .queued { color: var(--wait); }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
   .working .dot { animation: pulse 1.4s ease-in-out infinite; }
   @keyframes pulse { 50% { opacity: .25; } }
   @media (prefers-reduced-motion: reduce) { .working .dot { animation: none; } }
-  .stages { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-  .stage { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
-  .stage.working { border-color: var(--run); }
-  .stage-head { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
-  .stage-name { font-weight: 600; font-size: 15px; }
-  .stage-step { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .agent { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; padding: 8px 0; border-top: 1px solid var(--line); }
+  #note { margin: 0; color: var(--muted); max-width: 70ch; line-height: 1.5; }
+
+  /* summary band */
+  .summary { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 18px; }
+  .eta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+  .eta-big { font-size: clamp(30px, 5vw, 46px); font-weight: 700; color: var(--oxblood); letter-spacing: -0.01em; }
+  .eta-sub { color: var(--muted); }
+  .bar { height: 10px; background: var(--track); border-radius: 999px; overflow: hidden; display: flex; }
+  .bar span { display: block; height: 100%; }
+  .bar .b-done { background: var(--ok); } .bar .b-run { background: var(--run); opacity: .55; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .stat { border-top: 1px solid var(--line); padding-top: 12px; min-width: 0; }
+  .stat .k { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .stat .v { font-size: 24px; font-weight: 600; margin-top: 4px; }
+  .stat .s { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+  section h2 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; font-weight: 700; }
+  /* working now */
+  .now { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .nowcard { background: var(--accent-soft); border-radius: 12px; padding: 14px 16px; display: grid; gap: 6px; min-width: 0; }
+  .nowcard .who { font-weight: 600; color: var(--ink); }
+  .nowcard .meta { font-size: 13px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* stage timeline */
+  .timeline { display: grid; gap: 0; }
+  .stage { display: grid; grid-template-columns: 34px 1fr; gap: 0 14px; }
+  .rail { display: flex; flex-direction: column; align-items: center; }
+  .node { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; border: 2px solid currentColor; background: var(--bg); }
+  .stage.done .node { background: var(--ok); color: var(--bg); border-color: var(--ok); }
+  .rail .seg { flex: 1; width: 2px; background: var(--line); margin: 4px 0; min-height: 18px; }
+  .stage:last-child .seg { display: none; }
+  .body { padding-bottom: 22px; min-width: 0; }
+  .shead { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; min-height: 30px; }
+  .sname { font-weight: 600; font-size: 16px; color: var(--ink); }
+  .seta { margin-left: auto; font-size: 13px; color: var(--muted); }
+  .sdetail { color: var(--muted); font-size: 13.5px; margin: 4px 0 8px; line-height: 1.45; }
+  .mini { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--muted); margin-bottom: 6px; }
+  .mini .bar { height: 6px; flex: 0 1 180px; }
+  details { border-top: 1px solid var(--line); }
+  summary { cursor: pointer; padding: 8px 0; font-size: 13px; color: var(--accent); font-weight: 600; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .agent { display: grid; grid-template-columns: auto 1fr auto; gap: 2px 10px; padding: 8px 0; border-top: 1px solid var(--line); align-items: start; }
+  .agent:first-child { border-top: 0; }
   .agent .dot { margin-top: 6px; }
-  .agent.working { color: var(--run); } .agent.done { color: var(--ok); } .agent.failed { color: var(--fail); } .agent.queued { color: var(--wait); }
-  .agent-name { color: var(--ink); font-size: 14px; font-weight: 500; min-width: 0; }
-  .agent-sub { grid-column: 2; color: var(--muted); font-size: 12.5px; line-height: 1.4; overflow-wrap: anywhere; }
+  .aname { color: var(--ink); font-weight: 500; min-width: 0; }
+  .aright { font-size: 12.5px; color: var(--muted); text-align: right; white-space: nowrap; }
+  .asub { grid-column: 2 / 4; color: var(--muted); font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
   .empty { color: var(--muted); font-size: 13px; }
-  section h2 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
-  .log { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 4px 14px; max-height: 340px; overflow: auto; }
-  .log div { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; display: grid; grid-template-columns: 64px 1fr; gap: 10px; }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 1px 7px; border-radius: 5px; margin-left: 6px; vertical-align: 2px; }
+  .tag.m { color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent); }
+  .tag.e { color: var(--muted); border: 1px dashed var(--muted); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .fact { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; min-width: 0; }
+  .fact h3 { margin: 0 0 8px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .fact ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .fact li { font-size: 13.5px; line-height: 1.45; padding-left: 14px; position: relative; overflow-wrap: anywhere; }
+  .fact li::before { content: ""; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+  .fact.blk li::before { background: var(--fail); }
+  .fact li small { display: block; color: var(--muted); font-size: 12px; }
+
+  .log { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 4px 16px; max-height: 340px; overflow: auto; }
+  .log div { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; display: grid; grid-template-columns: 56px 1fr; gap: 10px; }
   .log div:last-child { border-bottom: 0; }
-  .log time { color: var(--muted); font-variant-numeric: tabular-nums; }
-  #status { font-size: 13px; color: var(--muted); }
+  .log time { color: var(--muted); }
+  footer { font-size: 12.5px; color: var(--muted); line-height: 1.5; max-width: 80ch; }
 </style>
 
 <div class="wrap">
@@ -51,14 +102,49 @@
       <div class="eyebrow">LifeLink Video Studio · Agent team</div>
       <h1 id="title">Production board</h1>
     </div>
-    <div class="meta"><span id="runpill" class="pill waiting"><span class="dot"></span><span id="runstate">Waiting</span></span><span id="elapsed"></span><span id="updated"></span></div>
+    <span id="runpill" class="pill waiting"><span class="dot"></span><span id="runstate">Waiting</span></span>
   </header>
-  <p id="status">Connecting to the live board…</p>
-  <div class="stages" id="stages"></div>
+  <p id="note">Connecting to the live board…</p>
+
+  <div class="summary">
+    <div class="eta"><span class="eta-big num" id="etaBig">—</span><span class="tag e">Estimate</span><span class="eta-sub num" id="etaSub"></span></div>
+    <div>
+      <div class="bar" id="bar"></div>
+      <div class="legend" style="margin-top:8px"><span><i style="background:var(--ok)"></i>Finished</span><span><i style="background:var(--run);opacity:.55"></i>Working</span><span><i style="background:var(--track)"></i>Still to do</span></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">Running for</div><div class="v num" id="sElapsed">—</div><div class="s" id="sStarted"></div></div>
+      <div class="stat"><div class="k">Agents finished <span class="tag m">Measured</span></div><div class="v num" id="sAgents">—</div><div class="s" id="sAgentsSub"></div></div>
+      <div class="stat"><div class="k">Tokens used <span class="tag m">Measured</span></div><div class="v num" id="sTokens">—</div><div class="s" id="sTokensSub"></div></div>
+      <div class="stat"><div class="k">Last update</div><div class="v num" id="sUpdated">—</div><div class="s">Time left counts down live between updates</div></div>
+    </div>
+  </div>
+
+  <section id="nowSec" hidden>
+    <h2>Working now</h2>
+    <div class="now" id="now"></div>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <div class="facts">
+      <div class="fact"><h3>Verified results</h3><ul id="evidence"></ul></div>
+      <div class="fact"><h3>QA findings</h3><ul id="findings"></ul></div>
+      <div class="fact blk"><h3>Known blockers</h3><ul id="blockers"></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Stages</h2>
+    <div class="timeline" id="stages"></div>
+  </section>
+
   <section>
     <h2>Activity</h2>
-    <div class="log" id="log"><div><time></time><span class="empty">Events appear here as agents start and finish.</span></div></div>
+    <div class="log" id="log"></div>
   </section>
+
+  <footer>Measured: agents started and finished (read from the workflow's own journal), their run times, and tokens (read from each agent's log). Queued agents are planned work that has not started. Estimated: time left, stage finish times, and the render and review stages after the agents. Time left is estimated from how long finished agents actually took, with two agents working at once on this machine. It gets more accurate as each agent finishes. Token counts come from each agent's own log and include cached re-reads, which make up most of the total and cost far less than new text. Credit balances aren't visible to the studio.</footer>
 </div>
 
 <script>
@@ -66,55 +152,138 @@
   const $ = (id) => document.getElementById(id);
   const LABEL = { queued: "Queued", working: "Working", done: "Done", failed: "Failed", waiting: "Waiting" };
   let run = {}, stages = [], agents = [], events = [];
-  const fmtTime = (iso) => { try { return new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); } catch { return ""; } };
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const ts = (iso) => { const t = Date.parse(iso || ""); return isNaN(t) ? null : t; };
+  const clock = (iso) => { const t = ts(iso); return t == null ? "" : new Date(t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); };
+  const dur = (ms) => { if (ms == null || ms < 0) return "—"; const m = Math.round(ms / 60000); if (m < 1) return "under a minute"; const h = Math.floor(m / 60); return h ? `${h} h ${m % 60} min` : `${m} min`; };
+  const short = (ms) => { const m = Math.max(0, Math.round(ms / 60000)); const h = Math.floor(m / 60); return h ? `${h}h ${String(m % 60).padStart(2, "0")}m` : `${m}m`; };
+  const tok = (n) => { if (!n) return "0"; if (n >= 1e9) return (n / 1e9).toFixed(2) + "B"; if (n >= 1e6) return (n / 1e6).toFixed(1) + "M"; if (n >= 1e3) return Math.round(n / 1e3) + "k"; return String(n); };
 
+  let agentsCol = [], stagesCol = [];
+  // The run document carries the live agent list and per-stage numbers (one write per update); collections are the fallback.
+  function merge() {
+    agents = Array.isArray(run.agents) ? run.agents : agentsCol;
+    const stats = run.stageStats || {};
+    stages = stagesCol.map((s) => {
+      const x = { ...s, ...(stats[s.id] || {}) };
+      if (stats[s.id] && x.agentsTotal) {
+        const mine = agents.filter((a) => a.stage === s.id);
+        x.state = x.agentsDone >= x.agentsTotal ? "done" : mine.some((a) => a.state !== "queued") ? "working" : "queued";
+        if (x.state === "done") x.finishedAt = mine.map((a) => a.finishedAt || "").sort().pop();
+      }
+      return x;
+    });
+  }
   function render() {
+    merge();
+    const now = Date.now();
     $("title").textContent = run.title || "Production board";
     const st = run.state || "waiting";
     $("runpill").className = "pill " + st; $("runstate").textContent = LABEL[st] || st;
-    if (run.startedAt) {
-      const end = run.finishedAt ? new Date(run.finishedAt) : new Date();
-      const mins = Math.max(0, Math.round((end - new Date(run.startedAt)) / 60000));
-      $("elapsed").textContent = (run.finishedAt ? "Took " : "Running for ") + mins + " min";
-    }
-    $("status").textContent = run.note || (stages.length ? "" : "No run yet. When Claude starts the agent team, its stages appear here.");
+    $("note").textContent = run.note || (stages.length ? "" : "No run yet. When Claude starts the agent team, its stages appear here.");
+
+    // time left
+    const eta = ts(run.etaAt);
+    if (run.finishedAt) { $("etaBig").textContent = "Finished"; $("etaSub").textContent = "at " + clock(run.finishedAt); }
+    else if (eta) { const left = eta - now; $("etaBig").textContent = left > 60000 ? "About " + dur(left) + " left" : "Almost done"; $("etaSub").textContent = "Expected to finish around " + clock(run.etaAt); }
+    else { $("etaBig").textContent = "Estimating…"; $("etaSub").textContent = ""; }
+
+    // progress bar: agents finished / working / remaining
+    const total = run.agentsTotal || agents.length || 0;
+    const done = agents.filter((a) => a.state === "done").length, working = agents.filter((a) => a.state === "working").length;
+    const bar = $("bar"); bar.replaceChildren();
+    if (total) { const d = el("span", "b-done"); d.style.width = (100 * done / total) + "%"; const w = el("span", "b-run"); w.style.width = (100 * working / total) + "%"; bar.append(d, w); }
+    bar.setAttribute("role", "progressbar"); bar.setAttribute("aria-valuemin", "0"); bar.setAttribute("aria-valuemax", String(total)); bar.setAttribute("aria-valuenow", String(done));
+
+    const start = ts(run.startedAt);
+    $("sElapsed").textContent = start ? dur((run.finishedAt ? ts(run.finishedAt) : now) - start) : "—";
+    $("sStarted").textContent = start ? "Started " + clock(run.startedAt) : "";
+    $("sAgents").textContent = total ? `${done} of ${total}` : "—";
+    $("sAgentsSub").textContent = working ? `${working} working right now` : "";
+    $("sTokens").textContent = run.tokens != null ? tok(run.tokens) : "—";
+    $("sTokensSub").textContent = run.tokens && done ? `about ${tok(run.tokens / Math.max(1, done + working * 0.5))} per agent` : "";
+    $("sUpdated").textContent = clock(run.updatedAt) || "—";
+
+    // working now
+    const live = agents.filter((a) => a.state === "working");
+    $("nowSec").hidden = !live.length;
+    const nowBox = $("now"); nowBox.replaceChildren();
+    live.sort((a, b) => (a.order || 0) - (b.order || 0)).forEach((a) => {
+      const c = el("div", "nowcard"); const head = el("div", "pill working"); head.append(el("span", "dot"), el("span", null, (stages.find((s) => s.id === a.stage) || {}).name || "Working"));
+      head.style.justifySelf = "start";
+      const meta = el("div", "meta");
+      meta.append(el("span", "num", ts(a.startedAt) ? "Working for " + dur(now - ts(a.startedAt)) : "Just started"));
+      if (a.tokens) meta.append(el("span", "num", tok(a.tokens) + " tokens"));
+      c.append(head, el("div", "who", a.name), meta);
+      if (a.summary) c.append(el("div", "meta", a.summary));
+      nowBox.append(c);
+    });
+
+    // stage timeline
     const box = $("stages"); box.replaceChildren();
     [...stages].sort((a, b) => (a.order || 0) - (b.order || 0)).forEach((s, i) => {
-      const card = el("div", "stage " + (s.state || "queued"));
-      const head = el("div", "stage-head");
-      const left = el("div"); left.append(el("div", "stage-step", "Stage " + (i + 1)), el("div", "stage-name", s.name || s.id));
-      const pill = el("span", "pill " + (s.state || "queued")); pill.append(el("span", "dot"), el("span", null, LABEL[s.state] || "Queued"));
-      head.append(left, pill); card.append(head);
-      if (s.detail) card.append(el("div", "agent-sub", s.detail));
+      const state = s.state || "queued";
+      const row = el("div", "stage " + state);
+      const rail = el("div", "rail"); const node = el("div", "node " + state, state === "done" ? "✓" : String(i + 1)); rail.append(node, el("div", "seg")); row.append(rail);
+      const body = el("div", "body");
+      const head = el("div", "shead");
+      const pill = el("span", "pill " + state); pill.append(el("span", "dot"), el("span", null, LABEL[state] || "Queued"));
+      head.append(el("span", "sname", s.name || s.id), pill);
+      let etaTxt = "";
+      if (state === "done") etaTxt = s.finishedAt ? "Finished " + clock(s.finishedAt) : "Finished";
+      else if (ts(s.etaAt)) etaTxt = (state === "working" ? "Done in about " : "Expected done ") + (state === "working" ? short(ts(s.etaAt) - now) + " · ~" + clock(s.etaAt) : "~" + clock(s.etaAt));
+      if (etaTxt) head.append(el("span", "seta num", etaTxt));
+      body.append(head);
+      if (s.detail) body.append(el("div", "sdetail", s.detail));
       const mine = agents.filter((a) => a.stage === s.id).sort((a, b) => (a.order || 0) - (b.order || 0));
-      if (!mine.length) card.append(el("div", "empty", "No agents yet"));
-      mine.forEach((a) => {
-        const row = el("div", "agent " + (a.state || "queued"));
-        row.append(el("span", "dot"), el("span", "agent-name", a.name + (a.state === "working" ? " · working" : "")));
-        if (a.summary) row.append(el("span", "agent-sub", a.summary));
-        card.append(row);
-      });
-      box.append(card);
+      const tot = s.agentsTotal || mine.length;
+      if (tot) {
+        const m = el("div", "mini"); const b = el("div", "bar"); const d = el("span", "b-done"); const fin = mine.filter((a) => a.state === "done").length;
+        d.style.width = (100 * fin / tot) + "%"; b.append(d);
+        m.append(b, el("span", "num", `${fin}/${tot} agents` + (s.tokens ? ` · ${tok(s.tokens)} tokens` : "")));
+        body.append(m);
+      }
+      if (mine.length) {
+        const det = el("details"); if (state === "working") det.open = true;
+        det.append(el("summary", null, state === "working" ? "Agents in this stage" : `Show ${mine.length} agent${mine.length > 1 ? "s" : ""}`));
+        const list = el("div");
+        mine.forEach((a) => {
+          const r = el("div", "agent " + (a.state || "queued"));
+          let right = "";
+          if (a.state === "done" && ts(a.startedAt) && ts(a.finishedAt)) right = "took " + dur(ts(a.finishedAt) - ts(a.startedAt));
+          else if (a.state === "working" && ts(a.startedAt)) right = dur(now - ts(a.startedAt)) + " so far";
+          else if (a.state === "queued") right = "not started";
+          if (a.tokens) right += (right ? " · " : "") + tok(a.tokens);
+          r.append(el("span", "dot"), el("span", "aname", a.name), el("span", "aright num", right));
+          if (a.summary) r.append(el("span", "asub", a.summary));
+          list.append(r);
+        });
+        det.append(list); body.append(det);
+      }
+      row.append(body); box.append(row);
     });
+
+    const fill = (id, items, fmt) => { const ul = $(id); ul.replaceChildren(); if (!items || !items.length) { ul.append(el("li", "empty", "None")); return; } items.forEach((x) => { const li = el("li", null, x.text); const sub = fmt(x); if (sub) li.append(el("small", "num", sub)); ul.append(li); }); };
+    fill("evidence", [...(run.evidence || [])].sort((a, b) => (b.at || "").localeCompare(a.at || "")), (x) => x.at ? "Recorded " + clock(x.at) : "");
+    fill("findings", run.qaFindings, (x) => x.state ? "Status: " + x.state : "");
+    fill("blockers", run.blockers, () => "");
     const log = $("log"); log.replaceChildren();
     const list = [...events].sort((a, b) => (b.at || "").localeCompare(a.at || "")).slice(0, 80);
     if (!list.length) { const d = el("div"); d.append(el("time"), el("span", "empty", "Events appear here as agents start and finish.")); log.append(d); }
-    list.forEach((e) => { const d = el("div"); const t = el("time", null, fmtTime(e.at)); d.append(t, el("span", null, e.text)); log.append(d); });
-    $("updated").textContent = run.updatedAt ? "Updated " + fmtTime(run.updatedAt) : "";
+    list.forEach((e) => { const d = el("div"); d.append(el("time", "num", clock(e.at)), el("span", null, e.text)); log.append(d); });
   }
   render();
-  setInterval(render, 30000);
+  setInterval(render, 20000);
 
-  const timer = setTimeout(() => { $("status").textContent = "The live board is not available in this view."; }, 10000);
+  const timer = setTimeout(() => { $("note").textContent = "The live board is not available in this view."; }, 10000);
   window.claude?.use?.("db").then((db) => {
-    if (!db) { clearTimeout(timer); $("status").textContent = "Sign in to see the live board."; return; }
+    if (!db) { clearTimeout(timer); $("note").textContent = "Sign in to see the live board."; return; }
     const done = () => clearTimeout(timer);
-    const fail = () => { done(); $("status").textContent = "Couldn't load the board. Reopen the page to try again."; };
+    const fail = () => { done(); $("note").textContent = "Couldn't load the board. Reopen the page to try again."; };
     db.doc("board/run").onSnapshot((d) => { done(); run = d.exists ? d.data() : {}; render(); }, fail);
-    db.collection("stages").onSnapshot((q) => { done(); stages = q.docs.map((d) => ({ id: d.id, ...d.data() })); render(); }, fail);
-    db.collection("agents").onSnapshot((q) => { agents = q.docs.map((d) => ({ id: d.id, ...d.data() })); render(); }, fail);
+    db.collection("stages").onSnapshot((q) => { done(); stagesCol = q.docs.map((d) => ({ id: d.id, ...d.data() })); render(); }, fail);
+    db.collection("agents").onSnapshot((q) => { agentsCol = q.docs.map((d) => ({ id: d.id, ...d.data() })); render(); }, fail);
     db.collection("events").onSnapshot((q) => { events = q.docs.map((d) => d.data()); render(); }, fail);
-  }).catch(() => { clearTimeout(timer); $("status").textContent = "The live board is not available in this view."; });
+  }).catch(() => { clearTimeout(timer); $("note").textContent = "The live board is not available in this view."; });
 })();
 </script>
