@@ -5,16 +5,20 @@
  *
  * Options:
  *   --orientation portrait     9:16 recomposition (layouts adapt; nothing is cropped)
- *   --preview                  half-resolution quick preview
+ *   --preview                  tier-2 motion preview: 960×540 (scale 0.5), watermarked "PREVIEW", written under
+ *                              previews/<lesson>/ — never versioned as a master, never reads or writes the
+ *                              master section cache (always rendered fresh, in one pass over the window)
  *   --from 12.5 --to 85        render only a time window (e.g. a 60–90 s sample)
  *   --force                    ignore the section cache
  *   --concurrency N            browser tabs per render (default: all CPU cores)
  *
  * How it works:
  *  1. The manifest is validated.
- *  2. Each teaching SECTION is rendered as its own muted video chunk and cached
- *     by a fingerprint of (section scenes + engine code + design system). Unchanged
- *     sections are reused, so a revision only re-renders what changed.
+ *  2. Each teaching SECTION is rendered as its own muted video chunk and cached by a key of
+ *     (scenes in the section window ±1.5 s) + (shared engine files: src/ minus src/components,
+ *     design system, fonts, textures, encoder) + (only the component files used by the scene
+ *     types in that window) — see pipeline/lib/render-cache.ts. A component fix therefore
+ *     re-renders only the sections that use it.
  *  3. Chunks are joined losslessly.
  *  4. The ORIGINAL narration is loudness-balanced (non-destructively) and laid over
  *     the visuals in one pass, so audio is never re-chunked and sync is exact.
@@ -23,8 +27,7 @@
 import { rmSync } from "node:fs";
 import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
-import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync, copyFileSync, renameSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync, copyFileSync, renameSync } from "node:fs";
 import { cpus } from "node:os";
 import { join, relative } from "node:path";
 import { parseArgs } from "node:util";
@@ -33,6 +36,9 @@ import { BROWSER } from "./lib/browser";
 import { P, lessonDir, renderDir } from "./lib/paths";
 import { ff, ffprobe } from "./lib/media";
 import { withLock } from "./lib/lock";
+import { planChunks, type ChunkPlan } from "./lib/render-cache";
+export { planChunks, buildComponentMap, sharedEngineFiles } from "./lib/render-cache";
+import ds from "../brand/design-system.json";
 
 const { values: a } = parseArgs({
   options: {
@@ -45,14 +51,8 @@ if (!a.course || !a.lesson) { console.error("Usage: --course <id> --lesson <id>"
 
 const log = (...m: unknown[]) => console.log(`[render ${a.lesson}]`, ...m);
 
-const hashFiles = (dir: string, h = createHash("sha256")) => {
-  for (const f of readdirSync(dir).sort()) {
-    const p = join(dir, f);
-    if (statSync(p).isDirectory()) hashFiles(p, h);
-    else { h.update(relative(P.root, p)); h.update(readFileSync(p)); }
-  }
-  return h;
-};
+/** Same rule as src/brand/tokens.ts brandWatermark: mandatory while the brand is unapproved. */
+const brandWatermark = ds.status === "APPROVED" ? null : ds.status === "PROPOSAL" ? "Concept for approval · provisional brand" : "Engine test · neutral style · not LifeLink brand";
 
 export type RenderResult = { output: string; record: string; qaIssues: QaEvent[]; chunks: ChunkInfo[]; durationSec: number };
 type QaEvent = { frame: number; issues: Record<string, unknown>[] };
@@ -60,20 +60,25 @@ type ChunkInfo = { sectionId: string; frames: [number, number]; key: string; fil
 
 export const renderLesson = async (): Promise<RenderResult> => {
   const dir = lessonDir(a.course!, a.lesson!);
-  const manifest: Manifest = ManifestSchema.parse(JSON.parse(readFileSync(join(dir, "manifest.json"), "utf8")));
+  const parsed: Manifest = ManifestSchema.parse(JSON.parse(readFileSync(join(dir, "manifest.json"), "utf8")));
+  const preview = a.preview;
   const portrait = a.orientation === "portrait";
-  const scale = a.preview ? 0.5 : 1;
-  const variant = `${portrait ? "portrait" : "landscape"}${a.preview ? "-preview" : ""}${a.from || a.to ? "-sample" : ""}`;
+  const scale = preview ? 0.5 : 1;
+  const variant = `${portrait ? "portrait" : "landscape"}${preview ? "-preview" : ""}${a.from || a.to ? "-sample" : ""}`;
+  // Previews always carry a PREVIEW watermark (plus the mandatory brand notice while the brand is unapproved).
+  const manifest: Manifest = preview
+    ? { ...parsed, watermark: ["Preview · 540p · not final", parsed.watermark ?? brandWatermark].filter(Boolean).join(" · ") }
+    : parsed;
   const fps = manifest.fps;
   const winFrom = a.from ? Number(a.from) : 0;
   const winTo = a.to ? Math.min(Number(a.to), manifest.durationSec) : manifest.durationSec;
   const totalFrames = Math.ceil(manifest.durationSec * fps);
-  const outDir = join(renderDir(manifest.lessonId), variant);
-  const chunkDir = join(outDir, "chunks");
+  // Masters: renders/<lesson>/<variant>/ with the section cache in chunks/.
+  // Previews: previews/<lesson>/ with a private scratch folder that is deleted afterwards.
+  const outDir = preview ? join(P.previews, manifest.lessonId) : join(renderDir(manifest.lessonId), variant);
+  const chunkDir = preview ? join(outDir, `.work-${process.pid}-${Date.now()}`) : join(outDir, "chunks");
   mkdirSync(chunkDir, { recursive: true });
-
-  const engineHash = hashFiles(join(P.root, "src")).update(readFileSync(P.designSystem)).update(String(hashFiles(join(P.root, "public/fonts")).digest("hex"))).digest("hex").slice(0, 16);
-  log(`engine fingerprint ${engineHash}; variant ${variant}; window ${winFrom}s–${winTo}s`);
+  if (preview) process.on("exit", () => rmSync(chunkDir, { recursive: true, force: true }));
 
   const t0 = Date.now();
   log("bundling project…");
@@ -84,22 +89,21 @@ export const renderLesson = async (): Promise<RenderResult> => {
 
   // Section chunks clipped to the requested window.
   // Every encoder setting is part of the cache fingerprint.
-  const encoder = { codec: "h264" as const, crf: a.preview ? 23 : 16, pixelFormat: "yuv420p" as const, imageFormat: "jpeg" as const, jpegQuality: 92, colorSpace: "bt709" as const, scale };
+  const encoder = { codec: "h264" as const, crf: preview ? 23 : 16, pixelFormat: "yuv420p" as const, imageFormat: "jpeg" as const, jpegQuality: 92, colorSpace: "bt709" as const, scale };
+  const { sharedHash: engineHash, plans: sectionPlans } = planChunks(manifest, { root: P.root, portrait, scale, encoder, winFrom, winTo });
+  log(`engine fingerprint ${engineHash} (shared files; components hashed per section); variant ${variant}; window ${winFrom}s–${winTo}s`);
+  for (const p of sectionPlans) if (p.unmapped.length) log(`section ${p.sectionId}: scene type(s) ${p.unmapped.join(", ")} not found in SceneRenderer.tsx — hashing all of src/components for this section`);
+  // A preview renders the whole window in one pass (fewer chunk start-ups, so faster) and never touches the cache.
+  const plans: ChunkPlan[] = preview && sectionPlans.length
+    ? [{ ...sectionPlans[0], sectionId: "preview", f1: sectionPlans.at(-1)!.f1, key: "uncached" }]
+    : sectionPlans;
   const chunks: ChunkInfo[] = [];
   const conc = Number(a.concurrency ?? cpus().length);
-  for (const sec of manifest.sections) {
-    const s = Math.max(sec.startSec, winFrom), e = Math.min(sec.endSec, winTo);
-    if (e <= s) continue;
-    const f0 = Math.round(s * fps);
-    // The final chunk always rounds UP so the last syllable of narration is never clipped.
-    const f1 = (e >= manifest.durationSec - 1e-6 ? totalFrames : Math.min(totalFrames, Math.round(e * fps))) - 1;
-    if (f1 < f0) continue;
-    // Scenes touching this chunk (incl. neighbours whose cross-dissolve spills in).
-    const touching = manifest.scenes.filter((sc) => sc.startSec < e + 1.5 && sc.endSec + 1.5 > s); // 1.5 s ≥ MAX_SCENE_OVERLAP_SEC
-    const key = createHash("sha256").update(JSON.stringify({ touching, f0, f1, fps, portrait, scale, engineHash, encoder, watermark: manifest.watermark, w: manifest.width, h: manifest.height })).digest("hex").slice(0, 16);
+  for (const { sectionId, f0, f1, key } of plans) {
+    const sec = { id: sectionId };
     const file = join(chunkDir, `${sec.id}_${f0}-${f1}_${key}.mp4`);
     const qaFile = file.replace(/\.mp4$/, ".qa.json");
-    if (existsSync(file) && !a.force) {
+    if (!preview && existsSync(file) && !a.force) {
       log(`section ${sec.id}: cached (frames ${f0}–${f1})`);
       chunks.push({ sectionId: sec.id, frames: [f0, f1], key, file, reused: true, seconds: 0, qa: existsSync(qaFile) ? JSON.parse(readFileSync(qaFile, "utf8")) : [] });
       continue;
@@ -128,21 +132,25 @@ export const renderLesson = async (): Promise<RenderResult> => {
   if (!chunks.length) throw new Error("Nothing to render in the requested window");
 
   // Join chunks losslessly.
-  const listFile = join(outDir, "concat.txt");
+  const listFile = join(preview ? chunkDir : outDir, "concat.txt");
   writeFileSync(listFile, chunks.map((c) => `file '${c.file}'`).join("\n"));
-  const silent = join(outDir, "visuals.mp4");
+  const silent = join(preview ? chunkDir : outDir, "visuals.mp4");
   ff(["-v", "error", "-f", "concat", "-safe", "0", "-i", listFile, "-c", "copy", silent]);
 
   // Next version number — never overwrite.
+  // Previews are named by window and time instead (never a master version number).
   const existing = readdirSync(outDir).filter((f) => /_v\d{3}\.mp4$/.test(f));
-  const ver = String(existing.length + 1).padStart(3, "0");
-  const output = join(outDir, `${manifest.lessonId}_${variant}_v${ver}.mp4`);
+  const ver = preview ? "preview" : String(existing.length + 1).padStart(3, "0");
   const startSec = chunks[0].frames[0] / fps;
   const durSec = (chunks.at(-1)!.frames[1] + 1 - chunks[0].frames[0]) / fps;
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\..*/, "");
+  const output = preview
+    ? join(outDir, `${manifest.lessonId}_${variant}_${startSec.toFixed(1)}-${(startSec + durSec).toFixed(1)}s_${stamp}.mp4`)
+    : join(outDir, `${manifest.lessonId}_${variant}_v${ver}.mp4`);
 
   if (manifest.audio) {
     const src = join(P.root, "public", manifest.audio);
-    const mastered = join(outDir, `narration_master_${startSec}_${durSec}.wav`);
+    const mastered = join(preview ? chunkDir : outDir, `narration_master_${startSec}_${durSec}.wav`);
     if (!existsSync(mastered) || a.force) masterNarration(src, mastered, startSec, durSec);
     ff(["-v", "error", "-i", silent, "-i", mastered, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", durSec.toFixed(3), "-movflags", "+faststart", output]);
   } else {
@@ -154,7 +162,7 @@ export const renderLesson = async (): Promise<RenderResult> => {
   const probe = ffprobe(output);
   writeFileSync(record, JSON.stringify({
     lessonId: manifest.lessonId, courseId: manifest.courseId, variant, version: ver, output: relative(P.root, output),
-    window: { fromSec: startSec, toSec: startSec + durSec }, engineFingerprint: engineHash, label: a.label ?? null,
+    window: { fromSec: startSec, toSec: startSec + durSec }, engineFingerprint: engineHash, label: a.label ?? null, tier: preview ? "preview" : "master", sectionCache: preview ? "not used (rendered fresh)" : "per-component keys",
     createdAt: new Date().toISOString(), wallClockSec: (Date.now() - t0) / 1000, concurrency: conc,
     chunks: chunks.map(({ qa, ...c }) => ({ ...c, file: relative(P.root, c.file), qaEvents: qa.length })),
     qaEvents: qaIssues.length, probe: { format: probe.format, streams: probe.streams.map((s: Record<string, unknown>) => ({ codec_type: s.codec_type, codec_name: s.codec_name, width: s.width, height: s.height, r_frame_rate: s.r_frame_rate, duration: s.duration, sample_rate: s.sample_rate, channels: s.channels })) },
