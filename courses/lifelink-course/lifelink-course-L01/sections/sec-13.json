@@ -53,7 +53,7 @@
       "startSec": 1523.5,
       "endSec": 1535.9,
       "props": {
-        "variant": "offset",
+        "variant": "column",
         "lead": {
           "text": "Many people enter marriage with ideas about what married life should look like.",
           "at": 1523.8
