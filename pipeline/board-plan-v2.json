@@ -44,6 +44,19 @@
     "Quality Director \u00b7 chapters 13+14",
     "Quality Director \u00b7 chapters 15+16"
    ]
+  },
+  {
+   "phase": "Polish",
+   "stage": "v2-polish",
+   "total": 5,
+   "defaultMin": 30,
+   "names": [
+    "Senior Motion Designer \u00b7 pillars, foundation, scale",
+    "Senior Motion Designer \u00b7 house in the wind, bridge, trays",
+    "Senior Motion Designer \u00b7 rings, iceberg, lesson map",
+    "Senior Motion Designer \u00b7 text layouts",
+    "Senior Motion Designer \u00b7 myth, scenarios, mirror, recap"
+   ]
   }
  ],
  "pairs": [
@@ -75,8 +88,16 @@
   "title": "Module 01 \u00b7 v2 variety & memory pass",
   "state": "working",
   "startedAt": "2026-11-24T07:47:00Z",
-  "note": "Client feedback: too repetitive, not enough purposeful animation. Each chapter gets its own picture that builds as it is explained, returns when the idea returns, and is recapped at the end. Text gets new entrance styles.",
+  "note": "Chapters re-planned and reviewed. Next: animation polish pass on the weakest pictures, then the full v004 render and video-based review.",
   "evidence": [
+   {
+    "at": "2026-11-24T08:40:00Z",
+    "text": "Upgrade branch (not yet merged): smarter render cache proven by real renders (unrelated edit \u2192 section reused in 6 s vs 81 s); 540p preview tier works; QA now catches 17/17 planted errors; 16/16 system tests pass."
+   },
+   {
+    "at": "2026-11-24T08:44:00Z",
+    "text": "v2 chapter plans complete and reviewed: 181 scenes across 27 treatments (was 251, mostly one style); sections check, rhythm check and type-check pass; committed d360827."
+   },
    {
     "at": "2026-11-24T04:29:00Z",
     "text": "v003 rendered: 36:05, 1920\u00d71080 H.264, AAC. Automatic QA 15 pass / 1 fail (one 1.4 s caption hold) / 1 warning (loudness)."
@@ -91,6 +112,10 @@
    }
   ],
   "qaFindings": [
+   {
+    "text": "Reviewers flagged weak animations for the polish pass: house-in-the-wind (template-like), bridge (low, empty top), scale (trust shown in 'control' red), lesson map (empty right side), word-stack layout repeated, comparison layout, small label on rings.",
+    "state": "in progress"
+   },
    {
     "text": "v003 automatic QA: 'individual?' at 3:06 holds 1.4 s (target 1.5 s). Awaiting client view.",
     "state": "open"

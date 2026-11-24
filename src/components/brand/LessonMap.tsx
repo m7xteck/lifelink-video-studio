@@ -1,23 +1,26 @@
 import React from "react";
 import { AbsoluteFill, interpolate } from "remotion";
-import { brand, ease, fonts } from "../../brand/tokens";
+import { brand, ease, fonts, textStyle } from "../../brand/tokens";
 import { useLayout } from "../../motion/layout";
 import { useNarrationTime, useSceneEnvelope } from "../../motion/time";
 import { PaperDefs } from "../../illustrations/paper";
+import { PaperTextureDefs, TextureGate } from "./paperTexture";
 import type { SceneOf } from "../../schema/manifest";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
 
 /*
- * Signature: "Lesson map" — a winding paper road across the frame with up to 8 stations (paper discs + short titles).
- *   • Roadmap build (no `current`): on each topic's cue the road extends to its station, the disc is set down and its
- *     title comes into focus. The topic being named is oxblood; earlier ones settle to royal / muted.
- *   • Revisit (`current` = i): stations before i are already laid; the road reaches station i on its cue and the disc
- *     pulses once ("you are here"); later stations are absent.
+ * Signature: "Lesson map" — a winding cut-paper road across the whole frame with up to 8 stations (paper discs + short titles).
+ *   • The whole route is always laid out: stations not yet reached are quiet blank paper discs on a dashed planned line, their
+ *     titles in faint ink — so the map spans the frame and the viewer sees how far the journey goes.
+ *   • Roadmap build (no `current`): on each topic's cue the paper road extends to its station, the disc is inked (oxblood,
+ *     larger, lifted: "here") and its title comes into full ink; earlier stations settle to royal / muted.
+ *   • Revisit (`current` = i): stations before i are already reached; the road reaches station i on its cue and that disc
+ *     lifts and settles as the clear current station; later stations stay quiet.
  * Positions depend only on the station count, so a station sits in the same place every time the map returns.
  */
-const X0 = 250, X1 = 1670, Y_HI = 500, Y_LO = 740, START = { x: 104, y: 640 };
-const R = 36, ROAD_W = 40, ROAD_DUR = 0.9, DISC_DELAY = 0.45, LABEL_DELAY = 0.6;
+const X0 = 230, X1 = 1690, Y_HI = 520, Y_LO = 760, START = { x: 96, y: 660 };
+const R = 34, R_NOW = 46, ROAD_W = 42, ROAD_DUR = 0.9, DISC_DELAY = 0.45, LABEL_DELAY = 0.6;
 
 type Pt = { x: number; y: number };
 const stationPts = (n: number): Pt[] => Array.from({ length: n }, (_, i) => ({ x: X0 + ((X1 - X0) * i) / Math.max(1, n - 1), y: i % 2 === 0 ? Y_LO : Y_HI }));
@@ -92,51 +95,88 @@ export const LessonMap: React.FC<{ scene: SceneOf<"lessonMap"> }> = ({ scene }) 
   }
   const road = roadUpTo(pts, len);
 
+  const plan = roadUpTo(pts, pts[pts.length - 1].l);
+  const maxW = Math.min(380, (2 * (X1 - X0)) / Math.max(1, n - 1) - 50);
+
   return (
-    <AbsoluteFill style={{ opacity: env.opacity }}>
+    <AbsoluteFill style={{ opacity: env.opacity, wordSpacing: textStyle.wordSpacing }}>
       <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" width={L.width} height={L.height} style={{ position: "absolute", inset: 0 }}>
         <PaperDefs id={id} />
+        <defs><PaperTextureDefs id={id} strength={0.2} /></defs>
+        {/* the planned route: a fine dashed line the paper road will cover */}
+        <path d={plan} stroke={D.hairline} strokeWidth={2.5} fill="none" strokeDasharray="3 12" strokeLinecap="round" />
         {road && (
           <g>
             <path d={road} stroke={D.paperShade} strokeWidth={ROAD_W} fill="none" strokeLinecap="round" strokeLinejoin="round" filter={`url(#${id}-shadow-1)`} />
+            <path d={road} stroke={D.paperShade} strokeWidth={ROAD_W} fill="none" strokeLinecap="round" strokeLinejoin="round" filter={`url(#${id}-tex)`} />
+            <path d={road} stroke={D.paperLight} strokeWidth={ROAD_W - 14} fill="none" strokeLinecap="round" strokeLinejoin="round" opacity={0.55} />
             <path d={road} stroke={D.hairline} strokeWidth={3} fill="none" strokeDasharray="14 18" strokeLinecap="round" />
           </g>
         )}
+        {/* quiet stations ahead (not yet reached) */}
+        {stations.map((s, i) => (i >= shown ? <Ahead key={`g${i}`} pt={st[i]} high={i % 2 === 1} title={s.title} maxW={maxW} /> : null))}
         {stations.slice(0, shown).map((s, i) => (
           <Station key={i} id={id} pt={st[i]} high={i % 2 === 1} title={s.title} at={cue[i]} t={t}
-            maxW={Math.min(380, (2 * (X1 - X0)) / Math.max(1, n - 1) - 50)} nextAt={i + 1 < shown ? cue[i + 1] : undefined} pulse={revisit && i === shown - 1} />
+            maxW={maxW} nextAt={i + 1 < shown ? cue[i + 1] : undefined} />
         ))}
         {title && <Title text={title.text} at={title.at} t={t} />}
       </svg>
+      <TextureGate />
     </AbsoluteFill>
   );
 };
 
-const Station: React.FC<{ id: string; pt: Pt; high: boolean; title: string; at: number; t: number; nextAt?: number; pulse: boolean; maxW: number }> = ({ id, pt, high, title, at, t, nextAt, pulse, maxW }) => {
-  const land = clamp01(t, at + DISC_DELAY, 0.8);
-  if (land <= 0) return null;
-  // "now" colour hands over to the next station when it is named
-  const handOver = nextAt === undefined ? 0 : clamp01(t, nextAt, 0.7);
-  const q = pulse ? clamp01(t, at + DISC_DELAY + 0.7, 0.9) : 0;
-  const s = (0.55 + 0.45 * land) * (1 + 0.16 * Math.sin(Math.PI * q));
-  const label = clamp01(t, at + LABEL_DELAY, 1.1);
+const labelSize = (lines: string[], maxW: number) => Math.max(28, Math.min(36, Math.floor(maxW / Math.max(...lines.map((l) => l.length * 0.55)))));
+
+/** A station not yet reached: a blank paper disc set flat on the route, its title in faint ink. */
+const Ahead: React.FC<{ pt: Pt; high: boolean; title: string; maxW: number }> = ({ pt, high, title, maxW }) => {
   const lines = wrap(title);
-  const size = Math.min(36, Math.floor(maxW / Math.max(...lines.map((l) => l.length * 0.55))));
+  const size = labelSize(lines, maxW);
   const lh = size * 1.2;
-  const firstY = high ? pt.y - R - 26 - (lines.length - 1) * lh : pt.y + R + 26 + size * 0.8;
+  const firstY = high ? pt.y - R_NOW - 18 - (lines.length - 1) * lh : pt.y + R_NOW + 18 + size * 0.8;
   return (
     <g>
-      <g transform={`translate(${pt.x} ${pt.y + (1 - land) * -22}) scale(${s.toFixed(4)})`} opacity={Math.min(1, land * 4)}>
-        <circle r={R} fill={P.royal} filter={`url(#${id}-shadow-2)`} />
-        <circle r={R} fill={P.oxblood} opacity={1 - handOver} />
-        <circle r={9} fill={P.paper} />
-      </g>
+      <circle cx={pt.x} cy={pt.y} r={R * 0.72} fill={D.paperLight} stroke={D.hairline} strokeWidth={2} />
+      <text data-qa-text="" x={pt.x} y={firstY} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={D.oxbloodMuted} opacity={0.5}>
+        {lines.map((l, i) => <tspan key={i} x={pt.x} dy={i ? lh : 0}>{l}</tspan>)}
+      </text>
+    </g>
+  );
+};
+
+const Station: React.FC<{ id: string; pt: Pt; high: boolean; title: string; at: number; t: number; nextAt?: number; maxW: number }> = ({ id, pt, high, title, at, t, nextAt, maxW }) => {
+  const land = clamp01(t, at + DISC_DELAY, 0.9);
+  const lines = wrap(title);
+  const size = labelSize(lines, maxW);
+  const lh = size * 1.2;
+  // "here" (oxblood, larger, lifted) hands over to the next station when it is named
+  const handOver = nextAt === undefined ? 0 : clamp01(t, nextAt, 0.8);
+  const now = land * (1 - handOver);
+  const r = R + (R_NOW - R) * now;
+  const lift = 8 * now;
+  const label = clamp01(t, at + LABEL_DELAY, 1.1);
+  const firstY = high ? pt.y - R_NOW - 18 - (lines.length - 1) * lh : pt.y + R_NOW + 18 + size * 0.8;
+  return (
+    <g>
+      {/* the quiet disc under it until it is reached */}
+      {land < 1 && <circle cx={pt.x} cy={pt.y} r={R * 0.72} fill={D.paperLight} stroke={D.hairline} strokeWidth={2} opacity={1 - land} />}
+      {land > 0 && (
+        <g transform={`translate(${pt.x} ${(pt.y - lift + (1 - land) * -22).toFixed(2)})`} opacity={Math.min(1, land * 4)}>
+          <circle r={r} fill={P.royal} filter={`url(#${id}-shadow-${now > 0.5 ? 3 : 2})`} />
+          <circle r={r} fill={P.oxblood} opacity={1 - handOver} />
+          <circle r={9 + 3 * now} fill={P.paper} />
+        </g>
+      )}
+      {/* faint title until reached; the inked title comes into focus over it */}
+      {label < 1 && (
+        <text x={pt.x} y={firstY} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={D.oxbloodMuted} opacity={0.5 * (1 - label)}>
+          {lines.map((l, i) => <tspan key={i} x={pt.x} dy={i ? lh : 0}>{l}</tspan>)}
+        </text>
+      )}
       {label > 0 && (
-        <text data-qa-text="" x={pt.x} y={firstY} textAnchor="middle" fontFamily={fonts.text} fontSize={size}
-          opacity={label * (1 - 0.42 * handOver)} style={{ filter: label < 1 ? `blur(${((1 - label) * 6).toFixed(2)}px)` : undefined }}>
-          {lines.map((l, i) => (
-            <tspan key={i} x={pt.x} dy={i ? lh : 0} fill={P.oxblood}>{l}</tspan>
-          ))}
+        <text data-qa-text="" x={pt.x} y={firstY} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={P.oxblood}
+          opacity={label * (1 - 0.42 * handOver)} style={{ filter: label < 1 ? `blur(${((1 - label) * 5).toFixed(2)}px)` : undefined }}>
+          {lines.map((l, i) => <tspan key={i} x={pt.x} dy={i ? lh : 0}>{l}</tspan>)}
         </text>
       )}
     </g>

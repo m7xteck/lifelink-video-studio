@@ -21,7 +21,7 @@ Every number below was measured from workflow journals, agent logs (`usage` fiel
 | Item | Measured |
 |---|---|
 | Full renders | 3 |
-| v001 | 56.1 min, nothing reused |
+| v001 | 56.1 min, 8 of 16 sections reused (from an earlier preview render) |
 | v002 | 97.2 min, nothing reused (ran alongside agent work) |
 | v003 | 21.8 min, 13 of 16 sections reused |
 | Preview renders | 5 |

@@ -222,17 +222,17 @@
     "left": {
      "title": "A spouse can provide",
      "points": [
-      "Companionship",
-      "Affection",
-      "Emotional support"
+      { "text": "Companionship", "at": 1889.86 },
+      { "text": "Affection", "at": 1891.02 },
+      { "text": "Emotional support", "at": 1891.86 }
      ],
      "at": 1888.86
     },
     "right": {
      "title": "Cannot be expected to",
      "points": [
-      "Meet every emotional need",
-      "Resolve every personal challenge"
+      { "text": "Meet every emotional need", "at": 1895.22 },
+      { "text": "Resolve every personal challenge", "at": 1897.12 }
      ],
      "at": 1893.32
     },
@@ -270,6 +270,7 @@
    "endSec": 1914.4,
    "type": "wordStack",
    "props": {
+    "variant": "column",
     "lead": {
      "text": "This means maintaining",
      "at": 1905.36

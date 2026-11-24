@@ -8,7 +8,7 @@
   "height": 1080,
   "durationSec": 2165.26,
   "audio": "audio/lifelink-course-L01.wav",
-  "watermark": "Preview for approval · provisional brand",
+  "watermark": null,
   "sections": [
     {
       "id": "sec-01-welcome",
@@ -345,7 +345,8 @@
             "text": "Trust & respect",
             "at": 65
           }
-        ]
+        ],
+        "variant": "column"
       }
     },
     {
@@ -382,14 +383,20 @@
         "left": {
           "title": "A wedding",
           "points": [
-            "May last a day"
+            {
+              "text": "May last a day",
+              "at": 74.76
+            }
           ],
           "at": 74.34
         },
         "right": {
           "title": "Marriage",
           "points": [
-            "Its responsibilities can last a lifetime"
+            {
+              "text": "Its responsibilities can last a lifetime",
+              "at": 78
+            }
           ],
           "at": 77.6
         },
@@ -720,7 +727,8 @@
             "text": "Spiritual development",
             "at": 172.18
           }
-        ]
+        ],
+        "variant": "row"
       }
     },
     {
@@ -860,7 +868,8 @@
             "text": "Family & finances",
             "at": 205.72
           }
-        ]
+        ],
+        "variant": "offset"
       }
     },
     {
@@ -984,7 +993,8 @@
             "text": "Identify areas to grow",
             "at": 260.5
           }
-        ]
+        ],
+        "variant": "column"
       }
     },
     {
@@ -1101,7 +1111,8 @@
             "text": "Dignity and respect",
             "at": 306.88
           }
-        ]
+        ],
+        "variant": "row"
       }
     },
     {
@@ -1114,14 +1125,20 @@
         "left": {
           "title": "A peaceful marriage does not mean",
           "points": [
-            "Disagreements never happen"
+            {
+              "text": "Disagreements never happen",
+              "at": 311.04
+            }
           ],
           "at": 309.24
         },
         "right": {
           "title": "It means",
           "points": [
-            "Both are committed to resolving difficulties without causing unnecessary harm"
+            {
+              "text": "Both are committed to resolving difficulties without causing unnecessary harm",
+              "at": 315.76
+            }
           ],
           "at": 312.78
         },
@@ -1577,7 +1594,8 @@
             "text": "a healthy relationship",
             "at": 534.1
           }
-        ]
+        ],
+        "variant": "offset"
       }
     },
     {
@@ -2259,7 +2277,8 @@
             "text": "Ambitions",
             "at": 767.58
           }
-        ]
+        ],
+        "variant": "column"
       }
     },
     {
@@ -2491,7 +2510,8 @@
             "text": "Connections",
             "at": 827.44
           }
-        ]
+        ],
+        "variant": "row"
       }
     },
     {
@@ -2737,10 +2757,6 @@
           {
             "label": "Cultural expectations",
             "at": 818.82
-          },
-          {
-            "label": "Personal preferences",
-            "at": 937.34
           }
         ],
         "cards": [
@@ -2795,12 +2811,8 @@
             "at": 931.53
           },
           {
-            "index": 2,
-            "at": 937.34
-          },
-          {
             "index": null,
-            "at": 940.08
+            "at": 937.34
           }
         ]
       }
@@ -2829,7 +2841,8 @@
             "text": "Perspectives",
             "at": 954.12
           }
-        ]
+        ],
+        "variant": "offset"
       }
     },
     {
@@ -2961,7 +2974,8 @@
             "text": "Respond",
             "at": 985.6
           }
-        ]
+        ],
+        "variant": "column"
       }
     },
     {
@@ -3253,7 +3267,8 @@
             "text": "Aspirations",
             "at": 1062.54
           }
-        ]
+        ],
+        "variant": "row"
       }
     },
     {
@@ -3427,7 +3442,8 @@
             "text": "Rights",
             "at": 1101.68
           }
-        ]
+        ],
+        "variant": "offset"
       }
     },
     {
@@ -3657,7 +3673,8 @@
             "text": "Willingness",
             "at": 1194.12
           }
-        ]
+        ],
+        "variant": "column"
       }
     },
     {
@@ -3984,7 +4001,8 @@
             "text": "Feelings",
             "at": 1261.06
           }
-        ]
+        ],
+        "variant": "row"
       }
     },
     {
@@ -4776,7 +4794,8 @@
             "text": "Films or social media",
             "at": 1533.84
           }
-        ]
+        ],
+        "variant": "offset"
       }
     },
     {
@@ -5008,7 +5027,8 @@
             "text": "Responsibility and effort",
             "at": 1621.78
           }
-        ]
+        ],
+        "variant": "column"
       }
     },
     {
@@ -5026,7 +5046,7 @@
           "text": "Marriage will solve all our personal problems.",
           "at": 1626.3
         },
-        "tearAt": 1630.36,
+        "tearAt": 1631.8,
         "truth": {
           "text": "Marriage can provide support, but it cannot automatically resolve:",
           "at": 1630.5
@@ -5219,7 +5239,8 @@
             "text": "Planning their future",
             "at": 1695.46
           }
-        ]
+        ],
+        "variant": "row"
       }
     },
     {
@@ -5320,18 +5341,36 @@
         "left": {
           "title": "Initially",
           "points": [
-            "Considerable time together",
-            "Regular outings",
-            "Uninterrupted conversations"
+            {
+              "text": "Considerable time together",
+              "at": 1729.1
+            },
+            {
+              "text": "Regular outings",
+              "at": 1733.14
+            },
+            {
+              "text": "Uninterrupted conversations",
+              "at": 1736.08
+            }
           ],
           "at": 1728.4
         },
         "right": {
           "title": "Several years later",
           "points": [
-            "Demanding careers",
-            "Young children",
-            "Elderly parents needing support"
+            {
+              "text": "Demanding careers",
+              "at": 1744.4
+            },
+            {
+              "text": "Young children",
+              "at": 1745.8
+            },
+            {
+              "text": "Elderly parents needing support",
+              "at": 1746.68
+            }
           ],
           "at": 1739.3
         },
@@ -5460,7 +5499,8 @@
             "text": "Adapt",
             "at": 1792.62
           }
-        ]
+        ],
+        "variant": "offset"
       }
     },
     {
@@ -5736,17 +5776,32 @@
         "left": {
           "title": "A spouse can provide",
           "points": [
-            "Companionship",
-            "Affection",
-            "Emotional support"
+            {
+              "text": "Companionship",
+              "at": 1889.86
+            },
+            {
+              "text": "Affection",
+              "at": 1891.02
+            },
+            {
+              "text": "Emotional support",
+              "at": 1891.86
+            }
           ],
           "at": 1888.86
         },
         "right": {
           "title": "Cannot be expected to",
           "points": [
-            "Meet every emotional need",
-            "Resolve every personal challenge"
+            {
+              "text": "Meet every emotional need",
+              "at": 1895.22
+            },
+            {
+              "text": "Resolve every personal challenge",
+              "at": 1897.12
+            }
           ],
           "at": 1893.32
         },
@@ -5801,7 +5856,8 @@
             "text": "Professional support",
             "at": 1912.08
           }
-        ]
+        ],
+        "variant": "column"
       }
     },
     {
@@ -6025,7 +6081,8 @@
             "text": "Ambition",
             "at": 1959.66
           }
-        ]
+        ],
+        "variant": "row"
       }
     },
     {
@@ -6071,7 +6128,7 @@
       "endSec": 2065.2,
       "type": "mirrorCheck",
       "props": {
-        "mirrorAt": 1975.54,
+        "mirrorAt": 1974.6,
         "title": {
           "text": "the mirror check",
           "at": 1975.54
@@ -6334,7 +6391,8 @@
             "text": "Responsibility",
             "at": 2106.78
           }
-        ]
+        ],
+        "variant": "offset"
       }
     },
     {
@@ -6844,7 +6902,7 @@
             "signature": {
               "type": "mirrorCheck",
               "props": {
-                "mirrorAt": 1975.54,
+                "mirrorAt": 1974.6,
                 "title": {
                   "text": "the mirror check",
                   "at": 1975.54

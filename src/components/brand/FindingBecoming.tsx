@@ -28,7 +28,13 @@ export const FindingBecoming: React.FC<{ scene: SceneOf<"findingBecoming"> }> = 
   const grow = interpolate(t, [becomeAt, becomeAt + 2.8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle });
   const potIn = useProgress(becomeAt - 0.8, 1.0, ease.settle);
   const cx = 1640, cy = 300, R = 112; // compass upper-right; plant lower-left of the illustration area (diagonal)
-  const px = 1350;
+  const px = 1420; // plant sits further right: its leaves reach ~110 px left of px
+  // Statement column ends a clear gutter before the plant's leaves; long lines step the type size down to fit
+  // (lines are never wrapped: each line is a spoken phrase).
+  const textRight = ((px - 110 - 150) / 1920) * L.width;
+  const colW = Math.max(L.innerW * 0.45, textRight - L.safeX);
+  const longest = Math.max(...lines.map((ln) => ln.text.length));
+  const lineSize = L.portrait ? L.size("h2") : Math.round(Math.min(L.size("h2"), colW / (longest * 0.54)));
 
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
@@ -62,10 +68,10 @@ export const FindingBecoming: React.FC<{ scene: SceneOf<"findingBecoming"> }> = 
       </svg>
 
       <AbsoluteFill style={{ padding: `${L.safeY}px ${L.safeX}px`, justifyContent: "center" }}>
-        <div style={{ width: L.innerW * 0.6 }}>
+        <div style={{ width: L.portrait ? L.innerW : colW }}>
           {kicker && <div style={{ marginBottom: 30 * L.u, opacity: useProgress(kicker.at, 0.9) }}><BrandLabel size={L.size("label")} color={P.royal}>{kicker.text}</BrandLabel></div>}
           {lines.map((ln, i) => (
-            <div key={i} data-qa-text="" style={{ fontFamily: fonts.text, fontSize: L.size("h2"), lineHeight: 1.14, color: P.oxblood, wordSpacing: textStyle.wordSpacing, whiteSpace: "nowrap", marginBottom: i % 2 === 1 ? 26 * L.u : 4 * L.u }}>
+            <div key={i} data-qa-text="" style={{ fontFamily: fonts.text, fontSize: lineSize, lineHeight: 1.14, color: P.oxblood, wordSpacing: textStyle.wordSpacing, whiteSpace: "nowrap", marginBottom: i % 2 === 1 ? 26 * L.u : 4 * L.u }}>
               <MaskedWords text={ln.text} at={ln.at} emphasis={emphasis} />
             </div>
           ))}

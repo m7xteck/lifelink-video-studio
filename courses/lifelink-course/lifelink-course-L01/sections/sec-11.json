@@ -123,6 +123,7 @@
    "startSec": 1256.3,
    "endSec": 1262.4,
    "props": {
+    "variant": "row",
     "lead": {
      "text": "Respect means recognising your spouse's",
      "at": 1256.54

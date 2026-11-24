@@ -78,6 +78,7 @@
    "endSec": 1965.3,
    "type": "wordStack",
    "props": {
+    "variant": "row",
     "lead": {
      "text": "We may think about their",
      "at": 1953.82
@@ -145,7 +146,7 @@
    "endSec": 2065.2,
    "type": "mirrorCheck",
    "props": {
-    "mirrorAt": 1975.54,
+    "mirrorAt": 1974.6,
     "title": {
      "text": "the mirror check",
      "at": 1975.54
@@ -387,6 +388,7 @@
    "endSec": 2108.3,
    "type": "wordStack",
    "props": {
+    "variant": "offset",
     "lead": {
      "text": "Treating one another with",
      "at": 2102.48
@@ -917,7 +919,7 @@
       "signature": {
        "type": "mirrorCheck",
        "props": {
-        "mirrorAt": 1975.54,
+        "mirrorAt": 1974.6,
         "title": {
          "text": "the mirror check",
          "at": 1975.54

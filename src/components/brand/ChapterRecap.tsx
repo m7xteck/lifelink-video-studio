@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Freeze, useVideoConfig } from "remotion";
+import { AbsoluteFill, Freeze, Img, staticFile, useVideoConfig } from "remotion";
 import { ease, fonts, palette } from "../../brand/tokens";
 import { SceneClock, useProgress, useSceneEnvelope } from "../../motion/time";
 import { SceneSchema, type Scene, type SceneOf } from "../../schema/manifest";
@@ -14,7 +14,11 @@ import { D, P, SHADOW_2, Stage, fit1, txt } from "./stage";
  * so it is fully built and perfectly still (same picture the viewer saw, now as a keepsake).
  */
 type Sig = { type: string; props: Record<string, unknown> };
-const T_FROZEN = 100000; // narration second the thumbnail is frozen at (after every cue, before its own end)
+const T_FROZEN = 100000;
+/** Signatures that occupy only the centre of their artboard are framed closer (1920×1080 artboard, 16:9 crops). */
+const CROP: Record<string, { x: number; y: number; w: number }> = {
+  mythTruth: { x: 110, y: 110, w: 1700 },
+}; // narration second the thumbnail is frozen at (after every cue, before its own end)
 
 const toScene = (sig: Sig, id: string): Scene | null => {
   const r = SceneSchema.safeParse({ id, sectionId: "recap", startSec: 0, endSec: T_FROZEN + 0.5, type: sig.type, props: sig.props });
@@ -37,36 +41,45 @@ const FrozenSignature: React.FC<{ sig: Sig; id: string }> = ({ sig, id }) => {
   );
 };
 
-/** Paper card (mat + thumbnail) of artboard width `w`, sliding up 40 px into place on `at`. */
+/** Paper card (textured mat, hairline inner frame, thumbnail) of artboard width `w`, lifting 40 px into place on `at`. */
 const Card: React.FC<{ sig: Sig; id: string; at: number; w: number; x: number; y: number }> = ({ sig, id, at, w, x, y }) => {
   const { width, height } = useVideoConfig();
   const p = useProgress(at, 1.1, ease.settle);
   if (p <= 0) return null;
-  const s = w / width, h = height * s, mat = Math.max(8, Math.round(w * 0.022));
+  const h = (w * height) / width, mat = Math.max(8, Math.round(w * 0.026));
+  // optional closer framing (landscape artboard only)
+  const c = width === 1920 && height === 1080 ? CROP[sig.type] : undefined;
+  const s = c ? w / c.w : w / width;
+  const ox = c ? -c.x * s : 0, oy = c ? -c.y * s : 0;
   return (
-    <div style={{ position: "absolute", left: x - mat, top: y - mat, width: w + mat * 2, height: h + mat * 2, background: D.paperLight, borderRadius: 4,
+    <div style={{ position: "absolute", left: x - mat, top: y - mat, width: w + mat * 2, height: h + mat * 2, borderRadius: 3,
       filter: SHADOW_2, opacity: Math.min(1, p * 3), transform: `translateY(${((1 - p) * 40).toFixed(2)}px)` }}>
-      <div style={{ position: "absolute", left: mat, top: mat, width: w, height: h, overflow: "hidden", borderRadius: 2 }}>
-        <div style={{ width, height, transform: `scale(${s})`, transformOrigin: "0 0" }}>
+      <div style={{ position: "absolute", inset: 0, background: D.paperLight, borderRadius: 3, overflow: "hidden" }}>
+        <Img src={staticFile("textures/paper-grain.png")} style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, mixBlendMode: "multiply", opacity: 0.35 }} />
+      </div>
+      <div style={{ position: "absolute", left: mat, top: mat, width: w, height: h, overflow: "hidden" }}>
+        <div style={{ width, height, transform: `translate(${ox.toFixed(2)}px, ${oy.toFixed(2)}px) scale(${s})`, transformOrigin: "0 0" }}>
           <FrozenSignature sig={sig} id={id} />
         </div>
       </div>
+      {/* the thumbnail's cut edge: a fine hairline, like a print set into a mount */}
+      <div style={{ position: "absolute", left: mat - 1, top: mat - 1, width: w + 2, height: h + 2, boxShadow: `inset 0 0 0 1px ${D.hairline}`, pointerEvents: "none" }} />
     </div>
   );
 };
 
-/** A key word inked left→right on its cue, with a small royal paper tab set down beside it. */
+/** A key word inked left→right on its cue, with a short rose rule drawn before it. */
 const KeyWord: React.FC<{ text: string; at: number; size: number }> = ({ text, at, size }) => {
   const p = useProgress(at, Math.min(1.4, 0.5 + text.length * 0.05), ease.settle);
   const tab = useProgress(at, 0.7, ease.settle);
-  if (p <= 0) return null;
+  // before its cue the word still holds its place (hidden), so the column never re-centres as words arrive
   const edge = p * 130 - 15;
   const mask = `linear-gradient(90deg, #000 ${edge - 12}%, transparent ${edge + 3}%)`;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: size * 0.4, marginBottom: size * 0.42 }}>
-      <div style={{ width: size * 0.28, height: size * 0.28, borderRadius: 3, background: P.royal, filter: SHADOW_2, opacity: Math.min(1, tab * 3), transform: `translateY(${((1 - tab) * -12).toFixed(2)}px)`, flex: "none" }} />
+    <div style={{ display: "flex", alignItems: "center", gap: size * 0.4, marginBottom: size * 0.42, visibility: p > 0 ? "visible" : "hidden" }}>
+      <div style={{ width: size * 0.5, flex: "none", display: "flex" }}><div style={{ width: size * 0.5 * tab, height: 2, background: P.rose }} /></div>
       <div style={{ WebkitMaskImage: p < 1 ? mask : undefined, maskImage: p < 1 ? mask : undefined }}>
-        <span data-qa-text="" style={{ ...txt(size, P.oxblood), whiteSpace: "nowrap" }}>{text}</span>
+        <span data-qa-text={p > 0 ? "" : undefined} style={{ ...txt(size, P.oxblood), whiteSpace: "nowrap" }}>{text}</span>
       </div>
     </div>
   );
@@ -74,8 +87,7 @@ const KeyWord: React.FC<{ text: string; at: number; size: number }> = ({ text, a
 
 const Heading: React.FC<{ text: string; at: number; size: number; style?: React.CSSProperties }> = ({ text, at, size, style }) => {
   const p = useProgress(at, 1.2, ease.settle);
-  if (p <= 0) return null;
-  return <div data-qa-text="" style={{ ...txt(size, D.oxbloodMuted), opacity: p, filter: p < 1 ? `blur(${((1 - p) * 6).toFixed(2)}px)` : undefined, whiteSpace: "nowrap", ...style }}>{text}</div>;
+  return <div data-qa-text={p > 0 ? "" : undefined} style={{ ...txt(size, D.oxbloodMuted), opacity: p, filter: p < 1 ? `blur(${((1 - p) * 6).toFixed(2)}px)` : undefined, whiteSpace: "nowrap", ...style }}>{text}</div>;
 };
 
 export const ChapterRecap: React.FC<{ scene: SceneOf<"chapterRecap"> }> = ({ scene }) => {

@@ -13,6 +13,7 @@
    "startSec": 60,
    "endSec": 68.9,
    "props": {
+    "variant": "column",
     "lead": {
      "text": "A commitment founded upon",
      "at": 60.44
@@ -71,14 +72,14 @@
     "left": {
      "title": "A wedding",
      "points": [
-      "May last a day"
+      { "text": "May last a day", "at": 74.76 }
      ],
      "at": 74.34
     },
     "right": {
      "title": "Marriage",
      "points": [
-      "Its responsibilities can last a lifetime"
+      { "text": "Its responsibilities can last a lifetime", "at": 78.0 }
      ],
      "at": 77.6
     },
@@ -388,6 +389,7 @@
    "startSec": 165.7,
    "endSec": 176.3,
    "props": {
+    "variant": "row",
     "lead": {
      "text": "It affects our",
      "at": 165.9
@@ -528,6 +530,7 @@
    "startSec": 197.6,
    "endSec": 212.2,
    "props": {
+    "variant": "offset",
     "lead": {
      "text": "When searching for a spouse, people often focus on external qualities:",
      "at": 198.04
@@ -656,6 +659,7 @@
    "startSec": 253.9,
    "endSec": 264,
    "props": {
+    "variant": "column",
     "lead": {
      "text": "However, it does require us to",
      "at": 254.06

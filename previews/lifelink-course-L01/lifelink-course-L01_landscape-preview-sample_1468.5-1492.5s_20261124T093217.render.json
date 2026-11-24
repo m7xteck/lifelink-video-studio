@@ -1,0 +1,71 @@
+{
+  "lessonId": "lifelink-course-L01",
+  "courseId": "lifelink-course",
+  "variant": "landscape-preview-sample",
+  "version": "preview",
+  "output": "previews/lifelink-course-L01/lifelink-course-L01_landscape-preview-sample_1468.5-1492.5s_20261124T093217.mp4",
+  "window": {
+    "fromSec": 1468.5,
+    "toSec": 1492.5
+  },
+  "engineFingerprint": "81e8826d88c9163a",
+  "label": "polish scenarioCard",
+  "tier": "preview",
+  "sectionCache": "not used (rendered fresh)",
+  "createdAt": "2026-11-24T09:32:20.005Z",
+  "wallClockSec": 61.509,
+  "concurrency": 2,
+  "chunks": [
+    {
+      "sectionId": "preview",
+      "frames": [
+        44055,
+        44774
+      ],
+      "key": "uncached",
+      "file": "previews/lifelink-course-L01/.work-2159-1795512678496/preview_44055-44774_uncached.mp4",
+      "reused": false,
+      "seconds": 53.706,
+      "qaEvents": 674
+    }
+  ],
+  "qaEvents": 674,
+  "probe": {
+    "format": {
+      "filename": "/home/user/lifelink-video-studio/previews/lifelink-course-L01/lifelink-course-L01_landscape-preview-sample_1468.5-1492.5s_20261124T093217.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "24.000000",
+      "size": "839588",
+      "bit_rate": "279862",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf60.16.100"
+      }
+    },
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "r_frame_rate": "30/1",
+        "duration": "24.000000"
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "r_frame_rate": "0/0",
+        "duration": "24.000000",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ]
+  }
+}

@@ -39,6 +39,7 @@
       "startSec": 1683.4,
       "endSec": 1697.0,
       "props": {
+        "variant": "row",
         "lead": {
           "text": "In the early stages",
           "at": 1684.06
@@ -161,18 +162,18 @@
         "left": {
           "title": "Initially",
           "points": [
-            "Considerable time together",
-            "Regular outings",
-            "Uninterrupted conversations"
+            { "text": "Considerable time together", "at": 1729.1 },
+            { "text": "Regular outings", "at": 1733.14 },
+            { "text": "Uninterrupted conversations", "at": 1736.08 }
           ],
           "at": 1728.4
         },
         "right": {
           "title": "Several years later",
           "points": [
-            "Demanding careers",
-            "Young children",
-            "Elderly parents needing support"
+            { "text": "Demanding careers", "at": 1744.4 },
+            { "text": "Young children", "at": 1745.8 },
+            { "text": "Elderly parents needing support", "at": 1746.68 }
           ],
           "at": 1739.3
         },
@@ -280,6 +281,7 @@
       "startSec": 1787.0,
       "endSec": 1793.7,
       "props": {
+        "variant": "offset",
         "lead": {
           "text": "Successful couples continue to",
           "at": 1787.44

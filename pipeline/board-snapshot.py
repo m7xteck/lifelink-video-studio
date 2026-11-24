@@ -8,7 +8,8 @@ Tokens = input + cache writes + cache reads + output, deduplicated per API messa
 import json, os, sys, time, glob
 from datetime import datetime, timezone, timedelta
 
-d, plan = sys.argv[1], json.load(open(sys.argv[2]))
+DIRS, plan = sys.argv[1].split(","), json.load(open(sys.argv[2]))  # several workflow runs: comma-separated
+AGENT_DIR = {}
 watch = float(sys.argv[sys.argv.index("--watch") + 1]) if "--watch" in sys.argv else None
 _tok_cache = {}  # path -> (size, tokens, first_ts, last_ts)
 
@@ -18,7 +19,7 @@ def parse_ts(s):
     except Exception: return None
 
 def agent_file_stats(aid):
-    p = os.path.join(d, f"agent-{aid}.jsonl")
+    p = os.path.join(AGENT_DIR.get(aid, DIRS[0]), f"agent-{aid}.jsonl")
     if not os.path.exists(p): return 0, None, None
     size = os.path.getsize(p)
     c = _tok_cache.get(p)
@@ -42,12 +43,14 @@ def agent_file_stats(aid):
 
 def snapshot():
     agents, order = {}, []
-    jp = os.path.join(d, "journal.jsonl")
-    if os.path.exists(jp):
-        for line in open(jp):
+    for d in DIRS:
+      jp = os.path.join(d, "journal.jsonl")
+      if not os.path.exists(jp): continue
+      for line in open(jp):
             try: e = json.loads(line)
             except Exception: continue
             if e.get("type") == "started":
+                AGENT_DIR[e["agentId"]] = d
                 a = agents.setdefault(e["agentId"], {"id": e["agentId"]}); a.update(label=e.get("label"), phase=e.get("phase"), state="working"); order.append(e["agentId"])
             elif e.get("type") == "result" and e.get("agentId") in agents:
                 r = e.get("result"); s = r if isinstance(r, str) else json.dumps(r) if r is not None else ""

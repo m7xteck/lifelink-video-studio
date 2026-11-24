@@ -57,8 +57,9 @@ const CoreSceneSchemas = [
     type: z.literal("comparison"),
     id: z.string(), sectionId: z.string(), startSec: z.number(), endSec: z.number(),
     props: z.object({
-      left: z.object({ title: z.string(), points: z.array(z.string()).max(4), at: z.number() }),
-      right: z.object({ title: z.string(), points: z.array(z.string()).max(4), at: z.number() }),
+      /** Points: plain strings (revealed in a stagger after the title) or { text, at } to set each as it is spoken. */
+      left: z.object({ title: z.string(), points: z.array(z.union([z.string(), z.object({ text: z.string(), at: z.number() })])).max(4), at: z.number() }),
+      right: z.object({ title: z.string(), points: z.array(z.union([z.string(), z.object({ text: z.string(), at: z.number() })])).max(4), at: z.number() }),
       preferred: z.enum(["left", "right", "none"]).default("none"),
     }),
   }),
@@ -148,6 +149,9 @@ export const BrandSceneSchemas = [
     /** Optional plain lead-in sentence (sentence case, not a tracked kicker). */
     lead: z.object({ text: z.string(), at: z.number() }).optional(),
     words: z.array(z.object({ text: z.string(), at: z.number() })).min(2).max(4),
+    /** Layout: "column" (stack beside the lead), "row" (set across the frame on a paper band with ruled separators),
+     *  "offset" (staggered editorial steps on paper slips). Omitted: chosen deterministically from the scene id. */
+    variant: z.enum(["column", "row", "offset"]).optional(),
   }) }),
   /* ---- variety v2 signature illustrations (motion designer) ---- */
   z.object({ ...Base, type: z.literal("threePillars"), props: z.object({

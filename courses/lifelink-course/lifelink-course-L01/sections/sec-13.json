@@ -53,6 +53,7 @@
       "startSec": 1523.5,
       "endSec": 1535.9,
       "props": {
+        "variant": "offset",
         "lead": {
           "text": "Many people enter marriage with ideas about what married life should look like.",
           "at": 1523.8
@@ -285,6 +286,7 @@
       "startSec": 1615.7,
       "endSec": 1624.3,
       "props": {
+        "variant": "column",
         "lead": {
           "text": "Lasting relationships also require",
           "at": 1615.88
@@ -320,7 +322,7 @@
           "text": "Marriage will solve all our personal problems.",
           "at": 1626.3
         },
-        "tearAt": 1630.36,
+        "tearAt": 1631.8,
         "truth": {
           "text": "Marriage can provide support, but it cannot automatically resolve:",
           "at": 1630.5

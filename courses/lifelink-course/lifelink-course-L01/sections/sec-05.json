@@ -212,6 +212,7 @@
       "startSec": 528.4,
       "endSec": 536.3,
       "props": {
+        "variant": "offset",
         "lead": {
           "text": "Getting married does not automatically create",
           "at": 529.1

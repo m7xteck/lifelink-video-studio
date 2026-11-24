@@ -70,6 +70,7 @@
       "startSec": 824.2,
       "endSec": 830.0,
       "props": {
+        "variant": "row",
         "lead": {
           "text": "It gives us",
           "at": 824.44
@@ -337,10 +338,6 @@
           {
             "label": "Cultural expectations",
             "at": 818.82
-          },
-          {
-            "label": "Personal preferences",
-            "at": 937.34
           }
         ],
         "cards": [
@@ -391,12 +388,8 @@
             "at": 931.53
           },
           {
-            "index": 2,
-            "at": 937.34
-          },
-          {
             "index": null,
-            "at": 940.08
+            "at": 937.34
           }
         ],
         "caption": {

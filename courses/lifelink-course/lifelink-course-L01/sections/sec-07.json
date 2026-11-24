@@ -238,6 +238,7 @@
       "startSec": 760.6,
       "endSec": 769.8,
       "props": {
+        "variant": "column",
         "lead": {
           "text": "Couples may need to discuss how they will balance",
           "at": 761.0

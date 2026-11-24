@@ -103,6 +103,7 @@
    "startSec": 296.4,
    "endSec": 309.0,
    "props": {
+    "variant": "row",
     "lead": {
      "text": "Tranquility means",
      "at": 296.64
@@ -133,14 +134,14 @@
     "left": {
      "title": "A peaceful marriage does not mean",
      "points": [
-      "Disagreements never happen"
+      { "text": "Disagreements never happen", "at": 311.04 }
      ],
      "at": 309.24
     },
     "right": {
      "title": "It means",
      "points": [
-      "Both are committed to resolving difficulties without causing unnecessary harm"
+      { "text": "Both are committed to resolving difficulties without causing unnecessary harm", "at": 315.76 }
      ],
      "at": 312.78
     },

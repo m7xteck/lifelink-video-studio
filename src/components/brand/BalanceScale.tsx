@@ -5,6 +5,7 @@ import { useLayout } from "../../motion/layout";
 import { useNarrationTime, useProgress, useSceneEnvelope } from "../../motion/time";
 import { PaperDefs } from "../../illustrations/paper";
 import type { SceneOf } from "../../schema/manifest";
+import { PaperTextureDefs, TextureGate } from "./paperTexture";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
 
@@ -17,10 +18,17 @@ const P = brand.palette, D = brand.derived as Record<string, string>;
  *   • `levelAt` brings the beam to rest level; `pivot` inks a script word under the stand (e.g. "amanah")
  *   • `focus` ("left" | "right") dims the other side for revisits. Settled frames are still.
  * Pans ride on short stems above the beam ends (top-pan balance) so stacked blocks never touch a hanger.
+ * Colour carries meaning: care/responsibility = royal, trust = sky, and only a side headed "control" is rose.
+ * Cut-paper construction: tapered beam with a lower fold, light card plates for the base, shallow paper trays;
+ * paper grain on every shape. The beam angle follows the landed weight with one long soft settle (no swing).
  */
 const CX = 960, PIVOT_Y = 600, HALF = 450, STEM = 34, PAN_W = 360, PAN_H = 22;
 const BLOCK_H = 50, BLOCK_GAP = 8, MAX_DEG = 7, DEG_PER = 1.6;
 const BASE_Y = 852;
+const linear = (x: number) => x;
+/** Block colours by meaning (label decides): control → rose; trust/care → sky on the right, royal on the left. */
+const tone = (label: string, side: "left" | "right") =>
+  /control/i.test(label) ? { fill: P.rose, ink: D.paperLight } : side === "left" ? { fill: P.royal, ink: D.paperLight } : { fill: P.sky, ink: D.royalDeep };
 
 const fit = (text: string, max: number, maxW: number, em = 0.56) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
@@ -36,10 +44,10 @@ export const BalanceScale: React.FC<{ scene: SceneOf<"balanceScale"> }> = ({ sce
   const stand = useProgress(beamAt ?? scene.startSec, 1.2, ease.settle);
   const relP = useProgress(release?.at ?? 1e9, 1.2, ease.settle);
   const relL = release?.side === "left" ? relP : 0, relR = release?.side === "right" ? relP : 0;
-  const lvl = useProgress(levelAt ?? 1e9, 1.6, ease.settle);
+  const lvl = useProgress(levelAt ?? 1e9, 1.8, ease.settle);
 
   // each block's weight lands with its drop; released blocks stop weighing as they lift away
-  const land = (at: number) => interpolate(t, [at, at + 0.7], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle });
+  const land = (at: number) => interpolate(t, [at, at + 1.1], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle });
   const wL = left.items.reduce((s, it) => s + land(it.at), 0) * (1 - relL);
   const wR = right.items.reduce((s, it) => s + land(it.at), 0) * (1 - relR);
   const deg = Math.max(-MAX_DEG, Math.min(MAX_DEG, (wR - wL) * DEG_PER)) * (1 - lvl);
@@ -49,7 +57,7 @@ export const BalanceScale: React.FC<{ scene: SceneOf<"balanceScale"> }> = ({ sce
     if (!focus) return 1;
     return focus === s ? 1 : 0.35;
   };
-  const so = Math.min(1, stand * 4);
+  const so = useProgress(beamAt ?? scene.startSec, 0.25, linear);
 
   // one block text size for both pans (consistent type)
   const size = Math.min(...[...left.items, ...right.items].map((it) => fit(it.text, 30, PAN_W - 56, 0.55)), 30);
@@ -58,53 +66,67 @@ export const BalanceScale: React.FC<{ scene: SceneOf<"balanceScale"> }> = ({ sce
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" width={L.width} height={L.height} style={{ position: "absolute", inset: 0 }}>
         <PaperDefs id={id} />
-        {/* stand: base + post */}
-        <g opacity={so} transform={`translate(0 ${((1 - stand) * 24).toFixed(2)})`}>
-          <rect x={CX - 170} y={BASE_Y} width={340} height={28} rx={3} fill={D.oxbloodDeep} filter={`url(#${id}-shadow-2)`} />
-          <path d={`M${CX - 22},${BASE_Y} L${CX - 12},${PIVOT_Y} L${CX + 12},${PIVOT_Y} L${CX + 22},${BASE_Y} Z`} fill={P.oxblood} filter={`url(#${id}-shadow-2)`} />
+        <PaperTextureDefs id={id} />
+        <g filter={`url(#${id}-tex)`}>
+        {/* stand: two light card plates + a tapered post folded down its right side */}
+        <g opacity={so} transform={`translate(0 ${((1 - stand) * 20).toFixed(2)})`}>
+          <rect x={CX - 200} y={BASE_Y + 14} width={400} height={14} rx={2} fill={D.hairline} filter={`url(#${id}-shadow-2)`} />
+          <rect x={CX - 150} y={BASE_Y} width={300} height={14} rx={2} fill={D.paperLight} filter={`url(#${id}-shadow-1)`} />
+          <path d={`M${CX - 20},${BASE_Y} L${CX - 9},${PIVOT_Y} L${CX + 9},${PIVOT_Y} L${CX + 20},${BASE_Y} Z`} fill={P.oxblood} filter={`url(#${id}-shadow-2)`} />
+          <path d={`M${CX},${BASE_Y} L${CX},${PIVOT_Y} L${CX + 9},${PIVOT_Y} L${CX + 20},${BASE_Y} Z`} fill={D.oxbloodDeep} opacity={0.6} />
         </g>
-        {/* beam (rotates about the pivot) */}
+        {/* beam: tapered paper strip (deep at the pivot, fine at the ends) with a darker lower fold */}
         <g opacity={so} transform={`rotate(${deg.toFixed(3)} ${CX} ${PIVOT_Y})`}>
-          <rect x={CX - HALF - 14} y={PIVOT_Y - 9} width={(HALF + 14) * 2} height={18} rx={9} fill={P.oxblood} filter={`url(#${id}-shadow-2)`} />
+          <path d={`M${CX - HALF - 12},${PIVOT_Y - 4} L${CX},${PIVOT_Y - 11} L${CX + HALF + 12},${PIVOT_Y - 4} L${CX + HALF + 12},${PIVOT_Y + 4} L${CX},${PIVOT_Y + 11} L${CX - HALF - 12},${PIVOT_Y + 4} Z`}
+            fill={P.oxblood} filter={`url(#${id}-shadow-2)`} />
+          <path d={`M${CX - HALF - 12},${PIVOT_Y} L${CX + HALF + 12},${PIVOT_Y} L${CX + HALF + 12},${PIVOT_Y + 4} L${CX},${PIVOT_Y + 11} L${CX - HALF - 12},${PIVOT_Y + 4} Z`} fill={D.oxbloodDeep} opacity={0.7} />
         </g>
-        <circle cx={CX} cy={PIVOT_Y} r={24} fill={P.rose} opacity={so} filter={`url(#${id}-shadow-1)`} />
-        <circle cx={CX} cy={PIVOT_Y} r={7} fill={D.paperLight} opacity={so} />
+        <circle cx={CX} cy={PIVOT_Y} r={17} fill={D.oxbloodDeep} opacity={so} filter={`url(#${id}-shadow-1)`} />
+        <circle cx={CX} cy={PIVOT_Y} r={5} fill={D.paperLight} opacity={so} />
         {/* pans stay horizontal and ride on the beam ends */}
-        {([[-1, left, "left", P.royal, relL], [1, right, "right", P.rose, relR]] as const).map(([s, side, key, fill, rel]) => {
+        {([[-1, left, "left", relL], [1, right, "right", relR]] as const).map(([s, side, key, rel]) => {
           const e = end(s);
+          const tn = tone((side as Side).label, key);
+          const top = e.y - STEM - PAN_H;
           return (
             <g key={key} opacity={so * fw(key)}>
-              <rect x={e.x - 6} y={e.y - STEM} width={12} height={STEM} fill={D.oxbloodDeep} />
-              <path d={`M${e.x - PAN_W / 2},${e.y - STEM - PAN_H} L${e.x + PAN_W / 2},${e.y - STEM - PAN_H} L${e.x + PAN_W / 2 - 26},${e.y - STEM} L${e.x - PAN_W / 2 + 26},${e.y - STEM} Z`}
-                fill={D.paperShade} stroke={P.oxblood} strokeWidth={2} filter={`url(#${id}-shadow-1)`} />
+              <rect x={e.x - 4} y={e.y - STEM} width={8} height={STEM} fill={D.oxbloodDeep} />
+              <path d={`M${e.x - PAN_W / 2},${top} L${e.x + PAN_W / 2},${top} L${e.x + PAN_W / 2 - 30},${e.y - STEM} L${e.x - PAN_W / 2 + 30},${e.y - STEM} Z`}
+                fill={D.paperShade} filter={`url(#${id}-shadow-2)`} />
+              <rect x={e.x - PAN_W / 2 - 4} y={top - 4} width={PAN_W + 8} height={6} rx={2} fill={D.paperLight} filter={`url(#${id}-shadow-1)`} />
               {(side as Side).items.slice(0, 5).map((it, k) => (
-                <Block key={k} id={id} at={it.at} text={it.text} x={e.x} y={e.y - STEM - PAN_H - (k + 1) * BLOCK_H - k * BLOCK_GAP} fill={fill} size={size} rel={rel} k={k} />
+                <Block key={k} id={id} at={it.at} text={it.text} x={e.x} y={top - 4 - (k + 1) * BLOCK_H - k * BLOCK_GAP} fill={tn.fill} ink={tn.ink} size={size} rel={rel} k={k} />
               ))}
             </g>
           );
         })}
+        </g>
       </svg>
       {/* pan headings: fixed under each side, clear of the beam's travel */}
       {([[-1, left, "left"], [1, right, "right"]] as const).map(([s, side, key]) => (
         <Heading key={key} text={(side as Side).label} at={(side as Side).at} x={CX + s * HALF} opacity={fw(key)} u={L.width / 1920} />
       ))}
       {pivot && <PivotWord text={pivot.text} at={pivot.at} u={L.width / 1920} />}
+      <TextureGate />
     </AbsoluteFill>
   );
 };
 
 /** A labelled paper block that drops into the pan on its cue; when released it lifts away and fades. */
-const Block: React.FC<{ id: string; at: number; text: string; x: number; y: number; fill: string; size: number; rel: number; k: number }> = ({ id, at, text, x, y, fill, size, rel, k }) => {
-  const p = useProgress(at, 0.7, ease.settle);
+const Block: React.FC<{ id: string; at: number; text: string; x: number; y: number; fill: string; ink: string; size: number; rel: number; k: number }> = ({ id, at, text, x, y, fill, ink, size, rel, k }) => {
+  const p = useProgress(at, 0.8, ease.settle);
+  const appear = useProgress(at, 0.14, linear); // opaque card at once; only the drop eases
   if (p <= 0) return null;
   const w = Math.min(PAN_W - 24, Math.max(150, text.length * size * 0.56 + 52)) - (k % 2) * 10;
   const lift = rel * (90 + k * 14);
-  const o = Math.min(1, p * 4) * (1 - rel);
+  const o = appear * (1 - rel);
   if (o <= 0.001) return null;
   return (
     <g opacity={o} transform={`translate(0 ${((1 - p) * -70 - lift).toFixed(2)})`}>
       <rect x={x - w / 2} y={y} width={w} height={BLOCK_H} rx={3} fill={fill} filter={`url(#${id}-shadow-1)`} />
-      <text data-qa-text="" x={x} y={y + BLOCK_H / 2 + size * 0.36} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={D.paperLight}>{text}</text>
+      <rect x={x - w / 2 + 4} y={y + 3} width={w - 8} height={2} fill={D.paperLight} opacity={0.3} />
+      <rect x={x - w / 2} y={y + BLOCK_H - 5} width={w} height={5} rx={2} fill="#1a0a0a" opacity={0.1} />
+      <text data-qa-text="" x={x} y={y + BLOCK_H / 2 + size * 0.36} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={ink}>{text}</text>
     </g>
   );
 };
