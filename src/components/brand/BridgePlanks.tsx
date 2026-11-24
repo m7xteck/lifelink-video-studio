@@ -91,7 +91,7 @@ export const BridgePlanks: React.FC<{ scene: SceneOf<"bridgePlanks"> }> = ({ sce
         {planks.slice(0, n).map((p, i) => (
           <Plank key={i} id={id} i={i} text={p.text} at={p.at} x={EDGE_L + i * pw} w={pw} size={size} labelW={labelW} weight={w[i]} />
         ))}
-        {caption && <CaptionScript id={`${id}-cap`} text={caption.text} at={caption.at} />}
+        {caption && <CaptionScript id={`${id}-cap`} text={caption.text} at={caption.at} until={planks.slice(0, n).find((p) => p.at > caption.at)?.at} />}
       </svg>
     </AbsoluteFill>
   );
@@ -132,12 +132,14 @@ const Ends: React.FC<{ left: string; right: string; at: number }> = ({ left, rig
   );
 };
 
-const CaptionScript: React.FC<{ id: string; text: string; at: number }> = ({ id, text, at }) => {
+/** `until`: the caption belongs to one plank; it clears when the next plank is named. */
+const CaptionScript: React.FC<{ id: string; text: string; at: number; until?: number }> = ({ id, text, at, until }) => {
   const p = useProgress(at, Math.min(1.6, 0.6 + text.length * 0.07), ease.settle);
-  if (p <= 0) return null;
+  const off = useProgress(until ?? 1e9, 0.6, ease.settle);
+  if (p <= 0 || off >= 1) return null;
   const size = fitSize(text, 80, 900, 0.48);
   return (
-    <g>
+    <g opacity={1 - off}>
       <defs><clipPath id={id}><rect x={960 - 520} y={300 - size * 1.1} width={1040 * p} height={size * 1.6} /></clipPath></defs>
       <text data-qa-text="" x={960} y={300} textAnchor="middle" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`}>{scriptWords(text, size)}</text>
     </g>

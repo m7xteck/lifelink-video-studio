@@ -51,6 +51,9 @@ export const SortTrays: React.FC<{ scene: SceneOf<"sortTrays"> }> = ({ scene }) 
   const n = Math.min(3, trays.length);
   const g = geom(n);
   const w = focusWeights(n, focus, t);
+  // a third tray that arrives mid-scene: the pair sits nearer centre until then, and the set eases left (≤160 px) to make room on its cue
+  const k3 = useProgress(n >= 3 ? trays[2].at : -1e6, 1.2, ease.settle);
+  const shiftX = n >= 3 ? Math.round(160 * (1 - k3) * 100) / 100 : 0;
   const cardW = g.w - 72;
   const textW = cardW - 64;
   const size = Math.min(34, ...cards.map((c) => bestSize(c.text, textW)));
@@ -71,7 +74,7 @@ export const SortTrays: React.FC<{ scene: SceneOf<"sortTrays"> }> = ({ scene }) 
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" width={L.width} height={L.height} style={{ position: "absolute", inset: 0 }}>
         <PaperDefs id={id} />
-        <g transform={`translate(0 ${dy})`}>
+        <g transform={`translate(${shiftX} ${dy})`}>
         {trays.slice(0, n).map((tr, ti) => (
           <Tray key={ti} id={`${id}-t${ti}`} label={tr.label} at={tr.at} cx={g.cx[ti]} w={g.w} color={COLORS[ti]} tabSize={tabSize} weight={w[ti]} backTop={backTop} tabTop={tabTop}>
             {cards.map((c, ci) => (c.tray === ti && slots.has(ci)

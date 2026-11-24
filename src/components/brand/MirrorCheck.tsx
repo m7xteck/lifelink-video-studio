@@ -45,7 +45,7 @@ export const MirrorCheck: React.FC<{ scene: SceneOf<"mirrorCheck"> }> = ({ scene
               <linearGradient id={`${id}-glass`} x1="0" y1="0" x2="0.35" y2="1">
                 <stop offset="0" stopColor={D.paperLight} />
                 <stop offset="0.55" stopColor={D.skyTint} />
-                <stop offset="1" stopColor={P.sky} stopOpacity={0.8} />
+                <stop offset="1" stopColor={P.sky} />
               </linearGradient>
               <clipPath id={`${id}-clip`}><ellipse cx={MX} cy={MY} rx={RX} ry={RY} /></clipPath>
             </defs>

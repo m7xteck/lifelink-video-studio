@@ -36,7 +36,7 @@ export const WordStack: React.FC<{ scene: SceneOf<"wordStack"> }> = ({ scene }) 
         <div data-qa-text="" style={{
           position: "absolute", left: L.safeX, width: twoCol ? leadW : L.innerW,
           ...(twoCol ? { top: "50%", transform: `translateY(-50%) translateY(${((1 - leadP) * 12).toFixed(1)}px)` } : { top: L.safeY + 20 * L.u, transform: `translateY(${((1 - leadP) * 12).toFixed(1)}px)` }),
-          fontFamily: fonts.text, fontSize: L.size("h3"), lineHeight: 1.3, color: D.oxbloodMuted, wordSpacing: textStyle.wordSpacing, opacity: leadP,
+          fontFamily: fonts.text, fontSize: L.size("h3"), lineHeight: 1.3, color: D.oxbloodMuted, textWrap: "balance", wordSpacing: textStyle.wordSpacing, opacity: leadP,
         }}>{lead.text}</div>
       )}
       <AbsoluteFill style={{ justifyContent: "center", paddingLeft: stackLeft, paddingRight: L.safeX, paddingTop: !twoCol && lead ? L.safeY : 0 }}>

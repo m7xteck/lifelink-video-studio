@@ -21,7 +21,7 @@ export const Comparison: React.FC<{ scene: SceneOf<"comparison"> }> = ({ scene }
       <SoftReveal at={data.at} rise={10}>
         <div data-qa-text style={{ fontFamily: fonts.display, fontSize: L.size("h2"), lineHeight: type.lineHeight.display, color: preferred === side ? colors.accent : colors.ink }}>{data.title}</div>
       </SoftReveal>
-      <div style={{ marginTop: 30 * L.u }}>
+      <div style={{ marginTop: 30 * L.u, minHeight: Math.max(left.points.length, right.points.length) * (L.size("body") * type.lineHeight.text + 16 * L.u) }}>
         {data.points.map((pt, i) => (
           <SoftReveal key={i} at={data.at + 0.5 + i * 0.35} rise={8} dur={0.8}>
             <div style={{ display: "flex", gap: 18 * L.u, alignItems: "baseline", marginBottom: 16 * L.u }}>

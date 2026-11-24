@@ -13,6 +13,10 @@
       "startSec": 546,
       "endSec": 553.2,
       "props": {
+        "kicker": {
+          "text": "Private character",
+          "at": 548.2
+        },
         "lines": [
           {
             "text": "One of the most",
@@ -31,7 +35,8 @@
           "important"
         ],
         "align": "center",
-        "scale": "h1"
+        "scale": "h1",
+        "reveal": "focus"
       }
     },
     {
@@ -39,7 +44,7 @@
       "id": "sec-06-02",
       "sectionId": "sec-06",
       "startSec": 553.2,
-      "endSec": 560.9,
+      "endSec": 562.9,
       "props": {
         "text": "The best amongst us are those who are best to their wives.",
         "at": 557.02,
@@ -47,45 +52,24 @@
       }
     },
     {
-      "type": "kineticStatement",
+      "type": "iceberg",
       "id": "sec-06-03",
       "sectionId": "sec-06",
-      "startSec": 560.9,
-      "endSec": 566.9,
+      "startSec": 562.9,
+      "endSec": 605.0,
       "props": {
-        "kicker": {
-          "text": "This teaching reminds us that",
-          "at": 561.5
+        "peakAt": 563.22,
+        "waterlineAt": 581.34,
+        "massAt": 583.24,
+        "aboveLabel": {
+          "text": "in public",
+          "at": 565.58
         },
-        "lines": [
-          {
-            "text": "Good character must extend",
-            "at": 562.94
-          },
-          {
-            "text": "beyond our public behaviour.",
-            "at": 564.72
-          }
-        ],
-        "emphasis": [
-          "character"
-        ],
-        "align": "left",
-        "scale": "h1"
-      }
-    },
-    {
-      "type": "parallelPhrases",
-      "id": "sec-06-04",
-      "sectionId": "sec-06",
-      "startSec": 566.9,
-      "endSec": 578.6,
-      "props": {
-        "kicker": {
-          "text": "Highly respected within their communities",
-          "at": 569.3
+        "belowLabel": {
+          "text": "at home",
+          "at": 583.24
         },
-        "items": [
+        "above": [
           {
             "text": "Religious knowledge",
             "at": 573.5
@@ -102,218 +86,108 @@
             "text": "Public service",
             "at": 577.02
           }
+        ],
+        "below": [
+          {
+            "text": "Closest relationships",
+            "at": 585.42
+          },
+          {
+            "text": "Tired, frustrated",
+            "at": 598.62
+          },
+          {
+            "text": "Disappointed",
+            "at": 600.54
+          },
+          {
+            "text": "Under pressure",
+            "at": 601.54
+          }
+        ],
+        "focus": [
+          {
+            "index": 0,
+            "at": 590.1
+          },
+          {
+            "index": 1,
+            "at": 597.96
+          }
         ]
       }
     },
     {
       "type": "kineticStatement",
-      "id": "sec-06-05",
+      "id": "sec-06-04",
       "sectionId": "sec-06",
-      "startSec": 578.6,
-      "endSec": 584.2,
-      "props": {
-        "lines": [
-          {
-            "text": "The way someone",
-            "at": 579.26
-          },
-          {
-            "text": "behaves in public",
-            "at": 579.96
-          },
-          {
-            "text": "does not always reflect",
-            "at": 581.0
-          },
-          {
-            "text": "the way they behave at home.",
-            "at": 582.6
-          }
-        ],
-        "emphasis": [
-          "public",
-          "home"
-        ],
-        "align": "left",
-        "scale": "h1"
-      }
-    },
-    {
-      "type": "statementCollision",
-      "id": "sec-06-06",
-      "sectionId": "sec-06",
-      "startSec": 584.2,
-      "endSec": 589.6,
-      "props": {
-        "label": "Our closest",
-        "first": {
-          "text": "relationships",
-          "at": 585.42
-        },
-        "script": {
-          "text": "often reveal",
-          "at": 586.36
-        },
-        "second": {
-          "text": "our true character.",
-          "at": 587.76
-        }
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-06-07",
-      "sectionId": "sec-06",
-      "startSec": 589.6,
-      "endSec": 594.5,
-      "props": {
-        "lines": [
-          {
-            "text": "It is relatively easy to show",
-            "at": 590.1
-          },
-          {
-            "text": "patience and kindness",
-            "at": 591.66
-          },
-          {
-            "text": "when everything is going well.",
-            "at": 592.92
-          }
-        ],
-        "emphasis": [
-          "patience",
-          "kindness"
-        ],
-        "align": "left",
-        "scale": "h1"
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-06-07b",
-      "sectionId": "sec-06",
-      "startSec": 594.5,
-      "endSec": 602.7,
-      "props": {
-        "lines": [
-          {
-            "text": "The greater challenge",
-            "at": 595.3
-          },
-          {
-            "text": "is maintaining those qualities",
-            "at": 596.16
-          },
-          {
-            "text": "when we are tired, frustrated,",
-            "at": 597.96
-          },
-          {
-            "text": "disappointed or under pressure.",
-            "at": 600.54
-          }
-        ],
-        "emphasis": [
-          "challenge"
-        ],
-        "align": "left",
-        "scale": "h2"
-      }
-    },
-    {
-      "type": "comparison",
-      "id": "sec-06-08",
-      "sectionId": "sec-06",
-      "startSec": 602.7,
-      "endSec": 611.6,
-      "props": {
-        "left": {
-          "title": "With colleagues",
-          "points": [
-            "Speaks politely"
-          ],
-          "at": 605.52
-        },
-        "right": {
-          "title": "At home",
-          "points": [
-            "Speaks harshly"
-          ],
-          "at": 608.58
-        },
-        "preferred": "none"
-      }
-    },
-    {
-      "type": "comparison",
-      "id": "sec-06-09",
-      "sectionId": "sec-06",
-      "startSec": 611.6,
+      "startSec": 605.0,
       "endSec": 617.7,
       "props": {
-        "left": {
-          "title": "Friends and relatives",
-          "points": [
-            "Shows respect"
-          ],
-          "at": 612.58
-        },
-        "right": {
-          "title": "Their spouse",
-          "points": [
-            "Dismisses their feelings or opinions"
-          ],
-          "at": 614.82
-        },
-        "preferred": "none"
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-06-10",
-      "sectionId": "sec-06",
-      "startSec": 617.7,
-      "endSec": 626.6,
-      "props": {
         "lines": [
           {
-            "text": "This inconsistency",
-            "at": 618.38
+            "text": "Speaks politely to colleagues,",
+            "at": 605.78
           },
           {
-            "text": "is something we should all reflect upon.",
-            "at": 620.0
+            "text": "but speaks harshly to their spouse.",
+            "at": 609.48
           },
           {
-            "text": "Islamic character is not simply",
-            "at": 622.64
+            "text": "Shows respect to friends and relatives,",
+            "at": 612.84
           },
           {
-            "text": "about what others see.",
-            "at": 624.84
+            "text": "but dismisses their spouse's feelings.",
+            "at": 614.82
           }
         ],
         "emphasis": [
-          "reflect",
-          "see"
+          "harshly",
+          "dismisses"
         ],
         "align": "left",
-        "scale": "h2"
+        "scale": "h2",
+        "reveal": "ink"
       }
     },
     {
-      "type": "parallelPhrases",
-      "id": "sec-06-11",
+      "type": "iceberg",
+      "id": "sec-06-05",
       "sectionId": "sec-06",
-      "startSec": 626.6,
+      "startSec": 617.7,
       "endSec": 632.6,
       "props": {
-        "kicker": {
-          "text": "It is about",
-          "at": 626.72
+        "peakAt": 617.7,
+        "waterlineAt": 617.7,
+        "massAt": 617.7,
+        "aboveLabel": {
+          "text": "what others see",
+          "at": 625.28
         },
-        "items": [
+        "belowLabel": {
+          "text": "at home",
+          "at": 617.7
+        },
+        "above": [
+          {
+            "text": "Religious knowledge",
+            "at": 617.7
+          },
+          {
+            "text": "Professional achievements",
+            "at": 617.7
+          },
+          {
+            "text": "Generosity",
+            "at": 617.7
+          },
+          {
+            "text": "Public service",
+            "at": 617.7
+          }
+        ],
+        "below": [
           {
             "text": "Integrity",
             "at": 627.24
@@ -321,34 +195,36 @@
           {
             "text": "Sincerity",
             "at": 628.3
+          },
+          {
+            "text": "No audience",
+            "at": 631.24
           }
         ],
-        "closing": {
-          "lead": "How we treat people",
-          "leadAt": 629.48,
-          "text": "when there is no audience",
-          "at": 630.94
-        }
+        "focus": [
+          {
+            "index": 0,
+            "at": 625.28
+          },
+          {
+            "index": 1,
+            "at": 627.0
+          }
+        ]
       }
     },
     {
-      "type": "reflectionField",
-      "id": "sec-06-12",
+      "type": "questionPrompt",
+      "id": "sec-06-06",
       "sectionId": "sec-06",
       "startSec": 632.6,
       "endSec": 643.6,
       "props": {
         "lines": [
           {
-            "text": "As you prepare for marriage,",
+            "text": "As you prepare for marriage, ask yourself:",
             "at": 633.34
-          }
-        ],
-        "script": {
-          "text": "ask yourself",
-          "at": 636.3
-        },
-        "after": [
+          },
           {
             "text": "Am I as respectful towards those closest to me",
             "at": 637.62
@@ -358,12 +234,13 @@
             "at": 641.04
           }
         ],
-        "ground": "oxblood"
+        "markAt": 636.3,
+        "ground": "paper"
       }
     },
     {
       "type": "reflectionField",
-      "id": "sec-06-13",
+      "id": "sec-06-07",
       "sectionId": "sec-06",
       "startSec": 643.6,
       "endSec": 655.2,
@@ -390,20 +267,16 @@
       }
     },
     {
-      "type": "kineticStatement",
-      "id": "sec-06-14",
+      "type": "highlightLine",
+      "id": "sec-06-08",
       "sectionId": "sec-06",
       "startSec": 655.2,
       "endSec": 664.7,
       "props": {
         "lines": [
           {
-            "text": "The quality of our",
+            "text": "The quality of our private character",
             "at": 657.6
-          },
-          {
-            "text": "private character",
-            "at": 658.84
           },
           {
             "text": "will have a significant influence",
@@ -414,34 +287,87 @@
             "at": 661.88
           }
         ],
-        "emphasis": [
-          "private",
-          "marriage"
-        ],
-        "align": "left",
-        "scale": "h1"
+        "highlight": {
+          "text": "private character",
+          "at": 658.84
+        },
+        "tint": "royal"
       }
     },
     {
-      "type": "statementCollision",
-      "id": "sec-06-15",
+      "type": "chapterRecap",
+      "id": "sec-06-09",
       "sectionId": "sec-06",
       "startSec": 664.7,
       "endSec": 670.4,
       "props": {
-        "label": "Remember: religious practice and good character",
-        "first": {
-          "text": "should",
-          "at": 667.2
+        "signature": {
+          "type": "iceberg",
+          "props": {
+            "peakAt": 565.58,
+            "waterlineAt": 581.34,
+            "massAt": 583.24,
+            "aboveLabel": {
+              "text": "in public",
+              "at": 565.58
+            },
+            "belowLabel": {
+              "text": "at home",
+              "at": 583.24
+            },
+            "above": [
+              {
+                "text": "Religious knowledge",
+                "at": 573.5
+              },
+              {
+                "text": "Professional achievements",
+                "at": 574.8
+              },
+              {
+                "text": "Generosity",
+                "at": 576.08
+              },
+              {
+                "text": "Public service",
+                "at": 577.02
+              }
+            ],
+            "below": [
+              {
+                "text": "Closest relationships",
+                "at": 585.42
+              },
+              {
+                "text": "Tired, frustrated",
+                "at": 598.62
+              },
+              {
+                "text": "Disappointed",
+                "at": 600.54
+              },
+              {
+                "text": "Under pressure",
+                "at": 601.54
+              }
+            ]
+          }
         },
-        "script": {
-          "text": "reinforce",
-          "at": 667.48
-        },
-        "second": {
-          "text": "one another.",
-          "at": 668.02
-        }
+        "cardAt": 664.84,
+        "words": [
+          {
+            "text": "religious practice",
+            "at": 665.32
+          },
+          {
+            "text": "good character",
+            "at": 666.44
+          },
+          {
+            "text": "reinforce one another",
+            "at": 667.48
+          }
+        ]
       }
     }
   ]

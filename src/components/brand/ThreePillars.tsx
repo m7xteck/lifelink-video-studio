@@ -28,7 +28,7 @@ const WORD_Y = 806, MEAN_Y = 872;
 const fit = (text: string, max: number, maxW: number, em = 0.6) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
 export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ scene }) => {
-  const { pillars, baseAt, lintelAt, focus } = scene.props;
+  const { pillars, baseAt, lintelAt, focus, title } = scene.props;
   const L = useLayout();
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const t = useNarrationTime();
@@ -37,6 +37,7 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
   const lastAt = Math.max(...pillars.map((p) => p.meaningAt ?? p.at));
   const lintel = useProgress(lintelAt ?? lastAt + 1, 1.4, ease.settle);
   const w = focusWeights(3, focus, t);
+  const titleP = title ? Math.min(1, Math.max(0, (t - title.at) / 1.2)) * (1 - Math.min(1, lintel * 2)) : 0;
 
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
@@ -62,6 +63,10 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
           </g>
         ))}
         </g>
+        {title && titleP > 0 && (
+          <text data-qa-text="" x={150} y={170} fontFamily={fonts.text} fontSize={58} fill={P.oxblood} opacity={titleP}
+            style={{ filter: titleP < 1 ? `blur(${((1 - titleP) * 7).toFixed(2)}px)` : undefined }}>{title.text}</text>
+        )}
       </svg>
     </AbsoluteFill>
   );

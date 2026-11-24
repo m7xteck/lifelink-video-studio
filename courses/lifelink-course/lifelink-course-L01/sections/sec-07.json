@@ -1,18 +1,410 @@
-{"section": {"id": "sec-07", "title": "Marriage in a Changing World", "startSec": 670.4, "endSec": 809.6},
-"scenes": [
-{"type": "kineticStatement", "id": "sec-07-01", "sectionId": "sec-07", "startSec": 670.4, "endSec": 676.6, "props": {"lines": [{"text": "Marriage today takes place", "at": 672.36}, {"text": "within a world that is", "at": 673.66}, {"text": "constantly changing.", "at": 675.02}], "emphasis": ["changing"], "align": "left", "scale": "h1"}},
-{"type": "comparison", "id": "sec-07-02", "sectionId": "sec-07", "startSec": 676.6, "endSec": 688.0, "props": {"left": {"title": "Islamic principles", "points": ["Remain relevant"], "at": 677.4}, "right": {"title": "Circumstances", "points": ["Changed significantly"], "at": 680.88}, "preferred": "none"}},
-{"type": "parallelPhrases", "id": "sec-07-03", "sectionId": "sec-07", "startSec": 688.0, "endSec": 700.6, "props": {"kicker": {"text": "Financial realities", "at": 690.54}, "items": [{"text": "Rising living costs", "at": 694.18}, {"text": "Housing expenses", "at": 695.9}, {"text": "Maintaining stability", "at": 698.16}]}},
-{"type": "kineticStatement", "id": "sec-07-04", "sectionId": "sec-07", "startSec": 700.6, "endSec": 709.4, "props": {"kicker": {"text": "These pressures can affect", "at": 701.12}, "lines": [{"text": "When to marry,", "at": 702.44}, {"text": "where to live,", "at": 705.06}, {"text": "how to organise responsibilities.", "at": 706.48}], "emphasis": ["When", "where", "how"], "align": "left", "scale": "h1"}},
-{"type": "statementCollision", "id": "sec-07-05", "sectionId": "sec-07", "startSec": 709.4, "endSec": 719.2, "props": {"label": "Technology & social media", "first": {"text": "Images of", "at": 715.96}, "script": {"text": "seemingly", "at": 716.64}, "second": {"text": "perfect relationships", "at": 717.14}}},
-{"type": "parallelPhrases", "id": "sec-07-06", "sectionId": "sec-07", "startSec": 719.2, "endSec": 727.6, "props": {"items": [{"text": "Expensive weddings", "at": 719.46}, {"text": "Romantic holidays", "at": 720.7}, {"text": "Beautiful homes", "at": 721.94}], "closing": {"lead": "Couples presenting", "leadAt": 723.42, "text": "an idealised version", "at": 724.3}}},
-{"type": "kineticStatement", "id": "sec-07-07", "sectionId": "sec-07", "startSec": 727.6, "endSec": 731.3, "props": {"lines": [{"text": "What we see online", "at": 728.12}, {"text": "is rarely the complete picture.", "at": 729.46}], "emphasis": ["picture"], "align": "left", "scale": "h1"}},
-{"type": "parallelPhrases", "id": "sec-07-08", "sectionId": "sec-07", "startSec": 731.3, "endSec": 740.6, "props": {"kicker": {"text": "What we do not necessarily see", "at": 731.42}, "items": [{"text": "Disagreements", "at": 733.5}, {"text": "Sacrifices", "at": 734.62}, {"text": "Compromises", "at": 735.84}, {"text": "Challenges", "at": 736.92}]}},
-{"type": "statementCollision", "id": "sec-07-09", "sectionId": "sec-07", "startSec": 740.6, "endSec": 750.6, "props": {"label": "Comparing our own relationship with", "first": {"text": "these", "at": 743.24}, "script": {"text": "carefully selected", "at": 743.58}, "second": {"text": "moments can create", "at": 744.6}, "caption": {"text": "dissatisfaction and unrealistic expectations.", "at": 745.78}}},
-{"type": "kineticStatement", "id": "sec-07-10", "sectionId": "sec-07", "startSec": 750.6, "endSec": 760.6, "props": {"kicker": {"text": "Changing expectations around roles and responsibilities", "at": 751.64}, "lines": [{"text": "Both spouses may be pursuing", "at": 756.24}, {"text": "careers or further education.", "at": 758.4}], "emphasis": ["careers", "education"], "align": "left", "scale": "h1"}},
-{"type": "parallelPhrases", "id": "sec-07-11", "sectionId": "sec-07", "startSec": 760.6, "endSec": 769.8, "props": {"kicker": {"text": "Discuss how to balance", "at": 762.44}, "items": [{"text": "Work", "at": 763.94}, {"text": "Family life", "at": 764.86}, {"text": "Household responsibilities", "at": 765.76}, {"text": "Individual ambitions", "at": 767.58}]}},
-{"type": "kineticStatement", "id": "sec-07-12", "sectionId": "sec-07", "startSec": 769.8, "endSec": 780.4, "props": {"kicker": {"text": "Cultural differences", "at": 770.04}, "lines": [{"text": "Even when two individuals", "at": 773.42}, {"text": "share the same faith,", "at": 774.74}, {"text": "family traditions and expectations", "at": 776.48}, {"text": "may be very different.", "at": 778.38}], "emphasis": ["different"], "align": "left", "scale": "h2"}},
-{"type": "kineticStatement", "id": "sec-07-13", "sectionId": "sec-07", "startSec": 780.4, "endSec": 786.8, "props": {"kicker": {"text": "The important question", "at": 780.6}, "lines": [{"text": "Not whether differences exist,", "at": 782.24}, {"text": "but how they are approached.", "at": 784.12}], "emphasis": ["how"], "align": "left", "scale": "h1"}},
-{"type": "parallelPhrases", "id": "sec-07-14", "sectionId": "sec-07", "startSec": 786.8, "endSec": 797.0, "props": {"kicker": {"text": "Islamic principles", "at": 786.96}, "items": [{"text": "Justice", "at": 788.62}, {"text": "Compassion", "at": 789.48}, {"text": "Responsibility", "at": 790.32}, {"text": "Consultation", "at": 791.68}], "closing": {"lead": "A foundation for", "leadAt": 793.22, "text": "navigating these circumstances", "at": 794.3}}},
-{"type": "kineticStatement", "id": "sec-07-15", "sectionId": "sec-07", "startSec": 797.0, "endSec": 809.6, "props": {"kicker": {"text": "The goal", "at": 797.4}, "lines": [{"text": "Not to recreate someone else's marriage.", "at": 797.82}, {"text": "A relationship faithful to Islamic principles,", "at": 801.56}, {"text": "realistic about your own circumstances.", "at": 805.14}], "emphasis": ["faithful", "realistic"], "align": "left", "scale": "h2"}}
-]}
+{
+  "section": {
+    "id": "sec-07",
+    "title": "Marriage in a Changing World",
+    "startSec": 670.4,
+    "endSec": 809.6
+  },
+  "scenes": [
+    {
+      "type": "kineticStatement",
+      "id": "sec-07-01",
+      "sectionId": "sec-07",
+      "startSec": 670.4,
+      "endSec": 676.6,
+      "props": {
+        "kicker": {
+          "text": "Marriage in a changing world",
+          "at": 672.36
+        },
+        "lines": [
+          {
+            "text": "Marriage today takes place",
+            "at": 672.36
+          },
+          {
+            "text": "within a world that is",
+            "at": 673.66
+          },
+          {
+            "text": "constantly changing.",
+            "at": 675.02
+          }
+        ],
+        "emphasis": [
+          "changing."
+        ],
+        "align": "left",
+        "scale": "h1",
+        "reveal": "ink"
+      }
+    },
+    {
+      "type": "highlightLine",
+      "id": "sec-07-02",
+      "sectionId": "sec-07",
+      "startSec": 676.6,
+      "endSec": 685.6,
+      "props": {
+        "lines": [
+          {
+            "text": "Although the Islamic principles that guide marriage",
+            "at": 676.82
+          },
+          {
+            "text": "remain relevant, the circumstances",
+            "at": 679.38
+          },
+          {
+            "text": "in which couples live have changed significantly.",
+            "at": 681.58
+          }
+        ],
+        "highlight": {
+          "text": "changed significantly",
+          "at": 683.66
+        },
+        "tint": "royal"
+      }
+    },
+    {
+      "type": "pressuresShelter",
+      "id": "sec-07-03",
+      "sectionId": "sec-07",
+      "startSec": 685.6,
+      "endSec": 715.4,
+      "props": {
+        "houseAt": 686.32,
+        "pressures": [
+          {
+            "text": "Rising living costs",
+            "at": 694.18
+          },
+          {
+            "text": "Housing expenses",
+            "at": 695.9
+          },
+          {
+            "text": "Financial stability",
+            "at": 698.16
+          },
+          {
+            "text": "Social media",
+            "at": 711.54
+          }
+        ],
+        "caption": {
+          "text": "financial pressures",
+          "at": 697.44
+        }
+      }
+    },
+    {
+      "type": "iceberg",
+      "id": "sec-07-04",
+      "sectionId": "sec-07",
+      "startSec": 715.4,
+      "endSec": 740.6,
+      "props": {
+        "peakAt": 715.96,
+        "waterlineAt": 729.9,
+        "massAt": 731.42,
+        "aboveLabel": {
+          "text": "seemingly perfect",
+          "at": 716.64
+        },
+        "belowLabel": {
+          "text": "not seen",
+          "at": 732.84
+        },
+        "above": [
+          {
+            "text": "Expensive weddings",
+            "at": 719.46
+          },
+          {
+            "text": "Romantic holidays",
+            "at": 720.7
+          },
+          {
+            "text": "Beautiful homes",
+            "at": 721.94
+          },
+          {
+            "text": "An idealised version",
+            "at": 724.3
+          }
+        ],
+        "below": [
+          {
+            "text": "Disagreements",
+            "at": 733.5
+          },
+          {
+            "text": "Sacrifices",
+            "at": 734.62
+          },
+          {
+            "text": "Compromises",
+            "at": 735.84
+          },
+          {
+            "text": "Challenges",
+            "at": 736.92
+          }
+        ],
+        "focus": [
+          {
+            "index": 1,
+            "at": 738.04
+          }
+        ]
+      }
+    },
+    {
+      "type": "highlightLine",
+      "id": "sec-07-05",
+      "sectionId": "sec-07",
+      "startSec": 740.6,
+      "endSec": 750.6,
+      "props": {
+        "lines": [
+          {
+            "text": "Comparing our own relationship with these",
+            "at": 740.88
+          },
+          {
+            "text": "carefully selected moments can create",
+            "at": 743.58
+          },
+          {
+            "text": "dissatisfaction and unrealistic expectations.",
+            "at": 745.78
+          }
+        ],
+        "highlight": {
+          "text": "unrealistic expectations",
+          "at": 747.48
+        },
+        "tint": "sky"
+      }
+    },
+    {
+      "type": "pressuresShelter",
+      "id": "sec-07-06",
+      "sectionId": "sec-07",
+      "startSec": 750.6,
+      "endSec": 760.6,
+      "props": {
+        "houseAt": 686.32,
+        "pressures": [
+          {
+            "text": "Rising living costs",
+            "at": 694.18
+          },
+          {
+            "text": "Housing expenses",
+            "at": 695.9
+          },
+          {
+            "text": "Financial stability",
+            "at": 698.16
+          },
+          {
+            "text": "Social media",
+            "at": 711.54
+          },
+          {
+            "text": "Changing roles",
+            "at": 753.4
+          }
+        ],
+        "focus": [
+          {
+            "index": 4,
+            "at": 753.4
+          }
+        ],
+        "caption": {
+          "text": "careers or education",
+          "at": 758.4
+        }
+      }
+    },
+    {
+      "type": "wordStack",
+      "id": "sec-07-07",
+      "sectionId": "sec-07",
+      "startSec": 760.6,
+      "endSec": 769.8,
+      "props": {
+        "lead": {
+          "text": "Couples may need to discuss how they will balance",
+          "at": 761.0
+        },
+        "words": [
+          {
+            "text": "Work",
+            "at": 763.94
+          },
+          {
+            "text": "Family life",
+            "at": 764.86
+          },
+          {
+            "text": "Household",
+            "at": 765.76
+          },
+          {
+            "text": "Ambitions",
+            "at": 767.58
+          }
+        ]
+      }
+    },
+    {
+      "type": "pressuresShelter",
+      "id": "sec-07-08",
+      "sectionId": "sec-07",
+      "startSec": 769.8,
+      "endSec": 797.0,
+      "props": {
+        "houseAt": 686.32,
+        "pressures": [
+          {
+            "text": "Rising living costs",
+            "at": 694.18
+          },
+          {
+            "text": "Housing expenses",
+            "at": 695.9
+          },
+          {
+            "text": "Financial stability",
+            "at": 698.16
+          },
+          {
+            "text": "Social media",
+            "at": 711.54
+          },
+          {
+            "text": "Changing roles",
+            "at": 753.4
+          },
+          {
+            "text": "Cultural differences",
+            "at": 770.04
+          }
+        ],
+        "focus": [
+          {
+            "index": 5,
+            "at": 770.04
+          },
+          {
+            "index": null,
+            "at": 786.96
+          }
+        ],
+        "caption": {
+          "text": "how they are approached",
+          "at": 784.78
+        },
+        "values": [
+          {
+            "text": "Justice",
+            "at": 788.62
+          },
+          {
+            "text": "Compassion",
+            "at": 789.48
+          },
+          {
+            "text": "Responsibility",
+            "at": 790.32
+          },
+          {
+            "text": "Consultation",
+            "at": 791.68
+          }
+        ],
+        "foundationAt": 793.22
+      }
+    },
+    {
+      "type": "chapterRecap",
+      "id": "sec-07-09",
+      "sectionId": "sec-07",
+      "startSec": 797.0,
+      "endSec": 809.6,
+      "props": {
+        "title": {
+          "text": "The goal",
+          "at": 797.4
+        },
+        "signature": {
+          "type": "pressuresShelter",
+          "props": {
+            "houseAt": 686.32,
+            "pressures": [
+              {
+                "text": "Rising living costs",
+                "at": 694.18
+              },
+              {
+                "text": "Housing expenses",
+                "at": 695.9
+              },
+              {
+                "text": "Financial stability",
+                "at": 698.16
+              },
+              {
+                "text": "Social media",
+                "at": 711.54
+              },
+              {
+                "text": "Changing roles",
+                "at": 753.4
+              },
+              {
+                "text": "Cultural differences",
+                "at": 770.04
+              }
+            ],
+            "values": [
+              {
+                "text": "Justice",
+                "at": 788.62
+              },
+              {
+                "text": "Compassion",
+                "at": 789.48
+              },
+              {
+                "text": "Responsibility",
+                "at": 790.32
+              },
+              {
+                "text": "Consultation",
+                "at": 791.68
+              }
+            ],
+            "foundationAt": 793.22
+          }
+        },
+        "cardAt": 797.4,
+        "words": [
+          {
+            "text": "Faithful",
+            "at": 802.7
+          },
+          {
+            "text": "Realistic",
+            "at": 805.38
+          }
+        ]
+      }
+    }
+  ]
+}

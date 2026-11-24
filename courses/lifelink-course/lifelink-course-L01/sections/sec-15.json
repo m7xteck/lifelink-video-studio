@@ -35,262 +35,185 @@
      "situations"
     ],
     "align": "center",
-    "scale": "h1"
+    "scale": "h1",
+    "reveal": "ink"
    }
   },
   {
    "id": "sec-15-02",
    "sectionId": "sec-15",
    "startSec": 1806.0,
-   "endSec": 1816.4,
-   "type": "kineticStatement",
+   "endSec": 1829.0,
+   "type": "scenarioCard",
    "props": {
-    "kicker": {
-     "text": "Scenario · Family time",
+    "ordinal": {
+     "text": "first",
      "at": 1806.32
     },
-    "lines": [
+    "cardAt": 1806.1,
+    "topic": {
+     "text": "Family time",
+     "at": 1807.84
+    },
+    "situation": [
      {
-      "text": "Imagine a couple disagree",
-      "at": 1810.26
+      "text": "A couple disagree about visiting families",
+      "at": 1811.32
      },
      {
-      "text": "about how much time to spend",
-      "at": 1812.18
+      "text": "One: visit parents every weekend",
+      "at": 1816.58
      },
      {
-      "text": "visiting their families.",
-      "at": 1813.74
+      "text": "Other: more time together as a couple",
+      "at": 1820.9
      }
-    ],
-    "emphasis": [
-     "disagree"
-    ],
-    "align": "left",
-    "scale": "h1"
+    ]
    }
   },
   {
    "id": "sec-15-03",
    "sectionId": "sec-15",
-   "startSec": 1816.4,
-   "endSec": 1828.9,
-   "type": "parallelPhrases",
+   "startSec": 1829.0,
+   "endSec": 1837.4,
+   "type": "highlightLine",
    "props": {
-    "kicker": {
-     "text": "Each spouse feels",
-     "at": 1816.58
-    },
-    "items": [
+    "lines": [
      {
-      "text": "Visit parents every weekend",
-      "at": 1818.32
+      "text": "Problems can arise if either person assumes",
+      "at": 1829.96
      },
      {
-      "text": "More time together as a couple",
-      "at": 1822.28
+      "text": "their own expectation should",
+      "at": 1832.92
+     },
+     {
+      "text": "automatically take priority.",
+      "at": 1834.58
      }
     ],
-    "closing": {
-     "lead": "Both may have",
-     "leadAt": 1824.86,
-     "text": "understandable reasons.",
-     "at": 1826.28
-    }
+    "highlight": {
+     "text": "automatically take priority.",
+     "at": 1834.58
+    },
+    "tint": "sky"
    }
   },
   {
    "id": "sec-15-04",
    "sectionId": "sec-15",
-   "startSec": 1828.9,
-   "endSec": 1837.4,
-   "type": "kineticStatement",
+   "startSec": 1837.4,
+   "endSec": 1862.6,
+   "type": "scenarioCard",
    "props": {
-    "kicker": {
-     "text": "However",
-     "at": 1829.22
+    "ordinal": {
+     "text": "first",
+     "at": 1806.32
     },
-    "lines": [
+    "cardAt": 1806.1,
+    "topic": {
+     "text": "Family time",
+     "at": 1807.84
+    },
+    "situation": [
      {
-      "text": "Problems can arise",
-      "at": 1829.96
+      "text": "A couple disagree about visiting families",
+      "at": 1811.32
      },
      {
-      "text": "if either person assumes",
-      "at": 1831.1
+      "text": "One: visit parents every weekend",
+      "at": 1816.58
      },
      {
-      "text": "their own expectation",
-      "at": 1832.92
-     },
-     {
-      "text": "should automatically take priority.",
-      "at": 1834.08
+      "text": "Other: more time together as a couple",
+      "at": 1820.9
      }
     ],
-    "emphasis": [
-     "automatically",
-     "priority."
-    ],
-    "align": "left",
-    "scale": "h2"
+    "avoid": {
+     "text": "Dismiss the other person's feelings",
+     "at": 1839.96,
+     "strikeAt": 1845.62
+    },
+    "responseLabel": "A healthier response",
+    "response": [
+     {
+      "text": "Discuss their needs",
+      "at": 1847.44
+     },
+     {
+      "text": "Explore a fair arrangement",
+      "at": 1848.94
+     },
+     {
+      "text": "Alternate visits, different days, a routine",
+      "at": 1853.24
+     }
+    ]
    }
   },
   {
    "id": "sec-15-05",
    "sectionId": "sec-15",
-   "startSec": 1837.4,
-   "endSec": 1851.6,
-   "type": "comparison",
+   "startSec": 1862.6,
+   "endSec": 1870.4,
+   "type": "pullQuote",
    "props": {
-    "left": {
-     "title": "An unhealthy response",
-     "points": [
-      "Dismiss the other person's feelings"
-     ],
-     "at": 1837.76
-    },
-    "right": {
-     "title": "A healthier response",
-     "points": [
-      "Discuss their needs",
-      "Explore a fair arrangement"
-     ],
-     "at": 1845.62
-    },
-    "preferred": "right"
+    "lines": [
+     {
+      "text": "Respectful consultation",
+      "at": 1864.54
+     },
+     {
+      "text": "can help couples manage",
+      "at": 1865.84
+     },
+     {
+      "text": "competing expectations.",
+      "at": 1867.32
+     }
+    ],
+    "emphasis": [
+     "Respectful consultation"
+    ]
    }
   },
   {
    "id": "sec-15-06",
    "sectionId": "sec-15",
-   "startSec": 1851.6,
-   "endSec": 1862.6,
-   "type": "parallelPhrases",
+   "startSec": 1870.4,
+   "endSec": 1888.4,
+   "type": "scenarioCard",
    "props": {
-    "kicker": {
-     "text": "They might agree to",
-     "at": 1852.02
+    "ordinal": {
+     "text": "second",
+     "at": 1871.42
     },
-    "items": [
+    "cardAt": 1870.9,
+    "topic": {
+     "text": "Loneliness",
+     "at": 1872.38
+    },
+    "situation": [
      {
-      "text": "Alternate visits",
-      "at": 1853.24
+      "text": "Belief: their spouse will automatically",
+      "at": 1876.52
      },
      {
-      "text": "Arrange different days",
-      "at": 1855.06
+      "text": "eliminate every feeling of loneliness",
+      "at": 1878.3
      },
      {
-      "text": "Identify a routine",
-      "at": 1856.52
+      "text": "or emotional difficulty",
+      "at": 1880.68
      }
     ],
-    "closing": {
-     "lead": "respecting family commitments, protecting",
-     "leadAt": 1858.26,
-     "text": "time together.",
-     "at": 1860.76
-    }
+    "past": [
+     "Family time"
+    ]
    }
   },
   {
    "id": "sec-15-07",
-   "sectionId": "sec-15",
-   "startSec": 1862.6,
-   "endSec": 1870.4,
-   "type": "statementCollision",
-   "props": {
-    "label": "The important lesson",
-    "first": {
-     "text": "Respectful",
-     "at": 1864.54
-    },
-    "script": {
-     "text": "consultation",
-     "at": 1865.08
-    },
-    "second": {
-     "text": "can help couples",
-     "at": 1865.84
-    },
-    "caption": {
-     "text": "manage competing expectations.",
-     "at": 1866.9
-    }
-   }
-  },
-  {
-   "id": "sec-15-08",
-   "sectionId": "sec-15",
-   "startSec": 1870.4,
-   "endSec": 1883.0,
-   "type": "kineticStatement",
-   "props": {
-    "kicker": {
-     "text": "Scenario · Loneliness",
-     "at": 1871.42
-    },
-    "lines": [
-     {
-      "text": "Entering marriage believing",
-      "at": 1874.92
-     },
-     {
-      "text": "their spouse will automatically",
-      "at": 1877.08
-     },
-     {
-      "text": "eliminate every",
-      "at": 1878.3
-     },
-     {
-      "text": "feeling of loneliness",
-      "at": 1879.56
-     },
-     {
-      "text": "or emotional difficulty.",
-      "at": 1880.68
-     }
-    ],
-    "emphasis": [
-     "automatically"
-    ],
-    "align": "left",
-    "scale": "h1"
-   }
-  },
-  {
-   "id": "sec-15-09",
-   "sectionId": "sec-15",
-   "startSec": 1883.0,
-   "endSec": 1888.4,
-   "type": "kineticStatement",
-   "props": {
-    "lines": [
-     {
-      "text": "This expectation places",
-      "at": 1883.38
-     },
-     {
-      "text": "an enormous responsibility",
-      "at": 1884.94
-     },
-     {
-      "text": "on the other person.",
-      "at": 1886.44
-     }
-    ],
-    "emphasis": [
-     "enormous",
-     "responsibility"
-    ],
-    "align": "center",
-    "scale": "h1"
-   }
-  },
-  {
-   "id": "sec-15-10",
    "sectionId": "sec-15",
    "startSec": 1888.4,
    "endSec": 1899.6,
@@ -317,56 +240,58 @@
    }
   },
   {
-   "id": "sec-15-11",
+   "id": "sec-15-08",
    "sectionId": "sec-15",
    "startSec": 1899.6,
    "endSec": 1904.8,
-   "type": "statementCollision",
+   "type": "highlightLine",
    "props": {
-    "label": "Healthy relationships involve",
-    "first": {
-     "text": "Connection",
+    "lines": [
+     {
+      "text": "Healthy relationships involve both",
+      "at": 1900.04
+     },
+     {
+      "text": "connection and individual wellbeing.",
+      "at": 1901.94
+     }
+    ],
+    "highlight": {
+     "text": "connection and individual wellbeing.",
      "at": 1901.94
     },
-    "script": {
-     "text": "and",
-     "at": 1902.58
-    },
-    "second": {
-     "text": "individual wellbeing.",
-     "at": 1902.96
-    }
+    "tint": "royal"
    }
   },
   {
-   "id": "sec-15-12",
+   "id": "sec-15-09",
    "sectionId": "sec-15",
    "startSec": 1904.8,
    "endSec": 1914.4,
-   "type": "parallelPhrases",
+   "type": "wordStack",
    "props": {
-    "kicker": {
-     "text": "This means",
+    "lead": {
+     "text": "This means maintaining",
      "at": 1905.36
     },
-    "items": [
+    "words": [
      {
-      "text": "Relationships with family and friends",
-      "at": 1907.08
+      "text": "Family and friends",
+      "at": 1908.04
      },
      {
       "text": "Meaningful interests",
       "at": 1910.2
      },
      {
-      "text": "Professional support when needed",
+      "text": "Professional support",
       "at": 1912.08
      }
     ]
    }
   },
   {
-   "id": "sec-15-13",
+   "id": "sec-15-10",
    "sectionId": "sec-15",
    "startSec": 1914.4,
    "endSec": 1919.4,
@@ -377,11 +302,11 @@
    }
   },
   {
+   "id": "sec-15-11",
    "sectionId": "sec-15",
-   "type": "reflectionField",
-   "id": "sec-15-14",
    "startSec": 1919.4,
-   "endSec": 1922.7,
+   "endSec": 1927.0,
+   "type": "questionPrompt",
    "props": {
     "lines": [
      {
@@ -391,37 +316,26 @@
      {
       "text": "to a different perspective?",
       "at": 1920.9
-     }
-    ],
-    "ground": "oxblood"
-   }
-  },
-  {
-   "sectionId": "sec-15",
-   "type": "reflectionField",
-   "id": "sec-15-14b",
-   "startSec": 1922.7,
-   "endSec": 1927.0,
-   "props": {
-    "lines": [
+     },
      {
-      "text": "Could you acknowledge that your spouse's needs",
+      "text": "Could you acknowledge that",
       "at": 1922.88
      },
      {
-      "text": "may differ from your own?",
-      "at": 1925.16
+      "text": "your spouse's needs may differ?",
+      "at": 1924.12
      }
     ],
-    "ground": "oxblood"
+    "markAt": 1919.5,
+    "ground": "paper"
    }
   },
   {
+   "id": "sec-15-11b",
    "sectionId": "sec-15",
-   "type": "reflectionField",
-   "id": "sec-15-14c",
    "startSec": 1927.0,
    "endSec": 1931.6,
+   "type": "reflectionField",
    "props": {
     "lines": [
      {
@@ -437,36 +351,71 @@
    }
   },
   {
-   "id": "sec-15-15",
+   "id": "sec-15-12",
    "sectionId": "sec-15",
    "startSec": 1931.6,
    "endSec": 1939.0,
-   "type": "kineticStatement",
+   "type": "chapterRecap",
    "props": {
-    "lines": [
-     {
-      "text": "These questions",
-      "at": 1932.02
-     },
-     {
-      "text": "help us develop",
-      "at": 1934.68
-     },
-     {
-      "text": "the emotional maturity",
-      "at": 1935.76
-     },
-     {
-      "text": "required for marriage.",
-      "at": 1936.66
+    "title": {
+     "text": "Applied scenarios",
+     "at": 1932.02
+    },
+    "cardAt": 1932.02,
+    "signature": {
+     "type": "scenarioCard",
+     "props": {
+      "ordinal": {
+       "text": "first",
+       "at": 1806.32
+      },
+      "cardAt": 1806.1,
+      "topic": {
+       "text": "Family time",
+       "at": 1807.84
+      },
+      "situation": [
+       {
+        "text": "A couple disagree about visiting families",
+        "at": 1811.32
+       },
+       {
+        "text": "One: visit parents every weekend",
+        "at": 1816.58
+       },
+       {
+        "text": "Other: more time together as a couple",
+        "at": 1820.9
+       }
+      ],
+      "avoid": {
+       "text": "Dismiss the other person's feelings",
+       "at": 1839.96,
+       "strikeAt": 1845.62
+      },
+      "responseLabel": "A healthier response",
+      "response": [
+       {
+        "text": "Discuss their needs",
+        "at": 1847.44
+       },
+       {
+        "text": "Explore a fair arrangement",
+        "at": 1848.94
+       },
+       {
+        "text": "Alternate visits, different days, a routine",
+        "at": 1853.24
+       }
+      ]
      }
-    ],
-    "emphasis": [
-     "emotional",
-     "maturity"
-    ],
-    "align": "center",
-    "scale": "h1"
+    },
+    "words": [
+     {
+      "text": "Emotional maturity",
+      "at": 1935.76
+     }
+    ]
    }
   }
  ]

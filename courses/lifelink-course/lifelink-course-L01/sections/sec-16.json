@@ -1,544 +1,1206 @@
 {
-  "section": {
-    "id": "sec-16",
-    "title": "The Mirror Check and Closing",
-    "startSec": 1939,
-    "endSec": 2165.26
+ "section": {
+  "id": "sec-16",
+  "title": "The Mirror Check and Closing",
+  "startSec": 1939,
+  "endSec": 2165.26
+ },
+ "scenes": [
+  {
+   "id": "sec-16-01",
+   "sectionId": "sec-16",
+   "startSec": 1939.0,
+   "endSec": 1946.6,
+   "type": "lessonMap",
+   "props": {
+    "title": {
+     "text": "Our journey",
+     "at": 1939.98
+    },
+    "stations": [
+     {
+      "title": "Divine purpose",
+      "at": 146.52
+     },
+     {
+      "title": "The marital ecosystem",
+      "at": 160.6
+     },
+     {
+      "title": "Partnership & sacred trust",
+      "at": 178.9
+     },
+     {
+      "title": "Qualities of marriage",
+      "at": 195.1
+     },
+     {
+      "title": "Realistic expectations",
+      "at": 222.04
+     },
+     {
+      "title": "The mirror check",
+      "at": 1941.28
+     }
+    ],
+    "current": 5
+   }
   },
-  "scenes": [
-    {
-      "id": "sec-16-01",
-      "sectionId": "sec-16",
-      "type": "kineticStatement",
-      "startSec": 1939,
-      "endSec": 1953.5,
-      "props": {
-        "kicker": {
-          "text": "Module 1 \u00b7 A final message",
-          "at": 1940.36
-        },
-        "lines": [
-          {
-            "text": "Throughout the process of finding the spouse,",
-            "at": 1946.9
-          },
-          {
-            "text": "we think about the qualities we want in another person",
-            "at": 1949.16
-          }
-        ],
-        "emphasis": [
-          "finding"
-        ],
-        "align": "left",
-        "scale": "h1"
-      }
+  {
+   "id": "sec-16-01b",
+   "sectionId": "sec-16",
+   "startSec": 1946.6,
+   "endSec": 1953.5,
+   "type": "kineticStatement",
+   "props": {
+    "lines": [
+     {
+      "text": "Throughout the process of finding the spouse,",
+      "at": 1946.9
+     },
+     {
+      "text": "we think about the qualities we want in another person",
+      "at": 1949.16
+     }
+    ],
+    "emphasis": [
+     "qualities"
+    ],
+    "align": "left",
+    "scale": "h1",
+    "reveal": "ink"
+   }
+  },
+  {
+   "id": "sec-16-02",
+   "sectionId": "sec-16",
+   "startSec": 1953.5,
+   "endSec": 1965.3,
+   "type": "wordStack",
+   "props": {
+    "lead": {
+     "text": "We may think about their",
+     "at": 1953.82
     },
-    {
-      "id": "sec-16-02",
-      "sectionId": "sec-16",
-      "type": "parallelPhrases",
-      "startSec": 1953.5,
-      "endSec": 1965.3,
-      "props": {
-        "kicker": {
-          "text": "We may think about",
-          "at": 1953.82
-        },
-        "items": [
-          {
-            "text": "Faith and personality",
-            "at": 1954.96
-          },
-          {
-            "text": "Appearance and education",
-            "at": 1956.62
-          },
-          {
-            "text": "Background and ambition",
-            "at": 1958.34
-          }
-        ],
-        "closing": {
-          "text": "All may influence compatibility",
-          "at": 1962.38
-        }
-      }
+    "words": [
+     {
+      "text": "Faith, personality",
+      "at": 1954.96
+     },
+     {
+      "text": "Appearance, education",
+      "at": 1956.62
+     },
+     {
+      "text": "Family background",
+      "at": 1958.34
+     },
+     {
+      "text": "Ambition",
+      "at": 1959.66
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-16-03",
+   "sectionId": "sec-16",
+   "type": "findingBecoming",
+   "startSec": 1965.3,
+   "endSec": 1973.9,
+   "props": {
+    "kicker": {
+     "text": "However",
+     "at": 1965.62
     },
-    {
-      "id": "sec-16-03",
-      "sectionId": "sec-16",
-      "type": "findingBecoming",
-      "startSec": 1965.3,
-      "endSec": 1973.9,
-      "props": {
-        "kicker": {
-          "text": "However",
-          "at": 1965.62
-        },
-        "lines": [
-          {
-            "text": "Another question deserves",
-            "at": 1966.28
-          },
-          {
-            "text": "just as much attention",
-            "at": 1967.84
-          },
-          {
-            "text": "Am I preparing myself",
-            "at": 1970.58
-          },
-          {
-            "text": "to be a good spouse?",
-            "at": 1972.16
-          }
-        ],
-        "emphasis": [
-          "preparing myself"
-        ],
-        "findAt": 1966.28,
-        "becomeAt": 1970.86
-      }
+    "lines": [
+     {
+      "text": "Another question deserves",
+      "at": 1966.28
+     },
+     {
+      "text": "just as much attention",
+      "at": 1967.84
+     },
+     {
+      "text": "Am I preparing myself",
+      "at": 1970.58
+     },
+     {
+      "text": "to be a good spouse?",
+      "at": 1972.16
+     }
+    ],
+    "emphasis": [
+     "preparing myself"
+    ],
+    "findAt": 1966.28,
+    "becomeAt": 1970.86
+   }
+  },
+  {
+   "id": "sec-16-04",
+   "sectionId": "sec-16",
+   "startSec": 1973.9,
+   "endSec": 2065.2,
+   "type": "mirrorCheck",
+   "props": {
+    "mirrorAt": 1975.54,
+    "title": {
+     "text": "the mirror check",
+     "at": 1975.54
     },
-    {
-      "id": "t-mc",
-      "type": "mirrorCheck",
-      "startSec": 1973.9,
-      "endSec": 2060.3,
-      "props": {
-        "mirrorAt": 1974.3,
-        "title": {
-          "text": "mirror check",
-          "at": 1975.26
-        },
-        "doneAt": 2059.88,
-        "questions": [
-          {
-            "text": "Am I emotionally ready to share my life with another person?",
-            "short": "emotionally ready",
-            "at": 1982.36
-          },
-          {
-            "text": "Can I truly listen to views that differ from my own?",
-            "short": "truly listen",
-            "at": 1995.28
-          },
-          {
-            "text": "Am I willing to acknowledge my mistakes?",
-            "short": "own my mistakes",
-            "at": 2007.82
-          },
-          {
-            "text": "Do I understand the practical responsibilities of marriage?",
-            "short": "practical responsibilities",
-            "at": 2018.76,
-            "notes": [
-              {
-                "text": "finances",
-                "at": 2024.94
-              },
-              {
-                "text": "household",
-                "at": 2026.8
-              },
-              {
-                "text": "communication",
-                "at": 2028.32
-              },
-              {
-                "text": "family",
-                "at": 2029.24
-              },
-              {
-                "text": "decisions together",
-                "at": 2032.46
-              }
-            ]
-          },
-          {
-            "text": "Am I prepared to support someone through difficulty?",
-            "short": "support in difficulty",
-            "at": 2035.04
-          },
-          {
-            "text": "Can I respect another person's boundaries and independence?",
-            "short": "respect boundaries",
-            "at": 2049.7,
-            "notes": [
-              {
-                "text": "mutual respect",
-                "at": 2056.28
-              },
-              {
-                "text": "dignity",
-                "at": 2057.86
-              },
-              {
-                "text": "trust",
-                "at": 2058.76
-              }
-            ]
-          }
-        ]
-      },
-      "sectionId": "sec-16"
+    "questions": [
+     {
+      "text": "Am I emotionally ready to share my life with another person?",
+      "short": "Emotionally ready",
+      "at": 1982.36,
+      "notes": [
+       {
+        "text": "needs",
+        "at": 1989.86
+       },
+       {
+        "text": "feelings",
+        "at": 1990.24
+       },
+       {
+        "text": "circumstances",
+        "at": 1991.06
+       }
+      ]
+     },
+     {
+      "text": "Can I truly listen to views that differ from my own?",
+      "short": "Truly listen",
+      "at": 1995.28,
+      "notes": [
+       {
+        "text": "not agreeing with everything",
+        "at": 2001.48
+       },
+       {
+        "text": "willing to understand",
+        "at": 2003.68
+       }
+      ]
+     },
+     {
+      "text": "Am I willing to acknowledge my mistakes?",
+      "short": "Acknowledge mistakes",
+      "at": 2007.82,
+      "notes": [
+       {
+        "text": "take responsibility",
+        "at": 2014.32
+       },
+       {
+        "text": "rather than blaming others",
+        "at": 2015.8
+       }
+      ]
+     },
+     {
+      "text": "Do I understand the practical responsibilities involved in marriage?",
+      "short": "Practical responsibilities",
+      "at": 2018.76,
+      "notes": [
+       {
+        "text": "finances",
+        "at": 2024.94
+       },
+       {
+        "text": "household",
+        "at": 2026.8
+       },
+       {
+        "text": "communication",
+        "at": 2028.32
+       },
+       {
+        "text": "family",
+        "at": 2029.24
+       },
+       {
+        "text": "decisions together",
+        "at": 2032.46
+       }
+      ]
+     },
+     {
+      "text": "Am I prepared to support someone during their difficult circumstances?",
+      "short": "Support in difficulty",
+      "at": 2035.04,
+      "notes": [
+       {
+        "text": "compassion",
+        "at": 2044.62
+       },
+       {
+        "text": "support",
+        "at": 2045.82
+       },
+       {
+        "text": "during challenges",
+        "at": 2046.22
+       }
+      ]
+     },
+     {
+      "text": "Can I respect another person's boundaries and independence?",
+      "short": "Respect boundaries",
+      "at": 2048.02,
+      "notes": [
+       {
+        "text": "mutual respect",
+        "at": 2056.28
+       },
+       {
+        "text": "dignity",
+        "at": 2057.86
+       },
+       {
+        "text": "trust",
+        "at": 2058.6
+       }
+      ]
+     }
+    ],
+    "doneAt": 2060.86
+   }
+  },
+  {
+   "id": "sec-16-05",
+   "sectionId": "sec-16",
+   "startSec": 2065.2,
+   "endSec": 2075.0,
+   "type": "highlightLine",
+   "props": {
+    "lines": [
+     {
+      "text": "You do not need to have perfect answers.",
+      "at": 2065.44
+     },
+     {
+      "text": "Identify where you are now",
+      "at": 2069.78
+     },
+     {
+      "text": "and how you can continue developing.",
+      "at": 2072.24
+     }
+    ],
+    "highlight": {
+     "text": "where you are now",
+     "at": 2070.34
     },
-    {
-      "id": "sec-16-17",
-      "sectionId": "sec-16",
-      "type": "kineticStatement",
-      "startSec": 2060.3,
-      "endSec": 2065.2,
-      "props": {
-        "lines": [
-          {
-            "text": "Spend some time considering these questions",
-            "at": 2060.86
-          },
-          {
-            "text": "after completing this lesson",
-            "at": 2063.1
-          }
-        ],
-        "emphasis": [
-          "questions"
-        ],
-        "align": "center",
-        "scale": "h1"
-      }
-    },
-    {
-      "id": "sec-16-18",
-      "sectionId": "sec-16",
-      "type": "statementCollision",
-      "startSec": 2065.2,
-      "endSec": 2074.6,
-      "props": {
-        "label": "You do not need perfect answers",
-        "first": {
-          "text": "Identify",
-          "at": 2069.78
-        },
-        "script": {
-          "text": "where you are now",
-          "at": 2070.34
-        },
-        "second": {
-          "text": "and how you can develop",
-          "at": 2071.66
-        }
-      }
-    },
-    {
-      "id": "sec-16-19",
-      "sectionId": "sec-16",
-      "type": "parallelPhrases",
-      "startSec": 2074.6,
-      "endSec": 2087.6,
-      "props": {
-        "kicker": {
-          "text": "Remember the three foundations",
-          "at": 2075.88
-        },
-        "items": [
-          {
-            "text": "Sakina",
-            "at": 2080.96
-          },
-          {
-            "text": "Mawaddah",
-            "at": 2082.18
-          },
-          {
-            "text": "Rahmah",
-            "at": 2083.44
-          }
-        ],
-        "closing": {
-          "text": "Tranquility, affection and mercy",
-          "at": 2084.76
-        }
-      }
-    },
-    {
-      "id": "sec-16-20",
-      "sectionId": "sec-16",
-      "type": "kineticStatement",
-      "startSec": 2087.6,
-      "endSec": 2094.0,
-      "props": {
-        "kicker": {
-          "text": "These qualities remind us",
-          "at": 2087.88
-        },
-        "lines": [
-          {
-            "text": "Marriage should be a source of",
-            "at": 2089.7
-          },
-          {
-            "text": "peace, compassion and meaningful connection",
-            "at": 2091.14
-          }
-        ],
-        "emphasis": [
-          "peace",
-          "compassion",
-          "connection"
-        ],
-        "align": "center",
-        "scale": "h2"
-      }
-    },
-    {
-      "id": "sec-16-21",
-      "sectionId": "sec-16",
-      "type": "findingBecoming",
-      "startSec": 2094.0,
-      "endSec": 2102.4,
-      "props": {
-        "kicker": {
-          "text": "A successful marriage",
-          "at": 2094.4
-        },
-        "lines": [
-          {
-            "text": "is not built simply by finding",
-            "at": 2095.5
-          },
-          {
-            "text": "someone who appears perfect",
-            "at": 2097.18
-          },
-          {
-            "text": "It is built when",
-            "at": 2098.76
-          },
-          {
-            "text": "two individuals commit",
-            "at": 2100.4
-          }
-        ],
-        "emphasis": [],
-        "findAt": 2096.78,
-        "becomeAt": 2099.38
-      }
-    },
-    {
-      "id": "sec-16-22",
-      "sectionId": "sec-16",
-      "type": "kineticStatement",
-      "startSec": 2102.4,
-      "endSec": 2108.3,
-      "props": {
-        "lines": [
-          {
-            "text": "Treating one another with",
-            "at": 2102.48
-          },
-          {
-            "text": "kindness, respect,",
-            "at": 2103.86
-          },
-          {
-            "text": "honesty and responsibility",
-            "at": 2106.36
-          }
-        ],
-        "emphasis": [
-          "kindness",
-          "respect",
-          "honesty",
-          "responsibility"
-        ],
-        "align": "center",
-        "scale": "h1"
-      }
-    },
-    {
-      "id": "sec-16-23",
-      "sectionId": "sec-16",
-      "type": "parallelPhrases",
-      "startSec": 2108.3,
-      "endSec": 2120.6,
-      "props": {
-        "kicker": {
-          "text": "We want you to enter marriage with",
-          "at": 2109.74
-        },
-        "items": [
-          {
-            "text": "Knowledge",
-            "at": 2111.38
-          },
-          {
-            "text": "Confidence",
-            "at": 2112.18
-          },
-          {
-            "text": "Realistic expectations",
-            "at": 2113.06
-          }
-        ],
-        "closing": {
-          "text": "Your learning journey continues",
-          "at": 2116.08
-        }
-      }
-    },
-    {
-      "id": "sec-16-24",
-      "sectionId": "sec-16",
-      "type": "kineticStatement",
-      "startSec": 2120.6,
-      "endSec": 2127.2,
-      "props": {
-        "kicker": {
-          "text": "Module 2",
-          "at": 2121.32
-        },
-        "lines": [
-          {
-            "text": "Finding the right",
-            "at": 2123.04
-          },
-          {
-            "text": "life partner",
-            "at": 2124.06
-          }
-        ],
-        "emphasis": [
-          "partner"
-        ],
-        "align": "center",
-        "scale": "hero"
-      }
-    },
-    {
-      "id": "sec-16-25",
-      "sectionId": "sec-16",
-      "type": "takeaway",
-      "startSec": 2127.2,
-      "endSec": 2138.4,
-      "props": {
-        "heading": "In Module 2",
-        "points": [
-          {
-            "text": "Character",
-            "at": 2127.48
-          },
-          {
-            "text": "Religious and emotional compatibility",
-            "at": 2128.62
-          },
-          {
-            "text": "Family background",
-            "at": 2132.02
-          },
-          {
-            "text": "Attraction and shared values",
-            "at": 2133.38
-          },
-          {
-            "text": "Recognising potential warning signs",
-            "at": 2135.5
-          }
-        ]
-      }
-    },
-    {
-      "id": "sec-16-26",
-      "sectionId": "sec-16",
-      "type": "kineticStatement",
-      "startSec": 2138.4,
-      "endSec": 2146.0,
-      "props": {
-        "kicker": {
-          "text": "Before moving on",
-          "at": 2138.78
-        },
-        "lines": [
-          {
-            "text": "Complete the end-of-module assessment",
-            "at": 2140.04
-          },
-          {
-            "text": "to check your understanding of the three principles",
-            "at": 2142.34
-          }
-        ],
-        "emphasis": [
-          "principles"
-        ],
-        "align": "left",
-        "scale": "h2"
-      }
-    },
-    {
-      "id": "sec-16-27",
-      "sectionId": "sec-16",
-      "type": "quietReflection",
-      "startSec": 2146.0,
-      "endSec": 2150.6,
-      "props": {
-        "text": "Thank you for joining us",
-        "at": 2146.3,
-        "attribution": "Module 1 \u00b7 LifeLink Marriage Academy"
-      }
-    },
-    {
-      "id": "sec-16-28",
-      "sectionId": "sec-16",
-      "type": "reflectionField",
-      "startSec": 2150.6,
-      "endSec": 2159.6,
-      "props": {
-        "lines": [
-          {
-            "text": "May Allah grant you beneficial knowledge,",
-            "at": 2150.86
-          },
-          {
-            "text": "wisdom in your decisions,",
-            "at": 2153.5
-          },
-          {
-            "text": "and a marriage founded upon",
-            "at": 2154.98
-          },
-          {
-            "text": "tranquility, affection and mercy",
-            "at": 2156.58
-          }
-        ],
-        "ground": "royal"
-      }
-    },
-    {
-      "id": "sec-16-29",
-      "sectionId": "sec-16",
-      "type": "kineticStatement",
-      "startSec": 2159.6,
-      "endSec": 2165.26,
-      "props": {
-        "kicker": {
-          "text": "Ameen",
-          "at": 2159.76
-        },
-        "lines": [
-          {
-            "text": "Assalamu alaikum",
-            "at": 2160.8
-          },
-          {
-            "text": "wa rahmatullahi wa barakatuh",
-            "at": 2161.9
-          }
-        ],
-        "align": "center",
-        "scale": "h2"
-      }
+    "tint": "sky"
+   }
+  },
+  {
+   "id": "sec-16-06",
+   "sectionId": "sec-16",
+   "startSec": 2075.0,
+   "endSec": 2094.0,
+   "type": "threePillars",
+   "props": {
+    "pillars": [
+     {
+      "word": "Sakina",
+      "at": 2080.96,
+      "meaning": "Tranquility",
+      "meaningAt": 2084.76
+     },
+     {
+      "word": "Mawaddah",
+      "at": 2082.18,
+      "meaning": "Affection",
+      "meaningAt": 2085.7
+     },
+     {
+      "word": "Rahmah",
+      "at": 2083.44,
+      "meaning": "Mercy",
+      "meaningAt": 2086.78
+     }
+    ],
+    "baseAt": 2075.38,
+    "lintelAt": 2084.2,
+    "focus": [
+     {
+      "index": 0,
+      "at": 2091.14
+     },
+     {
+      "index": 2,
+      "at": 2091.72
+     },
+     {
+      "index": 1,
+      "at": 2092.5
+     },
+     {
+      "index": null,
+      "at": 2093.4
+     }
+    ],
+    "title": {
+     "text": "Three foundations",
+     "at": 2076.8
     }
-  ]
+   }
+  },
+  {
+   "id": "sec-16-21",
+   "sectionId": "sec-16",
+   "type": "findingBecoming",
+   "startSec": 2094.0,
+   "endSec": 2102.4,
+   "props": {
+    "lines": [
+     {
+      "text": "A successful marriage is not built by",
+      "at": 2094.28
+     },
+     {
+      "text": "finding someone who appears perfect",
+      "at": 2096.78
+     },
+     {
+      "text": "It is built when",
+      "at": 2098.76
+     },
+     {
+      "text": "two individuals commit",
+      "at": 2100.4
+     }
+    ],
+    "emphasis": [],
+    "findAt": 2096.78,
+    "becomeAt": 2099.38
+   }
+  },
+  {
+   "id": "sec-16-22",
+   "sectionId": "sec-16",
+   "startSec": 2102.4,
+   "endSec": 2108.3,
+   "type": "wordStack",
+   "props": {
+    "lead": {
+     "text": "Treating one another with",
+     "at": 2102.48
+    },
+    "words": [
+     {
+      "text": "Kindness",
+      "at": 2103.86
+     },
+     {
+      "text": "Respect",
+      "at": 2104.38
+     },
+     {
+      "text": "Honesty",
+      "at": 2106.36
+     },
+     {
+      "text": "Responsibility",
+      "at": 2106.78
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-16-23",
+   "sectionId": "sec-16",
+   "startSec": 2108.3,
+   "endSec": 2120.6,
+   "type": "chapterRecap",
+   "props": {
+    "items": [
+     {
+      "signature": {
+       "type": "threePillars",
+       "props": {
+        "pillars": [
+         {
+          "word": "Sakina",
+          "at": 289.74,
+          "meaning": "Tranquility",
+          "meaningAt": 291.44
+         },
+         {
+          "word": "Mawaddah",
+          "at": 323.28,
+          "meaning": "Affection",
+          "meaningAt": 324.42
+         },
+         {
+          "word": "Rahmah",
+          "at": 349.68,
+          "meaning": "Mercy",
+          "meaningAt": 350.86
+         }
+        ],
+        "lintelAt": 300
+       }
+      },
+      "label": "Three foundations",
+      "at": 2108.7
+     },
+     {
+      "signature": {
+       "type": "ecosystemRings",
+       "props": {
+        "centre": {
+         "label": "faith",
+         "at": 422.16,
+         "labelAt": 424.56,
+         "sub": "lawful intimacy",
+         "subAt": 423.06
+        },
+        "rings": [
+         {
+          "label": "companionship",
+          "at": 432.78
+         },
+         {
+          "label": "support",
+          "at": 456.68
+         },
+         {
+          "label": "faith and character",
+          "at": 475.36
+         },
+         {
+          "label": "shared responsibility",
+          "at": 487.96
+         },
+         {
+          "label": "family",
+          "at": 509.08
+         }
+        ]
+       }
+      },
+      "label": "The ecosystem",
+      "at": 2109.42
+     },
+     {
+      "signature": {
+       "type": "iceberg",
+       "props": {
+        "peakAt": 565.58,
+        "waterlineAt": 581.34,
+        "massAt": 583.24,
+        "aboveLabel": {
+         "text": "in public",
+         "at": 565.58
+        },
+        "belowLabel": {
+         "text": "at home",
+         "at": 583.24
+        },
+        "above": [
+         {
+          "text": "Religious knowledge",
+          "at": 573.5
+         },
+         {
+          "text": "Professional achievements",
+          "at": 574.8
+         },
+         {
+          "text": "Generosity",
+          "at": 576.08
+         },
+         {
+          "text": "Public service",
+          "at": 577.02
+         }
+        ],
+        "below": [
+         {
+          "text": "Closest relationships",
+          "at": 585.42
+         },
+         {
+          "text": "Tired, frustrated",
+          "at": 598.46
+         },
+         {
+          "text": "Disappointed",
+          "at": 600.54
+         },
+         {
+          "text": "Under pressure",
+          "at": 601.54
+         }
+        ]
+       }
+      },
+      "label": "Private character",
+      "at": 2110.14
+     },
+     {
+      "signature": {
+       "type": "pressuresShelter",
+       "props": {
+        "houseAt": 686.32,
+        "pressures": [
+         {
+          "text": "Rising living costs",
+          "at": 694.18
+         },
+         {
+          "text": "Housing expenses",
+          "at": 695.9
+         },
+         {
+          "text": "Financial stability",
+          "at": 698.16
+         },
+         {
+          "text": "Social media",
+          "at": 711.54
+         },
+         {
+          "text": "Changing roles",
+          "at": 753.4
+         },
+         {
+          "text": "Cultural differences",
+          "at": 770.04
+         }
+        ],
+        "values": [
+         {
+          "text": "Justice",
+          "at": 788.62
+         },
+         {
+          "text": "Compassion",
+          "at": 789.48
+         },
+         {
+          "text": "Responsibility",
+          "at": 790.32
+         },
+         {
+          "text": "Consultation",
+          "at": 791.68
+         }
+        ],
+        "foundationAt": 793.22
+       }
+      },
+      "label": "A changing world",
+      "at": 2110.86
+     },
+     {
+      "signature": {
+       "type": "sortTrays",
+       "props": {
+        "trays": [
+         {
+          "label": "Islamic teachings",
+          "at": 816.98
+         },
+         {
+          "label": "Cultural expectations",
+          "at": 818.82
+         },
+         {
+          "label": "Personal preferences",
+          "at": 937.34
+         }
+        ],
+        "cards": [
+         {
+          "text": "Expensive wedding",
+          "tray": 1,
+          "at": 845.08
+         },
+         {
+          "text": "Status and reputation",
+          "tray": 1,
+          "at": 870.14
+         },
+         {
+          "text": "Wealth and standing",
+          "tray": 1,
+          "at": 878.74
+         },
+         {
+          "text": "Character",
+          "tray": 0,
+          "at": 887.7
+         },
+         {
+          "text": "Faith",
+          "tray": 0,
+          "at": 889.0
+         },
+         {
+          "text": "Compatibility",
+          "tray": 0,
+          "at": 889.6
+         },
+         {
+          "text": "Expected roles at home",
+          "tray": 1,
+          "at": 897.56
+         },
+         {
+          "text": "Rights and responsibilities",
+          "tray": 0,
+          "at": 903.8
+         }
+        ],
+        "caption": {
+         "text": "prevent misunderstandings",
+         "at": 942.28
+        }
+       }
+      },
+      "label": "Faith or culture",
+      "at": 2111.58
+     },
+     {
+      "signature": {
+       "type": "bridgePlanks",
+       "props": {
+        "cliffsAt": 0,
+        "planks": [
+         {
+          "text": "Respectful consultation",
+          "at": 0
+         },
+         {
+          "text": "Shared responsibilities",
+          "at": 0
+         },
+         {
+          "text": "Mutual support",
+          "at": 0
+         },
+         {
+          "text": "Honouring individuality",
+          "at": 0
+         }
+        ],
+        "railsAt": 0,
+        "caption": {
+         "text": "work together",
+         "at": 0
+        }
+       }
+      },
+      "label": "Partnership",
+      "at": 2112.3
+     },
+     {
+      "signature": {
+       "type": "balanceScale",
+       "props": {
+        "beamAt": 0,
+        "left": {
+         "label": "Responsibility",
+         "at": 0,
+         "items": [
+          {
+           "text": "Feelings",
+           "at": 0
+          },
+          {
+           "text": "Boundaries",
+           "at": 0
+          },
+          {
+           "text": "Dignity",
+           "at": 0
+          },
+          {
+           "text": "Compassion",
+           "at": 0
+          }
+         ]
+        },
+        "right": {
+         "label": "Control",
+         "at": 0,
+         "items": []
+        },
+        "levelAt": 0,
+        "pivot": {
+         "text": "amanah",
+         "at": 0
+        }
+       }
+      },
+      "label": "Amanah",
+      "at": 2113.02
+     },
+     {
+      "signature": {
+       "type": "foundationLayers",
+       "props": {
+        "courses": [
+         {
+          "label": "Core foundation",
+          "at": 0,
+          "items": [
+           {
+            "text": "Faith",
+            "at": 0
+           },
+           {
+            "text": "Respect",
+            "at": 0
+           },
+           {
+            "text": "Trust",
+            "at": 0
+           }
+          ]
+         },
+         {
+          "label": "Action",
+          "at": 0,
+          "items": [
+           {
+            "text": "Communication",
+            "at": 0
+           },
+           {
+            "text": "Responsibility",
+            "at": 0
+           },
+           {
+            "text": "Cooperation",
+            "at": 0
+           }
+          ]
+         },
+         {
+          "label": "Grace and repair",
+          "at": 0,
+          "items": [
+           {
+            "text": "Compassion",
+            "at": 0
+           },
+           {
+            "text": "Patience",
+            "at": 0
+           },
+           {
+            "text": "Appreciation",
+            "at": 0
+           },
+           {
+            "text": "Forgiveness",
+            "at": 0
+           }
+          ]
+         }
+        ],
+        "groundAt": 0
+       }
+      },
+      "label": "Qualities",
+      "at": 2113.74
+     },
+     {
+      "signature": {
+       "type": "scenarioCard",
+       "props": {
+        "ordinal": {
+         "text": "third",
+         "at": 1470.04
+        },
+        "cardAt": 1469.5,
+        "topic": {
+         "text": "Accountability",
+         "at": 1471.58
+        },
+        "situation": [
+         {
+          "text": "A hurtful comment during a disagreement",
+          "at": 1475.22
+         }
+        ],
+        "avoid": {
+         "text": "Blame the other or minimise what happened",
+         "at": 1478.56,
+         "strikeAt": 1482.54
+        },
+        "response": [
+         {
+          "text": "Acknowledge the mistake",
+          "at": 1482.66
+         },
+         {
+          "text": "Apologise sincerely",
+          "at": 1484.56
+         },
+         {
+          "text": "Respond differently in future",
+          "at": 1487.66
+         }
+        ],
+        "outcome": {
+         "text": "emotional maturity in action",
+         "at": 1490.56
+        },
+        "past": [
+         "Appreciation",
+         "Disagreement"
+        ]
+       }
+      },
+      "label": "Character in action",
+      "at": 2114.46
+     },
+     {
+      "signature": {
+       "type": "mythTruth",
+       "props": {
+        "myth": {
+         "text": "Our spouse will change completely.",
+         "at": 0
+        },
+        "tearAt": 0,
+        "truth": {
+         "text": "Honest conversations before marriage are so important.",
+         "at": 0
+        },
+        "past": [
+         "Always happy",
+         "Never disagree",
+         "Automatically know",
+         "Love alone",
+         "Solve all problems"
+        ],
+        "short": "Change completely"
+       }
+      },
+      "label": "Realistic expectations",
+      "at": 2115.18
+     },
+     {
+      "signature": {
+       "type": "pathLandscape",
+       "props": {
+        "lines": [
+         {
+          "text": "As life progresses,",
+          "at": 1703.62
+         },
+         {
+          "text": "circumstances change.",
+          "at": 1705.4
+         },
+         {
+          "text": "Careers develop; financial responsibilities may increase.",
+          "at": 1707.32
+         }
+        ],
+        "firstStepAt": 1703.76
+       }
+      },
+      "label": "Lifelong learning",
+      "at": 2115.9
+     },
+     {
+      "signature": {
+       "type": "mirrorCheck",
+       "props": {
+        "mirrorAt": 1975.54,
+        "title": {
+         "text": "the mirror check",
+         "at": 1975.54
+        },
+        "questions": [
+         {
+          "text": "Am I emotionally ready to share my life with another person?",
+          "short": "Emotionally ready",
+          "at": 1982.36,
+          "notes": [
+           {
+            "text": "needs",
+            "at": 1989.86
+           },
+           {
+            "text": "feelings",
+            "at": 1990.24
+           },
+           {
+            "text": "circumstances",
+            "at": 1991.06
+           }
+          ]
+         },
+         {
+          "text": "Can I truly listen to views that differ from my own?",
+          "short": "Truly listen",
+          "at": 1995.28,
+          "notes": [
+           {
+            "text": "not agreeing with everything",
+            "at": 2001.48
+           },
+           {
+            "text": "willing to understand",
+            "at": 2003.68
+           }
+          ]
+         },
+         {
+          "text": "Am I willing to acknowledge my mistakes?",
+          "short": "Acknowledge mistakes",
+          "at": 2007.82,
+          "notes": [
+           {
+            "text": "take responsibility",
+            "at": 2014.32
+           },
+           {
+            "text": "rather than blaming others",
+            "at": 2015.8
+           }
+          ]
+         },
+         {
+          "text": "Do I understand the practical responsibilities involved in marriage?",
+          "short": "Practical responsibilities",
+          "at": 2018.76,
+          "notes": [
+           {
+            "text": "finances",
+            "at": 2024.94
+           },
+           {
+            "text": "household",
+            "at": 2026.8
+           },
+           {
+            "text": "communication",
+            "at": 2028.32
+           },
+           {
+            "text": "family",
+            "at": 2029.24
+           },
+           {
+            "text": "decisions together",
+            "at": 2032.46
+           }
+          ]
+         },
+         {
+          "text": "Am I prepared to support someone during their difficult circumstances?",
+          "short": "Support in difficulty",
+          "at": 2035.04,
+          "notes": [
+           {
+            "text": "compassion",
+            "at": 2044.62
+           },
+           {
+            "text": "support",
+            "at": 2045.82
+           },
+           {
+            "text": "during challenges",
+            "at": 2046.22
+           }
+          ]
+         },
+         {
+          "text": "Can I respect another person's boundaries and independence?",
+          "short": "Respect boundaries",
+          "at": 2048.02,
+          "notes": [
+           {
+            "text": "mutual respect",
+            "at": 2056.28
+           },
+           {
+            "text": "dignity",
+            "at": 2057.86
+           },
+           {
+            "text": "trust",
+            "at": 2058.6
+           }
+          ]
+         }
+        ],
+        "doneAt": 2060.86
+       }
+      },
+      "label": "The mirror check",
+      "at": 2116.62
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-16-24",
+   "sectionId": "sec-16",
+   "startSec": 2120.6,
+   "endSec": 2127.2,
+   "type": "kineticStatement",
+   "props": {
+    "lines": [
+     {
+      "text": "Module two",
+      "at": 2121.32
+     },
+     {
+      "text": "Finding the right",
+      "at": 2123.04
+     },
+     {
+      "text": "life partner",
+      "at": 2124.06
+     }
+    ],
+    "emphasis": [
+     "partner"
+    ],
+    "align": "center",
+    "scale": "hero",
+    "reveal": "focus"
+   }
+  },
+  {
+   "id": "sec-16-25",
+   "sectionId": "sec-16",
+   "type": "takeaway",
+   "startSec": 2127.2,
+   "endSec": 2138.4,
+   "props": {
+    "heading": "In module two",
+    "points": [
+     {
+      "text": "Character",
+      "at": 2127.48
+     },
+     {
+      "text": "Religious and emotional compatibility",
+      "at": 2128.62
+     },
+     {
+      "text": "Family background",
+      "at": 2132.02
+     },
+     {
+      "text": "Attraction and shared values",
+      "at": 2133.38
+     },
+     {
+      "text": "Recognising potential warning signs",
+      "at": 2135.5
+     }
+    ]
+   }
+  },
+  {
+   "id": "sec-16-26",
+   "sectionId": "sec-16",
+   "startSec": 2138.4,
+   "endSec": 2146.0,
+   "type": "highlightLine",
+   "props": {
+    "lines": [
+     {
+      "text": "Complete the end-of-module assessment",
+      "at": 2140.04
+     },
+     {
+      "text": "to check your understanding",
+      "at": 2142.34
+     },
+     {
+      "text": "of the three principles.",
+      "at": 2143.7
+     }
+    ],
+    "highlight": {
+     "text": "the three principles.",
+     "at": 2143.94
+    },
+    "tint": "royal"
+   }
+  },
+  {
+   "id": "sec-16-27",
+   "sectionId": "sec-16",
+   "type": "quietReflection",
+   "startSec": 2146.0,
+   "endSec": 2150.6,
+   "props": {
+    "text": "Thank you for joining us",
+    "at": 2146.3,
+    "attribution": "Module one · LifeLink Marriage Academy"
+   }
+  },
+  {
+   "id": "sec-16-28",
+   "sectionId": "sec-16",
+   "type": "reflectionField",
+   "startSec": 2150.6,
+   "endSec": 2159.6,
+   "props": {
+    "lines": [
+     {
+      "text": "May Allah grant you beneficial knowledge,",
+      "at": 2150.86
+     },
+     {
+      "text": "wisdom in your decisions,",
+      "at": 2153.5
+     },
+     {
+      "text": "and a marriage founded upon",
+      "at": 2154.98
+     },
+     {
+      "text": "tranquility, affection and mercy",
+      "at": 2156.58
+     }
+    ],
+    "ground": "royal"
+   }
+  },
+  {
+   "id": "sec-16-29",
+   "sectionId": "sec-16",
+   "startSec": 2159.6,
+   "endSec": 2165.26,
+   "type": "kineticStatement",
+   "props": {
+    "lines": [
+     {
+      "text": "Ameen",
+      "at": 2159.76
+     },
+     {
+      "text": "Assalamu alaikum",
+      "at": 2160.8
+     },
+     {
+      "text": "wa rahmatullahi wa barakatuh",
+      "at": 2161.9
+     }
+    ],
+    "align": "center",
+    "scale": "h2",
+    "reveal": "focus"
+   }
+  }
+ ]
 }

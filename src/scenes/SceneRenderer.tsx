@@ -31,6 +31,8 @@ import { ScenarioCard } from "../components/brand/ScenarioCard";
 import { MirrorCheck } from "../components/brand/MirrorCheck";
 import { SortTrays } from "../components/brand/SortTrays";
 import { BridgePlanks } from "../components/brand/BridgePlanks";
+import { LessonMap } from "../components/brand/LessonMap";
+import { ChapterRecap } from "../components/brand/ChapterRecap";
 
 /** Maps a manifest scene "type" to its motion-library component. */
 export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
@@ -66,6 +68,8 @@ export const SceneRenderer: React.FC<{ scene: Scene }> = ({ scene }) => {
     case "mirrorCheck": return <MirrorCheck scene={scene} />;
     case "sortTrays": return <SortTrays scene={scene} />;
     case "bridgePlanks": return <BridgePlanks scene={scene} />;
+    case "lessonMap": return <LessonMap scene={scene} />;
+    case "chapterRecap": return <ChapterRecap scene={scene} />;
   }
 };
 

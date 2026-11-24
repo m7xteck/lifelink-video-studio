@@ -36,7 +36,7 @@ export const ScenarioCard: React.FC<{ scene: SceneOf<"scenarioCard"> }> = ({ sce
     ...response.slice(0, 3).map((_, i) => ({ kind: "resp" as const, i })),
     ...(outcome ? [{ kind: "outcome" as const }] : []),
   ];
-  while (rows.length > ROWS && rows.some((r) => r.kind === "gap")) rows.splice(rows.findIndex((r) => r.kind === "gap"), 1);
+  while (rows.length > ROWS && rows.some((r) => r.kind === "gap")) rows.splice(rows.map((r) => r.kind).lastIndexOf("gap"), 1); // keep the gap under the situation; "Better response" heading separates the rest
   rows = rows.slice(0, ROWS);
   const lineW = CW - PAD * 2;
   const bodySize = Math.min(40, ...situation.map((s) => fit1(s.text, 40, lineW, 28)), ...response.map((s) => fit1(s.text, 40, lineW, 28)));

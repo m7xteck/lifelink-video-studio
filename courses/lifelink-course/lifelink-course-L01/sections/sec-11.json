@@ -7,332 +7,376 @@
  },
  "scenes": [
   {
-   "type": "parallelPhrases",
+   "type": "lessonMap",
    "id": "sec-11-01",
    "sectionId": "sec-11",
    "startSec": 1228.5,
    "endSec": 1242.9,
    "props": {
-    "kicker": {
-     "text": "We have now explored",
+    "title": {
+     "text": "Our journey",
      "at": 1229.58
     },
-    "items": [
+    "stations": [
      {
-      "text": "Spiritual foundations",
-      "at": 1231.54
+      "title": "Divine purpose",
+      "at": 146.52
      },
      {
-      "text": "Partnership",
-      "at": 1234.46
+      "title": "The marital ecosystem",
+      "at": 160.6
      },
      {
-      "text": "Trust",
-      "at": 1236.04
+      "title": "Partnership & sacred trust",
+      "at": 178.9
+     },
+     {
+      "title": "Qualities of marriage",
+      "at": 1239.6
+     },
+     {
+      "title": "Realistic expectations",
+      "at": 222.04
+     },
+     {
+      "title": "The mirror check",
+      "at": 235.64
      }
     ],
-    "closing": {
-     "lead": "The qualities of",
-     "leadAt": 1239.6,
-     "text": "a successful marriage",
-     "at": 1241.22
-    }
+    "current": 3
    }
   },
   {
-   "type": "kineticStatement",
+   "type": "foundationLayers",
    "id": "sec-11-02",
    "sectionId": "sec-11",
    "startSec": 1242.9,
-   "endSec": 1252.9,
+   "endSec": 1256.3,
    "props": {
-    "kicker": {
-     "text": "Qualities in three areas",
-     "at": 1244.92
-    },
-    "lines": [
+    "courses": [
      {
-      "text": "The first:",
-      "at": 1247.06
+      "label": "Core foundation",
+      "at": 1247.98,
+      "items": [
+       {
+        "text": "Faith",
+        "at": 1250.12
+       },
+       {
+        "text": "Respect",
+        "at": 1250.92
+       },
+       {
+        "text": "Trust",
+        "at": 1251.74
+       }
+      ]
      },
      {
-      "text": "Core foundation",
-      "at": 1247.8
+      "label": "Action",
+      "at": 1270.0,
+      "items": [
+       {
+        "text": "Communication",
+        "at": 1280.36
+       },
+       {
+        "text": "Responsibility",
+        "at": 1291.86
+       },
+       {
+        "text": "Cooperation",
+        "at": 1301.3
+       }
+      ]
+     },
+     {
+      "label": "Grace and repair",
+      "at": 1308.54,
+      "items": [
+       {
+        "text": "Compassion",
+        "at": 1316.54
+       },
+       {
+        "text": "Patience",
+        "at": 1321.98
+       },
+       {
+        "text": "Appreciation",
+        "at": 1327.1
+       },
+       {
+        "text": "Forgiveness",
+        "at": 1332.26
+       }
+      ]
      }
     ],
-    "emphasis": [
-     "Core",
-     "foundation"
-    ],
-    "align": "left",
-    "scale": "hero"
+    "groundAt": 1245.8
    }
   },
   {
-   "type": "stepsDiagram",
+   "type": "wordStack",
    "id": "sec-11-03",
    "sectionId": "sec-11",
-   "startSec": 1252.9,
-   "endSec": 1267.9,
+   "startSec": 1256.3,
+   "endSec": 1262.4,
    "props": {
-    "heading": "Core foundation",
-    "layout": "stack",
-    "steps": [
+    "lead": {
+     "text": "Respect means recognising your spouse's",
+     "at": 1256.54
+    },
+    "words": [
      {
-      "label": "Faith",
-      "detail": "A moral and spiritual foundation",
-      "at": 1253.1
+      "text": "Dignity",
+      "at": 1258.78
      },
      {
-      "label": "Respect",
-      "detail": "Your spouse's dignity, opinions, needs and feelings",
-      "at": 1256.54
+      "text": "Opinions",
+      "at": 1259.58
      },
      {
-      "label": "Trust",
-      "detail": "Honest, reliable and consistent",
-      "at": 1262.64
+      "text": "Needs",
+      "at": 1260.44
+     },
+     {
+      "text": "Feelings",
+      "at": 1261.06
      }
     ]
    }
   },
   {
-   "type": "kineticStatement",
+   "type": "highlightLine",
    "id": "sec-11-04",
    "sectionId": "sec-11",
-   "startSec": 1267.9,
-   "endSec": 1279.9,
+   "startSec": 1262.4,
+   "endSec": 1267.9,
    "props": {
-    "kicker": {
-     "text": "The second area · Action",
-     "at": 1268.7
-    },
     "lines": [
      {
-      "text": "Not built on good intentions alone.",
-      "at": 1273.04
+      "text": "Trust develops when we are",
+      "at": 1262.64
      },
      {
-      "text": "Values reflected in everyday behaviour.",
-      "at": 1276.4
+      "text": "honest, reliable and consistent",
+      "at": 1264.08
+     },
+     {
+      "text": "in our behaviour.",
+      "at": 1265.94
      }
     ],
-    "emphasis": [
-     "everyday",
-     "behaviour"
-    ],
-    "align": "left",
-    "scale": "h1"
+    "highlight": {
+     "text": "honest, reliable and consistent",
+     "at": 1264.08
+    },
+    "tint": "sky"
    }
   },
   {
-   "type": "parallelPhrases",
+   "type": "foundationLayers",
    "id": "sec-11-05",
    "sectionId": "sec-11",
-   "startSec": 1279.9,
-   "endSec": 1291.5,
+   "startSec": 1267.9,
+   "endSec": 1311.0,
    "props": {
-    "kicker": {
-     "text": "Communication",
-     "at": 1280.36
-    },
-    "items": [
+    "courses": [
      {
-      "text": "Listen carefully",
-      "at": 1283.62
+      "label": "Core foundation",
+      "at": 1247.98,
+      "items": [
+       {
+        "text": "Faith",
+        "at": 1250.12
+       },
+       {
+        "text": "Respect",
+        "at": 1250.92
+       },
+       {
+        "text": "Trust",
+        "at": 1251.74
+       }
+      ]
      },
      {
-      "text": "Express feelings respectfully",
-      "at": 1284.4
+      "label": "Action",
+      "at": 1270.0,
+      "items": [
+       {
+        "text": "Communication",
+        "at": 1280.36
+       },
+       {
+        "text": "Responsibility",
+        "at": 1291.86
+       },
+       {
+        "text": "Cooperation",
+        "at": 1301.3
+       }
+      ]
      },
      {
-      "text": "Discuss difficult subjects",
-      "at": 1286.86
+      "label": "Grace and repair",
+      "at": 1308.54,
+      "items": [
+       {
+        "text": "Compassion",
+        "at": 1316.54
+       },
+       {
+        "text": "Patience",
+        "at": 1321.98
+       },
+       {
+        "text": "Appreciation",
+        "at": 1327.1
+       },
+       {
+        "text": "Forgiveness",
+        "at": 1332.26
+       }
+      ]
      }
     ],
-    "closing": {
-     "text": "Helps prevent misunderstandings",
-     "at": 1288.32
-    }
+    "focus": [
+     {
+      "index": 1,
+      "at": 1270.0
+     },
+     {
+      "index": 2,
+      "at": 1308.54
+     }
+    ]
    }
   },
   {
    "type": "kineticStatement",
    "id": "sec-11-06",
    "sectionId": "sec-11",
-   "startSec": 1291.5,
-   "endSec": 1300.9,
-   "props": {
-    "kicker": {
-     "text": "Responsibility",
-     "at": 1291.86
-    },
-    "lines": [
-     {
-      "text": "Both spouses understand their commitments",
-      "at": 1294.88
-     },
-     {
-      "text": "and take accountability for their actions.",
-      "at": 1298.06
-     }
-    ],
-    "emphasis": [
-     "accountability"
-    ],
-    "align": "left",
-    "scale": "h1"
-   }
-  },
-  {
-   "type": "kineticStatement",
-   "id": "sec-11-07",
-   "sectionId": "sec-11",
-   "startSec": 1300.9,
-   "endSec": 1306.9,
-   "props": {
-    "kicker": {
-     "text": "Cooperation",
-     "at": 1301.3
-    },
-    "lines": [
-     {
-      "text": "Working together,",
-      "at": 1302.66
-     },
-     {
-      "text": "rather than treating every disagreement",
-      "at": 1303.2
-     },
-     {
-      "text": "as a competition.",
-      "at": 1305.18
-     }
-    ],
-    "emphasis": [
-     "together"
-    ],
-    "align": "left",
-    "scale": "h1"
-   }
-  },
-  {
-   "type": "reflectionField",
-   "id": "sec-11-08",
-   "sectionId": "sec-11",
-   "startSec": 1306.9,
-   "endSec": 1316.45,
+   "startSec": 1311.0,
+   "endSec": 1316.3,
    "props": {
     "lines": [
      {
-      "text": "The third area",
-      "at": 1307.48
-     }
-    ],
-    "script": {
-     "text": "grace and repair",
-     "at": 1308.54
-    },
-    "after": [
+      "text": "This is especially important because",
+      "at": 1311.24
+     },
      {
-      "text": "No marriage will be free from mistakes.",
+      "text": "no marriage will be free from mistakes.",
       "at": 1313.1
      }
     ],
-    "ground": "oxblood"
-   }
-  },
-  {
-   "type": "stepsDiagram",
-   "id": "sec-11-09",
-   "sectionId": "sec-11",
-   "startSec": 1316.45,
-   "endSec": 1331.45,
-   "props": {
-    "heading": "Grace and repair",
-    "layout": "stack",
-    "steps": [
-     {
-      "label": "Compassion",
-      "detail": "Recognise when your spouse may be experiencing difficulty",
-      "at": 1316.54
-     },
-     {
-      "label": "Patience",
-      "detail": "Manage frustration without reacting in harmful ways",
-      "at": 1321.98
-     },
-     {
-      "label": "Appreciation",
-      "detail": "Recognise the effort your spouse makes",
-      "at": 1327.1
-     }
-    ]
-   }
-  },
-  {
-   "type": "kineticStatement",
-   "id": "sec-11-10",
-   "sectionId": "sec-11",
-   "startSec": 1331.45,
-   "endSec": 1337.0,
-   "props": {
-    "kicker": {
-     "text": "Forgiveness",
-     "at": 1332.26
-    },
-    "lines": [
-     {
-      "text": "Where appropriate,",
-      "at": 1332.84
-     },
-     {
-      "text": "address mistakes and move forward.",
-      "at": 1334.88
-     }
-    ],
     "emphasis": [
-     "Where",
-     "appropriate"
+     "mistakes"
     ],
     "align": "left",
-    "scale": "h1"
+    "scale": "h2",
+    "reveal": "focus"
    }
   },
   {
-   "type": "kineticStatement",
-   "id": "sec-11-11a",
+   "type": "foundationLayers",
+   "id": "sec-11-07",
    "sectionId": "sec-11",
-   "startSec": 1337.0,
-   "endSec": 1343.3,
+   "startSec": 1316.3,
+   "endSec": 1337.3,
    "props": {
-    "kicker": {
-     "text": "However",
-     "at": 1337.5
-    },
-    "lines": [
+    "courses": [
      {
-      "text": "Forgiveness should not be confused with",
-      "at": 1338.06
+      "label": "Core foundation",
+      "at": 1247.98,
+      "items": [
+       {
+        "text": "Faith",
+        "at": 1250.12
+       },
+       {
+        "text": "Respect",
+        "at": 1250.92
+       },
+       {
+        "text": "Trust",
+        "at": 1251.74
+       }
+      ]
      },
      {
-      "text": "ignoring repeated harmful behaviour.",
-      "at": 1339.98
+      "label": "Action",
+      "at": 1270.0,
+      "items": [
+       {
+        "text": "Communication",
+        "at": 1280.36
+       },
+       {
+        "text": "Responsibility",
+        "at": 1291.86
+       },
+       {
+        "text": "Cooperation",
+        "at": 1301.3
+       }
+      ]
+     },
+     {
+      "label": "Grace and repair",
+      "at": 1308.54,
+      "items": [
+       {
+        "text": "Compassion",
+        "at": 1316.54
+       },
+       {
+        "text": "Patience",
+        "at": 1321.98
+       },
+       {
+        "text": "Appreciation",
+        "at": 1327.1
+       },
+       {
+        "text": "Forgiveness",
+        "at": 1332.26
+       }
+      ]
+     }
+    ],
+    "focus": 2
+   }
+  },
+  {
+   "type": "pullQuote",
+   "id": "sec-11-08",
+   "sectionId": "sec-11",
+   "startSec": 1337.3,
+   "endSec": 1343.3,
+   "props": {
+    "lines": [
+     {
+      "text": "However, forgiveness should not be confused",
+      "at": 1337.5
+     },
+     {
+      "text": "with ignoring repeated harmful behaviours.",
+      "at": 1339.54
      }
     ],
     "emphasis": [
      "not"
-    ],
-    "align": "left",
-    "scale": "h1"
+    ]
    }
   },
   {
-   "type": "kineticStatement",
-   "id": "sec-11-11b",
+   "type": "highlightLine",
+   "id": "sec-11-09",
    "sectionId": "sec-11",
    "startSec": 1343.3,
-   "endSec": 1347.6,
+   "endSec": 1347.8,
    "props": {
     "lines": [
      {
@@ -344,95 +388,148 @@
       "at": 1344.82
      }
     ],
-    "emphasis": [
-     "meaningful",
-     "change"
-    ],
-    "align": "left",
-    "scale": "h1"
+    "highlight": {
+     "text": "meaningful change",
+     "at": 1346.08
+    },
+    "tint": "sky"
    }
   },
   {
-   "type": "kineticStatement",
-   "id": "sec-11-12",
+   "type": "scenarioCard",
+   "id": "sec-11-10",
    "sectionId": "sec-11",
-   "startSec": 1347.6,
-   "endSec": 1355.0,
+   "startSec": 1347.8,
+   "endSec": 1365.0,
    "props": {
-    "kicker": {
-     "text": "Consider a couple",
+    "ordinal": {
+     "text": "consider",
      "at": 1348.02
     },
-    "lines": [
+    "cardAt": 1347.9,
+    "topic": {
+     "text": "Repair",
+     "at": 1348.56
+    },
+    "situation": [
      {
-      "text": "A disagreement.",
+      "text": "A disagreement",
       "at": 1350.16
      },
      {
-      "text": "An insensitive comment.",
+      "text": "An insensitive comment",
       "at": 1352.72
      }
     ],
-    "emphasis": [],
-    "align": "center",
-    "scale": "h1"
-   }
-  },
-  {
-   "type": "stepsDiagram",
-   "id": "sec-11-13",
-   "sectionId": "sec-11",
-   "startSec": 1355.0,
-   "endSec": 1365.0,
-   "props": {
-    "heading": "A healthy response",
-    "layout": "path",
-    "steps": [
+    "responseLabel": "A healthy response",
+    "response": [
      {
-      "label": "Recognise the impact",
+      "text": "Recognise the impact",
       "at": 1356.66
      },
      {
-      "label": "Apologise sincerely",
+      "text": "Apologise sincerely",
       "at": 1359.68
      },
      {
-      "label": "Don't repeat it",
+      "text": "Make an effort not to repeat it",
       "at": 1361.56
      }
     ]
    }
   },
   {
-   "type": "kineticStatement",
-   "id": "sec-11-14",
+   "type": "chapterRecap",
+   "id": "sec-11-11",
    "sectionId": "sec-11",
    "startSec": 1365.0,
    "endSec": 1373.9,
    "props": {
-    "kicker": {
+    "title": {
      "text": "This is how relationships grow",
      "at": 1365.14
     },
-    "lines": [
+    "cardAt": 1365.14,
+    "signature": {
+     "type": "foundationLayers",
+     "props": {
+      "courses": [
+       {
+        "label": "Core foundation",
+        "at": 0,
+        "items": [
+         {
+          "text": "Faith",
+          "at": 0
+         },
+         {
+          "text": "Respect",
+          "at": 0
+         },
+         {
+          "text": "Trust",
+          "at": 0
+         }
+        ]
+       },
+       {
+        "label": "Action",
+        "at": 0,
+        "items": [
+         {
+          "text": "Communication",
+          "at": 0
+         },
+         {
+          "text": "Responsibility",
+          "at": 0
+         },
+         {
+          "text": "Cooperation",
+          "at": 0
+         }
+        ]
+       },
+       {
+        "label": "Grace and repair",
+        "at": 0,
+        "items": [
+         {
+          "text": "Compassion",
+          "at": 0
+         },
+         {
+          "text": "Patience",
+          "at": 0
+         },
+         {
+          "text": "Appreciation",
+          "at": 0
+         },
+         {
+          "text": "Forgiveness",
+          "at": 0
+         }
+        ]
+       }
+      ],
+      "groundAt": 0
+     }
+    },
+    "words": [
      {
-      "text": "Not through perfection,",
+      "text": "Not perfection",
       "at": 1367.6
      },
      {
-      "text": "but through responsibility,",
-      "at": 1369.06
+      "text": "Responsibility",
+      "at": 1369.4
      },
      {
-      "text": "reflection and consistent effort.",
+      "text": "Reflection and consistent effort",
       "at": 1370.86
      }
-    ],
-    "emphasis": [
-     "responsibility"
-    ],
-    "align": "left",
-    "scale": "h1"
+    ]
    }
   }
  ]

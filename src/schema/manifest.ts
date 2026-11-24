@@ -154,6 +154,8 @@ export const BrandSceneSchemas = [
     /** Exactly three columns; each rises on `at` (its name), script `word` under it, `meaning` sets on `meaningAt`. */
     pillars: z.array(z.object({ word: z.string(), at: z.number(), meaning: z.string().optional(), meaningAt: z.number().optional() })).length(3),
     baseAt: z.number().optional(), lintelAt: z.number().optional(),
+    /** Optional plain heading top-left (e.g. "Three pillars of marriage"); clears when the lintel lands. */
+    title: z.object({ text: z.string(), at: z.number() }).optional(),
     /** Revisits: one column index, or timed steps ({index:null} = all full). Others dim to 35%. */
     focus: z.union([z.number().int().min(0).max(2), z.array(z.object({ index: z.number().int().min(0).max(2).nullable(), at: z.number() }))]).optional(),
   }) }),
@@ -270,6 +272,27 @@ export const BrandSceneSchemas = [
     /** Last question is filed and the title returns. */
     doneAt: z.number().optional(),
     focus: z.union([z.number().int().min(0).max(5), z.array(z.object({ index: z.number().int().min(0).max(5).nullable(), at: z.number() }))]).optional(),
+  }) }),
+  z.object({ ...Base, type: z.literal("lessonMap"), props: z.object({
+    /** Optional heading (plain text face, no kicker), comes into focus on `at`. */
+    title: z.object({ text: z.string(), at: z.number() }).optional(),
+    /** ALL stations of the lesson (positions stay fixed across revisits). Short titles (≤ ~24 chars). */
+    stations: z.array(z.object({ title: z.string(), at: z.number() })).min(2).max(8),
+    /** Revisit: stations before `current` are already there (filled); the road reaches `current` on its `at`
+     *  and that station pulses once; later stations are absent. Omit for the roadmap build (each station on its cue). */
+    current: z.number().int().min(0).max(7).optional(),
+  }) }),
+  z.object({ ...Base, type: z.literal("chapterRecap"), props: z.object({
+    /** Optional plain heading (e.g. the chapter name). */
+    title: z.object({ text: z.string(), at: z.number() }).optional(),
+    /** Single recap: one signature (any signature scene's type + props; rendered fully built and still) on a paper card… */
+    signature: z.object({ type: z.string(), props: z.record(z.string(), z.any()) }).optional(),
+    /** Card slides up on this cue (default: scene start). */
+    cardAt: z.number().optional(),
+    /** …with 1–3 key words beside it, each inked on its cue. */
+    words: z.array(z.object({ text: z.string(), at: z.number() })).max(3).default([]),
+    /** Lesson-end recap: several small signature cards, each appearing (with its label) on its cue, in order. */
+    items: z.array(z.object({ signature: z.object({ type: z.string(), props: z.record(z.string(), z.any()) }), label: z.string(), at: z.number() })).max(12).optional(),
   }) }),
 ] as const;
 

@@ -11,11 +11,11 @@
       "id": "sec-08-01",
       "sectionId": "sec-08",
       "startSec": 809.6,
-      "endSec": 815.5,
+      "endSec": 816.4,
       "props": {
         "kicker": {
-          "text": "Islamic teachings and culture",
-          "at": 809.9
+          "text": "Faith or culture?",
+          "at": 812.34
         },
         "lines": [
           {
@@ -25,47 +25,56 @@
           {
             "text": "faced by many Muslim couples",
             "at": 813.48
+          },
+          {
+            "text": "is distinguishing between…",
+            "at": 815.6
           }
         ],
         "emphasis": [
-          "challenges"
+          "distinguishing"
         ],
         "align": "left",
-        "scale": "h1"
+        "scale": "h1",
+        "reveal": "focus"
       }
     },
     {
-      "type": "comparison",
+      "type": "sortTrays",
       "id": "sec-08-02",
       "sectionId": "sec-08",
-      "startSec": 815.5,
-      "endSec": 821.2,
+      "startSec": 816.4,
+      "endSec": 824.2,
       "props": {
-        "left": {
-          "title": "Islamic teachings",
-          "points": [],
-          "at": 816.98
-        },
-        "right": {
-          "title": "Cultural expectations",
-          "points": [],
-          "at": 818.82
-        },
-        "preferred": "none"
+        "trays": [
+          {
+            "label": "Islamic teachings",
+            "at": 816.98
+          },
+          {
+            "label": "Cultural expectations",
+            "at": 818.82
+          }
+        ],
+        "cards": [],
+        "caption": {
+          "text": "part of our identity",
+          "at": 822.52
+        }
       }
     },
     {
-      "type": "parallelPhrases",
+      "type": "wordStack",
       "id": "sec-08-03",
       "sectionId": "sec-08",
-      "startSec": 821.2,
+      "startSec": 824.2,
       "endSec": 830.0,
       "props": {
-        "kicker": {
-          "text": "Culture can be a beautiful part of our identity",
-          "at": 821.52
+        "lead": {
+          "text": "It gives us",
+          "at": 824.44
         },
-        "items": [
+        "words": [
           {
             "text": "Traditions",
             "at": 824.96
@@ -86,220 +95,173 @@
       }
     },
     {
-      "type": "kineticStatement",
+      "type": "highlightLine",
       "id": "sec-08-04",
       "sectionId": "sec-08",
       "startSec": 830.0,
-      "endSec": 840.6,
+      "endSec": 838.0,
       "props": {
-        "kicker": {
-          "text": "However",
-          "at": 830.34
-        },
         "lines": [
           {
-            "text": "Cultural expectations",
+            "text": "Difficulties can arise when",
+            "at": 831.06
+          },
+          {
+            "text": "cultural expectations are presented",
             "at": 832.54
           },
           {
-            "text": "presented as",
-            "at": 834.26
-          },
-          {
-            "text": "religious obligations",
-            "at": 836.06
+            "text": "as though they are religious obligations.",
+            "at": 834.9
           }
         ],
-        "emphasis": [
-          "presented",
-          "as"
-        ],
-        "align": "left",
-        "scale": "hero"
+        "highlight": {
+          "text": "religious obligations",
+          "at": 836.06
+        },
+        "tint": "royal"
       }
     },
     {
-      "type": "kineticStatement",
+      "type": "sortTrays",
       "id": "sec-08-05",
       "sectionId": "sec-08",
-      "startSec": 840.6,
+      "startSec": 838.0,
       "endSec": 853.2,
       "props": {
-        "kicker": {
-          "text": "In certain communities",
-          "at": 841.0
-        },
-        "lines": [
+        "trays": [
           {
-            "text": "Pressure to organise an expensive wedding",
+            "label": "Islamic teachings",
+            "at": 816.98
+          },
+          {
+            "label": "Cultural expectations",
+            "at": 818.82
+          }
+        ],
+        "cards": [
+          {
+            "text": "Expensive wedding",
+            "tray": 1,
+            "at": 845.08
+          }
+        ],
+        "focus": [
+          {
+            "index": 1,
             "at": 842.88
-          },
-          {
-            "text": "to maintain their reputation",
-            "at": 849.34
-          },
-          {
-            "text": "or demonstrate social standing",
-            "at": 850.46
-          }
-        ],
-        "emphasis": [],
-        "align": "left",
-        "scale": "h1"
-      }
-    },
-    {
-      "type": "statementCollision",
-      "id": "sec-08-06",
-      "sectionId": "sec-08",
-      "startSec": 853.2,
-      "endSec": 866.8,
-      "props": {
-        "first": {
-          "text": "The size or cost",
-          "at": 854.08
-        },
-        "script": {
-          "text": "not a measure",
-          "at": 856.02
-        },
-        "second": {
-          "text": "of the quality of a marriage",
-          "at": 857.28
-        },
-        "caption": {
-          "text": "A couple may begin married life with a very simple celebration and go on to build a loving and successful relationship.",
-          "at": 859.26
-        }
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-08-07",
-      "sectionId": "sec-08",
-      "startSec": 866.8,
-      "endSec": 873.2,
-      "props": {
-        "kicker": {
-          "text": "Another example",
-          "at": 867.22
-        },
-        "lines": [
-          {
-            "text": "Social status",
-            "at": 870.14
-          },
-          {
-            "text": "and family reputation",
-            "at": 871.56
-          }
-        ],
-        "emphasis": [
-          "status",
-          "reputation"
-        ],
-        "align": "center",
-        "scale": "h1"
-      }
-    },
-    {
-      "type": "parallelPhrases",
-      "id": "sec-08-08",
-      "sectionId": "sec-08",
-      "startSec": 873.2,
-      "endSec": 882.6,
-      "props": {
-        "kicker": {
-          "text": "Encouraged to choose a spouse primarily because of",
-          "at": 875.42
-        },
-        "items": [
-          {
-            "text": "Wealth",
-            "at": 878.74
-          },
-          {
-            "text": "Professional standing",
-            "at": 879.64
-          },
-          {
-            "text": "Family connections",
-            "at": 880.94
           }
         ]
       }
     },
     {
-      "type": "kineticStatement",
-      "id": "sec-08-09",
+      "type": "pullQuote",
+      "id": "sec-08-06",
       "sectionId": "sec-08",
-      "startSec": 882.6,
-      "endSec": 891.6,
+      "startSec": 853.2,
+      "endSec": 866.8,
       "props": {
-        "kicker": {
-          "text": "Practical circumstances are worth considering",
-          "at": 883.34
-        },
         "lines": [
           {
-            "text": "but should not overshadow",
-            "at": 886.46
+            "text": "The size or cost of a wedding",
+            "at": 853.98
           },
           {
-            "text": "character, faith and compatibility",
-            "at": 887.7
+            "text": "is not a measure of the quality of a marriage.",
+            "at": 855.76
+          },
+          {
+            "text": "A couple may begin with a very simple celebration",
+            "at": 859.26
+          },
+          {
+            "text": "and go on to build a loving and successful relationship.",
+            "at": 862.58
           }
         ],
         "emphasis": [
-          "character",
-          "faith",
-          "compatibility"
-        ],
-        "align": "left",
-        "scale": "h1"
+          "measure"
+        ]
       }
     },
     {
-      "type": "kineticStatement",
-      "id": "sec-08-10",
+      "type": "sortTrays",
+      "id": "sec-08-07",
       "sectionId": "sec-08",
-      "startSec": 891.6,
-      "endSec": 901.6,
+      "startSec": 866.8,
+      "endSec": 912.6,
       "props": {
-        "kicker": {
-          "text": "Household responsibilities",
-          "at": 893.44
-        },
-        "lines": [
+        "trays": [
           {
-            "text": "Different cultures may have different expectations",
+            "label": "Islamic teachings",
+            "at": 816.98
+          },
+          {
+            "label": "Cultural expectations",
+            "at": 818.82
+          }
+        ],
+        "cards": [
+          {
+            "text": "Expensive wedding",
+            "tray": 1,
+            "at": 845.08
+          },
+          {
+            "text": "Status and reputation",
+            "tray": 1,
+            "at": 870.14
+          },
+          {
+            "text": "Wealth and standing",
+            "tray": 1,
+            "at": 878.74
+          },
+          {
+            "text": "Character",
+            "tray": 0,
+            "at": 887.7
+          },
+          {
+            "text": "Faith",
+            "tray": 0,
+            "at": 889.0
+          },
+          {
+            "text": "Compatibility",
+            "tray": 0,
+            "at": 889.6
+          },
+          {
+            "text": "Expected roles at home",
+            "tray": 1,
+            "at": 897.56
+          },
+          {
+            "text": "Rights and responsibilities",
+            "tray": 0,
+            "at": 903.8
+          }
+        ],
+        "focus": [
+          {
+            "index": 1,
+            "at": 870.14
+          },
+          {
+            "index": 0,
+            "at": 887.08
+          },
+          {
+            "index": 1,
             "at": 895.82
           },
           {
-            "text": "about what husbands and wives should do within the home",
-            "at": 898.76
-          }
-        ],
-        "emphasis": [],
-        "align": "left",
-        "scale": "h2"
-      }
-    },
-    {
-      "type": "takeaway",
-      "id": "sec-08-11",
-      "sectionId": "sec-08",
-      "startSec": 901.6,
-      "endSec": 912.6,
-      "props": {
-        "heading": "Within the home",
-        "points": [
-          {
-            "text": "Understand Islamic rights and responsibilities",
-            "at": 903.38
+            "index": 0,
+            "at": 902.42
           },
           {
-            "text": "Discuss how you will organise your daily lives fairly and respectfully",
+            "index": null,
             "at": 907.22
           }
         ]
@@ -307,93 +269,140 @@
     },
     {
       "type": "kineticStatement",
-      "id": "sec-08-12",
+      "id": "sec-08-08",
       "sectionId": "sec-08",
       "startSec": 912.6,
       "endSec": 922.7,
       "props": {
-        "kicker": {
-          "text": "The key message",
-          "at": 913.2
-        },
         "lines": [
           {
             "text": "Cultural traditions should not",
             "at": 914.76
           },
           {
-            "text": "be used to justify",
+            "text": "be used to justify injustice,",
             "at": 916.66
           },
           {
-            "text": "injustice,",
-            "at": 918.02
-          },
-          {
-            "text": "humiliation",
+            "text": "humiliation or coercion.",
             "at": 919.46
-          },
-          {
-            "text": "or coercion.",
-            "at": 921.1
           }
         ],
         "emphasis": [
           "injustice,",
-          "humiliation",
           "coercion."
         ],
         "align": "left",
-        "scale": "h1"
+        "scale": "h1",
+        "reveal": "ink"
       }
     },
     {
-      "type": "quietReflection",
-      "id": "sec-08-13",
+      "type": "questionPrompt",
+      "id": "sec-08-09",
       "sectionId": "sec-08",
       "startSec": 922.7,
-      "endSec": 926.8,
+      "endSec": 931.3,
       "props": {
-        "text": "When preparing for marriage, ask yourself these questions.",
-        "at": 922.98
-      }
-    },
-    {
-      "type": "parallelPhrases",
-      "id": "sec-08-14",
-      "sectionId": "sec-08",
-      "startSec": 926.8,
-      "endSec": 939.6,
-      "props": {
-        "kicker": {
-          "text": "Which of my expectations come from\u2026",
-          "at": 927.12
-        },
-        "items": [
+        "lines": [
           {
-            "text": "Islamic teachings",
-            "at": 929.36
+            "text": "When preparing for marriage, ask yourself:",
+            "at": 922.98
           },
           {
-            "text": "My family or cultural background",
-            "at": 933.16
+            "text": "Which of my expectations",
+            "at": 927.12
           },
           {
-            "text": "My personal preferences",
-            "at": 937.34
+            "text": "come from Islamic teachings?",
+            "at": 928.44
           }
-        ]
+        ],
+        "markAt": 924.58,
+        "ground": "paper"
       }
     },
     {
-      "type": "quietReflection",
-      "id": "sec-08-15",
+      "type": "sortTrays",
+      "id": "sec-08-10",
       "sectionId": "sec-08",
-      "startSec": 939.6,
+      "startSec": 931.3,
       "endSec": 946.8,
       "props": {
-        "text": "Understanding these differences can prevent misunderstandings and unnecessary conflict.",
-        "at": 940.08
+        "trays": [
+          {
+            "label": "Islamic teachings",
+            "at": 816.98
+          },
+          {
+            "label": "Cultural expectations",
+            "at": 818.82
+          },
+          {
+            "label": "Personal preferences",
+            "at": 937.34
+          }
+        ],
+        "cards": [
+          {
+            "text": "Expensive wedding",
+            "tray": 1,
+            "at": 845.08
+          },
+          {
+            "text": "Status and reputation",
+            "tray": 1,
+            "at": 870.14
+          },
+          {
+            "text": "Wealth and standing",
+            "tray": 1,
+            "at": 878.74
+          },
+          {
+            "text": "Character",
+            "tray": 0,
+            "at": 887.7
+          },
+          {
+            "text": "Faith",
+            "tray": 0,
+            "at": 889.0
+          },
+          {
+            "text": "Compatibility",
+            "tray": 0,
+            "at": 889.6
+          },
+          {
+            "text": "Expected roles at home",
+            "tray": 1,
+            "at": 897.56
+          },
+          {
+            "text": "Rights and responsibilities",
+            "tray": 0,
+            "at": 903.8
+          }
+        ],
+        "focus": [
+          {
+            "index": 1,
+            "at": 931.53
+          },
+          {
+            "index": 2,
+            "at": 937.34
+          },
+          {
+            "index": null,
+            "at": 940.08
+          }
+        ],
+        "caption": {
+          "text": "prevent misunderstandings",
+          "at": 942.28
+        }
       }
     }
   ]

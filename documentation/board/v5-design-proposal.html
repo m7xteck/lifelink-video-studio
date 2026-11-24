@@ -1,0 +1,208 @@
+<title>LifeLink Studio Board v5</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: left rail (views) · top bar (mode + last verified update) · content column. Phone: rail becomes a top strip. Dark-first, paper light theme. */
+  :root {
+    --bg: #130b0d; --surface: #1c1214; --raised: #251719; --line: #382427; --ink: #f2e8e3; --muted: #b29b98; --faint: #7f6865;
+    --burgundy: #9b2335; --burgundy-ink: #f0b9bf; --royal: #8fb0f0; --ok: #6cc28f; --warn: #e3ad5c; --fail: #e2747e;
+    --ui: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+    --bg: #f3f0e8; --surface: #fbf9f4; --raised: #f0ebe1; --line: #e0d6c6; --ink: #2c0a0d; --muted: #7a5c5d; --faint: #a08a86;
+    --burgundy: #500002; --burgundy-ink: #500002; --royal: #3961bc; --ok: #2f7d4f; --warn: #a3650f; --fail: #af3e46; color-scheme: light } }
+  :root[data-theme="light"] {
+    --bg: #f3f0e8; --surface: #fbf9f4; --raised: #f0ebe1; --line: #e0d6c6; --ink: #2c0a0d; --muted: #7a5c5d; --faint: #a08a86;
+    --burgundy: #500002; --burgundy-ink: #500002; --royal: #3961bc; --ok: #2f7d4f; --warn: #a3650f; --fail: #af3e46; color-scheme: light }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--ui); }
+  .num { font-variant-numeric: tabular-nums; }
+  .proposal { background: var(--burgundy); color: #fff; font-size: 13px; padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .app { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 100%; }
+  nav { border-right: 1px solid var(--line); padding: 20px 14px; display: flex; flex-direction: column; gap: 2px; position: sticky; top: env(safe-area-inset-top, 0px); align-self: start; height: 100vh; }
+  .brand { font-weight: 700; letter-spacing: .02em; padding: 0 10px 18px; color: var(--burgundy-ink); }
+  .brand small { display: block; font-weight: 500; color: var(--faint); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+  nav a { color: var(--muted); text-decoration: none; padding: 7px 10px; border-radius: 7px; display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
+  nav a:hover { color: var(--ink); background: var(--raised); }
+  nav a:focus-visible, button:focus-visible { outline: 2px solid var(--royal); outline-offset: 2px; }
+  nav a.on { color: var(--ink); background: var(--raised); font-weight: 600; }
+  nav .count { color: var(--burgundy-ink); font-weight: 700; font-size: 12px; }
+  nav .sep { height: 1px; background: var(--line); margin: 10px 6px; }
+  main { padding-block: 22px 60px; padding-left: max(16px, min(4vw, 40px)); padding-right: max(16px, env(safe-area-inset-right, 0px), min(4vw, 40px)); display: grid; gap: 34px; align-content: start; min-width: 0; }
+  .top { display: flex; flex-wrap: wrap; gap: 12px 20px; justify-content: space-between; align-items: center; }
+  h1 { margin: 0; font-size: clamp(22px, 2.6vw, 28px); font-weight: 600; text-wrap: balance; }
+  .fresh { font-size: 13px; color: var(--muted); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .fresh b { color: var(--ink); font-weight: 600; }
+  .mode { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .mode button { background: none; border: 0; color: var(--muted); font: inherit; font-size: 13px; padding: 6px 12px; cursor: pointer; }
+  .mode button[aria-pressed="true"] { background: var(--raised); color: var(--ink); font-weight: 600; }
+  h2 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin: 0 0 12px; font-weight: 700; }
+  .attn { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .attn-row { display: grid; grid-template-columns: 6px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .stripe { align-self: stretch; border-radius: 3px; }
+  .s-approval { background: var(--royal); } .s-fail { background: var(--fail); } .s-decision { background: var(--warn); }
+  .attn-row .t { font-weight: 600; } .attn-row .d { color: var(--muted); font-size: 13.5px; }
+  .act { font: inherit; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--raised); border: 1px solid var(--line); border-radius: 7px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+  .act:hover { border-color: var(--muted); }
+  .two { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 34px; }
+  .lesson { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 14px; }
+  .lesson .head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+  .lesson .name { font-size: 18px; font-weight: 600; }
+  .lesson .sub { color: var(--muted); font-size: 13px; }
+  .stages { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+  .stg { height: 6px; border-radius: 3px; background: var(--line); }
+  .stg.done { background: var(--ok); } .stg.run { background: var(--royal); }
+  .stg-labels { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; font-size: 11.5px; color: var(--faint); }
+  .stg-labels span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .stg-labels .here { color: var(--royal); font-weight: 600; }
+  .now { font-size: 14px; color: var(--muted); } .now b { color: var(--ink); font-weight: 600; }
+  .est { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); border: 1px dashed var(--faint); border-radius: 4px; padding: 0 5px; margin-left: 6px; }
+  .meas { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ok); border: 1px solid color-mix(in srgb, var(--ok) 50%, transparent); border-radius: 4px; padding: 0 5px; margin-left: 6px; }
+  .list { display: grid; border-top: 1px solid var(--line); }
+  .li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .li .m { color: var(--muted); font-size: 12.5px; grid-column: 1 / -1; }
+  .li .r { color: var(--muted); font-size: 13px; }
+  .ok { color: var(--ok); } .fail { color: var(--fail); } .warn { color: var(--warn); } .run { color: var(--royal); }
+  /* review centre */
+  .review { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 22px; }
+  .player { background: #000; border-radius: 10px; aspect-ratio: 16 / 9; max-width: 100%; display: grid; place-items: center; color: #8a7a78; font-size: 13px; text-align: center; padding: 20px; border: 1px solid var(--line); }
+  .controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .tc { font-family: var(--mono); color: var(--ink); }
+  .track { position: relative; height: 34px; margin-top: 8px; }
+  .track .bar { position: absolute; left: 0; right: 0; top: 14px; height: 6px; background: var(--line); border-radius: 3px; }
+  .track .played { position: absolute; left: 0; top: 14px; height: 6px; width: 31%; background: var(--burgundy); border-radius: 3px; }
+  .mk { position: absolute; top: 6px; width: 2px; height: 22px; border-radius: 1px; }
+  .mk.ch { background: var(--muted); } .mk.qa { background: var(--warn); } .mk.cm { background: var(--royal); height: 10px; top: 0; width: 8px; border-radius: 50%; transform: translateX(-3px); }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--faint); }
+  .legend i { display: inline-block; width: 10px; height: 3px; margin-right: 6px; vertical-align: middle; }
+  .comments { display: grid; gap: 10px; align-content: start; }
+  .cmt { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; }
+  .cmt .when { font-family: var(--mono); font-size: 12.5px; color: var(--royal); }
+  .cmt .txt { font-size: 14px; }
+  .cmt .task { font-size: 12.5px; color: var(--muted); }
+  textarea { width: 100%; min-height: 70px; resize: vertical; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 14px; }
+  .decide { display: flex; gap: 8px; flex-wrap: wrap; }
+  .primary { background: var(--burgundy); color: #fff; border-color: var(--burgundy); }
+  .tokens { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+  .tok { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); }
+  .tok .k { font-size: 12px; color: var(--faint); letter-spacing: .08em; text-transform: uppercase; font-weight: 700; }
+  .tok .v { font-size: 22px; font-weight: 600; margin-top: 2px; }
+  .tok .s { font-size: 12.5px; color: var(--muted); }
+  .swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+  .sw { display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+  .sw i { display: block; width: 64px; height: 40px; border-radius: 6px; border: 1px solid var(--line); }
+  .note { font-size: 13px; color: var(--muted); max-width: 72ch; }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    nav { position: static; height: auto; flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 10px max(16px, env(safe-area-inset-left, 0px)); gap: 4px; }
+    .brand, nav .sep { display: none; }
+    nav a { white-space: nowrap; }
+    .two, .review { grid-template-columns: 1fr; }
+    .stg-labels { font-size: 10px; }
+  }
+  @media (prefers-reduced-motion: no-preference) { .act, nav a { transition: background .15s ease, border-color .15s ease, color .15s ease; } }
+</style>
+
+<div class="proposal">Design proposal for your approval. The layout and style are the proposal; the Module 01 figures are real as of 08:20 UTC. Nothing on this page is connected to live production yet, and the buttons are inert.</div>
+<div class="app">
+  <nav aria-label="Studio views">
+    <div class="brand">LifeLink<small>Video Studio</small></div>
+    <a class="on" href="#overview">Overview <span class="count">3</span></a>
+    <a href="#overview">Courses</a>
+    <a href="#review">Review</a>
+    <a href="#overview">Approvals <span class="count">2</span></a>
+    <a href="#overview">Queue</a>
+    <a href="#overview">Agents</a>
+    <a href="#efficiency">Efficiency</a>
+    <div class="sep"></div>
+    <a href="#overview">Creative memory</a>
+    <a href="#overview">Delivery library</a>
+    <a href="#system">Design system</a>
+  </nav>
+
+  <main>
+    <div class="top">
+      <h1>Good morning. One lesson in production.</h1>
+      <div class="fresh"><span>Last verified update <b class="num">08:20 UTC</b> from the studio session</span>
+        <div class="mode" role="group" aria-label="View mode"><button aria-pressed="true">Director</button><button aria-pressed="false">Technical</button></div>
+      </div>
+    </div>
+
+    <section id="overview" aria-labelledby="h-attn">
+      <h2 id="h-attn">Needs your attention</h2>
+      <div class="attn">
+        <div class="attn-row"><span class="stripe s-decision"></span><div><div class="t">Volume: raise narration to standard level?</div><div class="d">Module 01 is quiet (−26 LUFS). A gentle limiter is needed. Nothing changes until you say yes.</div></div><button class="act">Decide</button></div>
+        <div class="attn-row"><span class="stripe s-approval"></span><div><div class="t">Approve the board design (this page)</div><div class="d">Structure, Director and Technical modes, colours and type.</div></div><button class="act">Review</button></div>
+        <div class="attn-row"><span class="stripe s-approval"></span><div><div class="t">Brand is still a proposal</div><div class="d">Font licences, exact colour codes and a vector logo are needed before the watermark can come off.</div></div><button class="act">Open</button></div>
+      </div>
+    </section>
+
+    <div class="two">
+      <section aria-labelledby="h-now">
+        <h2 id="h-now">Now producing</h2>
+        <div class="lesson">
+          <div class="head"><div><div class="name">Module 01 · The Sacred Purpose of Marriage</div><div class="sub num">LifeLink Marriage Academy · 36:05 · version 4 in progress</div></div><span class="run">● Re-planning chapters</span></div>
+          <div class="stages" aria-hidden="true"><span class="stg done"></span><span class="stg run"></span><span class="stg run"></span><span class="stg"></span><span class="stg"></span><span class="stg"></span><span class="stg"></span></div>
+          <div class="stg-labels"><span>Animations</span><span class="here">Chapters</span><span class="here">Review</span><span>Render</span><span>Video QA</span><span>Revise</span><span>Deliver</span></div>
+          <div class="now">Chapters 11–14 being planned; 3–8 done. <b>11 of 21 agent tasks finished</b><span class="meas">Measured</span></div>
+          <div class="now">Ready for you around <b class="num">14:05 UTC</b><span class="est">Estimate</span> · based on how long finished tasks took</div>
+        </div>
+      </section>
+      <section aria-labelledby="h-recent">
+        <h2 id="h-recent">Recent verified results</h2>
+        <div class="list">
+          <div class="li"><span>Chapter animations built (12 pictures, 4 text styles)</span><span class="r num">08:10</span><span class="m">7 tasks · stills checked · type-check clean</span></div>
+          <div class="li"><span>Job ledger and file claims</span><span class="r num">08:24</span><span class="m">12 of 12 tests passed (re-run independently)</span></div>
+          <div class="li"><span>v003 rendered, automatic QA</span><span class="r num">04:29</span><span class="m"><span class="ok">15 pass</span> · <span class="fail">1 fail</span> (1.4 s caption) · <span class="warn">1 warning</span> (loudness)</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section id="review" aria-labelledby="h-review">
+      <h2 id="h-review">Review centre · Module 01 v003 · Chapter 4, The three pillars</h2>
+      <div class="review">
+        <div>
+          <div class="player">Player area. In the live version each chapter is a 540p review copy (under 20 MB) with the real narration. Full-quality masters stay in the delivery library.</div>
+          <div class="controls"><span class="tc">04:45.20</span><span>/ 06:46</span><span>·</span><span>Speed 1×</span><span>·</span><span>Compare with v004</span></div>
+          <div class="track" aria-hidden="true"><span class="bar"></span><span class="played"></span>
+            <span class="mk ch" style="left:0%"></span><span class="mk ch" style="left:38%"></span><span class="mk ch" style="left:71%"></span>
+            <span class="mk qa" style="left:31%"></span><span class="mk cm" style="left:31.5%"></span><span class="mk cm" style="left:64%"></span></div>
+          <div class="legend"><span><i style="background:var(--muted)"></i>Scene</span><span><i style="background:var(--warn)"></i>QA finding</span><span><i style="background:var(--royal)"></i>Your comment</span></div>
+        </div>
+        <div class="comments">
+          <div class="cmt"><div class="when">04:45 · scene sec-04-03 · v003</div><div class="txt">Screen is almost empty while she introduces the three pillars.</div><div class="task">Task created: Creative Director · chapter 4 · fixed in v004 (three pillars rise on cue)</div></div>
+          <textarea id="c1" aria-label="Comment at 04:45.20" placeholder="Comment at 04:45.20…"></textarea>
+          <div class="decide"><button class="act primary">Approve chapter</button><button class="act">Request changes</button></div>
+          <p class="note">Each comment keeps its timecode, scene and version, and becomes a revision task. Approvals are recorded with your words. No reply is never treated as approval.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="efficiency" aria-labelledby="h-eff">
+      <h2 id="h-eff">Efficiency · Module 01 so far <span class="meas">Measured</span></h2>
+      <div class="tokens">
+        <div class="tok"><div class="k">Full renders</div><div class="v num">3</div><div class="s">56, 97 and 22 min · last one reused 13 of 16 sections</div></div>
+        <div class="tok"><div class="k">Agent tasks</div><div class="v num">93</div><div class="s">across 4 production runs</div></div>
+        <div class="tok"><div class="k">Tokens processed</div><div class="v num">111.5M</div><div class="s">about 1% new output; most are cached re-reads</div></div>
+        <div class="tok"><div class="k">Cost</div><div class="v">Not measured</div><div class="s">no billing data available to the studio</div></div>
+      </div>
+      <p class="note" style="margin-top:12px">Biggest bottleneck right now: any change to a shared animation forces a full 1–1.6 h re-render of all 36 minutes. The first fix on the plan targets exactly that.</p>
+    </section>
+
+    <section id="system" aria-labelledby="h-sys">
+      <h2 id="h-sys">Design system</h2>
+      <div class="swatches">
+        <div class="sw"><i style="background:#130b0d"></i>Night ground</div>
+        <div class="sw"><i style="background:#251719"></i>Raised</div>
+        <div class="sw"><i style="background:#9b2335"></i>Burgundy action</div>
+        <div class="sw"><i style="background:#f2e8e3"></i>Paper ink</div>
+        <div class="sw"><i style="background:#8fb0f0"></i>Running / you</div>
+        <div class="sw"><i style="background:#6cc28f"></i>Verified</div>
+        <div class="sw"><i style="background:#e3ad5c"></i>Decision</div>
+        <div class="sw"><i style="background:#e2747e"></i>Failed</div>
+      </div>
+      <p class="note" style="margin-top:12px">Dark by default for review work, with a paper light theme from the LifeLink brand. Type: Hanken Grotesk for the interface and a monospace face for timecodes only. Colour carries meaning: blue is running or yours, green is verified, amber needs a decision, red has failed. "Measured" and "Estimate" tags appear wherever a number could be mistaken for the other. Motion is limited to state changes, and respects reduced-motion settings.</p>
+    </section>
+  </main>
+</div>
