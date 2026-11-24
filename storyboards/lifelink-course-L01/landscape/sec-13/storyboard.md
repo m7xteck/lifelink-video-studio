@@ -1,6 +1,6 @@
 # Storyboard — Module 01: The sacred purpose of marriage
 
-Lesson `lifelink-course-L01` · 36:05.3 · 25 scenes · 3 sections · 16:9
+Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
 
 ## Creative plan: Module 01, opening (0:00–0:40.7), preview for approval
 
@@ -37,128 +37,128 @@ Lesson `lifelink-course-L01` · 36:05.3 · 25 scenes · 3 sections · 16:9
 
 ## Scenes
 
-### 8. sec-13-01 · kineticStatement · 25:13.9–25:23.5 (9.6s)
+### 175. sec-13-01 · kineticStatement · 25:13.9–25:23.5 (9.6s)
 
-![sec-13-01](frames/08_sec-13-01.jpg)
+![sec-13-01](frames/175_sec-13-01.jpg)
 
 **On screen:** Unrealistic expectations / Unrealistic / A common cause of disappointment  
 **Narration:** We now turn to one of the most common causes of disappointment in relationships, unrealistic expectations.
 
-### 9. sec-13-02 · parallelPhrases · 25:23.5–25:35.9 (12.4s)
+### 176. sec-13-02 · parallelPhrases · 25:23.5–25:35.9 (12.4s)
 
-![sec-13-02](frames/09_sec-13-02.jpg)
+![sec-13-02](frames/176_sec-13-02.jpg)
 
 **On screen:** Ideas about married life / Upbringing / Cultural experiences / Family relationships / Films and social media  
 **Narration:** Many people enter marriage with ideas about what married life should look like. These expectations may come from our upbringing, cultural experiences, family relationships, films, or social media.
 
-### 10. sec-13-03 · parallelPhrases · 25:35.9–25:45.2 (9.3s)
+### 177. sec-13-03 · parallelPhrases · 25:35.9–25:45.2 (9.3s)
 
-![sec-13-03](frames/10_sec-13-03.jpg)
+![sec-13-03](frames/177_sec-13-03.jpg)
 
 **On screen:** Healthy and reasonable expectations / Respect / Honesty / Safety / Kindness / Entirely appropriate  
 **Narration:** Some expectations are healthy and reasonable. For example, expecting respect, honesty, safety, and kindness is entirely appropriate.
 
-### 11. sec-13-04 · kineticStatement · 25:45.2–25:53.5 (8.3s)
+### 178. sec-13-04 · kineticStatement · 25:45.2–25:53.5 (8.3s)
 
-![sec-13-04](frames/11_sec-13-04.jpg)
+![sec-13-04](frames/178_sec-13-04.jpg)
 
 **On screen:** Other expectations can place / unnecessary pressure / on a relationship / unnecessary / pressure  
 **Narration:** However, other expectations can place unnecessary pressure on a relationship. Let us examine some of the myths shown on this slide.
 
-### 12. sec-13-05 · statementCollision · 25:53.5–26:01.4 (7.9s)
+### 179. sec-13-05 · statementCollision · 25:53.5–26:01.4 (7.9s)
 
-![sec-13-05](frames/12_sec-13-05.jpg)
+![sec-13-05](frames/179_sec-13-05.jpg)
 
 **On screen:** The first myth / A spouse will / always / make you happy / Marriage can bring happiness and companionship  
 **Narration:** The first is the belief that a spouse will always make you happy. Marriage can bring enormous happiness and companionship.
 
-### 13. sec-13-06 · kineticStatement · 26:01.4–26:07.5 (6.1s)
+### 180. sec-13-06 · kineticStatement · 26:01.4–26:07.5 (6.1s)
 
-![sec-13-06](frames/13_sec-13-06.jpg)
+![sec-13-06](frames/180_sec-13-06.jpg)
 
-**On screen:** Our spouse cannot be responsible / for every aspect of / our emotional wellbeing / every / aspect  
+**On screen:** Our spouse cannot be responsible / for every aspect / of our emotional wellbeing / every / aspect  
 **Narration:** However, our spouse cannot be responsible for every aspect of our emotional wellbeing.
 
-### 14. sec-13-07 · parallelPhrases · 26:07.5–26:14.2 (6.7s)
+### 181. sec-13-07 · parallelPhrases · 26:07.5–26:14.2 (6.7s)
 
-![sec-13-07](frames/14_sec-13-07.jpg)
+![sec-13-07](frames/181_sec-13-07.jpg)
 
-**On screen:** Both need their own / Personal growth / Interests / Sources of support  
+**On screen:** Both need their own / Personal growth / Interests / Sources of support  
 **Narration:** Both individuals need to maintain their own personal growth, interests, and sources of support.
 
-### 15. sec-13-08 · statementCollision · 26:14.2–26:21.2 (7.0s)
+### 182. sec-13-08 · statementCollision · 26:14.2–26:21.2 (7.0s)
 
-![sec-13-08](frames/15_sec-13-08.jpg)
+![sec-13-08](frames/182_sec-13-08.jpg)
 
 **On screen:** The second myth / Successful couples / never / disagree / This is simply unrealistic  
 **Narration:** The second myth is that successful couples never disagree. This is simply unrealistic
 
-### 16. sec-13-09 · kineticStatement · 26:21.2–26:33.3 (12.1s)
+### 183. sec-13-09 · kineticStatement · 26:21.2–26:33.3 (12.1s)
 
-![sec-13-09](frames/16_sec-13-09.jpg)
+![sec-13-09](frames/183_sec-13-09.jpg)
 
 **On screen:** Not whether disagreements occur, / but whether they are / managed respectfully / managed / respectfully / Individuals naturally have different opinions  
 **Narration:** through individuals will naturally have different opinions and preferences. The important issue is not whether disagreements occur, but whether they are managed respectfully.
 
-### 17. sec-13-10 · kineticStatement · 26:33.3–26:38.4 (5.1s)
+### 184. sec-13-10 · kineticStatement · 26:33.3–26:38.4 (5.1s)
 
-![sec-13-10](frames/17_sec-13-10.jpg)
+![sec-13-10](frames/184_sec-13-10.jpg)
 
 **On screen:** Our spouse should automatically / know what we need / automatically / The third myth  
 **Narration:** The third myth is that our spouse should automatically know what we need.
 
-### 18. sec-13-11 · kineticStatement · 26:38.4–26:50.5 (12.1s)
+### 185. sec-13-11 · kineticStatement · 26:38.4–26:50.5 (12.1s)
 
-![sec-13-11](frames/18_sec-13-11.jpg)
+![sec-13-11](frames/185_sec-13-11.jpg)
 
-**On screen:** An expectation that was / never communicated / Healthy relationships require / clear conversations / clear / conversations / Sometimes people become disappointed  
+**On screen:** An expectation that was / never communicated. / Healthy relationships require / clear conversations / clear / conversations / Sometimes people become disappointed  
 **Narration:** Sometimes people become disappointed because their partner has not recognized an expectation that was never communicated. Healthy relationships require clear conversations.
 
-### 19. sec-13-12 · statementCollision · 26:50.5–26:55.7 (5.2s)
+### 186. sec-13-12 · statementCollision · 26:50.5–26:55.7 (5.2s)
 
-![sec-13-12](frames/19_sec-13-12.jpg)
+![sec-13-12](frames/186_sec-13-12.jpg)
 
 **On screen:** The fourth myth / Love / alone / is enough / Love is important  
 **Narration:** The fourth myth is that love alone is enough. Love is important,
 
-### 20. sec-13-13 · parallelPhrases · 26:55.7–27:04.7 (9.0s)
+### 187. sec-13-13 · parallelPhrases · 26:55.7–27:04.7 (9.0s)
 
-![sec-13-13](frames/20_sec-13-13.jpg)
+![sec-13-13](frames/187_sec-13-13.jpg)
 
 **On screen:** Lasting relationships also require / Trust / Compatibility / Communication / Responsibility / and / effort  
 **Narration:** but lasting relationships also require trust, compatibility, communication, responsibility, and effort. Another
 
-### 21. sec-13-14 · kineticStatement · 27:04.7–27:10.2 (5.5s)
+### 188. sec-13-14 · kineticStatement · 27:04.7–27:10.2 (5.5s)
 
-![sec-13-14](frames/21_sec-13-14.jpg)
+![sec-13-14](frames/188_sec-13-14.jpg)
 
 **On screen:** Marriage will solve / all our personal problems / all / Another common misconception  
 **Narration:** common misconception is that marriage will solve all our personal problems.
 
-### 22. sec-13-15 · parallelPhrases · 27:10.2–27:20.2 (10.0s)
+### 189. sec-13-15 · parallelPhrases · 27:10.2–27:20.2 (10.0s)
 
-![sec-13-15](frames/22_sec-13-15.jpg)
+![sec-13-15](frames/189_sec-13-15.jpg)
 
 **On screen:** Marriage can support, but cannot automatically resolve / Emotional difficulties / Financial challenges / Unresolved personal issues  
 **Narration:** Marriage can provide support, but it cannot automatically resolve emotional difficulties, financial challenges, or unresolved personal issues.
 
-### 23. sec-13-16 · kineticStatement · 27:20.2–27:28.5 (8.3s)
+### 190. sec-13-16 · kineticStatement · 27:20.2–27:28.5 (8.3s)
 
-![sec-13-16](frames/23_sec-13-16.jpg)
+![sec-13-16](frames/190_sec-13-16.jpg)
 
 **On screen:** Expecting their spouse / to change completely / change / completely / Finally  
 **Narration:** Finally, some individuals enter marriage expecting their spouse to change completely. Although people can grow and develop,
 
-### 24. sec-13-17 · kineticStatement · 27:28.5–27:35.4 (6.9s)
+### 191. sec-13-17 · kineticStatement · 27:28.5–27:35.4 (6.9s)
 
-![sec-13-17](frames/24_sec-13-17.jpg)
+![sec-13-17](frames/191_sec-13-17.jpg)
 
 **On screen:** Marriage should not begin / with the assumption that / we can transform another person / into someone entirely different / transform  
 **Narration:** marriage should not begin with the assumption that we can transform another person into someone entirely different.
 
-### 25. sec-13-18 · reflectionField · 27:35.4–27:47.9 (12.5s)
+### 192. sec-13-18 · reflectionField · 27:35.4–27:47.9 (12.5s)
 
-![sec-13-18](frames/25_sec-13-18.jpg)
+![sec-13-18](frames/192_sec-13-18.jpg)
 
-**On screen:** Honest conversations / before marriage / Not only what we hope for / Also what we are realistically / prepared to contribute / oxblood  
+**On screen:** Honest conversations / before marriage / so important / Not only what we hope for, / also what we are realistically prepared to contribute / oxblood  
 **Narration:** This is why honest conversations before marriage are so important. We need to understand not only what we hope for, also what we are realistically prepared to contribute.

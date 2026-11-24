@@ -3,7 +3,7 @@ import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { ease, motion } from "../brand/tokens";
 
 /** Each scene knows where it sits on the narration timeline. */
-export const SceneClock = createContext<{ startSec: number; endSec: number }>({ startSec: 0, endSec: 0 });
+export const SceneClock = createContext<{ startSec: number; endSec: number; afterDark?: boolean }>({ startSec: 0, endSec: 0 });
 
 /** Seconds elapsed on the master narration timeline at the current frame. */
 export const useNarrationTime = () => {
@@ -28,7 +28,9 @@ export const MAX_SCENE_OVERLAP_SEC = 1.4;
 
 /** Scene-level envelope: fade in at scene start, fade out across the overlap after scene end. */
 export const useSceneEnvelope = (opts: { fadeIn?: number; fadeOut?: number } = {}) => {
-  const fadeIn = opts.fadeIn ?? motion.durationsSec.sceneFadeIn;
+  const clock = useContext(SceneClock);
+  // After a dark-ground scene, always arrive slowly: a quick paper fade-in over oxblood reads as a flash.
+  const fadeIn = Math.max(opts.fadeIn ?? motion.durationsSec.sceneFadeIn, clock.afterDark ? 1.3 : 0);
   const fadeOut = Math.min(opts.fadeOut ?? motion.durationsSec.sceneFadeOut, MAX_SCENE_OVERLAP_SEC);
   const t = useNarrationTime();
   const { startSec, endSec } = useContext(SceneClock);

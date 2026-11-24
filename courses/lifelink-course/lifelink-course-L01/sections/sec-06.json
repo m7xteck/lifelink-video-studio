@@ -1,18 +1,448 @@
-{"section": {"id": "sec-06", "title": "Private Character: Best to Their Wives", "startSec": 546, "endSec": 670.4},
-"scenes": [
-{"type": "kineticStatement", "id": "sec-06-01", "sectionId": "sec-06", "startSec": 546, "endSec": 553.2, "props": {"lines": [{"text": "One of the most important lessons", "at": 548.2}, {"text": "in our entire Marriage Academy.", "at": 550.16}], "emphasis": ["most important"], "align": "center", "scale": "h1"}},
-{"type": "quietReflection", "id": "sec-06-02", "sectionId": "sec-06", "startSec": 553.2, "endSec": 560.9, "props": {"text": "The best amongst us are those who are best to their wives.", "at": 557.02, "attribution": "Prophet Muhammad (peace and blessings be upon him)"}},
-{"type": "statementCollision", "id": "sec-06-03", "sectionId": "sec-06", "startSec": 560.9, "endSec": 566.9, "props": {"label": "This teaching reminds us that", "first": {"text": "good character", "at": 562.94}, "script": {"text": "must extend", "at": 563.86}, "second": {"text": "beyond", "at": 564.72}, "caption": {"text": "our public behaviour.", "at": 565.16}}},
-{"type": "parallelPhrases", "id": "sec-06-04", "sectionId": "sec-06", "startSec": 566.9, "endSec": 578.6, "props": {"kicker": {"text": "Highly respected within their communities", "at": 569.3}, "items": [{"text": "Religious knowledge", "at": 573.5}, {"text": "Professional achievements", "at": 574.8}, {"text": "Generosity", "at": 576.08}, {"text": "Public service", "at": 577.02}]}},
-{"type": "kineticStatement", "id": "sec-06-05", "sectionId": "sec-06", "startSec": 578.6, "endSec": 584.2, "props": {"lines": [{"text": "The way someone behaves in public", "at": 579.26}, {"text": "does not always reflect", "at": 581.0}, {"text": "the way they behave at home.", "at": 582.6}], "emphasis": ["public", "home"], "align": "left", "scale": "h1"}},
-{"type": "statementCollision", "id": "sec-06-06", "sectionId": "sec-06", "startSec": 584.2, "endSec": 589.6, "props": {"label": "Our closest", "first": {"text": "relationships", "at": 585.42}, "script": {"text": "often reveal", "at": 586.36}, "second": {"text": "our true character.", "at": 587.76}}},
-{"type": "kineticStatement", "id": "sec-06-07", "sectionId": "sec-06", "startSec": 589.6, "endSec": 602.7, "props": {"lines": [{"text": "It is relatively easy to show patience and kindness", "at": 590.1}, {"text": "when everything is going well.", "at": 592.92}, {"text": "The greater challenge:", "at": 595.3}, {"text": "tired, frustrated,", "at": 598.62}, {"text": "disappointed or under pressure.", "at": 600.54}], "emphasis": ["patience", "kindness", "greater challenge"], "align": "left", "scale": "h2"}},
-{"type": "comparison", "id": "sec-06-08", "sectionId": "sec-06", "startSec": 602.7, "endSec": 611.6, "props": {"left": {"title": "With colleagues", "points": ["Speaks politely"], "at": 605.52}, "right": {"title": "At home", "points": ["Speaks harshly"], "at": 608.58}, "preferred": "none"}},
-{"type": "comparison", "id": "sec-06-09", "sectionId": "sec-06", "startSec": 611.6, "endSec": 617.7, "props": {"left": {"title": "With friends and relatives", "points": ["Shows respect"], "at": 612.58}, "right": {"title": "With their spouse", "points": ["Dismisses their feelings or opinions"], "at": 614.82}, "preferred": "none"}},
-{"type": "kineticStatement", "id": "sec-06-10", "sectionId": "sec-06", "startSec": 617.7, "endSec": 626.6, "props": {"lines": [{"text": "This inconsistency", "at": 618.38}, {"text": "is something we should all reflect upon.", "at": 620.0}, {"text": "Islamic character is not simply", "at": 622.64}, {"text": "about what others see.", "at": 624.84}], "emphasis": ["reflect upon", "what others see"], "align": "left", "scale": "h2"}},
-{"type": "parallelPhrases", "id": "sec-06-11", "sectionId": "sec-06", "startSec": 626.6, "endSec": 632.6, "props": {"kicker": {"text": "It is about", "at": 626.72}, "items": [{"text": "Integrity", "at": 627.24}, {"text": "Sincerity", "at": 628.3}], "closing": {"lead": "How we treat people", "leadAt": 629.48, "text": "when there is no audience", "at": 630.94}}},
-{"type": "reflectionField", "id": "sec-06-12", "sectionId": "sec-06", "startSec": 632.6, "endSec": 643.6, "props": {"lines": [{"text": "As you prepare for marriage,", "at": 633.34}], "script": {"text": "ask yourself", "at": 636.3}, "after": [{"text": "Am I as respectful towards those closest to me", "at": 637.62}, {"text": "as I am towards people outside my home?", "at": 641.04}], "ground": "oxblood"}},
-{"type": "reflectionField", "id": "sec-06-13", "sectionId": "sec-06", "startSec": 643.6, "endSec": 655.2, "props": {"lines": [{"text": "How do I respond when I am frustrated?", "at": 644.22}, {"text": "Do I apologise when I am wrong?", "at": 647.66}, {"text": "Can I acknowledge another person's feelings", "at": 649.38}, {"text": "even when I disagree with them?", "at": 652.86}], "ground": "oxblood"}},
-{"type": "kineticStatement", "id": "sec-06-14", "sectionId": "sec-06", "startSec": 655.2, "endSec": 664.3, "props": {"lines": [{"text": "The quality of our private character", "at": 657.6}, {"text": "will have a significant influence", "at": 659.98}, {"text": "on the quality of our marriage.", "at": 661.88}], "emphasis": ["private character", "marriage"], "align": "left", "scale": "h1"}},
-{"type": "statementCollision", "id": "sec-06-15", "sectionId": "sec-06", "startSec": 664.3, "endSec": 670.4, "props": {"label": "Remember: religious practice and good character", "first": {"text": "should", "at": 667.2}, "script": {"text": "reinforce", "at": 667.48}, "second": {"text": "one another.", "at": 668.02}}}
-]}
+{
+  "section": {
+    "id": "sec-06",
+    "title": "Private Character: Best to Their Wives",
+    "startSec": 546,
+    "endSec": 670.4
+  },
+  "scenes": [
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-01",
+      "sectionId": "sec-06",
+      "startSec": 546,
+      "endSec": 553.2,
+      "props": {
+        "lines": [
+          {
+            "text": "One of the most",
+            "at": 548.2
+          },
+          {
+            "text": "important lessons",
+            "at": 549.04
+          },
+          {
+            "text": "in our entire Marriage Academy.",
+            "at": 550.16
+          }
+        ],
+        "emphasis": [
+          "important"
+        ],
+        "align": "center",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "quietReflection",
+      "id": "sec-06-02",
+      "sectionId": "sec-06",
+      "startSec": 553.2,
+      "endSec": 560.9,
+      "props": {
+        "text": "The best amongst us are those who are best to their wives.",
+        "at": 557.02,
+        "attribution": "Prophet Muhammad (peace and blessings be upon him)"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-03",
+      "sectionId": "sec-06",
+      "startSec": 560.9,
+      "endSec": 566.9,
+      "props": {
+        "kicker": {
+          "text": "This teaching reminds us that",
+          "at": 561.5
+        },
+        "lines": [
+          {
+            "text": "Good character must extend",
+            "at": 562.94
+          },
+          {
+            "text": "beyond our public behaviour.",
+            "at": 564.72
+          }
+        ],
+        "emphasis": [
+          "character"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "parallelPhrases",
+      "id": "sec-06-04",
+      "sectionId": "sec-06",
+      "startSec": 566.9,
+      "endSec": 578.6,
+      "props": {
+        "kicker": {
+          "text": "Highly respected within their communities",
+          "at": 569.3
+        },
+        "items": [
+          {
+            "text": "Religious knowledge",
+            "at": 573.5
+          },
+          {
+            "text": "Professional achievements",
+            "at": 574.8
+          },
+          {
+            "text": "Generosity",
+            "at": 576.08
+          },
+          {
+            "text": "Public service",
+            "at": 577.02
+          }
+        ]
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-05",
+      "sectionId": "sec-06",
+      "startSec": 578.6,
+      "endSec": 584.2,
+      "props": {
+        "lines": [
+          {
+            "text": "The way someone",
+            "at": 579.26
+          },
+          {
+            "text": "behaves in public",
+            "at": 579.96
+          },
+          {
+            "text": "does not always reflect",
+            "at": 581.0
+          },
+          {
+            "text": "the way they behave at home.",
+            "at": 582.6
+          }
+        ],
+        "emphasis": [
+          "public",
+          "home"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "statementCollision",
+      "id": "sec-06-06",
+      "sectionId": "sec-06",
+      "startSec": 584.2,
+      "endSec": 589.6,
+      "props": {
+        "label": "Our closest",
+        "first": {
+          "text": "relationships",
+          "at": 585.42
+        },
+        "script": {
+          "text": "often reveal",
+          "at": 586.36
+        },
+        "second": {
+          "text": "our true character.",
+          "at": 587.76
+        }
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-07",
+      "sectionId": "sec-06",
+      "startSec": 589.6,
+      "endSec": 594.5,
+      "props": {
+        "lines": [
+          {
+            "text": "It is relatively easy to show",
+            "at": 590.1
+          },
+          {
+            "text": "patience and kindness",
+            "at": 591.66
+          },
+          {
+            "text": "when everything is going well.",
+            "at": 592.92
+          }
+        ],
+        "emphasis": [
+          "patience",
+          "kindness"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-07b",
+      "sectionId": "sec-06",
+      "startSec": 594.5,
+      "endSec": 602.7,
+      "props": {
+        "lines": [
+          {
+            "text": "The greater challenge",
+            "at": 595.3
+          },
+          {
+            "text": "is maintaining those qualities",
+            "at": 596.16
+          },
+          {
+            "text": "when we are tired, frustrated,",
+            "at": 597.96
+          },
+          {
+            "text": "disappointed or under pressure.",
+            "at": 600.54
+          }
+        ],
+        "emphasis": [
+          "challenge"
+        ],
+        "align": "left",
+        "scale": "h2"
+      }
+    },
+    {
+      "type": "comparison",
+      "id": "sec-06-08",
+      "sectionId": "sec-06",
+      "startSec": 602.7,
+      "endSec": 611.6,
+      "props": {
+        "left": {
+          "title": "With colleagues",
+          "points": [
+            "Speaks politely"
+          ],
+          "at": 605.52
+        },
+        "right": {
+          "title": "At home",
+          "points": [
+            "Speaks harshly"
+          ],
+          "at": 608.58
+        },
+        "preferred": "none"
+      }
+    },
+    {
+      "type": "comparison",
+      "id": "sec-06-09",
+      "sectionId": "sec-06",
+      "startSec": 611.6,
+      "endSec": 617.7,
+      "props": {
+        "left": {
+          "title": "Friends and relatives",
+          "points": [
+            "Shows respect"
+          ],
+          "at": 612.58
+        },
+        "right": {
+          "title": "Their spouse",
+          "points": [
+            "Dismisses their feelings or opinions"
+          ],
+          "at": 614.82
+        },
+        "preferred": "none"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-10",
+      "sectionId": "sec-06",
+      "startSec": 617.7,
+      "endSec": 626.6,
+      "props": {
+        "lines": [
+          {
+            "text": "This inconsistency",
+            "at": 618.38
+          },
+          {
+            "text": "is something we should all reflect upon.",
+            "at": 620.0
+          },
+          {
+            "text": "Islamic character is not simply",
+            "at": 622.64
+          },
+          {
+            "text": "about what others see.",
+            "at": 624.84
+          }
+        ],
+        "emphasis": [
+          "reflect",
+          "see"
+        ],
+        "align": "left",
+        "scale": "h2"
+      }
+    },
+    {
+      "type": "parallelPhrases",
+      "id": "sec-06-11",
+      "sectionId": "sec-06",
+      "startSec": 626.6,
+      "endSec": 632.6,
+      "props": {
+        "kicker": {
+          "text": "It is about",
+          "at": 626.72
+        },
+        "items": [
+          {
+            "text": "Integrity",
+            "at": 627.24
+          },
+          {
+            "text": "Sincerity",
+            "at": 628.3
+          }
+        ],
+        "closing": {
+          "lead": "How we treat people",
+          "leadAt": 629.48,
+          "text": "when there is no audience",
+          "at": 630.94
+        }
+      }
+    },
+    {
+      "type": "reflectionField",
+      "id": "sec-06-12",
+      "sectionId": "sec-06",
+      "startSec": 632.6,
+      "endSec": 643.6,
+      "props": {
+        "lines": [
+          {
+            "text": "As you prepare for marriage,",
+            "at": 633.34
+          }
+        ],
+        "script": {
+          "text": "ask yourself",
+          "at": 636.3
+        },
+        "after": [
+          {
+            "text": "Am I as respectful towards those closest to me",
+            "at": 637.62
+          },
+          {
+            "text": "as I am towards people outside my home?",
+            "at": 641.04
+          }
+        ],
+        "ground": "oxblood"
+      }
+    },
+    {
+      "type": "reflectionField",
+      "id": "sec-06-13",
+      "sectionId": "sec-06",
+      "startSec": 643.6,
+      "endSec": 655.2,
+      "props": {
+        "lines": [
+          {
+            "text": "How do I respond when I am frustrated?",
+            "at": 644.22
+          },
+          {
+            "text": "Do I apologise when I am wrong?",
+            "at": 647.66
+          },
+          {
+            "text": "Can I acknowledge another person's feelings",
+            "at": 649.38
+          },
+          {
+            "text": "even when I disagree with them?",
+            "at": 652.86
+          }
+        ],
+        "ground": "oxblood"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-14",
+      "sectionId": "sec-06",
+      "startSec": 655.2,
+      "endSec": 664.7,
+      "props": {
+        "lines": [
+          {
+            "text": "The quality of our",
+            "at": 657.6
+          },
+          {
+            "text": "private character",
+            "at": 658.84
+          },
+          {
+            "text": "will have a significant influence",
+            "at": 659.98
+          },
+          {
+            "text": "on the quality of our marriage.",
+            "at": 661.88
+          }
+        ],
+        "emphasis": [
+          "private",
+          "marriage"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "statementCollision",
+      "id": "sec-06-15",
+      "sectionId": "sec-06",
+      "startSec": 664.7,
+      "endSec": 670.4,
+      "props": {
+        "label": "Remember: religious practice and good character",
+        "first": {
+          "text": "should",
+          "at": 667.2
+        },
+        "script": {
+          "text": "reinforce",
+          "at": 667.48
+        },
+        "second": {
+          "text": "one another.",
+          "at": 668.02
+        }
+      }
+    }
+  ]
+}

@@ -32,10 +32,10 @@
      }
     ],
     "closing": {
-     "lead": "Bringing these ideas together",
-     "leadAt": 1237.18,
-     "text": "The qualities of a successful marriage",
-     "at": 1239.6
+     "lead": "The qualities of",
+     "leadAt": 1239.6,
+     "text": "a successful marriage",
+     "at": 1241.22
     }
    }
   },
@@ -61,7 +61,8 @@
      }
     ],
     "emphasis": [
-     "Core foundation"
+     "Core",
+     "foundation"
     ],
     "align": "left",
     "scale": "hero"
@@ -117,7 +118,8 @@
      }
     ],
     "emphasis": [
-     "everyday behaviour"
+     "everyday",
+     "behaviour"
     ],
     "align": "left",
     "scale": "h1"
@@ -241,27 +243,28 @@
    }
   },
   {
-   "type": "parallelPhrases",
+   "type": "stepsDiagram",
    "id": "sec-11-09",
    "sectionId": "sec-11",
    "startSec": 1316.45,
    "endSec": 1331.45,
    "props": {
-    "kicker": {
-     "text": "Grace and repair",
-     "at": 1316.54
-    },
-    "items": [
+    "heading": "Grace and repair",
+    "layout": "stack",
+    "steps": [
      {
-      "text": "Compassion",
+      "label": "Compassion",
+      "detail": "Recognise when your spouse may be experiencing difficulty",
       "at": 1316.54
      },
      {
-      "text": "Patience",
+      "label": "Patience",
+      "detail": "Manage frustration without reacting in harmful ways",
       "at": 1321.98
      },
      {
-      "text": "Appreciation",
+      "label": "Appreciation",
+      "detail": "Recognise the effort your spouse makes",
       "at": 1327.1
      }
     ]
@@ -289,7 +292,8 @@
      }
     ],
     "emphasis": [
-     "Where appropriate"
+     "Where",
+     "appropriate"
     ],
     "align": "left",
     "scale": "h1"
@@ -341,8 +345,8 @@
      }
     ],
     "emphasis": [
-     "accountability",
-     "meaningful change"
+     "meaningful",
+     "change"
     ],
     "align": "left",
     "scale": "h1"
@@ -400,29 +404,35 @@
    }
   },
   {
-   "type": "statementCollision",
+   "type": "kineticStatement",
    "id": "sec-11-14",
    "sectionId": "sec-11",
    "startSec": 1365.0,
    "endSec": 1373.9,
    "props": {
-    "label": "This is how relationships grow",
-    "first": {
-     "text": "Not through perfection,",
-     "at": 1367.6
+    "kicker": {
+     "text": "This is how relationships grow",
+     "at": 1365.14
     },
-    "script": {
-     "text": "but through",
-     "at": 1369.06
-    },
-    "second": {
-     "text": "responsibility,",
-     "at": 1369.4
-    },
-    "caption": {
-     "text": "reflection and consistent effort.",
-     "at": 1370.86
-    }
+    "lines": [
+     {
+      "text": "Not through perfection,",
+      "at": 1367.6
+     },
+     {
+      "text": "but through responsibility,",
+      "at": 1369.06
+     },
+     {
+      "text": "reflection and consistent effort.",
+      "at": 1370.86
+     }
+    ],
+    "emphasis": [
+     "responsibility"
+    ],
+    "align": "left",
+    "scale": "h1"
    }
   }
  ]

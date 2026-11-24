@@ -1,6 +1,6 @@
 # Storyboard — Module 01: The sacred purpose of marriage
 
-Lesson `lifelink-course-L01` · 36:05.3 · 91 scenes · 7 sections · 16:9
+Lesson `lifelink-course-L01` · 36:05.3 · 251 scenes · 16 sections · 16:9
 
 ## Creative plan: Module 01, opening (0:00–0:40.7), preview for approval
 
@@ -41,7 +41,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 91 scenes · 7 sections · 16:9
 
 ![sec-06-01](frames/62_sec-06-01.jpg)
 
-**On screen:** One of the most important lessons / in our entire Marriage Academy. / most important  
+**On screen:** One of the most / important lessons / in our entire Marriage Academy. / important  
 **Narration:** This slide introduces one of the most important lessons in our entire marriage academy.
 
 ### 63. sec-06-02 · quietReflection · 9:13.2–9:20.9 (7.7s)
@@ -55,7 +55,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 91 scenes · 7 sections · 16:9
 
 ![sec-06-03](frames/64_sec-06-03.jpg)
 
-**On screen:** This teaching reminds us that / good character / must extend / beyond / our public behaviour.  
+**On screen:** This teaching reminds us that / good character / must extend beyond / our public behaviour.  
 **Narration:** This teaching reminds us that good character must extend beyond our public behaviour.
 
 ### 65. sec-06-04 · parallelPhrases · 9:26.9–9:38.6 (11.7s)
@@ -69,7 +69,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 91 scenes · 7 sections · 16:9
 
 ![sec-06-05](frames/66_sec-06-05.jpg)
 
-**On screen:** The way someone behaves in public / does not always reflect / the way they behave at home. / public / home  
+**On screen:** The way someone / behaves in public / does not always reflect / the way they behave at home. / public / home  
 **Narration:** However, the way someone behaves in public does not always reflect the way they behave at home.
 
 ### 67. sec-06-06 · statementCollision · 9:44.2–9:49.6 (5.4s)
@@ -79,65 +79,72 @@ Lesson `lifelink-course-L01` · 36:05.3 · 91 scenes · 7 sections · 16:9
 **On screen:** Our closest / relationships / often reveal / our true character.  
 **Narration:** Our closest relationships often reveal our true character.
 
-### 68. sec-06-07 · kineticStatement · 9:49.6–10:02.7 (13.1s)
+### 68. sec-06-07 · kineticStatement · 9:49.6–9:54.5 (4.9s)
 
 ![sec-06-07](frames/68_sec-06-07.jpg)
 
-**On screen:** It is relatively easy to show patience and kindness / when everything is going well. / The greater challenge: / tired, frustrated, / disappointed or under pressure. / patience / kindness / greater challenge  
-**Narration:** It is relatively easy to show patience and kindness when everything is going well. The greater challenge is maintaining those qualities when we are tired, frustrated, disappointed or under pressure.
+**On screen:** It is relatively easy to show / patience and kindness / when everything is going well. / patience / kindness  
+**Narration:** It is relatively easy to show patience and kindness when everything is going well.
 
-### 69. sec-06-08 · comparison · 10:02.7–10:11.6 (8.9s)
+### 69. sec-06-07b · kineticStatement · 9:54.5–10:02.7 (8.2s)
 
-![sec-06-08](frames/69_sec-06-08.jpg)
+![sec-06-07b](frames/69_sec-06-07b.jpg)
+
+**On screen:** The greater challenge / is maintaining those qualities / when we are tired, frustrated, / disappointed or under pressure. / challenge  
+**Narration:** The greater challenge is maintaining those qualities when we are tired, frustrated, disappointed or under pressure.
+
+### 70. sec-06-08 · comparison · 10:02.7–10:11.6 (8.9s)
+
+![sec-06-08](frames/70_sec-06-08.jpg)
 
 **On screen:** With colleagues / Speaks politely / At home / Speaks harshly  
 **Narration:** Consider this example. Someone may speak politely to colleagues throughout the working day but return home and speak harshly to their spouse.
 
-### 70. sec-06-09 · comparison · 10:11.6–10:17.7 (6.1s)
+### 71. sec-06-09 · comparison · 10:11.6–10:17.7 (6.1s)
 
-![sec-06-09](frames/70_sec-06-09.jpg)
+![sec-06-09](frames/71_sec-06-09.jpg)
 
-**On screen:** With friends and relatives / Shows respect / With their spouse / Dismisses their feelings or opinions  
+**On screen:** Friends and relatives / Shows respect / Their spouse / Dismisses their feelings or opinions  
 **Narration:** They may show respect to friends and relatives but dismiss their spouse's feelings or opinions.
 
-### 71. sec-06-10 · kineticStatement · 10:17.7–10:26.6 (8.9s)
+### 72. sec-06-10 · kineticStatement · 10:17.7–10:26.6 (8.9s)
 
-![sec-06-10](frames/71_sec-06-10.jpg)
+![sec-06-10](frames/72_sec-06-10.jpg)
 
-**On screen:** This inconsistency / is something we should all reflect upon. / Islamic character is not simply / about what others see. / reflect upon / what others see  
+**On screen:** This inconsistency / is something we should all reflect upon. / Islamic character is not simply / about what others see. / reflect / see  
 **Narration:** This inconsistency is something we should all reflect upon. Islamic character is not simply about what others see.
 
-### 72. sec-06-11 · parallelPhrases · 10:26.6–10:32.6 (6.0s)
+### 73. sec-06-11 · parallelPhrases · 10:26.6–10:32.6 (6.0s)
 
-![sec-06-11](frames/72_sec-06-11.jpg)
+![sec-06-11](frames/73_sec-06-11.jpg)
 
 **On screen:** It is about / Integrity / Sincerity / How we treat people / when there is no audience  
 **Narration:** It is about integrity, sincerity and how we treat people when there is no audience.
 
-### 73. sec-06-12 · reflectionField · 10:32.6–10:43.6 (11.0s)
+### 74. sec-06-12 · reflectionField · 10:32.6–10:43.6 (11.0s)
 
-![sec-06-12](frames/73_sec-06-12.jpg)
+![sec-06-12](frames/74_sec-06-12.jpg)
 
 **On screen:** As you prepare for marriage, / ask yourself / Am I as respectful towards those closest to me / as I am towards people outside my home? / oxblood  
 **Narration:** As you prepare for marriage, I encourage you to ask yourself, am I as respectful towards those closest to me as I am towards people outside my home?
 
-### 74. sec-06-13 · reflectionField · 10:43.6–10:55.2 (11.6s)
+### 75. sec-06-13 · reflectionField · 10:43.6–10:55.2 (11.6s)
 
-![sec-06-13](frames/74_sec-06-13.jpg)
+![sec-06-13](frames/75_sec-06-13.jpg)
 
 **On screen:** How do I respond when I am frustrated? / Do I apologise when I am wrong? / Can I acknowledge another person's feelings / even when I disagree with them? / oxblood  
 **Narration:** How do I respond when I am frustrated? Do I apologise when I am wrong? Can I acknowledge another person's feelings even when I disagree with them?
 
-### 75. sec-06-14 · kineticStatement · 10:55.2–11:04.3 (9.1s)
+### 76. sec-06-14 · kineticStatement · 10:55.2–11:04.7 (9.5s)
 
-![sec-06-14](frames/75_sec-06-14.jpg)
+![sec-06-14](frames/76_sec-06-14.jpg)
 
-**On screen:** The quality of our private character / will have a significant influence / on the quality of our marriage. / private character / marriage  
+**On screen:** The quality of our / private character / will have a significant influence / on the quality of our marriage. / private / marriage  
 **Narration:** These are important questions because the quality of our private character will have a significant influence on the quality of our marriage.
 
-### 76. sec-06-15 · statementCollision · 11:04.3–11:10.4 (6.1s)
+### 77. sec-06-15 · statementCollision · 11:04.7–11:10.4 (5.7s)
 
-![sec-06-15](frames/76_sec-06-15.jpg)
+![sec-06-15](frames/77_sec-06-15.jpg)
 
 **On screen:** Remember: religious practice and good character / should / reinforce / one another.  
 **Narration:** Remember, religious practice and good character should reinforce one another.

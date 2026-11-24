@@ -9,7 +9,7 @@ export const MaskedWords: React.FC<{
   const words = text.split(/\s+/).filter(Boolean);
   const norm = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}'’-]/gu, "");
   // Emphasis entries are normalised exactly like on-screen words, so "guess." matches "guess".
-  const emph = new Set(emphasis.map(norm));
+  const emph = new Set(emphasis.flatMap((e) => e.split(/\s+/)).map(norm));
   return (
     <span style={{ display: "inline", ...style }}>
       {words.map((w, i) => {

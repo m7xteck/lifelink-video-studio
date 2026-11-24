@@ -18,8 +18,13 @@ export const StatementCollision: React.FC<{ scene: SceneOf<"statementCollision">
   const L = useLayout();
   const env = useSceneEnvelope();
   const drift = useCameraDrift(1.015);
-  const big = Math.round((L.portrait ? 150 : 196) * L.u);
-  const scriptSize = Math.round((L.portrait ? 170 : 210) * L.u);
+  // Fit the headline so each line stays on ONE line (this layout breaks when a phrase wraps into the caption).
+  // shortcut: estimates glyph width at 0.55 em instead of measuring; switch to measureText if a font change makes it wrong.
+  const maxBig = Math.round((L.portrait ? 150 : 196) * L.u);
+  const avail = L.innerW * 0.86 - (L.portrait ? 0 : L.innerW * 0.12);
+  const longest = Math.max(first.text.length, second.text.length, 1);
+  const big = Math.min(maxBig, Math.floor(avail / (longest * 0.55)));
+  const scriptSize = Math.round(big * 1.07);
   const settle = useProgress(script.at, 1.6, ease.settle);
 
   return (
@@ -27,7 +32,7 @@ export const StatementCollision: React.FC<{ scene: SceneOf<"statementCollision">
       <PaperGround color={P.paper} deep={D.paperShade} seed={13} />
 
       <div style={{ position: "absolute", left: L.safeX, top: L.safeY, display: "flex", alignItems: "center", gap: 22 * L.u, opacity: useProgress(scene.startSec + 0.1, 0.9) }}>
-        <Rule at={scene.startSec + 0.1} length={64 * L.u} color={P.rose} thickness={2} />
+        {label && <Rule at={scene.startSec + 0.1} length={64 * L.u} color={P.rose} thickness={2} />}
         {label && <BrandLabel size={L.size("label")} color={D.oxbloodMuted}>{label}</BrandLabel>}
       </div>
 
@@ -36,9 +41,9 @@ export const StatementCollision: React.FC<{ scene: SceneOf<"statementCollision">
           <div style={{ fontFamily: fonts.text, fontSize: big, lineHeight: 0.98, color: P.oxblood, letterSpacing: "-0.035em" }}>
             <CharRise text={first.text} at={first.at} stagger={0.03} />
           </div>
-          <div style={{ position: "relative", height: Math.round(big * 0.34), zIndex: 2 }}>
+          <div style={{ position: "relative", height: Math.round(scriptSize * 0.95), zIndex: 2 }}>
             <div style={{
-              position: "absolute", left: L.portrait ? "16%" : "27%", top: -scriptSize * 0.6,
+              position: "absolute", left: L.portrait ? "8%" : "14%", top: -scriptSize * 0.12, // own row between the lines: no letters hidden
               transform: `rotate(-7deg) translateX(${(1 - settle) * 30}px)`, transformOrigin: "left center",
             }}>
               <Script text={script.text} at={script.at} size={scriptSize} color={P.royal} dur={1.3} overlapOk knockout={P.paper} />

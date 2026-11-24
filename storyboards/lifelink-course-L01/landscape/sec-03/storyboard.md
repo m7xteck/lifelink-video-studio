@@ -1,6 +1,6 @@
 # Storyboard — Module 01: The sacred purpose of marriage
 
-Lesson `lifelink-course-L01` · 36:05.3 · 33 scenes · 3 sections · 16:9
+Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
 
 ## Creative plan: Module 01, opening (0:00–0:40.7), preview for approval
 
@@ -62,14 +62,14 @@ Lesson `lifelink-course-L01` · 36:05.3 · 33 scenes · 3 sections · 16:9
 
 ![sec-03-04](frames/11_sec-03-04.jpg)
 
-**On screen:** This is why we have developed / the LifeLink Marriage Academy. / Across our 18 compulsory modules / Academy  
+**On screen:** This is why we have developed / the LifeLink Marriage Academy. / Across our 18 compulsory modules, / Academy  
 **Narration:** This is why we have developed the LifeLink Marriage Academy. Across our 18 compulsory modules,
 
 ### 12. sec-03-05 · parallelPhrases · 1:27.6–1:35.8 (8.2s)
 
 ![sec-03-05](frames/12_sec-03-05.jpg)
 
-**On screen:** The foundations of a successful marriage / Choosing a compatible partner / Understanding Islamic responsibilities  
+**On screen:** We will explore the foundations of a successful marriage / Choosing a compatible partner / Understanding Islamic responsibilities  
 **Narration:** we will explore the foundations of a successful marriage, from choosing a compatible partner and understanding Islamic responsibilities to
 
 ### 13. sec-03-06 · parallelPhrases · 1:35.8–1:42.8 (7.0s)
@@ -90,7 +90,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 33 scenes · 3 sections · 16:9
 
 ![sec-03-08](frames/15_sec-03-08.jpg)
 
-**On screen:** The sacred purpose of marriage / what it means to enter this partnership / with the right intentions and expectations. / sacred / purpose / In this first module  
+**On screen:** The sacred purpose of marriage / and what it means to enter this partnership / with the right intentions and expectations. / sacred / purpose / In this first module  
 **Narration:** In this first module, we will explore the sacred purpose of marriage and what it means to enter this partnership with the right intentions and expectations.
 
 ### 16. sec-03-09 · reflectionField · 2:02.9–2:15.9 (13.0s)
@@ -118,7 +118,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 33 scenes · 3 sections · 16:9
 
 ![sec-03-12](frames/19_sec-03-12.jpg)
 
-**On screen:** We will look at / Why marriage holds such an important position in Islam / How it can contribute to our spiritual and personal development  
+**On screen:** We will look at / Why marriage holds such an important position in Islam / How it can contribute to our spiritual and personal development  
 **Narration:** We will look at why marriage holds such an important position in Islam and how it can contribute to our spiritual and personal development.
 
 ### 20. sec-03-13 · kineticStatement · 2:38.1–2:45.7 (7.6s)
@@ -153,7 +153,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 33 scenes · 3 sections · 16:9
 
 ![sec-03-16b](frames/24_sec-03-16b.jpg)
 
-**On screen:** How do we balance our own needs and ambitions / with the needs of someone else?  
+**On screen:** How do we balance / our own needs and ambitions / with the needs of someone else?  
 **Narration:** How do we balance our own needs and ambitions with the needs of someone else?
 
 ### 25. sec-03-17 · kineticStatement · 3:13.4–3:17.6 (4.2s)
@@ -174,7 +174,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 33 scenes · 3 sections · 16:9
 
 ![sec-03-19](frames/27_sec-03-19.jpg)
 
-**On screen:** we must also look at / character, kindness, honesty, / emotional maturity and the ability to communicate. / also / Although some of these considerations may be important  
+**On screen:** we must also look at / character, kindness, honesty, / emotional maturity / and the ability to communicate. / also / Although some of these considerations may be important  
 **Narration:** Although some of these considerations may be important, we must also look at the emotional maturity and the ability to communicate.
 
 ### 28. sec-03-20 · kineticStatement · 3:40.4–3:44.4 (4.0s)
@@ -209,7 +209,7 @@ Lesson `lifelink-course-L01` · 36:05.3 · 33 scenes · 3 sections · 16:9
 
 ![sec-03-23](frames/32_sec-03-23.jpg)
 
-**On screen:** Throughout this module, remember that / the aim is / not perfection / None of us are perfect, / and marriage does not require us to become perfect individuals.  
+**On screen:** Throughout this module, remember that / the aim is / not perfection. / None of us are perfect, / and marriage does not require us to become perfect individuals.  
 **Narration:** Throughout this module, remember that the aim is not perfection. None of us are perfect and marriage does not require us to become perfect individuals.
 
 ### 33. sec-03-24 · parallelPhrases · 4:13.9–4:24.0 (10.1s)

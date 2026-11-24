@@ -26,6 +26,7 @@ export const StepsDiagram: React.FC<{ scene: SceneOf<"stepsDiagram"> }> = ({ sce
     const arrive = steps[i].at;
     const leave = i === 0 ? arrive - 0.5 : Math.max(steps[i - 1].at, arrive - 0.7);
     const from = i === 0 ? 0 : fracs[i - 1];
+    if (t < leave) break; // never draw toward a step that has not been introduced yet
     pathP = Math.max(pathP, interpolate(t, [leave, arrive], [from, fracs[i]], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle }));
   }
   const current = steps.reduce((acc, s, i) => (t >= s.at ? i : acc), -1);
@@ -55,7 +56,6 @@ export const StepsDiagram: React.FC<{ scene: SceneOf<"stepsDiagram"> }> = ({ sce
       {heading && (
         <div style={{ height: headH }}>
           <SoftReveal at={scene.startSec + 0.1} rise={8}>
-            <Label size={L.size("label")}>Framework</Label>
             <div data-qa-text style={{ marginTop: Math.round(14 * L.u), fontFamily: fonts.display, fontSize: L.size("h2"), lineHeight: type.lineHeight.display, color: colors.ink }}>{heading}</div>
           </SoftReveal>
         </div>
@@ -92,7 +92,7 @@ const Node: React.FC<{
       </div>
       <div style={{
         position: "absolute",
-        left: vertical ? p.x + r + 32 * L.u : p.x - colW / 2,
+        left: vertical ? p.x + r + 32 * L.u : Math.min(Math.max(p.x - colW / 2, 0), L.innerW - colW), // keep edge labels inside the safe area
         top: vertical ? p.y - r * 0.75 : p.y + r + 26 * L.u,
         width: colW, textAlign: vertical ? "left" : "center",
         opacity: textP * dim, transform: `translateY(${(1 - textP) * 12}px)`,

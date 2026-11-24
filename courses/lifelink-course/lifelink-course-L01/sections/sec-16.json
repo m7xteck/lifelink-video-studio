@@ -163,12 +163,16 @@
    "props": {
     "lines": [
      {
-      "text": "A marriage involves considering another person's needs,",
+      "text": "A marriage involves considering another person's",
       "at": 1987.36
      },
      {
-      "text": "feelings and circumstances alongside our own",
-      "at": 1990.24
+      "text": "needs, feelings and circumstances",
+      "at": 1989.86
+     },
+     {
+      "text": "alongside our own",
+      "at": 1991.74
      }
     ],
     "ground": "royal"
@@ -210,14 +214,14 @@
    "endSec": 2007.4,
    "props": {
     "left": {
-     "title": "Listening does not mean",
+     "title": "Listening is not",
      "points": [
       "Agreeing with everything"
      ],
      "at": 2001.02
     },
     "right": {
-     "title": "It means",
+     "title": "It is",
      "points": [
       "Being willing to understand another person's perspective"
      ],
@@ -349,8 +353,12 @@
     },
     "lines": [
      {
-      "text": "Am I prepared to support someone",
+      "text": "Am I prepared",
       "at": 2036.06
+     },
+     {
+      "text": "to support someone",
+      "at": 2036.92
      },
      {
       "text": "during their difficult circumstances?",
@@ -483,16 +491,16 @@
    "props": {
     "label": "You do not need perfect answers",
     "first": {
-     "text": "Reflect on",
-     "at": 2068.76
+     "text": "Identify",
+     "at": 2069.78
     },
     "script": {
      "text": "where you are now",
      "at": 2070.34
     },
     "second": {
-     "text": "and how you can grow",
-     "at": 2072.24
+     "text": "and how you can develop",
+     "at": 2071.66
     }
    }
   },
@@ -509,7 +517,7 @@
     },
     "items": [
      {
-      "text": "Sakinah",
+      "text": "Sakina",
       "at": 2080.96
      },
      {

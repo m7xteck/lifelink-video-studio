@@ -8,6 +8,8 @@ import { GroundBackdrop } from "../motion/GroundBackdrop";
 import { QaGuard } from "../motion/QaGuard";
 import { brandWatermark, colors, fonts, palette, textStyle } from "../brand/tokens";
 
+const isDark = (hex: string) => { const n = parseInt(hex.slice(1), 16); return 0.2126 * ((n >> 16) & 255) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255) < 110; };
+
 export type LessonProps = { manifest: Manifest; orientation?: "landscape" | "portrait"; muted?: boolean; qa?: boolean };
 
 /** Duration and size come from the manifest — the narration is the master timeline. */
@@ -32,12 +34,12 @@ export const Lesson: React.FC<LessonProps> = ({ manifest, muted = false, qa = tr
       <style>{`[data-scene] [data-qa-text] { word-spacing: ${textStyle.wordSpacing}; }`}</style>
       <Atmosphere />
       <GroundBackdrop grounds={manifest.scenes.map((s) => ({ startSec: s.startSec, endSec: s.endSec, color: groundOf(s, palette, colors.background) }))} />
-      {manifest.scenes.map((s) => {
+      {manifest.scenes.map((s, i) => {
         const from = Math.round(s.startSec * fps);
         const dur = Math.max(1, Math.round((s.endSec + overlap) * fps) - from);
         return (
           <Sequence key={s.id} from={from} durationInFrames={dur} name={`${s.id} · ${s.type}`} layout="none">
-            <SceneClock.Provider value={{ startSec: s.startSec, endSec: s.endSec }}>
+            <SceneClock.Provider value={{ startSec: s.startSec, endSec: s.endSec, afterDark: i > 0 && isDark(groundOf(manifest.scenes[i - 1], palette, colors.background)) }}>
               <AbsoluteFill data-scene={s.id}><SceneRenderer scene={s} /></AbsoluteFill>
             </SceneClock.Provider>
           </Sequence>

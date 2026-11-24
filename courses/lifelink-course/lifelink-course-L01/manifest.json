@@ -415,7 +415,7 @@
             "at": 82.44
           },
           {
-            "text": "Across our 18 compulsory modules",
+            "text": "Across our 18 compulsory modules,",
             "at": 84.7
           }
         ],
@@ -434,8 +434,8 @@
       "type": "parallelPhrases",
       "props": {
         "kicker": {
-          "text": "The foundations of a successful marriage",
-          "at": 88.52
+          "text": "We will explore the foundations of a successful marriage",
+          "at": 87.74
         },
         "items": [
           {
@@ -521,8 +521,8 @@
             "at": 115.02
           },
           {
-            "text": "what it means to enter this partnership",
-            "at": 116.98
+            "text": "and what it means to enter this partnership",
+            "at": 116.54
           },
           {
             "text": "with the right intentions and expectations.",
@@ -534,7 +534,7 @@
           "purpose"
         ],
         "align": "left",
-        "scale": "h1",
+        "scale": "h2",
         "kicker": {
           "text": "In this first module",
           "at": 112.48
@@ -635,11 +635,11 @@
         },
         "items": [
           {
-            "text": "Why marriage holds such an important position in Islam",
+            "text": "Why marriage holds such an important position in Islam",
             "at": 149.44
           },
           {
-            "text": "How it can contribute to our spiritual and personal development",
+            "text": "How it can contribute to our spiritual and personal development",
             "at": 153.52
           }
         ]
@@ -764,8 +764,12 @@
       "props": {
         "lines": [
           {
-            "text": "How do we balance our own needs and ambitions",
+            "text": "How do we balance",
             "at": 187.28
+          },
+          {
+            "text": "our own needs and ambitions",
+            "at": 188.84
           },
           {
             "text": "with the needs of someone else?",
@@ -774,7 +778,7 @@
         ],
         "emphasis": [],
         "align": "center",
-        "scale": "h1"
+        "scale": "h2"
       }
     },
     {
@@ -849,8 +853,12 @@
             "at": 214.64
           },
           {
-            "text": "emotional maturity and the ability to communicate.",
+            "text": "emotional maturity",
             "at": 217.02
+          },
+          {
+            "text": "and the ability to communicate.",
+            "at": 217.92
           }
         ],
         "emphasis": [
@@ -924,7 +932,7 @@
         "lines": [
           {
             "text": "The Mirror Check",
-            "at": 235.46
+            "at": 235.1
           }
         ],
         "emphasis": [
@@ -977,7 +985,7 @@
           "at": 245.46
         },
         "script": {
-          "text": "not perfection",
+          "text": "not perfection.",
           "at": 246.08
         },
         "second": {
@@ -1084,7 +1092,7 @@
       "props": {
         "lines": [
           {
-            "text": "Sakinah",
+            "text": "Sakina",
             "at": 289.74
           },
           {
@@ -1093,7 +1101,7 @@
           }
         ],
         "emphasis": [
-          "Sakinah"
+          "Sakina"
         ],
         "align": "left",
         "scale": "h1",
@@ -1207,7 +1215,7 @@
             "at": 335.62
           },
           {
-            "text": "Meaningful time and support",
+            "text": "Time and support",
             "at": 337.52
           }
         ],
@@ -1277,7 +1285,7 @@
           "understanding"
         ],
         "align": "left",
-        "scale": "h1",
+        "scale": "h2",
         "kicker": {
           "text": "Mercy",
           "at": 356.66
@@ -1305,7 +1313,7 @@
         "heading": "Three qualities, together",
         "steps": [
           {
-            "label": "Sakinah",
+            "label": "Sakina",
             "detail": "Tranquility · provides emotional security",
             "at": 380.86
           },
@@ -1551,23 +1559,30 @@
       }
     },
     {
+      "type": "kineticStatement",
       "id": "sec-05-08",
       "sectionId": "sec-05",
       "startSec": 472.3,
       "endSec": 477.4,
-      "type": "statementCollision",
       "props": {
-        "first": {
-          "text": "Opportunities to strengthen",
-          "at": 473.92
-        },
-        "script": {
-          "text": "faith",
-          "at": 475.36
-        },
-        "second": {
-          "text": "and character.",
-          "at": 475.84
+        "lines": [
+          {
+            "text": "Opportunities to strengthen",
+            "at": 473.92
+          },
+          {
+            "text": "faith and character.",
+            "at": 475.36
+          }
+        ],
+        "emphasis": [
+          "faith"
+        ],
+        "align": "center",
+        "scale": "h1",
+        "kicker": {
+          "text": "Marriage also provides",
+          "at": 472.7
         }
       }
     },
@@ -1636,7 +1651,7 @@
         "lines": [
           {
             "text": "finances,",
-            "at": 490.74
+            "at": 492.02
           },
           {
             "text": "accommodation,",
@@ -1816,8 +1831,12 @@
       "props": {
         "lines": [
           {
-            "text": "One of the most important lessons",
+            "text": "One of the most",
             "at": 548.2
+          },
+          {
+            "text": "important lessons",
+            "at": 549.04
           },
           {
             "text": "in our entire Marriage Academy.",
@@ -1825,7 +1844,7 @@
           }
         ],
         "emphasis": [
-          "most important"
+          "important"
         ],
         "align": "center",
         "scale": "h1"
@@ -1844,28 +1863,30 @@
       }
     },
     {
+      "type": "kineticStatement",
       "id": "sec-06-03",
       "sectionId": "sec-06",
       "startSec": 560.9,
       "endSec": 566.9,
-      "type": "statementCollision",
       "props": {
-        "label": "This teaching reminds us that",
-        "first": {
-          "text": "good character",
-          "at": 562.94
-        },
-        "script": {
-          "text": "must extend",
-          "at": 563.86
-        },
-        "second": {
-          "text": "beyond",
-          "at": 564.72
-        },
-        "caption": {
-          "text": "our public behaviour.",
-          "at": 565.16
+        "lines": [
+          {
+            "text": "Good character must extend",
+            "at": 562.94
+          },
+          {
+            "text": "beyond our public behaviour.",
+            "at": 564.72
+          }
+        ],
+        "emphasis": [
+          "character"
+        ],
+        "align": "left",
+        "scale": "h1",
+        "kicker": {
+          "text": "This teaching reminds us that",
+          "at": 561.5
         }
       }
     },
@@ -1909,8 +1930,12 @@
       "props": {
         "lines": [
           {
-            "text": "The way someone behaves in public",
+            "text": "The way someone",
             "at": 579.26
+          },
+          {
+            "text": "behaves in public",
+            "at": 579.96
           },
           {
             "text": "does not always reflect",
@@ -1956,24 +1981,49 @@
       "id": "sec-06-07",
       "sectionId": "sec-06",
       "startSec": 589.6,
-      "endSec": 602.7,
+      "endSec": 594.5,
       "props": {
         "lines": [
           {
-            "text": "It is relatively easy to show patience and kindness",
+            "text": "It is relatively easy to show",
             "at": 590.1
+          },
+          {
+            "text": "patience and kindness",
+            "at": 591.66
           },
           {
             "text": "when everything is going well.",
             "at": 592.92
-          },
+          }
+        ],
+        "emphasis": [
+          "patience",
+          "kindness"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-06-07b",
+      "sectionId": "sec-06",
+      "startSec": 594.5,
+      "endSec": 602.7,
+      "props": {
+        "lines": [
           {
-            "text": "The greater challenge:",
+            "text": "The greater challenge",
             "at": 595.3
           },
           {
-            "text": "tired, frustrated,",
-            "at": 598.62
+            "text": "is maintaining those qualities",
+            "at": 596.16
+          },
+          {
+            "text": "when we are tired, frustrated,",
+            "at": 597.96
           },
           {
             "text": "disappointed or under pressure.",
@@ -1981,9 +2031,7 @@
           }
         ],
         "emphasis": [
-          "patience",
-          "kindness",
-          "greater challenge"
+          "challenge"
         ],
         "align": "left",
         "scale": "h2"
@@ -2021,14 +2069,14 @@
       "endSec": 617.7,
       "props": {
         "left": {
-          "title": "With friends and relatives",
+          "title": "Friends and relatives",
           "points": [
             "Shows respect"
           ],
           "at": 612.58
         },
         "right": {
-          "title": "With their spouse",
+          "title": "Their spouse",
           "points": [
             "Dismisses their feelings or opinions"
           ],
@@ -2063,8 +2111,8 @@
           }
         ],
         "emphasis": [
-          "reflect upon",
-          "what others see"
+          "reflect",
+          "see"
         ],
         "align": "left",
         "scale": "h2"
@@ -2162,12 +2210,16 @@
       "id": "sec-06-14",
       "sectionId": "sec-06",
       "startSec": 655.2,
-      "endSec": 664.3,
+      "endSec": 664.7,
       "props": {
         "lines": [
           {
-            "text": "The quality of our private character",
+            "text": "The quality of our",
             "at": 657.6
+          },
+          {
+            "text": "private character",
+            "at": 658.84
           },
           {
             "text": "will have a significant influence",
@@ -2179,7 +2231,7 @@
           }
         ],
         "emphasis": [
-          "private character",
+          "private",
           "marriage"
         ],
         "align": "left",
@@ -2189,7 +2241,7 @@
     {
       "id": "sec-06-15",
       "sectionId": "sec-06",
-      "startSec": 664.3,
+      "startSec": 664.7,
       "endSec": 670.4,
       "type": "statementCollision",
       "props": {
@@ -2255,7 +2307,7 @@
           "points": [
             "Changed significantly"
           ],
-          "at": 682.3
+          "at": 680.88
         },
         "preferred": "none"
       }
@@ -2330,16 +2382,16 @@
       "props": {
         "label": "Technology & social media",
         "first": {
-          "text": "Exposed to images of",
-          "at": 714.32
+          "text": "Images of",
+          "at": 715.96
         },
         "script": {
-          "text": "seemingly perfect",
+          "text": "seemingly",
           "at": 716.64
         },
         "second": {
-          "text": "relationships",
-          "at": 717.7
+          "text": "perfect relationships",
+          "at": 717.14
         }
       }
     },
@@ -2365,8 +2417,10 @@
           }
         ],
         "closing": {
-          "text": "An idealised version of their lives",
-          "at": 725.02
+          "lead": "Couples presenting",
+          "leadAt": 723.42,
+          "text": "an idealised version",
+          "at": 724.3
         }
       }
     },
@@ -2432,22 +2486,22 @@
       "endSec": 750.6,
       "type": "statementCollision",
       "props": {
-        "label": "Technology & social media",
+        "label": "Comparing our own relationship with",
         "first": {
-          "text": "Comparing ours with",
-          "at": 740.88
+          "text": "these",
+          "at": 743.24
         },
         "script": {
           "text": "carefully selected",
           "at": 743.58
         },
         "second": {
-          "text": "moments",
+          "text": "moments can create",
           "at": 744.6
         },
         "caption": {
-          "text": "Can create dissatisfaction and unrealistic expectations",
-          "at": 745.44
+          "text": "dissatisfaction and unrealistic expectations.",
+          "at": 745.78
         }
       }
     },
@@ -2520,8 +2574,12 @@
       "props": {
         "lines": [
           {
-            "text": "Even when two individuals share the same faith,",
+            "text": "Even when two individuals",
             "at": 773.42
+          },
+          {
+            "text": "share the same faith,",
+            "at": 774.74
           },
           {
             "text": "family traditions and expectations",
@@ -2601,8 +2659,10 @@
           }
         ],
         "closing": {
-          "text": "A foundation for navigating these circumstances",
-          "at": 793.22
+          "lead": "A foundation for",
+          "leadAt": 793.22,
+          "text": "navigating these circumstances",
+          "at": 794.3
         }
       }
     },
@@ -2772,9 +2832,7 @@
             "at": 850.46
           }
         ],
-        "emphasis": [
-          "expensive"
-        ],
+        "emphasis": [],
         "align": "left",
         "scale": "h1",
         "kicker": {
@@ -2803,7 +2861,7 @@
           "at": 857.28
         },
         "caption": {
-          "text": "A couple may begin with a very simple celebration and build a loving and successful relationship.",
+          "text": "A couple may begin married life with a very simple celebration and go on to build a loving and successful relationship.",
           "at": 859.26
         }
       }
@@ -2911,9 +2969,7 @@
             "at": 898.76
           }
         ],
-        "emphasis": [
-          "expectations"
-        ],
+        "emphasis": [],
         "align": "left",
         "scale": "h2",
         "kicker": {
@@ -2936,7 +2992,7 @@
             "at": 903.38
           },
           {
-            "text": "Discuss how you will organise your daily lives — fairly and respectfully",
+            "text": "Discuss how you will organise your daily lives fairly and respectfully",
             "at": 907.22
           }
         ]
@@ -2951,8 +3007,12 @@
       "props": {
         "lines": [
           {
-            "text": "Cultural traditions should not justify",
+            "text": "Cultural traditions should not",
             "at": 914.76
+          },
+          {
+            "text": "be used to justify",
+            "at": 916.66
           },
           {
             "text": "injustice,",
@@ -3088,7 +3148,7 @@
         "lines": [
           {
             "text": "One person may be naturally outgoing,",
-            "at": 961.84
+            "at": 961.35
           },
           {
             "text": "whilst the other is more reserved.",
@@ -3149,7 +3209,7 @@
           "at": 977.3
         },
         "script": {
-          "text": "do not mean",
+          "text": "do not automatically mean",
           "at": 978.16
         },
         "second": {
@@ -3409,7 +3469,7 @@
       "id": "sec-09-14",
       "sectionId": "sec-09",
       "startSec": 1029.9,
-      "endSec": 1036.4,
+      "endSec": 1035.75,
       "type": "parallelPhrases",
       "props": {
         "kicker": {
@@ -3440,7 +3500,7 @@
       "type": "kineticStatement",
       "id": "sec-09-15",
       "sectionId": "sec-09",
-      "startSec": 1036.4,
+      "startSec": 1035.75,
       "endSec": 1047.6,
       "props": {
         "lines": [
@@ -3473,7 +3533,7 @@
         "scale": "h2",
         "kicker": {
           "text": "For example",
-          "at": 1036.5
+          "at": 1035.84
         }
       }
     },
@@ -3580,12 +3640,12 @@
             "at": 1066.9
           },
           {
-            "text": "to disappear into",
+            "text": "to disappear",
             "at": 1068.58
           },
           {
-            "text": "their expectations of another.",
-            "at": 1069.82
+            "text": "into their expectations of another.",
+            "at": 1069.44
           }
         ],
         "emphasis": [
@@ -3641,7 +3701,7 @@
           },
           {
             "text": "Valued",
-            "at": 1084.52
+            "at": 1084.9
           }
         ]
       }
@@ -3745,24 +3805,30 @@
       }
     },
     {
+      "type": "kineticStatement",
       "id": "sec-10-05",
       "sectionId": "sec-10",
       "startSec": 1117.9,
       "endSec": 1126.2,
-      "type": "statementCollision",
       "props": {
-        "label": "A healthy understanding of Amanah",
-        "first": {
-          "text": "Both spouses have",
-          "at": 1121.88
-        },
-        "script": {
-          "text": "responsibilities",
-          "at": 1123.62
-        },
-        "second": {
-          "text": "towards one another.",
-          "at": 1124.24
+        "lines": [
+          {
+            "text": "Both spouses have responsibilities",
+            "at": 1121.88
+          },
+          {
+            "text": "towards one another.",
+            "at": 1124.24
+          }
+        ],
+        "emphasis": [
+          "responsibilities"
+        ],
+        "align": "center",
+        "scale": "h1",
+        "kicker": {
+          "text": "A healthy understanding of Amanah",
+          "at": 1118.1
         }
       }
     },
@@ -3775,8 +3841,12 @@
       "props": {
         "lines": [
           {
-            "text": "Respecting each other's feelings, boundaries and dignity.",
+            "text": "Respecting each other's feelings,",
             "at": 1127.04
+          },
+          {
+            "text": "boundaries and dignity.",
+            "at": 1129.36
           },
           {
             "text": "Approaching disagreements with compassion,",
@@ -3902,8 +3972,10 @@
           }
         ],
         "closing": {
-          "text": "can be signs of coercive control.",
-          "at": 1171.08
+          "lead": "can be signs of",
+          "leadAt": 1171.08,
+          "text": "coercive control.",
+          "at": 1172.2
         }
       }
     },
@@ -3916,12 +3988,20 @@
       "props": {
         "lines": [
           {
-            "text": "Harmful behaviours are sometimes wrongfully justified",
+            "text": "Sometimes harmful behaviours",
             "at": 1175.04
           },
           {
-            "text": "through cultural expectations or selective religious arguments.",
+            "text": "are wrongfully justified",
+            "at": 1176.68
+          },
+          {
+            "text": "through cultural expectations",
             "at": 1178.34
+          },
+          {
+            "text": "or selective religious arguments.",
+            "at": 1180.18
           }
         ],
         "emphasis": [],
@@ -4150,10 +4230,10 @@
           }
         ],
         "closing": {
-          "lead": "Bringing these ideas together",
-          "leadAt": 1237.18,
-          "text": "The qualities of a successful marriage",
-          "at": 1239.6
+          "lead": "The qualities of",
+          "leadAt": 1239.6,
+          "text": "a successful marriage",
+          "at": 1241.22
         }
       }
     },
@@ -4175,7 +4255,8 @@
           }
         ],
         "emphasis": [
-          "Core foundation"
+          "Core",
+          "foundation"
         ],
         "align": "left",
         "scale": "hero",
@@ -4231,7 +4312,8 @@
           }
         ],
         "emphasis": [
-          "everyday behaviour"
+          "everyday",
+          "behaviour"
         ],
         "align": "left",
         "scale": "h1",
@@ -4359,30 +4441,31 @@
       }
     },
     {
+      "type": "stepsDiagram",
       "id": "sec-11-09",
       "sectionId": "sec-11",
       "startSec": 1316.45,
       "endSec": 1331.45,
-      "type": "parallelPhrases",
       "props": {
-        "kicker": {
-          "text": "Grace and repair",
-          "at": 1316.54
-        },
-        "items": [
+        "heading": "Grace and repair",
+        "steps": [
           {
-            "text": "Compassion",
+            "label": "Compassion",
+            "detail": "Recognise when your spouse may be experiencing difficulty",
             "at": 1316.54
           },
           {
-            "text": "Patience",
+            "label": "Patience",
+            "detail": "Manage frustration without reacting in harmful ways",
             "at": 1321.98
           },
           {
-            "text": "Appreciation",
+            "label": "Appreciation",
+            "detail": "Recognise the effort your spouse makes",
             "at": 1327.1
           }
-        ]
+        ],
+        "layout": "stack"
       }
     },
     {
@@ -4403,7 +4486,8 @@
           }
         ],
         "emphasis": [
-          "Where appropriate"
+          "Where",
+          "appropriate"
         ],
         "align": "left",
         "scale": "h1",
@@ -4459,8 +4543,8 @@
           }
         ],
         "emphasis": [
-          "accountability",
-          "meaningful change"
+          "meaningful",
+          "change"
         ],
         "align": "left",
         "scale": "h1"
@@ -4518,28 +4602,34 @@
       }
     },
     {
+      "type": "kineticStatement",
       "id": "sec-11-14",
       "sectionId": "sec-11",
       "startSec": 1365,
       "endSec": 1373.9,
-      "type": "statementCollision",
       "props": {
-        "label": "This is how relationships grow",
-        "first": {
-          "text": "Not through perfection,",
-          "at": 1367.6
-        },
-        "script": {
-          "text": "but through",
-          "at": 1369.06
-        },
-        "second": {
-          "text": "responsibility,",
-          "at": 1369.4
-        },
-        "caption": {
-          "text": "reflection and consistent effort.",
-          "at": 1370.86
+        "lines": [
+          {
+            "text": "Not through perfection,",
+            "at": 1367.6
+          },
+          {
+            "text": "but through responsibility,",
+            "at": 1369.06
+          },
+          {
+            "text": "reflection and consistent effort.",
+            "at": 1370.86
+          }
+        ],
+        "emphasis": [
+          "responsibility"
+        ],
+        "align": "left",
+        "scale": "h1",
+        "kicker": {
+          "text": "This is how relationships grow",
+          "at": 1365.14
         }
       }
     },
@@ -4548,24 +4638,23 @@
       "sectionId": "sec-12",
       "startSec": 1373.9,
       "endSec": 1383.4,
-      "type": "statementCollision",
+      "type": "parallelPhrases",
       "props": {
-        "label": "It's easy to talk about kindness, respect and responsibility",
-        "first": {
-          "text": "The real challenge",
-          "at": 1379
-        },
-        "script": {
-          "text": "demonstrating",
-          "at": 1380.12
-        },
-        "second": {
-          "text": "these qualities",
-          "at": 1380.82
-        },
-        "caption": {
-          "text": "in everyday life.",
-          "at": 1381.74
+        "items": [
+          {
+            "text": "It's easy to talk about kindness, respect and responsibility",
+            "at": 1374.7
+          },
+          {
+            "text": "The real challenge is demonstrating these qualities",
+            "at": 1379
+          }
+        ],
+        "closing": {
+          "lead": "in",
+          "leadAt": 1381.74,
+          "text": "everyday life",
+          "at": 1382.18
         }
       }
     },
@@ -4615,10 +4704,10 @@
           }
         ],
         "emphasis": [
-          "exhausted"
+          "notices"
         ],
         "align": "left",
-        "scale": "h1",
+        "scale": "h2",
         "kicker": {
           "text": "Scenario 1 · Appreciation",
           "at": 1389.22
@@ -4703,7 +4792,7 @@
           }
         ],
         "emphasis": [
-          "financial decision"
+          "financial"
         ],
         "align": "left",
         "scale": "h1",
@@ -4801,7 +4890,7 @@
           }
         ],
         "emphasis": [
-          "hurtful comment"
+          "hurtful"
         ],
         "align": "left",
         "scale": "h1",
@@ -4852,7 +4941,7 @@
           }
         ],
         "emphasis": [
-          "everyday choices"
+          "everyday"
         ],
         "align": "center",
         "scale": "h1",
@@ -4875,16 +4964,8 @@
             "at": 1503.22
           },
           {
-            "text": "Appreciation",
-            "at": 1505.72
-          },
-          {
-            "text": "Respectful disagreement",
-            "at": 1506.42
-          },
-          {
-            "text": "Accountability",
-            "at": 1508.6
+            "text": "do you need to strengthen?",
+            "at": 1509.72
           }
         ],
         "script": {
@@ -4893,8 +4974,12 @@
         },
         "after": [
           {
-            "text": "…do you need to strengthen?",
-            "at": 1509.72
+            "text": "Appreciation · Respectful disagreement",
+            "at": 1505.72
+          },
+          {
+            "text": "Accountability",
+            "at": 1508.6
           }
         ],
         "ground": "oxblood"
@@ -5041,7 +5126,7 @@
         },
         "caption": {
           "text": "Marriage can bring happiness and companionship",
-          "at": 1558.4
+          "at": 1557.98
         }
       }
     },
@@ -5058,12 +5143,12 @@
             "at": 1562.28
           },
           {
-            "text": "for every aspect of",
+            "text": "for every aspect",
             "at": 1563.94
           },
           {
-            "text": "our emotional wellbeing",
-            "at": 1565.66
+            "text": "of our emotional wellbeing",
+            "at": 1565.28
           }
         ],
         "emphasis": [
@@ -5095,7 +5180,7 @@
             "at": 1571.58
           },
           {
-            "text": "Sources of support",
+            "text": "Sources of support",
             "at": 1572.34
           }
         ]
@@ -5201,7 +5286,7 @@
             "at": 1602.62
           },
           {
-            "text": "never communicated",
+            "text": "never communicated.",
             "at": 1604.4
           },
           {
@@ -5312,7 +5397,7 @@
         "scale": "h1",
         "kicker": {
           "text": "Another common misconception",
-          "at": 1624.58
+          "at": 1624.7
         }
       }
     },
@@ -5419,20 +5504,20 @@
           {
             "text": "before marriage",
             "at": 1657.62
-          },
-          {
-            "text": "Not only what we hope for",
-            "at": 1661.28
           }
         ],
+        "script": {
+          "text": "so important",
+          "at": 1658.76
+        },
         "after": [
           {
-            "text": "Also what we are realistically",
-            "at": 1663.58
+            "text": "Not only what we hope for,",
+            "at": 1661.28
           },
           {
-            "text": "prepared to contribute",
-            "at": 1665.16
+            "text": "also what we are realistically prepared to contribute",
+            "at": 1663.58
           }
         ],
         "ground": "oxblood"
@@ -5477,7 +5562,7 @@
         },
         "items": [
           {
-            "text": "Getting to know one another",
+            "text": "Knowing one another",
             "at": 1686.6
           },
           {
@@ -5485,11 +5570,11 @@
             "at": 1689.52
           },
           {
-            "text": "Adjusting to shared responsibilities",
+            "text": "Shared responsibilities",
             "at": 1691.12
           },
           {
-            "text": "Building emotional connection",
+            "text": "Emotional connection",
             "at": 1693.26
           }
         ],
@@ -5517,7 +5602,8 @@
           }
         ],
         "emphasis": [
-          "new chapter"
+          "new",
+          "chapter"
         ],
         "align": "center",
         "scale": "h1"
@@ -5564,8 +5650,12 @@
             "at": 1713.16
           },
           {
-            "text": "illnesses, bereavement, caring responsibilities,",
+            "text": "illnesses, bereavement,",
             "at": 1716.1
+          },
+          {
+            "text": "caring responsibilities,",
+            "at": 1717.92
           },
           {
             "text": "or changes in employment.",
@@ -5578,24 +5668,31 @@
       }
     },
     {
+      "type": "kineticStatement",
       "id": "sec-14-06",
       "sectionId": "sec-14",
       "startSec": 1722,
       "endSec": 1727,
-      "type": "statementCollision",
       "props": {
-        "first": {
-          "text": "Each stage can bring",
-          "at": 1722.48
-        },
-        "script": {
-          "text": "new opportunities",
-          "at": 1724
-        },
-        "second": {
-          "text": "and new pressures.",
-          "at": 1724.76
-        }
+        "lines": [
+          {
+            "text": "Each stage can bring",
+            "at": 1722.48
+          },
+          {
+            "text": "new opportunities",
+            "at": 1723.72
+          },
+          {
+            "text": "and new pressures.",
+            "at": 1724.76
+          }
+        ],
+        "emphasis": [
+          "opportunities"
+        ],
+        "align": "center",
+        "scale": "h1"
       }
     },
     {
@@ -5726,12 +5823,17 @@
             "at": 1779.08
           },
           {
-            "text": "we will automatically understand every change.",
+            "text": "we will automatically",
             "at": 1783.46
+          },
+          {
+            "text": "understand every change.",
+            "at": 1784.22
           }
         ],
         "emphasis": [
-          "lifelong learning"
+          "lifelong",
+          "learning"
         ],
         "align": "left",
         "scale": "h1",
@@ -5791,8 +5893,12 @@
             "at": 1801.38
           },
           {
-            "text": "to situations couples may experience.",
+            "text": "to situations",
             "at": 1802.76
+          },
+          {
+            "text": "couples may experience.",
+            "at": 1804.3
           }
         ],
         "emphasis": [
@@ -5860,8 +5966,10 @@
           }
         ],
         "closing": {
-          "text": "Both may have understandable reasons.",
-          "at": 1824.86
+          "lead": "Both may have",
+          "leadAt": 1824.86,
+          "text": "understandable reasons.",
+          "at": 1826.28
         }
       }
     },
@@ -5878,12 +5986,16 @@
             "at": 1829.96
           },
           {
-            "text": "if either person assumes their own expectation",
+            "text": "if either person assumes",
             "at": 1831.1
           },
           {
+            "text": "their own expectation",
+            "at": 1832.92
+          },
+          {
             "text": "should automatically take priority.",
-            "at": 1833.82
+            "at": 1834.08
           }
         ],
         "emphasis": [
@@ -5949,10 +6061,10 @@
           }
         ],
         "closing": {
-          "lead": "respecting family commitments,",
+          "lead": "respecting family commitments, protecting",
           "leadAt": 1858.26,
-          "text": "protecting time together.",
-          "at": 1860.1
+          "text": "time together.",
+          "at": 1860.76
         }
       }
     },
@@ -5995,12 +6107,16 @@
             "at": 1874.92
           },
           {
-            "text": "a spouse will automatically",
+            "text": "their spouse will automatically",
             "at": 1877.08
           },
           {
-            "text": "eliminate every feeling of loneliness",
+            "text": "eliminate every",
             "at": 1878.3
+          },
+          {
+            "text": "feeling of loneliness",
+            "at": 1879.56
           },
           {
             "text": "or emotional difficulty.",
@@ -6064,7 +6180,7 @@
           "at": 1888.86
         },
         "right": {
-          "title": "But cannot be expected to",
+          "title": "Cannot be expected to",
           "points": [
             "Meet every emotional need",
             "Resolve every personal challenge"
@@ -6109,16 +6225,16 @@
         },
         "items": [
           {
-            "text": "Appropriate relationships with family and friends",
-            "at": 1905.88
+            "text": "Relationships with family and friends",
+            "at": 1907.08
           },
           {
-            "text": "Pursuing meaningful interests",
-            "at": 1909.6
+            "text": "Meaningful interests",
+            "at": 1910.2
           },
           {
-            "text": "Seeking professional support when needed",
-            "at": 1911.76
+            "text": "Professional support when needed",
+            "at": 1912.08
           }
         ]
       }
@@ -6203,8 +6319,12 @@
       "props": {
         "lines": [
           {
-            "text": "These questions help us develop",
+            "text": "These questions",
             "at": 1932.02
+          },
+          {
+            "text": "help us develop",
+            "at": 1934.68
           },
           {
             "text": "the emotional maturity",
@@ -6380,12 +6500,16 @@
       "props": {
         "lines": [
           {
-            "text": "A marriage involves considering another person's needs,",
+            "text": "A marriage involves considering another person's",
             "at": 1987.36
           },
           {
-            "text": "feelings and circumstances alongside our own",
-            "at": 1990.24
+            "text": "needs, feelings and circumstances",
+            "at": 1989.86
+          },
+          {
+            "text": "alongside our own",
+            "at": 1991.74
           }
         ],
         "ground": "royal"
@@ -6427,14 +6551,14 @@
       "endSec": 2007.4,
       "props": {
         "left": {
-          "title": "Listening does not mean",
+          "title": "Listening is not",
           "points": [
             "Agreeing with everything"
           ],
           "at": 2001.02
         },
         "right": {
-          "title": "It means",
+          "title": "It is",
           "points": [
             "Being willing to understand another person's perspective"
           ],
@@ -6562,8 +6686,12 @@
       "props": {
         "lines": [
           {
-            "text": "Am I prepared to support someone",
+            "text": "Am I prepared",
             "at": 2036.06
+          },
+          {
+            "text": "to support someone",
+            "at": 2036.92
           },
           {
             "text": "during their difficult circumstances?",
@@ -6700,16 +6828,16 @@
       "props": {
         "label": "You do not need perfect answers",
         "first": {
-          "text": "Reflect on",
-          "at": 2068.76
+          "text": "Identify",
+          "at": 2069.78
         },
         "script": {
           "text": "where you are now",
           "at": 2070.34
         },
         "second": {
-          "text": "and how you can grow",
-          "at": 2072.24
+          "text": "and how you can develop",
+          "at": 2071.66
         }
       }
     },
@@ -6726,7 +6854,7 @@
         },
         "items": [
           {
-            "text": "Sakinah",
+            "text": "Sakina",
             "at": 2080.96
           },
           {

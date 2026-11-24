@@ -21,7 +21,7 @@ export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> 
   const env = useSceneEnvelope();
   const center = align === "center";
   const kickerP = useProgress(kicker?.at ?? scene.startSec, 0.9);
-  const emph = new Set(emphasis.map(norm));
+  const emph = new Set(emphasis.flatMap((e) => e.split(/\s+/)).map(norm)); // phrases like "most important" mark each word
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <PaperGround color={P.paper} deep={D.paperShade} seed={33} />
@@ -34,7 +34,7 @@ export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> 
           )}
           {lines.map((ln, i) => (
             <div key={i} data-qa-text="" style={{
-              fontFamily: fonts.text, fontWeight: 400, fontSize: L.size(scale), lineHeight: 1.14,
+              fontFamily: fonts.text, fontWeight: 400, fontSize: L.size(scale), lineHeight: emphasis.length ? 1.22 : 1.14, // script emphasis has tall ascenders
               color: P.oxblood, wordSpacing: textStyle.wordSpacing, letterSpacing: type.letterSpacing.headline,
               marginBottom: Math.round(14 * L.u), textWrap: "balance" as React.CSSProperties["textWrap"],
             }}>

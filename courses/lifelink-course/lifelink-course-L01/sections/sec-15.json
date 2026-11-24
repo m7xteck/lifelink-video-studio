@@ -23,8 +23,12 @@
       "at": 1801.38
      },
      {
-      "text": "to situations couples may experience.",
+      "text": "to situations",
       "at": 1802.76
+     },
+     {
+      "text": "couples may experience.",
+      "at": 1804.3
      }
     ],
     "emphasis": [
@@ -88,8 +92,10 @@
      }
     ],
     "closing": {
-     "text": "Both may have understandable reasons.",
-     "at": 1824.86
+     "lead": "Both may have",
+     "leadAt": 1824.86,
+     "text": "understandable reasons.",
+     "at": 1826.28
     }
    }
   },
@@ -110,12 +116,16 @@
       "at": 1829.96
      },
      {
-      "text": "if either person assumes their own expectation",
+      "text": "if either person assumes",
       "at": 1831.1
      },
      {
+      "text": "their own expectation",
+      "at": 1832.92
+     },
+     {
       "text": "should automatically take priority.",
-      "at": 1833.82
+      "at": 1834.08
      }
     ],
     "emphasis": [
@@ -177,10 +187,10 @@
      }
     ],
     "closing": {
-     "lead": "respecting family commitments,",
+     "lead": "respecting family commitments, protecting",
      "leadAt": 1858.26,
-     "text": "protecting time together.",
-     "at": 1860.1
+     "text": "time together.",
+     "at": 1860.76
     }
    }
   },
@@ -227,12 +237,16 @@
       "at": 1874.92
      },
      {
-      "text": "a spouse will automatically",
+      "text": "their spouse will automatically",
       "at": 1877.08
      },
      {
-      "text": "eliminate every feeling of loneliness",
+      "text": "eliminate every",
       "at": 1878.3
+     },
+     {
+      "text": "feeling of loneliness",
+      "at": 1879.56
      },
      {
       "text": "or emotional difficulty.",
@@ -292,7 +306,7 @@
      "at": 1888.86
     },
     "right": {
-     "title": "But cannot be expected to",
+     "title": "Cannot be expected to",
      "points": [
       "Meet every emotional need",
       "Resolve every personal challenge"
@@ -337,16 +351,16 @@
     },
     "items": [
      {
-      "text": "Appropriate relationships with family and friends",
-      "at": 1905.88
+      "text": "Relationships with family and friends",
+      "at": 1907.08
      },
      {
-      "text": "Pursuing meaningful interests",
-      "at": 1909.6
+      "text": "Meaningful interests",
+      "at": 1910.2
      },
      {
-      "text": "Seeking professional support when needed",
-      "at": 1911.76
+      "text": "Professional support when needed",
+      "at": 1912.08
      }
     ]
    }
@@ -431,8 +445,12 @@
    "props": {
     "lines": [
      {
-      "text": "These questions help us develop",
+      "text": "These questions",
       "at": 1932.02
+     },
+     {
+      "text": "help us develop",
+      "at": 1934.68
      },
      {
       "text": "the emotional maturity",
