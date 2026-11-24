@@ -460,9 +460,9 @@ export const buildBoard = (o: SyncOpts): { docs: OutDoc[]; warnings: string[] } 
   } });
 
   // ----- review media -----
-  const rm = o.reviewMedia ?? join(CODE_ROOT, "review-media");
+  const rms = (o.reviewMedia ?? join(CODE_ROOT, "review-media")).split(","); // several versions: comma-separated folders
   for (const l of lessons) {
-    const dirs = [rm, join(rm, l.id)].filter((d) => existsSync(join(d, "media-index.json")));
+    const dirs = rms.flatMap((rm) => [rm, join(rm, l.id)]).filter((d) => existsSync(join(d, "media-index.json")));
     const idx = dirs.map((d) => ({ d, i: MediaIndexSchema.safeParse(readJson(join(d, "media-index.json"))) })).filter((x) => x.i.success && x.i.data.lessonId === l.id);
     if (!idx.length) continue;
     const doc = buildReviewDoc(idx.map((x) => ({ index: x.i.data!, dir: x.d, attach: readJson(join(x.d, "upload-result.json")) })));
