@@ -97,8 +97,13 @@ export const runQa = (opts: { course: string; lesson: string; video: string; rec
   const y = [...stats.matchAll(/YAVG=([\d.]+)/g)].map((x) => Number(x[1]));
   const flashes = y.slice(1).map((val, i) => ({ t: +((i + 1) / m.fps + winFrom).toFixed(2), d: +(val - y[i]).toFixed(1) })).filter((f) => Math.abs(f.d) > 24);
   add({ id: "picture.flashes", status: flashes.length ? "FAIL" : "PASS", detail: flashes.length ? `Sudden brightness jumps at ${flashes.map((f) => f.t + "s").join(", ")}` : `No frame-to-frame brightness jumps (max Δ ${Math.max(0, ...y.slice(1).map((v2, i) => Math.abs(v2 - y[i]))).toFixed(1)} of 255)` });
-  const fr = ff(["-i", opts.video, "-vf", "freezedetect=n=-70dB:d=8", "-an", "-f", "null", "-"]);
-  const freezes = [...fr.matchAll(/freeze_start: ([\d.]+)[\s\S]*?freeze_duration: ([\d.]+)/g)].map((x) => ({ start: +(Number(x[1]) + winFrom).toFixed(2), dur: Number(x[2]) }));
+  // -50 dB tolerates the tiny differences an I-frame re-encode leaves in a still picture (at -70 dB a real 9 s freeze split at each keyframe
+  // and went undetected — found by pipeline/tests/qa-negative.ts). A freeze that lasts to the end of the file has no freeze_duration line.
+  const fr = ff(["-i", opts.video, "-vf", "freezedetect=n=-50dB:d=8", "-an", "-f", "null", "-"]);
+  const vidDur = Number(probe.format?.duration ?? 0);
+  const freezes = [...fr.matchAll(/freeze_start: ([\d.]+)(?:[\s\S]*?freeze_duration: ([\d.]+))?/g)]
+    .map((x) => ({ start: +(Number(x[1]) + winFrom).toFixed(2), dur: x[2] != null ? Number(x[2]) : +(vidDur - Number(x[1])).toFixed(2) }))
+    .filter((f) => f.dur >= 8);
   add({ id: "picture.long-stillness", status: freezes.length ? "WARN" : "PASS", detail: freezes.length ? `Completely static for >8s at ${JSON.stringify(freezes)} — confirm intentional` : "No unintended frozen picture (>8s)" });
 
   // 5. Layout guard events captured during render (outside frame / too small / overlap)
