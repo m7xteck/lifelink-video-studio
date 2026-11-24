@@ -11,7 +11,7 @@
       "id": "sec-08-01",
       "sectionId": "sec-08",
       "startSec": 809.6,
-      "endSec": 816.4,
+      "endSec": 817.0,
       "props": {
         "kicker": {
           "text": "Faith or culture?",
@@ -28,7 +28,7 @@
           },
           {
             "text": "is distinguishing between…",
-            "at": 815.6
+            "at": 815.32
           }
         ],
         "emphasis": [
@@ -43,13 +43,13 @@
       "type": "sortTrays",
       "id": "sec-08-02",
       "sectionId": "sec-08",
-      "startSec": 816.4,
+      "startSec": 817.0,
       "endSec": 824.2,
       "props": {
         "trays": [
           {
             "label": "Islamic teachings",
-            "at": 816.98
+            "at": 817.0
           },
           {
             "label": "Cultural expectations",
@@ -150,7 +150,7 @@
         "focus": [
           {
             "index": 1,
-            "at": 842.88
+            "at": 841.0
           }
         ]
       }
@@ -190,7 +190,7 @@
       "id": "sec-08-07",
       "sectionId": "sec-08",
       "startSec": 866.8,
-      "endSec": 912.6,
+      "endSec": 914.4,
       "props": {
         "trays": [
           {
@@ -247,7 +247,7 @@
         "focus": [
           {
             "index": 1,
-            "at": 870.14
+            "at": 867.22
           },
           {
             "index": 0,
@@ -259,7 +259,7 @@
           },
           {
             "index": 0,
-            "at": 902.42
+            "at": 901.98
           },
           {
             "index": null,
@@ -272,7 +272,7 @@
       "type": "kineticStatement",
       "id": "sec-08-08",
       "sectionId": "sec-08",
-      "startSec": 912.6,
+      "startSec": 914.4,
       "endSec": 922.7,
       "props": {
         "lines": [
@@ -389,7 +389,7 @@
           },
           {
             "index": null,
-            "at": 937.34
+            "at": 935.54
           }
         ],
         "caption": {

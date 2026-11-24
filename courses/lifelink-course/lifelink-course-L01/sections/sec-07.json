@@ -90,7 +90,7 @@
           },
           {
             "text": "Social media",
-            "at": 711.54
+            "at": 712.5
           }
         ],
         "caption": {
@@ -111,7 +111,8 @@
         "massAt": 731.42,
         "aboveLabel": {
           "text": "seemingly perfect",
-          "at": 716.64
+          "at": 716.64,
+          "from": "social media"
         },
         "belowLabel": {
           "text": "not seen",
@@ -212,7 +213,7 @@
           },
           {
             "text": "Social media",
-            "at": 711.54
+            "at": 712.5
           },
           {
             "text": "Changing roles",
@@ -286,7 +287,7 @@
           },
           {
             "text": "Social media",
-            "at": 711.54
+            "at": 712.5
           },
           {
             "text": "Changing roles",
@@ -362,7 +363,7 @@
               },
               {
                 "text": "Social media",
-                "at": 711.54
+                "at": 712.5
               },
               {
                 "text": "Changing roles",
