@@ -41,6 +41,36 @@ def agent_file_stats(aid):
     _tok_cache[p] = (size, tok, first, last)
     return tok, first, last
 
+def job_state(s, now):
+    """Real progress for a non-agent stage. Render: frames done from the render log (measured), time left from the measured rate (estimate)."""
+    done_marker = s.get("doneWhen")
+    if done_marker and os.path.exists(done_marker):
+        txt = open(done_marker, errors="ignore").read()
+        if s.get("doneText", "") in txt:
+            return {"state": "done", "label": s.get("label"), "finishedAt": iso(datetime.fromtimestamp(os.path.getmtime(done_marker), timezone.utc)), "summary": s.get("doneSummary", "Finished")}
+    log = s.get("log")
+    if not log or not os.path.exists(log):
+        return {"state": "queued", "label": s.get("label")}
+    txt = open(log, errors="ignore").read()
+    import re
+    started = datetime.fromtimestamp(os.stat(log).st_ctime, timezone.utc)
+    try: started = datetime.fromtimestamp(os.stat(log).st_birthtime, timezone.utc)
+    except Exception: pass
+    if s.get("startedAt"): started = parse_ts(s["startedAt"]) or started
+    total = s.get("totalFrames") or 1
+    secs = re.findall(r"section (\S+): (?:rendered (\d+) frames|cached \(frames (\d+)[–-](\d+)\))", txt)
+    frames = sum(int(r[1]) if r[1] else int(r[3]) - int(r[2]) + 1 for r in secs)
+    pct = re.findall(r"section (\S+): (\d+)%", txt)
+    if pct and (not secs or pct[-1][0] != secs[-1][0]): frames += int(pct[-1][1]) / 100 * total / max(1, s.get("sections", 16))
+    if "done →" in txt:
+        qa = s.get("qaMin", 15)
+        return {"state": "working", "label": s.get("label"), "startedAt": iso(started), "remainingMin": qa, "summary": "Render finished; automatic checks running"}
+    frac = min(0.999, frames / total)
+    el = (now - started).total_seconds() / 60
+    rem = (el / frac * (1 - frac) if frac > 0.02 else s["min"]) + s.get("qaMin", 15)
+    return {"state": "working", "label": s.get("label"), "startedAt": iso(started), "remainingMin": rem,
+            "summary": f"{frac * 100:.0f}% of frames rendered ({len(secs)} of {s.get('sections', 16)} sections) — measured; time left from the measured speed"}
+
 def snapshot():
     agents, order = {}, []
     for d in DIRS:
@@ -115,22 +145,33 @@ def snapshot():
     t = max([x for x in stage_end.values() if x] + [now])
     for p in plan["phases"]:
         if stage_end[p["stage"]] is None and started[p["phase"]] >= p["total"]: stage_end[p["stage"]] = now  # finished
+    jobs = []  # non-agent work (render, review…) shown as tasks so the bar and "working now" stay truthful
+    prev_done = True
     for s in plan.get("after", []):
-        t = t + timedelta(minutes=s["min"]); stage_end[s["stage"]] = t
+        st = job_state(s, now)
+        if st["state"] == "done":
+            stage_end[s["stage"]] = parse_ts(st.get("finishedAt") or "") or now
+        else:
+            mins = st.get("remainingMin", s["min"]) if st["state"] == "working" else s["min"]
+            t = max(t, now) + timedelta(minutes=mins); stage_end[s["stage"]] = t
+        jobs.append({"id": f"job-{s['stage']}", "label": st.get("label") or s.get("label") or s["stage"], "phase": None, "stage": s["stage"],
+                     "state": st["state"], "summary": st.get("summary", ""), "startedAt": st.get("startedAt"), "finishedAt": st.get("finishedAt"), "tokens": 0, "kind": "job"})
     stages = {}
     for p in plan["phases"]:
         mine = [a for a in agents.values() if a.get("phase") == p["phase"]]
         stages[p["stage"]] = {"agentsTotal": p["total"], "agentsDone": sum(a["state"] == "done" for a in mine),
                               "tokens": sum(a["tokens"] for a in mine), "etaAt": iso(stage_end[p["stage"]]) if stage_end[p["stage"]] else None}
     for s in plan.get("after", []): stages[s["stage"]] = {"etaAt": iso(stage_end[s["stage"]])}
+    for s_ in plan.get("after", []): stages[s_["stage"]]["state"] = next(j["state"] for j in jobs if j["stage"] == s_["stage"])
+    alist = [agents[i] for i in dict.fromkeys(order)] + jobs
     return {"at": iso(now), "etaAt": iso(t), "tokens": sum(a["tokens"] for a in agents.values()),
-            "agentsDone": sum(a["state"] == "done" for a in agents.values()), "agentsTotal": sum(p["total"] for p in plan["phases"]),
-            "stages": stages, "agents": [agents[i] for i in dict.fromkeys(order)]}
+            "agentsDone": sum(a["state"] == "done" for a in alist), "agentsTotal": sum(p["total"] for p in plan["phases"]) + len(jobs),
+            "stages": stages, "agents": alist}
 
 def board_doc(s):
     """The single board/run document the live page reads (one write per update)."""
     stage_of = {p["phase"]: p["stage"] for p in plan["phases"]}
-    agents = [{"id": a["id"], "name": a.get("label") or a["id"], "stage": stage_of.get(a.get("phase"), "other"), "state": a["state"], "order": i,
+    agents = [{"id": a["id"], "name": a.get("label") or a["id"], "stage": a.get("stage") or stage_of.get(a.get("phase"), "other"), "state": a["state"], "order": i,
                "summary": a.get("summary", ""), "startedAt": a.get("startedAt"), "finishedAt": a.get("finishedAt"), "tokens": a["tokens"]}
               for i, a in enumerate(s["agents"])]
     for p in plan["phases"]:  # queued placeholders so the board shows what is still to come
