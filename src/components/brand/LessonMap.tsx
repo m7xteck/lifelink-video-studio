@@ -6,6 +6,7 @@ import { useNarrationTime, useSceneEnvelope } from "../../motion/time";
 import { PaperDefs } from "../../illustrations/paper";
 import { PaperTextureDefs, TextureGate } from "./paperTexture";
 import type { SceneOf } from "../../schema/manifest";
+import { SHADOW_1, Stage, txt } from "./stage";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
 
@@ -18,6 +19,10 @@ const P = brand.palette, D = brand.derived as Record<string, string>;
  *   • Revisit (`current` = i): stations before i are already reached; the road reaches station i on its cue and that disc
  *     lifts and settles as the clear current station; later stations stay quiet.
  * Positions depend only on the station count, so a station sits in the same place every time the map returns.
+ *   • `captions` (optional): what the narrator says about the active stop is carried on a paper tag in the band above the
+ *     map, joined to that station by a fine leader rule; one caption at a time, each on its cue. With captions the map rests
+ *     at 92 % and, while a caption is showing, eases in to full size around the active station (soft settle, ≤ 160 px
+ *     travel); between topics it eases back out. Settled frames are still.
  */
 const X0 = 230, X1 = 1690, Y_HI = 520, Y_LO = 760, START = { x: 96, y: 660 };
 const R = 34, R_NOW = 46, ROAD_W = 42, ROAD_DUR = 0.9, DISC_DELAY = 0.45, LABEL_DELAY = 0.6;
@@ -75,8 +80,20 @@ const wrap = (text: string, max = 20): string[] => {
 
 const clamp01 = (t: number, a: number, dur: number) => interpolate(t, [a, a + dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle });
 
+/* ---- captions + camera ---- */
+const CAM_REST = 0.92, CAM_NEAR = 1.0, CAM_C = { x: 960, y: 600 };
+const CAM_IN = 1.6, CAM_OUT = 1.4, CAM_MERGE = 6;      // captions closer than CAM_MERGE s keep the view in
+const MAP_X = [92, 1850];                               // map content extent (titles included) at scale 1
+const SAFE_X = [60, 1860];
+const TAG_TOP = 222, TAG_PAD_X = 30, TAG_H = 84, CAP_SIZE = 44;
+const smooth = (t: number, a: number, dur: number) => interpolate(t, [a, a + dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: ease.settle });
+const capSize = (text: string) => Math.max(38, Math.min(CAP_SIZE, Math.floor(1500 / Math.max(1, text.length * 0.5))));
+const capWidth = (text: string, size: number) => text.length * size * 0.5 + TAG_PAD_X * 2;
+
+type Cap = { text: string; at: number; until: number; station: number; joinPrev: boolean; joinNext: boolean; nextAt: number };
+
 export const LessonMap: React.FC<{ scene: SceneOf<"lessonMap"> }> = ({ scene }) => {
-  const { stations, current, title } = scene.props;
+  const { stations, current, title, captions = [] } = scene.props;
   const L = useLayout();
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const t = useNarrationTime();
@@ -98,11 +115,43 @@ export const LessonMap: React.FC<{ scene: SceneOf<"lessonMap"> }> = ({ scene }) 
   const plan = roadUpTo(pts, pts[pts.length - 1].l);
   const maxW = Math.min(380, (2 * (X1 - X0)) / Math.max(1, n - 1) - 50);
 
+  // captions: each belongs to the station that is current when it is spoken
+  const sorted = [...captions].sort((a, b) => a.at - b.at);
+  const stationAt = (time: number) => { let k = 0; for (let i = 0; i < shown; i++) if (cue[i] <= time) k = i; return k; };
+  const caps: Cap[] = sorted.map((c, i) => {
+    const nextCap = sorted[i + 1]?.at ?? Infinity;
+    const nextStation = stations.slice(0, shown).map((s2, k) => cue[k]).find((a) => a > c.at) ?? Infinity;
+    const until = c.until ?? Math.min(nextCap - 0.1, nextStation, scene.endSec - 0.3);
+    return { text: c.text, at: c.at, until, station: stationAt(c.at), joinPrev: false, joinNext: false, nextAt: nextCap };
+  });
+  caps.forEach((c, i) => { const nx = caps[i + 1]; if (nx && nx.station === c.station && nx.at - c.until < 0.6) { c.joinNext = true; nx.joinPrev = true; } });
+  // camera: in while captions run (gaps < CAM_MERGE s keep it in), focal point follows the captions' station
+  const spans: [number, number][] = [];
+  for (const c of caps) { const last = spans[spans.length - 1]; if (last && c.at - last[1] < CAM_MERGE) last[1] = Math.max(last[1], c.until); else spans.push([c.at, c.until]); }
+  const near = spans.reduce((m, [a, b]) => Math.max(m, smooth(t, a - 0.2, CAM_IN) * (1 - smooth(t, b, CAM_OUT))), 0);
+  let fx = caps.length ? st[caps[0].station].x : CAM_C.x, fy = caps.length ? st[caps[0].station].y : CAM_C.y;
+  caps.forEach((c, i) => {
+    if (i === 0 || c.station === caps[i - 1].station) return;
+    // the view travels with the road to the new station (or with the caption, if the station was reached earlier)
+    const go = Math.max(caps[i - 1].at, Math.min(c.at, cue[c.station] + DISC_DELAY));
+    const k = smooth(t, go, CAM_IN);
+    fx += (st[c.station].x - fx) * k; fy += (st[c.station].y - fy) * k;
+  });
+  const sc = caps.length ? CAM_REST + (CAM_NEAR - CAM_REST) * near : 1;
+  // rest: scaled about the frame centre; near: scaled about the active station (it holds its place), clamped so the
+  // whole map stays inside the safe area
+  const restT = { x: CAM_C.x * (1 - CAM_REST), y: CAM_C.y * (1 - CAM_REST) };
+  const nearT = { x: restT.x + CAM_REST * fx - CAM_NEAR * fx, y: restT.y + CAM_REST * fy - CAM_NEAR * fy };
+  nearT.x = Math.max(SAFE_X[0] - MAP_X[0] * CAM_NEAR, Math.min(SAFE_X[1] - MAP_X[1] * CAM_NEAR, nearT.x));
+  const tx = caps.length ? restT.x + (nearT.x - restT.x) * near : 0, ty = caps.length ? restT.y + (nearT.y - restT.y) * near : 0;
+  const view = (p: Pt) => ({ x: sc * p.x + tx, y: sc * p.y + ty });
+
   return (
     <AbsoluteFill style={{ opacity: env.opacity, wordSpacing: textStyle.wordSpacing }}>
       <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" width={L.width} height={L.height} style={{ position: "absolute", inset: 0 }}>
         <PaperDefs id={id} />
         <defs><PaperTextureDefs id={id} strength={0.2} /></defs>
+        <g transform={caps.length ? `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${sc.toFixed(4)})` : undefined}>
         {/* the planned route: a fine dashed line the paper road will cover */}
         <path d={plan} stroke={D.hairline} strokeWidth={2.5} fill="none" strokeDasharray="3 12" strokeLinecap="round" />
         {road && (
@@ -119,8 +168,21 @@ export const LessonMap: React.FC<{ scene: SceneOf<"lessonMap"> }> = ({ scene }) 
           <Station key={i} id={id} pt={st[i]} high={i % 2 === 1} title={s.title} at={cue[i]} t={t}
             maxW={maxW} nextAt={i + 1 < shown ? cue[i + 1] : undefined} />
         ))}
+        </g>
         {title && <Title text={title.text} at={title.at} t={t} />}
+        {caps.map((c, i) => {
+          const pt = st[c.station], high = c.station % 2 === 1;
+          const lines = wrap(stations[c.station].title);
+          const size = labelSize(lines, maxW);
+          const top = high ? pt.y - R_NOW - 18 - (lines.length - 1) * size * 1.2 - size * 0.95 : pt.y - R_NOW - 10;
+          return <CaptionLeader key={i} cap={c} t={t} from={view({ x: pt.x, y: 0 }).x} to={view({ x: pt.x, y: top })} />;
+        })}
       </svg>
+      {caps.length > 0 && (
+        <Stage>
+          {caps.map((c, i) => <CaptionTag key={i} cap={c} t={t} x={view(st[c.station]).x} />)}
+        </Stage>
+      )}
       <TextureGate />
     </AbsoluteFill>
   );
@@ -179,6 +241,48 @@ const Station: React.FC<{ id: string; pt: Pt; high: boolean; title: string; at: 
           {lines.map((l, i) => <tspan key={i} x={pt.x} dy={i ? lh : 0}>{l}</tspan>)}
         </text>
       )}
+    </g>
+  );
+};
+
+/** Where the tag sits: centred over its station, clamped inside the safe area. */
+const tagBox = (text: string, x: number) => {
+  const size = capSize(text), w = capWidth(text, size);
+  const cx = Math.max(96 + w / 2, Math.min(1824 - w / 2, x));
+  return { size, w, cx };
+};
+const capIn = (c: Cap, t: number) => (c.joinPrev ? smooth(t, c.at, 0.7) : smooth(t, c.at, 0.9));
+const capOut = (c: Cap, t: number) => smooth(t, c.until - 0.35, 0.35);
+
+/** The caption: a paper tag (rose edge) in the band above the map; the words come into focus as the tag settles. */
+const CaptionTag: React.FC<{ cap: Cap; t: number; x: number }> = ({ cap, t, x }) => {
+  const p = capIn(cap, t), q = capOut(cap, t);
+  if (p <= 0 || q >= 1) return null;
+  const { size, w, cx } = tagBox(cap.text, x);
+  const rise = (1 - p) * 12;
+  return (
+    <div style={{ position: "absolute", left: cx - w / 2, top: TAG_TOP - rise, width: w, height: TAG_H, opacity: Math.min(1, p * 2) * (1 - q), filter: SHADOW_1 }}>
+      <div style={{ position: "absolute", inset: 0, background: D.paperLight, borderRadius: 4 }} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 0, height: 5, background: P.rose, borderRadius: "4px 4px 0 0" }} />
+      <div data-qa-text="" style={txt(size, P.oxblood, { position: "absolute", left: 0, right: 0, top: (TAG_H - size * 1.22) / 2 + 3, textAlign: "center", whiteSpace: "nowrap",
+        filter: p < 1 ? `blur(${((1 - p) * 5).toFixed(2)}px)` : undefined })}>{cap.text}</div>
+    </div>
+  );
+};
+
+/** Fine leader rule from the tag down to its station (to the disc, or to the top of a raised station's title). */
+const CaptionLeader: React.FC<{ cap: Cap; t: number; from: number; to: Pt }> = ({ cap, t, from, to }) => {
+  const draw = cap.joinPrev ? 1 : smooth(t, cap.at + 0.15, 0.6);
+  const q = cap.joinNext ? 0 : capOut(cap, t);
+  if (t < cap.at || draw <= 0 || q >= 1 || (cap.joinNext && t >= cap.nextAt)) return null;
+  const { w, cx } = tagBox(cap.text, from);
+  const x0 = Math.max(cx - w / 2 + 28, Math.min(cx + w / 2 - 28, to.x));
+  const y0 = TAG_TOP + TAG_H + 2;
+  const d = `M${x0.toFixed(1)},${y0} L${to.x.toFixed(1)},${to.y.toFixed(1)}`;
+  return (
+    <g opacity={1 - q}>
+      <path d={d} stroke={P.oxblood} strokeWidth={1.6} fill="none" opacity={0.7} pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - draw} />
+      {draw > 0.95 && <circle cx={to.x} cy={to.y} r={3.5} fill={P.oxblood} opacity={0.8} />}
     </g>
   );
 };

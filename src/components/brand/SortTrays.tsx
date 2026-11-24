@@ -6,6 +6,7 @@ import { useNarrationTime, useProgress, useSceneEnvelope } from "../../motion/ti
 import { PaperDefs } from "../../illustrations/paper";
 import { DIM, focusWeights, type Focus } from "../../motion/focus";
 import type { SceneOf } from "../../schema/manifest";
+import { scriptGap } from "./scriptText";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
 
@@ -41,7 +42,6 @@ const soften = (w: number) => SOFT_DIM + ((w - DIM) / (1 - DIM)) * (1 - SOFT_DIM
 
 const geom = (n: number) => (n >= 3 ? { w: 520, cx: [380, 960, 1540] } : { w: 660, cx: [570, 1350] });
 
-const scriptWords = (text: string, size: number) => text.split(" ").map((w, i) => <tspan key={i} dx={i ? size * 0.3 : 0}>{w}</tspan>);
 const fitSize = (text: string, max: number, maxW: number, em = 0.56) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
 /** One line if it fits at `size`, else split at the space nearest the middle. */
@@ -157,7 +157,7 @@ const CaptionScript: React.FC<{ id: string; text: string; at: number; y: number 
   return (
     <g>
       <defs><clipPath id={id}><rect x={960 - 520} y={y - size * 1.1} width={1040 * p} height={size * 1.6} /></clipPath></defs>
-      <text data-qa-text="" x={960} y={y} textAnchor="middle" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`}>{scriptWords(text, size)}</text>
+      <text data-qa-text="" x={960} y={y} textAnchor="middle" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`} {...scriptGap(size)}>{text}</text>
     </g>
   );
 };

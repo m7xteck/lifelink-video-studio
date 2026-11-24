@@ -1,238 +1,312 @@
 {
- "section": {
-  "id": "sec-04",
-  "title": "Three Pillars: Sakina, Mawaddah, Rahmah",
-  "startSec": 264,
-  "endSec": 406
- },
- "scenes": [
-  {
-   "id": "sec-04-01",
-   "type": "highlightLine",
-   "sectionId": "sec-04",
-   "startSec": 264,
-   "endSec": 272.6,
-   "props": {
-    "lines": [
-     {
-      "text": "A beautiful description of marriage in the Quran",
-      "at": 265.04
-     },
-     {
-      "text": "appears in Surah Ar-Rum, verse 21.",
-      "at": 268.16
-     }
-    ],
-    "highlight": {
-     "text": "Surah Ar-Rum, verse 21.",
-     "at": 269.4
+  "section": {
+    "id": "sec-04",
+    "title": "Three Pillars: Sakina, Mawaddah, Rahmah",
+    "startSec": 264,
+    "endSec": 406
+  },
+  "scenes": [
+    {
+      "id": "sec-04-01",
+      "type": "highlightLine",
+      "sectionId": "sec-04",
+      "startSec": 264,
+      "endSec": 272.6,
+      "props": {
+        "lines": [
+          {
+            "text": "A beautiful description of marriage in the Quran",
+            "at": 265.04
+          },
+          {
+            "text": "appears in Surah Ar-Rum, verse 21.",
+            "at": 268.16
+          }
+        ],
+        "highlight": {
+          "text": "Surah Ar-Rum, verse 21.",
+          "at": 269.4
+        },
+        "tint": "sky"
+      }
     },
-    "tint": "sky"
-   }
-  },
-  {
-   "id": "sec-04-02",
-   "type": "pullQuote",
-   "sectionId": "sec-04",
-   "startSec": 272.6,
-   "endSec": 284.4,
-   "props": {
-    "lines": [
-     {
-      "text": "Amongst His signs is that He created spouses",
-      "at": 274.36
-     },
-     {
-      "text": "so that we may find tranquility in them,",
-      "at": 277.32
-     },
-     {
-      "text": "and He places affection and mercy between them.",
-      "at": 279.72
-     }
-    ],
-    "emphasis": [
-     "tranquility",
-     "affection",
-     "mercy"
-    ],
-    "attribution": {
-     "text": "Qur'an 30:21 (translation of meaning)",
-     "at": 281.6
+    {
+      "id": "sec-04-02",
+      "type": "pullQuote",
+      "sectionId": "sec-04",
+      "startSec": 272.6,
+      "endSec": 284.4,
+      "props": {
+        "lines": [
+          {
+            "text": "Amongst His signs is that He created spouses",
+            "at": 274.36
+          },
+          {
+            "text": "so that we may find tranquility in them,",
+            "at": 277.32
+          },
+          {
+            "text": "and He places affection and mercy between them.",
+            "at": 279.72
+          }
+        ],
+        "emphasis": [
+          "tranquility",
+          "affection",
+          "mercy"
+        ],
+        "attribution": {
+          "text": "Qur'an 30:21 (translation of meaning)",
+          "at": 281.6
+        },
+        "variant": "scripture",
+        "leadAt": 272.74
+      }
     },
-    "variant": "scripture",
-    "leadAt": 272.74
-   }
-  },
-  {
-   "id": "sec-04-03",
-   "type": "threePillars",
-   "sectionId": "sec-04",
-   "startSec": 284.4,
-   "endSec": 356.2,
-   "props": {
-    "pillars": [
-     {
-      "word": "Sakina",
-      "at": 289.74,
-      "meaning": "Tranquility",
-      "meaningAt": 291.44
-     },
-     {
-      "word": "Mawaddah",
-      "at": 323.28,
-      "meaning": "Affection",
-      "meaningAt": 324.42
-     },
-     {
-      "word": "Rahmah",
-      "at": 349.68,
-      "meaning": "Mercy",
-      "meaningAt": 350.86
-     }
-    ],
-    "baseAt": 284.6,
-    "title": {
-     "text": "Three pillars of marriage",
-     "at": 284.6
+    {
+      "id": "sec-04-03",
+      "type": "threePillars",
+      "sectionId": "sec-04",
+      "startSec": 284.4,
+      "endSec": 356.2,
+      "props": {
+        "pillars": [
+          {
+            "word": "Sakina",
+            "at": 289.74,
+            "meaning": "Tranquility",
+            "meaningAt": 291.44
+          },
+          {
+            "word": "Mawaddah",
+            "at": 323.28,
+            "meaning": "Affection",
+            "meaningAt": 324.42
+          },
+          {
+            "word": "Rahmah",
+            "at": 349.68,
+            "meaning": "Mercy",
+            "meaningAt": 350.86
+          }
+        ],
+        "baseAt": 284.6,
+        "title": {
+          "text": "Three pillars of marriage",
+          "at": 284.6
+        },
+        "ghostAt": 286.16,
+        "lintelAt": 352.54,
+        "focus": [
+          {
+            "index": 1,
+            "at": 321.56
+          },
+          {
+            "index": 2,
+            "at": 347.54
+          },
+          {
+            "index": null,
+            "at": 352.54
+          }
+        ],
+        "captions": [
+          {
+            "pillar": 0,
+            "text": "Feeling emotionally secure",
+            "at": 296.98,
+            "until": 308.9
+          },
+          {
+            "pillar": 0,
+            "text": "Expressing thoughts without fear",
+            "at": 300.6,
+            "until": 308.9
+          },
+          {
+            "pillar": 0,
+            "text": "Treated with dignity and respect",
+            "at": 306.24,
+            "until": 308.9
+          },
+          {
+            "pillar": 0,
+            "text": "Disagreements still happen",
+            "at": 311.04,
+            "until": 321.2
+          },
+          {
+            "pillar": 0,
+            "text": "Resolved without unnecessary harm",
+            "at": 317.8,
+            "until": 321.2
+          },
+          {
+            "pillar": 1,
+            "text": "More than telling them you love them",
+            "at": 326.7,
+            "until": 332.7
+          },
+          {
+            "pillar": 1,
+            "text": "Demonstrated through everyday actions",
+            "at": 330.4,
+            "until": 332.7
+          },
+          {
+            "pillar": 1,
+            "text": "A kind word, a thoughtful gesture",
+            "at": 333.32,
+            "until": 340.4
+          },
+          {
+            "pillar": 1,
+            "text": "Showing appreciation",
+            "at": 335.62,
+            "until": 340.4
+          },
+          {
+            "pillar": 1,
+            "text": "Meaningful time together",
+            "at": 337.72,
+            "until": 340.4
+          },
+          {
+            "pillar": 1,
+            "text": "Support after a difficult day",
+            "at": 340.58,
+            "until": 346.6
+          },
+          {
+            "pillar": 1,
+            "text": "Small acts strengthen connection",
+            "at": 343.62,
+            "until": 346.6
+          }
+        ]
+      }
     },
-    "ghostAt": 286.16,
-    "lintelAt": 352.54,
-    "focus": [
-     {
-      "index": 1,
-      "at": 321.56
-     },
-     {
-      "index": 2,
-      "at": 347.54
-     },
-     {
-      "index": null,
-      "at": 352.54
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-04-09",
-   "type": "kineticStatement",
-   "sectionId": "sec-04",
-   "startSec": 356.2,
-   "endSec": 367.6,
-   "props": {
-    "lines": [
-     {
-      "text": "When one spouse is tired, unwell, worried or struggling,",
-      "at": 357.52
-     },
-     {
-      "text": "compassion and understanding",
-      "at": 363.54
-     },
-     {
-      "text": "can make an enormous difference.",
-      "at": 365.12
-     }
-    ],
-    "emphasis": [
-     "compassion",
-     "understanding"
-    ],
-    "align": "left",
-    "scale": "h2",
-    "reveal": "focus",
-    "leadAt": 356.66
-   }
-  },
-  {
-   "id": "sec-04-10",
-   "type": "quietReflection",
-   "sectionId": "sec-04",
-   "startSec": 367.6,
-   "endSec": 376.6,
-   "props": {
-    "text": "Our spouse is human, with strengths, weaknesses, emotions and vulnerabilities.",
-    "at": 370.26,
-    "leadAt": 368.4
-   }
-  },
-  {
-   "id": "sec-04-11",
-   "type": "threePillars",
-   "sectionId": "sec-04",
-   "startSec": 376.6,
-   "endSec": 391.0,
-   "props": {
-    "pillars": [
-     {
-      "word": "Sakina",
-      "at": 289.74,
-      "meaning": "Tranquility",
-      "meaningAt": 291.44
-     },
-     {
-      "word": "Mawaddah",
-      "at": 323.28,
-      "meaning": "Affection",
-      "meaningAt": 324.42
-     },
-     {
-      "word": "Rahmah",
-      "at": 349.68,
-      "meaning": "Mercy",
-      "meaningAt": 350.86
-     }
-    ],
-    "lintelAt": 300,
-    "focus": [
-     {
-      "index": 0,
-      "at": 380.86
-     },
-     {
-      "index": 1,
-      "at": 384.02
-     },
-     {
-      "index": 2,
-      "at": 387.36
-     },
-     {
-      "index": null,
-      "at": 389.4
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-04-12",
-   "type": "questionPrompt",
-   "sectionId": "sec-04",
-   "startSec": 391.0,
-   "endSec": 406.0,
-   "props": {
-    "lines": [
-     {
-      "text": "When you think about your future marriage,",
-      "at": 393.72
-     },
-     {
-      "text": "which of these three qualities",
-      "at": 396.58
-     },
-     {
-      "text": "do you already demonstrate well?",
-      "at": 398.42
-     },
-     {
-      "text": "And which would you like to develop further?",
-      "at": 402.22
-     }
-    ],
-    "markAt": 391.6,
-    "ground": "royal"
-   }
-  }
- ]
+    {
+      "id": "sec-04-09",
+      "type": "kineticStatement",
+      "sectionId": "sec-04",
+      "startSec": 356.2,
+      "endSec": 367.6,
+      "props": {
+        "lines": [
+          {
+            "text": "When one spouse is tired, unwell, worried or struggling,",
+            "at": 357.52
+          },
+          {
+            "text": "compassion and understanding",
+            "at": 363.54
+          },
+          {
+            "text": "can make an enormous difference.",
+            "at": 365.12
+          }
+        ],
+        "emphasis": [
+          "compassion",
+          "understanding"
+        ],
+        "align": "left",
+        "scale": "h2",
+        "reveal": "focus",
+        "leadAt": 356.66
+      }
+    },
+    {
+      "id": "sec-04-10",
+      "type": "quietReflection",
+      "sectionId": "sec-04",
+      "startSec": 367.6,
+      "endSec": 376.6,
+      "props": {
+        "text": "Our spouse is human, with strengths, weaknesses, emotions and vulnerabilities.",
+        "at": 370.26,
+        "leadAt": 368.4
+      }
+    },
+    {
+      "id": "sec-04-11",
+      "type": "threePillars",
+      "sectionId": "sec-04",
+      "startSec": 376.6,
+      "endSec": 391.0,
+      "props": {
+        "pillars": [
+          {
+            "word": "Sakina",
+            "at": 289.74,
+            "meaning": "Tranquility",
+            "meaningAt": 291.44
+          },
+          {
+            "word": "Mawaddah",
+            "at": 323.28,
+            "meaning": "Affection",
+            "meaningAt": 324.42
+          },
+          {
+            "word": "Rahmah",
+            "at": 349.68,
+            "meaning": "Mercy",
+            "meaningAt": 350.86
+          }
+        ],
+        "lintelAt": 300,
+        "focus": [
+          {
+            "index": 0,
+            "at": 380.86
+          },
+          {
+            "index": 1,
+            "at": 384.02
+          },
+          {
+            "index": 2,
+            "at": 387.36
+          },
+          {
+            "index": null,
+            "at": 389.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "sec-04-12",
+      "type": "questionPrompt",
+      "sectionId": "sec-04",
+      "startSec": 391.0,
+      "endSec": 406.0,
+      "props": {
+        "lines": [
+          {
+            "text": "When you think about your future marriage,",
+            "at": 393.72
+          },
+          {
+            "text": "which of these three qualities",
+            "at": 396.58
+          },
+          {
+            "text": "do you already demonstrate well?",
+            "at": 398.42
+          },
+          {
+            "text": "And which would you like to develop further?",
+            "at": 402.22
+          }
+        ],
+        "markAt": 391.6,
+        "ground": "royal"
+      }
+    }
+  ]
 }

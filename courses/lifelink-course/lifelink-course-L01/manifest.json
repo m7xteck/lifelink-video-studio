@@ -641,6 +641,93 @@
             "title": "The mirror check",
             "at": 235.19
           }
+        ],
+        "captions": [
+          {
+            "text": "An important position in Islam",
+            "at": 150.94,
+            "until": 154.9
+          },
+          {
+            "text": "Spiritual & personal development",
+            "at": 155.14,
+            "until": 158.2
+          },
+          {
+            "text": "Marriage does not exist in isolation",
+            "at": 162.64,
+            "until": 165.75
+          },
+          {
+            "text": "Emotional well-being, family",
+            "at": 166.82,
+            "until": 169.9
+          },
+          {
+            "text": "Finances, spiritual development",
+            "at": 170.06,
+            "until": 173.65
+          },
+          {
+            "text": "Wider responsibilities",
+            "at": 173.78,
+            "until": 176.5
+          },
+          {
+            "text": "What does it mean to share your life?",
+            "at": 183.08,
+            "until": 187.1
+          },
+          {
+            "text": "Balance our needs with someone else's",
+            "at": 188.34,
+            "until": 193.4
+          },
+          {
+            "text": "External qualities",
+            "at": 200.94,
+            "until": 202.5
+          },
+          {
+            "text": "Appearance, education, employment",
+            "at": 202.62,
+            "until": 205.6
+          },
+          {
+            "text": "Family background, financial stability",
+            "at": 205.72,
+            "until": 212.2
+          },
+          {
+            "text": "We must also look at character",
+            "at": 212.38,
+            "until": 214.5
+          },
+          {
+            "text": "Kindness, honesty",
+            "at": 214.64,
+            "until": 216.4
+          },
+          {
+            "text": "Emotional maturity, communication",
+            "at": 216.54,
+            "until": 221
+          },
+          {
+            "text": "Relationships experience difficulties",
+            "at": 224.72,
+            "until": 229.4
+          },
+          {
+            "text": "Assumptions never discussed",
+            "at": 229.56,
+            "until": 233
+          },
+          {
+            "text": "Look inward, reflect on our readiness",
+            "at": 238.4,
+            "until": 243.7
+          }
         ]
       }
     },
@@ -806,6 +893,80 @@
           {
             "index": null,
             "at": 352.54
+          }
+        ],
+        "captions": [
+          {
+            "pillar": 0,
+            "text": "Feeling emotionally secure",
+            "at": 296.98,
+            "until": 308.9
+          },
+          {
+            "pillar": 0,
+            "text": "Expressing thoughts without fear",
+            "at": 300.6,
+            "until": 308.9
+          },
+          {
+            "pillar": 0,
+            "text": "Treated with dignity and respect",
+            "at": 306.24,
+            "until": 308.9
+          },
+          {
+            "pillar": 0,
+            "text": "Disagreements still happen",
+            "at": 311.04,
+            "until": 321.2
+          },
+          {
+            "pillar": 0,
+            "text": "Resolved without unnecessary harm",
+            "at": 317.8,
+            "until": 321.2
+          },
+          {
+            "pillar": 1,
+            "text": "More than telling them you love them",
+            "at": 326.7,
+            "until": 332.7
+          },
+          {
+            "pillar": 1,
+            "text": "Demonstrated through everyday actions",
+            "at": 330.4,
+            "until": 332.7
+          },
+          {
+            "pillar": 1,
+            "text": "A kind word, a thoughtful gesture",
+            "at": 333.32,
+            "until": 340.4
+          },
+          {
+            "pillar": 1,
+            "text": "Showing appreciation",
+            "at": 335.62,
+            "until": 340.4
+          },
+          {
+            "pillar": 1,
+            "text": "Meaningful time together",
+            "at": 337.72,
+            "until": 340.4
+          },
+          {
+            "pillar": 1,
+            "text": "Support after a difficult day",
+            "at": 340.58,
+            "until": 346.6
+          },
+          {
+            "pillar": 1,
+            "text": "Small acts strengthen connection",
+            "at": 343.62,
+            "until": 346.6
           }
         ]
       }
@@ -1525,8 +1686,8 @@
           }
         ],
         "caption": {
-          "text": "financial pressures",
-          "at": 697.44
+          "text": "financial realities",
+          "at": 690.54
         }
       }
     },
@@ -2440,6 +2601,7 @@
             "at": 1049.98
           }
         ],
+        "ghostAt": 994.24,
         "railsAt": 1078.22,
         "caption": {
           "text": "work together",
@@ -4665,7 +4827,12 @@
             "at": 1853.24
           }
         ],
-        "responseLabel": "A healthier response"
+        "responseLabel": "A healthier response",
+        "note": {
+          "text": "Problems can arise if either person assumes\ntheir own expectation should automatically take priority",
+          "at": 1829.96,
+          "until": 1839.6
+        }
       }
     },
     {

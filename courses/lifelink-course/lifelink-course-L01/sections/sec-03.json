@@ -1,395 +1,482 @@
 {
- "section": {
-  "id": "sec-03",
-  "title": "Your Roadmap: Becoming, Not Perfect",
-  "startSec": 60,
-  "endSec": 264
- },
- "scenes": [
-  {
-   "id": "sec-03-01",
-   "type": "foundationLayers",
-   "sectionId": "sec-03",
-   "startSec": 60,
-   "endSec": 68.9,
-   "props": {
-    "courses": [
-     {
-      "label": "Founded upon",
-      "at": 60.82,
-      "items": [
-       {
-        "text": "Faith",
-        "at": 62.02
-       },
-       {
-        "text": "Compassion",
-        "at": 62.84
-       },
-       {
-        "text": "Responsibility",
-        "at": 63.64
-       },
-       {
-        "text": "Trust & respect",
-        "at": 65.0
-       }
-      ]
-     }
-    ],
-    "groundAt": 60.3
-   }
+  "section": {
+    "id": "sec-03",
+    "title": "Your Roadmap: Becoming, Not Perfect",
+    "startSec": 60,
+    "endSec": 264
   },
-  {
-   "id": "sec-03-02",
-   "type": "highlightLine",
-   "sectionId": "sec-03",
-   "startSec": 68.9,
-   "endSec": 74.1,
-   "props": {
-    "lines": [
-     {
-      "text": "It is not simply about finding someone you love",
-      "at": 69.06
-     },
-     {
-      "text": "or planning a beautiful wedding.",
-      "at": 72.14
-     }
-    ],
-    "highlight": {
-     "text": "not simply",
-     "at": 69.6
-    },
-    "tint": "sky"
-   }
-  },
-  {
-   "id": "sec-03-03",
-   "type": "comparison",
-   "sectionId": "sec-03",
-   "startSec": 74.1,
-   "endSec": 80.0,
-   "props": {
-    "left": {
-     "title": "A wedding",
-     "points": [
-      {
-       "text": "May last a day",
-       "at": 74.76
+  "scenes": [
+    {
+      "id": "sec-03-01",
+      "type": "foundationLayers",
+      "sectionId": "sec-03",
+      "startSec": 60,
+      "endSec": 68.9,
+      "props": {
+        "courses": [
+          {
+            "label": "Founded upon",
+            "at": 60.82,
+            "items": [
+              {
+                "text": "Faith",
+                "at": 62.02
+              },
+              {
+                "text": "Compassion",
+                "at": 62.84
+              },
+              {
+                "text": "Responsibility",
+                "at": 63.64
+              },
+              {
+                "text": "Trust & respect",
+                "at": 65.0
+              }
+            ]
+          }
+        ],
+        "groundAt": 60.3
       }
-     ],
-     "at": 74.34
     },
-    "right": {
-     "title": "Marriage",
-     "points": [
-      {
-       "text": "Its responsibilities can last a lifetime",
-       "at": 78.0
+    {
+      "id": "sec-03-02",
+      "type": "highlightLine",
+      "sectionId": "sec-03",
+      "startSec": 68.9,
+      "endSec": 74.1,
+      "props": {
+        "lines": [
+          {
+            "text": "It is not simply about finding someone you love",
+            "at": 69.06
+          },
+          {
+            "text": "or planning a beautiful wedding.",
+            "at": 72.14
+          }
+        ],
+        "highlight": {
+          "text": "not simply",
+          "at": 69.6
+        },
+        "tint": "sky"
       }
-     ],
-     "at": 77.6
     },
-    "preferred": "right"
-   }
-  },
-  {
-   "id": "sec-03-04",
-   "type": "kineticStatement",
-   "sectionId": "sec-03",
-   "startSec": 80.0,
-   "endSec": 87.6,
-   "props": {
-    "lines": [
-     {
-      "text": "This is why we have developed",
-      "at": 80.19
-     },
-     {
-      "text": "the LifeLink Marriage Academy.",
-      "at": 82.44
-     },
-     {
-      "text": "Across our 18 compulsory modules,",
-      "at": 84.7
-     }
-    ],
-    "emphasis": [
-     "Academy"
-    ],
-    "align": "center",
-    "scale": "h2",
-    "reveal": "ink"
-   }
-  },
-  {
-   "id": "sec-03-05",
-   "type": "highlightLine",
-   "sectionId": "sec-03",
-   "startSec": 87.6,
-   "endSec": 95.8,
-   "props": {
-    "lines": [
-     {
-      "text": "The foundations of a successful marriage:",
-      "at": 87.9
-     },
-     {
-      "text": "choosing a compatible partner,",
-      "at": 91.24
-     },
-     {
-      "text": "understanding Islamic responsibilities",
-      "at": 93.52
-     }
-    ],
-    "highlight": {
-     "text": "foundations",
-     "at": 88.52
+    {
+      "id": "sec-03-03",
+      "type": "comparison",
+      "sectionId": "sec-03",
+      "startSec": 74.1,
+      "endSec": 80.0,
+      "props": {
+        "left": {
+          "title": "A wedding",
+          "points": [
+            {
+              "text": "May last a day",
+              "at": 74.76
+            }
+          ],
+          "at": 74.34
+        },
+        "right": {
+          "title": "Marriage",
+          "points": [
+            {
+              "text": "Its responsibilities can last a lifetime",
+              "at": 78.0
+            }
+          ],
+          "at": 77.6
+        },
+        "preferred": "right"
+      }
     },
-    "tint": "sky"
-   }
-  },
-  {
-   "id": "sec-03-06",
-   "type": "wordStack",
-   "sectionId": "sec-03",
-   "startSec": 95.8,
-   "endSec": 102.8,
-   "props": {
-    "variant": "offset",
-    "words": [
-     {
-      "text": "Communication",
-      "at": 95.98
-     },
-     {
-      "text": "Managing conflict",
-      "at": 97.4
-     },
-     {
-      "text": "Finances & family relationships",
-      "at": 98.72
-     },
-     {
-      "text": "Maintaining love",
-      "at": 101.18
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-03-07",
-   "type": "statementCollision",
-   "sectionId": "sec-03",
-   "startSec": 102.8,
-   "endSec": 112.3,
-   "props": {
-    "label": "Our aim is not simply to help you",
-    "first": {
-     "text": "prepare for marriage,",
-     "at": 104.98
+    {
+      "id": "sec-03-04",
+      "type": "kineticStatement",
+      "sectionId": "sec-03",
+      "startSec": 80.0,
+      "endSec": 87.6,
+      "props": {
+        "lines": [
+          {
+            "text": "This is why we have developed",
+            "at": 80.19
+          },
+          {
+            "text": "the LifeLink Marriage Academy.",
+            "at": 82.44
+          },
+          {
+            "text": "Across our 18 compulsory modules,",
+            "at": 84.7
+          }
+        ],
+        "emphasis": [
+          "Academy"
+        ],
+        "align": "center",
+        "scale": "h2",
+        "reveal": "ink"
+      }
     },
-    "script": {
-     "text": "but to equip you",
-     "at": 106.14
+    {
+      "id": "sec-03-05",
+      "type": "highlightLine",
+      "sectionId": "sec-03",
+      "startSec": 87.6,
+      "endSec": 95.8,
+      "props": {
+        "lines": [
+          {
+            "text": "The foundations of a successful marriage:",
+            "at": 87.9
+          },
+          {
+            "text": "choosing a compatible partner,",
+            "at": 91.24
+          },
+          {
+            "text": "understanding Islamic responsibilities",
+            "at": 93.52
+          }
+        ],
+        "highlight": {
+          "text": "foundations",
+          "at": 88.52
+        },
+        "tint": "sky"
+      }
     },
-    "second": {
-     "text": "with the tools",
-     "at": 107.3
+    {
+      "id": "sec-03-06",
+      "type": "wordStack",
+      "sectionId": "sec-03",
+      "startSec": 95.8,
+      "endSec": 102.8,
+      "props": {
+        "variant": "offset",
+        "words": [
+          {
+            "text": "Communication",
+            "at": 95.98
+          },
+          {
+            "text": "Managing conflict",
+            "at": 97.4
+          },
+          {
+            "text": "Finances & family relationships",
+            "at": 98.72
+          },
+          {
+            "text": "Maintaining love",
+            "at": 101.18
+          }
+        ]
+      }
     },
-    "caption": {
-     "text": "to build a healthy, respectful and lasting relationship.",
-     "at": 107.98
+    {
+      "id": "sec-03-07",
+      "type": "statementCollision",
+      "sectionId": "sec-03",
+      "startSec": 102.8,
+      "endSec": 112.3,
+      "props": {
+        "label": "Our aim is not simply to help you",
+        "first": {
+          "text": "prepare for marriage,",
+          "at": 104.98
+        },
+        "script": {
+          "text": "but to equip you",
+          "at": 106.14
+        },
+        "second": {
+          "text": "with the tools",
+          "at": 107.3
+        },
+        "caption": {
+          "text": "to build a healthy, respectful and lasting relationship.",
+          "at": 107.98
+        }
+      }
+    },
+    {
+      "id": "sec-03-08",
+      "type": "highlightLine",
+      "sectionId": "sec-03",
+      "startSec": 112.3,
+      "endSec": 122.9,
+      "props": {
+        "lines": [
+          {
+            "text": "The sacred purpose of marriage,",
+            "at": 114.2
+          },
+          {
+            "text": "what it means to enter this partnership",
+            "at": 116.54
+          },
+          {
+            "text": "with the right intentions and expectations.",
+            "at": 118.98
+          }
+        ],
+        "highlight": {
+          "text": "sacred purpose",
+          "at": 115.02
+        },
+        "tint": "royal",
+        "leadAt": 112.48
+      }
+    },
+    {
+      "id": "sec-03-09",
+      "type": "reflectionField",
+      "sectionId": "sec-03",
+      "startSec": 122.9,
+      "endSec": 135.9,
+      "props": {
+        "lines": [
+          {
+            "text": "Reflect not only on the qualities",
+            "at": 125.46
+          },
+          {
+            "text": "you want in a future spouse,",
+            "at": 127.44
+          },
+          {
+            "text": "but also on the qualities",
+            "at": 129.58
+          }
+        ],
+        "script": {
+          "text": "you are bringing",
+          "at": 130.94
+        },
+        "after": [
+          {
+            "text": "into this marriage.",
+            "at": 131.66
+          }
+        ],
+        "ground": "oxblood",
+        "leadAt": 123.16
+      }
+    },
+    {
+      "id": "sec-03-10",
+      "type": "kineticStatement",
+      "sectionId": "sec-03",
+      "startSec": 135.9,
+      "endSec": 144.1,
+      "props": {
+        "lines": [
+          {
+            "text": "Before we explore the foundations of marriage,",
+            "at": 136.48
+          },
+          {
+            "text": "what we will be learning throughout this module.",
+            "at": 140.78
+          }
+        ],
+        "emphasis": [
+          "learning"
+        ],
+        "align": "left",
+        "scale": "h2",
+        "reveal": "ink"
+      }
+    },
+    {
+      "id": "sec-03-11",
+      "type": "lessonMap",
+      "sectionId": "sec-03",
+      "startSec": 144.1,
+      "endSec": 244.0,
+      "props": {
+        "title": {
+          "text": "Our journey",
+          "at": 144.32
+        },
+        "stations": [
+          {
+            "title": "Divine purpose",
+            "at": 146.07
+          },
+          {
+            "title": "The marital ecosystem",
+            "at": 160.15
+          },
+          {
+            "title": "Partnership & sacred trust",
+            "at": 178.45
+          },
+          {
+            "title": "Qualities of marriage",
+            "at": 194.65
+          },
+          {
+            "title": "Realistic expectations",
+            "at": 221.59
+          },
+          {
+            "title": "The mirror check",
+            "at": 235.19
+          }
+        ],
+        "captions": [
+          {
+            "text": "An important position in Islam",
+            "at": 150.94,
+            "until": 154.9
+          },
+          {
+            "text": "Spiritual & personal development",
+            "at": 155.14,
+            "until": 158.2
+          },
+          {
+            "text": "Marriage does not exist in isolation",
+            "at": 162.64,
+            "until": 165.75
+          },
+          {
+            "text": "Emotional well-being, family",
+            "at": 166.82,
+            "until": 169.9
+          },
+          {
+            "text": "Finances, spiritual development",
+            "at": 170.06,
+            "until": 173.65
+          },
+          {
+            "text": "Wider responsibilities",
+            "at": 173.78,
+            "until": 176.5
+          },
+          {
+            "text": "What does it mean to share your life?",
+            "at": 183.08,
+            "until": 187.1
+          },
+          {
+            "text": "Balance our needs with someone else's",
+            "at": 188.34,
+            "until": 193.4
+          },
+          {
+            "text": "External qualities",
+            "at": 200.94,
+            "until": 202.5
+          },
+          {
+            "text": "Appearance, education, employment",
+            "at": 202.62,
+            "until": 205.6
+          },
+          {
+            "text": "Family background, financial stability",
+            "at": 205.72,
+            "until": 212.2
+          },
+          {
+            "text": "We must also look at character",
+            "at": 212.38,
+            "until": 214.5
+          },
+          {
+            "text": "Kindness, honesty",
+            "at": 214.64,
+            "until": 216.4
+          },
+          {
+            "text": "Emotional maturity, communication",
+            "at": 216.54,
+            "until": 221.0
+          },
+          {
+            "text": "Relationships experience difficulties",
+            "at": 224.72,
+            "until": 229.4
+          },
+          {
+            "text": "Assumptions never discussed",
+            "at": 229.56,
+            "until": 233.0
+          },
+          {
+            "text": "Look inward, reflect on our readiness",
+            "at": 238.4,
+            "until": 243.7
+          }
+        ]
+      }
+    },
+    {
+      "id": "sec-03-20",
+      "type": "pullQuote",
+      "sectionId": "sec-03",
+      "startSec": 244.0,
+      "endSec": 253.9,
+      "props": {
+        "lines": [
+          {
+            "text": "Remember, the aim is not perfection.",
+            "at": 244.48
+          },
+          {
+            "text": "None of us are perfect,",
+            "at": 247.92
+          },
+          {
+            "text": "and marriage does not require us",
+            "at": 249.78
+          },
+          {
+            "text": "to become perfect individuals.",
+            "at": 251.14
+          }
+        ],
+        "emphasis": [
+          "not perfection."
+        ]
+      }
+    },
+    {
+      "id": "sec-03-21",
+      "type": "wordStack",
+      "sectionId": "sec-03",
+      "startSec": 253.9,
+      "endSec": 264,
+      "props": {
+        "variant": "column",
+        "lead": {
+          "text": "However, it does require us to",
+          "at": 254.06
+        },
+        "words": [
+          {
+            "text": "Recognise our responsibilities",
+            "at": 256.32
+          },
+          {
+            "text": "Understand our strengths",
+            "at": 258.76
+          },
+          {
+            "text": "Identify areas to grow",
+            "at": 260.5
+          }
+        ]
+      }
     }
-   }
-  },
-  {
-   "id": "sec-03-08",
-   "type": "highlightLine",
-   "sectionId": "sec-03",
-   "startSec": 112.3,
-   "endSec": 122.9,
-   "props": {
-    "lines": [
-     {
-      "text": "The sacred purpose of marriage,",
-      "at": 114.2
-     },
-     {
-      "text": "what it means to enter this partnership",
-      "at": 116.54
-     },
-     {
-      "text": "with the right intentions and expectations.",
-      "at": 118.98
-     }
-    ],
-    "highlight": {
-     "text": "sacred purpose",
-     "at": 115.02
-    },
-    "tint": "royal",
-    "leadAt": 112.48
-   }
-  },
-  {
-   "id": "sec-03-09",
-   "type": "reflectionField",
-   "sectionId": "sec-03",
-   "startSec": 122.9,
-   "endSec": 135.9,
-   "props": {
-    "lines": [
-     {
-      "text": "Reflect not only on the qualities",
-      "at": 125.46
-     },
-     {
-      "text": "you want in a future spouse,",
-      "at": 127.44
-     },
-     {
-      "text": "but also on the qualities",
-      "at": 129.58
-     }
-    ],
-    "script": {
-     "text": "you are bringing",
-     "at": 130.94
-    },
-    "after": [
-     {
-      "text": "into this marriage.",
-      "at": 131.66
-     }
-    ],
-    "ground": "oxblood",
-    "leadAt": 123.16
-   }
-  },
-  {
-   "id": "sec-03-10",
-   "type": "kineticStatement",
-   "sectionId": "sec-03",
-   "startSec": 135.9,
-   "endSec": 144.1,
-   "props": {
-    "lines": [
-     {
-      "text": "Before we explore the foundations of marriage,",
-      "at": 136.48
-     },
-     {
-      "text": "what we will be learning throughout this module.",
-      "at": 140.78
-     }
-    ],
-    "emphasis": [
-     "learning"
-    ],
-    "align": "left",
-    "scale": "h2",
-    "reveal": "ink"
-   }
-  },
-  {
-   "id": "sec-03-11",
-   "type": "lessonMap",
-   "sectionId": "sec-03",
-   "startSec": 144.1,
-   "endSec": 244.0,
-   "props": {
-    "title": {
-     "text": "Our journey",
-     "at": 144.32
-    },
-    "stations": [
-     {
-      "title": "Divine purpose",
-      "at": 146.07
-     },
-     {
-      "title": "The marital ecosystem",
-      "at": 160.15
-     },
-     {
-      "title": "Partnership & sacred trust",
-      "at": 178.45
-     },
-     {
-      "title": "Qualities of marriage",
-      "at": 194.65
-     },
-     {
-      "title": "Realistic expectations",
-      "at": 221.59
-     },
-     {
-      "title": "The mirror check",
-      "at": 235.19
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-03-20",
-   "type": "pullQuote",
-   "sectionId": "sec-03",
-   "startSec": 244.0,
-   "endSec": 253.9,
-   "props": {
-    "lines": [
-     {
-      "text": "Remember, the aim is not perfection.",
-      "at": 244.48
-     },
-     {
-      "text": "None of us are perfect,",
-      "at": 247.92
-     },
-     {
-      "text": "and marriage does not require us",
-      "at": 249.78
-     },
-     {
-      "text": "to become perfect individuals.",
-      "at": 251.14
-     }
-    ],
-    "emphasis": [
-     "not perfection."
-    ]
-   }
-  },
-  {
-   "id": "sec-03-21",
-   "type": "wordStack",
-   "sectionId": "sec-03",
-   "startSec": 253.9,
-   "endSec": 264,
-   "props": {
-    "variant": "column",
-    "lead": {
-     "text": "However, it does require us to",
-     "at": 254.06
-    },
-    "words": [
-     {
-      "text": "Recognise our responsibilities",
-      "at": 256.32
-     },
-     {
-      "text": "Understand our strengths",
-      "at": 258.76
-     },
-     {
-      "text": "Identify areas to grow",
-      "at": 260.5
-     }
-    ]
-   }
-  }
- ]
+  ]
 }

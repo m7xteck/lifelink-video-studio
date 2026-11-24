@@ -193,6 +193,10 @@ export const BrandSceneSchemas = [
     recall: z.boolean().optional(),
     /** Revisits: one column index, or timed steps ({index:null} = all full). Others dim to 35%. */
     focus: z.union([z.number().int().min(0).max(2), z.array(z.object({ index: z.number().int().min(0).max(2).nullable(), at: z.number() }))]).optional(),
+    /** Optional: short spoken meanings set under the explained pillar as engraved paper labels, each on its cue (≤ 3 at once
+     *  per pillar; a label clears on `until`, default: when the next pillar is named). While labels show, the view eases up
+     *  and toward that pillar (≤ 150 px) and the title clears. Condense the narrator's words; never add new claims. */
+    captions: z.array(z.object({ pillar: z.number().int().min(0).max(2), text: z.string(), at: z.number(), until: z.number().optional() })).max(24).optional(),
   }) }),
   z.object({ ...Base, type: z.literal("foundationLayers"), props: z.object({
     /** Courses bottom-up; label sets on `at`, each brick (item) laid on its own `at`. */
@@ -261,6 +265,9 @@ export const BrandSceneSchemas = [
     ends: z.object({ left: z.string(), right: z.string(), at: z.number() }).optional(),
     /** Up to 4 planks laid left→right, each on its spoken cue, label set beneath. */
     planks: z.array(z.object({ text: z.string(), at: z.number() })).min(1).max(4),
+    /** Optional: faint numbered outline planks for every element set out on this cue (e.g. "four elements"); each plank
+     *  is laid solid into its outline on its own cue. */
+    ghostAt: z.number().optional(),
     /** Hand ropes ink across once the bridge is complete (e.g. on "work together"). */
     railsAt: z.number().optional(),
     /** Script word above the bridge (≤ 4 words). */
@@ -300,6 +307,9 @@ export const BrandSceneSchemas = [
     outcome: z.object({ text: z.string(), at: z.number() }).optional(),
     /** Earlier scenarios' topics, shown as tabs beside the card. */
     past: z.array(z.string()).max(4).optional(),
+    /** Optional margin note on the case sheet (≤ 2 lines; "\n" splits): written in the empty rows under the situation on
+     *  `at` while the situation lines dim; clears on `until` (default: just before `avoid`/the first response). */
+    note: z.object({ text: z.string(), at: z.number(), until: z.number().optional() }).optional(),
   }) }),
   z.object({ ...Base, type: z.literal("mirrorCheck"), props: z.object({
     /** Oval mirror is cut on `mirrorAt`; `title` script inked in the glass until the first question (returns on `doneAt`). */
@@ -319,6 +329,10 @@ export const BrandSceneSchemas = [
     /** Revisit: stations before `current` are already there (filled); the road reaches `current` on its `at`
      *  and that station pulses once; later stations are absent. Omit for the roadmap build (each station on its cue). */
     current: z.number().int().min(0).max(7).optional(),
+    /** Optional: captions carried by the active stop — a paper tag joined to that station by a fine leader rule, each on its
+     *  spoken cue (one at a time; clears on `until`, default: the next caption or station cue). While a caption shows the
+     *  view moves gently closer to that station (≤ 160 px travel). Condensed spoken words only. */
+    captions: z.array(z.object({ text: z.string(), at: z.number(), until: z.number().optional() })).max(40).optional(),
   }) }),
   z.object({ ...Base, type: z.literal("chapterRecap"), props: z.object({
     /** Optional plain heading (e.g. the chapter name). */

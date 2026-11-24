@@ -7,6 +7,7 @@ import { PaperDefs } from "../../illustrations/paper";
 import { focusWeights } from "../../motion/focus";
 import { PaperTextureDefs, TextureGate } from "./paperTexture";
 import type { SceneOf } from "../../schema/manifest";
+import { scriptGap } from "./scriptText";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
 
@@ -37,8 +38,6 @@ const SAFE_L = 96, SAFE_R = 1824; // ribbons and labels stay inside the 5 % safe
 const TIP_L = [772, 692, 692], TIP_R = [1142, 1232, 1232];
 const TRENCH = { top: GROUND + 16, h: 112 };
 
-/** Script face has a near-zero space: set words as tspans with an explicit gap. */
-const scriptWords = (text: string, size: number) => text.split(" ").map((w, i) => <tspan key={i} dx={i ? size * 0.3 : 0}>{w}</tspan>);
 const fit = (text: string, max: number, maxW: number, em = 0.56) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
 const ridge = (base: number, amp: number, freq: number, phase: number) => {
@@ -260,7 +259,7 @@ const CaptionScript: React.FC<{ id: string; text: string; at: number; y: number 
   return (
     <g>
       <defs><clipPath id={id}><rect x={960 - 540} y={y - size * 1.1} width={1080 * p} height={size * 1.6} /></clipPath></defs>
-      <text data-qa-text="" x={960} y={y} textAnchor="middle" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`}>{scriptWords(text, size)}</text>
+      <text data-qa-text="" x={960} y={y} textAnchor="middle" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`} {...scriptGap(size)}>{text}</text>
     </g>
   );
 };

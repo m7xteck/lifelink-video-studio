@@ -7,6 +7,7 @@ import { Ink, PaperDefs } from "../../illustrations/paper";
 import { focusWeights } from "../../motion/focus";
 import { PaperTextureDefs, TextureGate } from "./paperTexture";
 import type { SceneOf } from "../../schema/manifest";
+import { scriptGap } from "./scriptText";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
 
@@ -17,6 +18,8 @@ const P = brand.palette, D = brand.derived as Record<string, string>;
  *   • each element is a plank laid onto the cable on its cue, left→right: it is lowered (soft start, ≤ 70 px) and settles
  *     with its weight (the cable dips a few px under it, then holds still); its name sits on a paper tag below, joined by a
  *     fine leader rule (tags alternate between two rows so long names never crowd)
+ *   • `ghostAt` (optional): faint numbered outline planks for every element are set out along the cable (left→right) on
+ *     the narrator's count ("four elements"); each solid plank is lowered into its outline on its own cue
  *   • `railsAt`: the hand rope and hangers ink across once the bridge is complete
  *   • `focus` (plank index) dims the other planks + tags for revisits; settled frames are still.
  * Fixed 1920×1080 artboard: planks span exactly from the left cliff edge to the right one.
@@ -30,7 +33,6 @@ const TAG_H = 62;
 /** lowering curve: soft start, gentle arrival onto the cable */
 const LOWER = Easing.bezier(0.45, 0, 0.6, 1);
 
-const scriptWords = (text: string, size: number) => text.split(" ").map((w, i) => <tspan key={i} dx={i ? size * 0.3 : 0}>{w}</tspan>);
 const fitSize = (text: string, max: number, maxW: number, em = 0.56) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
 const ridge = (base: number, amp: number, freq: number, phase: number) => {
@@ -51,7 +53,7 @@ const ropeY = (x: number) => {
 };
 
 export const BridgePlanks: React.FC<{ scene: SceneOf<"bridgePlanks"> }> = ({ scene }) => {
-  const { cliffsAt, ends, planks, railsAt, caption, focus } = scene.props;
+  const { cliffsAt, ends, planks, railsAt, caption, focus, ghostAt } = scene.props;
   const L = useLayout();
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const t = useNarrationTime();
@@ -128,6 +130,7 @@ export const BridgePlanks: React.FC<{ scene: SceneOf<"bridgePlanks"> }> = ({ sce
           </g>
         )}
         <g transform={`translate(0 ${dip.toFixed(2)})`}>
+          {ghostAt !== undefined && planks.slice(0, n).map((p, i) => <GhostPlank key={`g${i}`} id={id} i={i} at={ghostAt + 0.25 + i * 0.16} solidAt={p.at} x={EDGE_L + i * pw} w={pw} />)}
           {planks.slice(0, n).map((p, i) => (
             <Plank key={i} id={id} i={i} text={p.text} at={p.at} x={EDGE_L + i * pw} w={pw} size={size} weight={w[i]} />
           ))}
@@ -174,6 +177,25 @@ const Plank: React.FC<{ id: string; i: number; text: string; at: number; x: numb
   );
 };
 
+/** Set-out plank: a faint dashed outline with its number, uncovered left→right on the count; it gives way as the solid
+ *  plank lands in it. */
+const GhostPlank: React.FC<{ id: string; i: number; at: number; solidAt: number; x: number; w: number }> = ({ id, i, at, solidAt, x, w }) => {
+  const p = useProgress(at, 0.8, ease.settle);
+  const gone = useProgress(solidAt + 0.6, 0.3, ease.settle);
+  if (p <= 0 || gone >= 1) return null;
+  const px = x + 5, pwid = w - 10, cx = x + w / 2;
+  const cid = `${id}-ghost${i}`;
+  return (
+    <g opacity={1 - gone}>
+      <defs><clipPath id={cid}><rect x={px - 4} y={DECK - 4} width={(pwid + 8) * p} height={PLANK_H + 8} /></clipPath></defs>
+      <g clipPath={`url(#${cid})`}>
+        <rect x={px} y={DECK} width={pwid} height={PLANK_H} rx={3} fill={D.paperLight} fillOpacity={0.9} stroke={P.oxblood} strokeOpacity={0.6} strokeWidth={2} strokeDasharray="7 6" />
+      </g>
+      <text x={cx} y={DECK + PLANK_H / 2 + 24 * 0.36 - 2} textAnchor="middle" fontFamily={fonts.text} fontSize={24} fill={P.oxblood} opacity={0.75 * p}>{i + 1}</text>
+    </g>
+  );
+};
+
 const Ends: React.FC<{ left: string; right: string; at: number }> = ({ left, right, at }) => {
   const p = useProgress(at, 1.0, ease.settle);
   if (p <= 0) return null;
@@ -196,7 +218,7 @@ const CaptionScript: React.FC<{ id: string; text: string; at: number; until?: nu
   return (
     <g opacity={1 - off}>
       <defs><clipPath id={id}><rect x={960 - 540} y={y - size * 1.1} width={1080 * p} height={size * 1.6} /></clipPath></defs>
-      <text data-qa-text="" x={960} y={y} textAnchor="middle" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`}>{scriptWords(text, size)}</text>
+      <text data-qa-text="" x={960} y={y} textAnchor="middle" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`} {...scriptGap(size)}>{text}</text>
     </g>
   );
 };

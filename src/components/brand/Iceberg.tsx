@@ -7,6 +7,7 @@ import { PaperDefs } from "../../illustrations/paper";
 import { focusWeights } from "../../motion/focus";
 import { PaperTextureDefs, TextureGate } from "./paperTexture";
 import type { SceneOf } from "../../schema/manifest";
+import { scriptGap } from "./scriptText";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
 
@@ -40,8 +41,6 @@ const ZONE_X = 140, ZONE_ABOVE_Y = 214, ZONE_BELOW_Y = 610;
 // still highlights on the water surface, set only when the hidden mass is revealed
 const GLINTS = [{ x: 180, y: 506, w: 220 }, { x: 1480, y: 500, w: 260 }, { x: 330, y: 534, w: 120 }, { x: 1620, y: 530, w: 140 }];
 
-/** Script face has a near-zero space: set words as tspans with an explicit gap. */
-const scriptWords = (text: string, size: number) => text.split(" ").map((w, i) => <tspan key={i} dx={i ? size * 0.3 : 0}>{w}</tspan>);
 
 const fit = (text: string, max: number, maxW: number, em = 0.56) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
@@ -201,7 +200,7 @@ const ScriptLabel: React.FC<{ id: string; text: string; at: number; instant?: bo
   return (
     <g>
       <defs><clipPath id={id}><rect x={x - 20} y={y - size * 1.1} width={640 * p} height={size * 1.6} /></clipPath></defs>
-      <text data-qa-text="" x={x} y={y} textAnchor="start" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`}>{scriptWords(text, size)}</text>
+      <text data-qa-text="" x={x} y={y} textAnchor="start" fontFamily={fonts.script} fontSize={size} fill={P.oxblood} clipPath={`url(#${id})`} {...scriptGap(size)}>{text}</text>
     </g>
   );
 };

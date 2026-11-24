@@ -14,6 +14,8 @@ import { D, FocusIn, Ink, P, SHADOW_1, SHADOW_2, ScriptWord, Stage, fit1, inkDur
  *   • `avoid` (the unhealthy response) is written in muted ink and struck through on `strikeAt`
  *   • the "better response" fills the ruled lines below, one line inked per cue; `outcome` script closes it
  *   • `past`: earlier scenarios' topics as paper tabs beside the card (cumulative). Settled frames are still.
+ *   • `note` (optional): a margin note written in the empty rows under the situation (rose margin rule, royal ink) while
+ *     the situation lines dim; it clears before the response is written there.
  * Every line sits on a ruled row; rows never overlap (situation ≤ 3, response ≤ 3; spacer rows drop if needed).
  */
 const CW = 1240, PAD = 80, HEAD = 244, FOOT = 60; // sheet-local
@@ -25,7 +27,7 @@ const Grain: React.FC<{ opacity?: number; flip?: boolean }> = ({ opacity = 0.45,
 );
 
 export const ScenarioCard: React.FC<{ scene: SceneOf<"scenarioCard"> }> = ({ scene }) => {
-  const { ordinal, topic, situation, avoid, response, responseLabel = "Better response", outcome, past = [], cardAt } = scene.props;
+  const { ordinal, topic, situation, avoid, response, responseLabel = "Better response", outcome, past = [], cardAt, note } = scene.props;
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const arrive = cardAt ?? Math.max(scene.startSec, ordinal.at - 0.5);
   const folder = useProgress(arrive, 1.1, ease.settle);
@@ -56,6 +58,14 @@ export const ScenarioCard: React.FC<{ scene: SceneOf<"scenarioCard"> }> = ({ sce
   const avoidSize = avoid ? fit1(avoid.text, 36, lineW - 150, 26) : 36;
   const strike = useProgress(avoid?.strikeAt ?? (avoid ? avoid.at + inkDur(avoid.text) + 0.4 : 1e9), 0.7, ease.settle);
   const topicSize = topic ? fit1(topic.text, 64, 640, 36) : 64;
+  // margin note: in the rows below the situation, until the response part begins
+  const noteUntil = note ? note.until ?? Math.min(avoid?.at ?? Infinity, response[0]?.at ?? Infinity, scene.endSec) - 0.3 : 1e9;
+  const noteIn = useProgress(note?.at ?? 1e9, 1.0, ease.settle);
+  const noteOut = useProgress(noteUntil - 0.5, 0.5, ease.settle);
+  const noteOn = noteIn * (1 - noteOut);
+  const noteLines = note ? note.text.split("\n") : [];
+  const noteSize = Math.min(32, ...noteLines.map((l) => fit1(l, 32, lineW - 60, 28))); // two lines fit between the situation rule and the next rule
+  const sitDim = 1 - 0.55 * noteOn;
 
   // folder: back panel a little larger than the sheet, with the case tab (left) and earlier cases' tabs (right)
   const FX = x0 - 40, FY = CY - 30, FW = CW + 80, FH = CH + 58;
@@ -104,7 +114,7 @@ export const ScenarioCard: React.FC<{ scene: SceneOf<"scenarioCard"> }> = ({ sce
               const base = rowBase[k]; // the rule this row sits on
               if (r.kind === "sit") {
                 const s = situation[r.i!];
-                return <FocusIn key={k} at={s.at} style={{ position: "absolute", left: PAD, top: base - bodySize * 1.12 - 8 }}><div data-qa-text="" style={txt(bodySize, P.oxblood, { whiteSpace: "nowrap" })}>{s.text}</div></FocusIn>;
+                return <FocusIn key={k} at={s.at} style={{ position: "absolute", left: PAD, top: base - bodySize * 1.12 - 8 }}><div data-qa-text="" style={txt(bodySize, P.oxblood, { whiteSpace: "nowrap", opacity: sitDim })}>{s.text}</div></FocusIn>;
               }
               if (r.kind === "avoid" && avoid) {
                 return (
@@ -127,6 +137,14 @@ export const ScenarioCard: React.FC<{ scene: SceneOf<"scenarioCard"> }> = ({ sce
               if (r.kind === "outcome" && outcome) return <ScriptWord key={k} text={outcome.text} at={outcome.at} size={62} color={P.oxblood} style={{ position: "absolute", right: PAD - 10, top: base - 88 }} />;
               return null;
             })}
+            {note && noteOn > 0 && (
+              <div style={{ position: "absolute", left: PAD, top: rowBase[Math.min(situation.length, 3) - 1] + 6, opacity: noteOn, transform: `translateY(${((1 - noteIn) * 10).toFixed(2)}px)` }}>
+                <div style={{ position: "absolute", left: 0, top: 4, bottom: 4, width: 3, background: P.rose, transformOrigin: "top", transform: `scaleY(${noteIn.toFixed(3)})` }} />
+                <Ink at={note.at + 0.15} dur={Math.min(1.6, 0.6 + note.text.length * 0.02)} style={{ paddingLeft: 30 }}>
+                  {noteLines.map((l, i) => <div key={i} data-qa-text="" style={txt(noteSize, D.royalDeep, { whiteSpace: "nowrap", lineHeight: 1.22 })}>{l}</div>)}
+                </Ink>
+              </div>
+            )}
           </div>
         )}
       </Stage>

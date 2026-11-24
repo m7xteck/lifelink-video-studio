@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { PaperTextureDefs, TextureGate } from "./paperTexture";
-import { brand, ease, fonts } from "../../brand/tokens";
+import { brand, ease, fonts, textStyle } from "../../brand/tokens";
 import { useLayout } from "../../motion/layout";
 import { useNarrationTime, useProgress, useSceneEnvelope } from "../../motion/time";
 import { PaperDefs } from "../../illustrations/paper";
@@ -19,6 +19,9 @@ const P = brand.palette, D = brand.derived as Record<string, string>;
  *   • after the third column (`lintelAt`) the entablature lowers onto the capitals and a folded-paper
  *     pediment stands up out of it (clipped: it rises from behind the cornice, never drops in)
  *   • `focus` dims the other columns (revisits / recap); settled frames are still.
+ *   • `captions` (optional): the narrator's explanation of a pillar is set under it as engraved paper labels (≤ 3 at once),
+ *     each on its cue; while they show, the view eases up and toward that pillar (≤ 150 px, soft settle) and the title
+ *     clears, then eases back before the next pillar is named.
  * All geometry on a 1920×1080 artboard; every piece rests on the one below by construction.
  */
 const CX = [600, 960, 1320];
@@ -46,10 +49,18 @@ const columnOutline = (cx: number) => {
     `L${cx - a},${ECH.top} L${cx - a},${ABACUS.y} L${cx + a},${ABACUS.y} L${cx + a},${ECH.top} L${cx + e},${ECH.top} L${cx + tp},${SHAFT_TOP} ` +
     `L${cx + b},${SHAFT_BOT} L${cx + pw},${SHAFT_BOT} L${cx + pw},${BASE_TOP} Z`;
 };
+/* captions: engraved labels under the explained pillar; camera lift while they show */
+const ART = { s: 1.08, cx: 960, cy: 560, oy: 540 };           // the temple group's fixed placement on the artboard
+const toScreen = (x: number, y: number) => ({ x: ART.cx + ART.s * (x - 960), y: ART.cy + ART.s * (y - ART.oy) });
+const CAM_LIFT = 128, CAM_SHIFT = 90, CAM_IN = 1.6, CAM_OUT = 1.4, CAM_MERGE = 6;
+const LABEL_H = 58, LABEL_GAP = 8, LABEL_SIZE = 40, LABEL_PAD = 34, LABEL_EM = 0.55;
+const labelSize = (text: string) => Math.max(34, Math.min(LABEL_SIZE, Math.floor(820 / Math.max(1, text.length * 0.5))));
+const smooth = (t: number, a: number, dur: number) => (t <= a ? 0 : t >= a + dur ? 1 : ease.settle((t - a) / dur));
+
 const fit = (text: string, max: number, maxW: number, em = 0.6) => Math.min(max, Math.floor(maxW / Math.max(1, text.length * em)));
 
 export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ scene }) => {
-  const { pillars, baseAt, lintelAt, focus, title, ghostAt, recall } = scene.props;
+  const { pillars, baseAt, lintelAt, focus, title, ghostAt, recall, captions = [] } = scene.props;
   const L = useLayout();
   const env = useSceneEnvelope({ fadeIn: 0.9, fadeOut: 0.9 });
   const t = useNarrationTime();
@@ -73,6 +84,21 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
   // positions; each solid column is then built inside its outline on its name
   const ghost = useProgress(ghostAt ?? 1e9, 1.2, ease.settle);
 
+  // captions: timing (default: clear when the next pillar is named), stack slot among the pillar's labels on screen
+  const caps = [...captions].sort((a, b) => a.at - b.at).map((c) => {
+    const nextPillar = pillars.map((p) => p.at).filter((a) => a > c.at).sort((a, b) => a - b)[0] ?? scene.endSec - 0.3;
+    return { ...c, until: c.until ?? Math.min(nextPillar - 0.2, scene.endSec - 0.3), slot: 0 };
+  });
+  caps.forEach((c, i) => { c.slot = caps.slice(0, i).filter((o) => o.pillar === c.pillar && o.until > c.at).length; });
+  const spans: { a: number; b: number }[] = [];
+  for (const c of caps) { const last = spans[spans.length - 1]; if (last && c.at - last.b < CAM_MERGE) last.b = Math.max(last.b, c.until); else spans.push({ a: c.at, b: c.until }); }
+  const lift = spans.reduce((m, { a, b }) => Math.max(m, smooth(t, a - 0.3, CAM_IN) * (1 - smooth(t, b, CAM_OUT))), 0);
+  // horizontal: the explained pillar drifts toward the centre (Sakina +90 px, Mawaddah 0, Rahmah −90 px)
+  let shift = caps.length ? [CAM_SHIFT, 0, -CAM_SHIFT][caps[0].pillar] : 0;
+  caps.forEach((c, i) => { if (i && c.pillar !== caps[i - 1].pillar) shift += ([CAM_SHIFT, 0, -CAM_SHIFT][c.pillar] - shift) * smooth(t, Math.max(caps[i - 1].until, pillars[c.pillar].at - 0.4), CAM_IN); });
+  const camX = shift * lift, camY = -CAM_LIFT * lift;
+  const titleLift = 1 - Math.min(1, lift * 1.6); // the title would meet the raised capitals: it clears while the view is up
+
   return (
     <AbsoluteFill style={{ opacity: env.opacity }}>
       <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" width={L.width} height={L.height} style={{ position: "absolute", inset: 0 }}>
@@ -82,6 +108,7 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
           {/* the pediment stands up from behind the cornice */}
           <clipPath id={`${id}-ped`}><rect x={0} y={0} width={1920} height={PED.base + 1} /></clipPath>
         </defs>
+        <g transform={`translate(${camX.toFixed(2)} ${camY.toFixed(2)})`}>
         <g transform="translate(960 560) scale(1.08) translate(-960 -540)">
         <g filter={`url(#${id}-tex)`}>
           {/* stylobate: three card steps laid bottom-up on the narrator's "three … pillars" */}
@@ -123,8 +150,11 @@ export const ThreePillars: React.FC<{ scene: SceneOf<"threePillars"> }> = ({ sce
             </g>
           ))}
         </g>
-        {title && titleP > 0 && (
-          <text data-qa-text="" x={150} y={170} fontFamily={fonts.text} fontSize={58} fill={P.oxblood} opacity={titleP}
+          {caps.map((c, i) => <EngravedLabel key={i} id={`${id}-c${i}`} text={c.text} at={c.at} until={c.until} slot={c.slot} cx={toScreen(CX[c.pillar], 0).x} t={t}
+            w={Math.max(...caps.filter((o) => o.pillar === c.pillar).map((o) => o.text.length * labelSize(o.text) * LABEL_EM)) + LABEL_PAD * 2} />)}
+        </g>
+        {title && titleP * titleLift > 0 && (
+          <text data-qa-text="" x={150} y={170} fontFamily={fonts.text} fontSize={58} fill={P.oxblood} opacity={titleP * titleLift}
             style={{ filter: titleP < 1 ? `blur(${((1 - titleP) * 7).toFixed(2)}px)` : undefined }}>{title.text}</text>
         )}
       </svg>
@@ -222,5 +252,26 @@ const Meaning: React.FC<{ text: string; at: number; cx: number }> = ({ text, at,
     <text data-qa-text="" x={cx} y={MEAN_Y + (1 - p) * 10} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={D.oxbloodMuted} opacity={p}>
       {text}
     </text>
+  );
+};
+
+/** A short meaning on an engraved paper label under its pillar: the slip settles (≤ 12 px) and the words come into focus,
+ *  cut into the paper (a pale lower edge under dark ink). Clears softly on `until`. */
+const EngravedLabel: React.FC<{ id: string; text: string; at: number; until: number; slot: number; cx: number; t: number; w: number }> = ({ id, text, at, until, slot, cx, t, w }) => {
+  const p = smooth(t, at, 0.9), q = smooth(t, until - 0.45, 0.45);
+  if (p <= 0 || q >= 1) return null;
+  const size = labelSize(text);
+  const x = Math.max(96, Math.min(1824 - w, cx - w / 2));
+  const top = toScreen(0, MEAN_Y).y + 32 + slot * (LABEL_H + LABEL_GAP) - (1 - p) * 12;
+  const ty = top + LABEL_H / 2 + size * 0.34;
+  return (
+    <g opacity={Math.min(1, p * 2) * (1 - q)}>
+      <rect x={x} y={top} width={w} height={LABEL_H} rx={3} fill={D.paperLight} filter={`url(#${id.split("-c")[0]}-shadow-1)`} />
+      <rect x={x + 1} y={top + LABEL_H - 3} width={w - 2} height={2} fill={D.hairline} />
+      <rect x={x} y={top} width={4} height={LABEL_H} rx={2} fill={P.royal} opacity={0.8} />
+      <text x={x + w / 2 + 2} y={ty + 1.2} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={D.paperLight} opacity={0.9} style={{ wordSpacing: textStyle.wordSpacing }}>{text}</text>
+      <text data-qa-text="" x={x + w / 2 + 2} y={ty} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={P.oxblood}
+        style={{ wordSpacing: textStyle.wordSpacing, filter: p < 1 ? `blur(${((1 - p) * 5).toFixed(2)}px)` : undefined }}>{text}</text>
+    </g>
   );
 };

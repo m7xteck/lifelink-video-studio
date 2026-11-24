@@ -1,12 +1,306 @@
-{"section": {"id": "sec-09", "title": "Partnership, Not Competition", "startSec": 946.8, "endSec": 1086.4},
-"scenes": [
-{"id": "sec-09-01", "sectionId": "sec-09", "type": "wordStack", "startSec": 946.8, "endSec": 955.65, "props": {"variant": "offset", "lead": {"text": "This brings together two individuals who may have very different", "at": 948.3}, "words": [{"text": "Personalities", "at": 951.86}, {"text": "Experiences", "at": 953.0}, {"text": "Perspectives", "at": 954.12}]}},
-{"id": "sec-09-02", "sectionId": "sec-09", "type": "highlightLine", "startSec": 955.65, "endSec": 961.28, "props": {"lines": [{"text": "Even when two people share the same religious values,", "at": 955.68}, {"text": "they will not necessarily think alike.", "at": 958.6}], "highlight": {"text": "think alike", "at": 959.78}, "tint": "sky"}},
-{"id": "sec-09-03", "sectionId": "sec-09", "type": "kineticStatement", "startSec": 961.28, "endSec": 970.9, "props": {"lines": [{"text": "One person may be naturally outgoing,", "at": 961.28}, {"text": "whilst the other is more reserved.", "at": 964.5}, {"text": "One may prefer careful planning,", "at": 966.68}, {"text": "whilst the other is more spontaneous.", "at": 968.66}], "emphasis": ["outgoing", "reserved", "planning", "spontaneous"], "align": "left", "scale": "h2", "reveal": "rise"}},
-{"id": "sec-09-04", "sectionId": "sec-09", "type": "comparison", "startSec": 970.9, "endSec": 976.9, "props": {"left": {"title": "Words", "points": ["Expressing affection"], "at": 972.84}, "right": {"title": "Practical actions", "points": ["Demonstrating care"], "at": 975.16}, "preferred": "none"}},
-{"id": "sec-09-05", "sectionId": "sec-09", "type": "statementCollision", "startSec": 976.9, "endSec": 982.2, "props": {"first": {"text": "These differences", "at": 977.3}, "script": {"text": "do not automatically mean", "at": 978.16}, "second": {"text": "two people are incompatible.", "at": 979.64}}},
-{"id": "sec-09-06", "sectionId": "sec-09", "type": "wordStack", "startSec": 982.2, "endSec": 987.9, "props": {"variant": "column", "lead": {"text": "What matters is how they", "at": 982.5}, "words": [{"text": "Understand", "at": 984.02}, {"text": "Respect", "at": 984.96}, {"text": "Respond", "at": 985.6}]}},
-{"id": "sec-09-07", "sectionId": "sec-09", "type": "pullQuote", "startSec": 987.9, "endSec": 993.0, "props": {"lines": [{"text": "A healthy marriage is built on partnership", "at": 988.16}, {"text": "rather than competition.", "at": 991.28}], "emphasis": ["partnership"]}},
-{"id": "sec-09-08", "sectionId": "sec-09", "type": "bridgePlanks", "startSec": 993.0, "endSec": 1082.2, "props": {"cliffsAt": 994.24, "planks": [{"text": "Respectful consultation", "at": 997.74}, {"text": "Shared responsibilities", "at": 1007.88}, {"text": "Mutual support", "at": 1026.92}, {"text": "Honouring individuality", "at": 1049.98}], "caption": {"text": "work together", "at": 1078.98}, "focus": [{"index": 0, "at": 1000.1}, {"index": 1, "at": 1007.88}, {"index": 2, "at": 1026.92}, {"index": 3, "at": 1049.98}, {"index": null, "at": 1072.1}], "railsAt": 1078.22}},
-{"id": "sec-09-09", "sectionId": "sec-09", "type": "chapterRecap", "startSec": 1082.2, "endSec": 1086.4, "props": {"title": {"text": "Partnership, not competition", "at": 1082.3}, "signature": {"type": "bridgePlanks", "props": {"cliffsAt": 0, "planks": [{"text": "Respectful consultation", "at": 0}, {"text": "Shared responsibilities", "at": 0}, {"text": "Mutual support", "at": 0}, {"text": "Honouring individuality", "at": 0}], "railsAt": 0, "caption": {"text": "work together", "at": 0}}}, "cardAt": 1082.3, "words": [{"text": "Respected", "at": 1082.98}, {"text": "Supported", "at": 1083.98}, {"text": "Valued", "at": 1084.9}]}}
-]}
+{
+  "section": {
+    "id": "sec-09",
+    "title": "Partnership, Not Competition",
+    "startSec": 946.8,
+    "endSec": 1086.4
+  },
+  "scenes": [
+    {
+      "id": "sec-09-01",
+      "sectionId": "sec-09",
+      "type": "wordStack",
+      "startSec": 946.8,
+      "endSec": 955.65,
+      "props": {
+        "variant": "offset",
+        "lead": {
+          "text": "This brings together two individuals who may have very different",
+          "at": 948.3
+        },
+        "words": [
+          {
+            "text": "Personalities",
+            "at": 951.86
+          },
+          {
+            "text": "Experiences",
+            "at": 953.0
+          },
+          {
+            "text": "Perspectives",
+            "at": 954.12
+          }
+        ]
+      }
+    },
+    {
+      "id": "sec-09-02",
+      "sectionId": "sec-09",
+      "type": "highlightLine",
+      "startSec": 955.65,
+      "endSec": 961.28,
+      "props": {
+        "lines": [
+          {
+            "text": "Even when two people share the same religious values,",
+            "at": 955.68
+          },
+          {
+            "text": "they will not necessarily think alike.",
+            "at": 958.6
+          }
+        ],
+        "highlight": {
+          "text": "think alike",
+          "at": 959.78
+        },
+        "tint": "sky"
+      }
+    },
+    {
+      "id": "sec-09-03",
+      "sectionId": "sec-09",
+      "type": "kineticStatement",
+      "startSec": 961.28,
+      "endSec": 970.9,
+      "props": {
+        "lines": [
+          {
+            "text": "One person may be naturally outgoing,",
+            "at": 961.28
+          },
+          {
+            "text": "whilst the other is more reserved.",
+            "at": 964.5
+          },
+          {
+            "text": "One may prefer careful planning,",
+            "at": 966.68
+          },
+          {
+            "text": "whilst the other is more spontaneous.",
+            "at": 968.66
+          }
+        ],
+        "emphasis": [
+          "outgoing",
+          "reserved",
+          "planning",
+          "spontaneous"
+        ],
+        "align": "left",
+        "scale": "h2",
+        "reveal": "rise"
+      }
+    },
+    {
+      "id": "sec-09-04",
+      "sectionId": "sec-09",
+      "type": "comparison",
+      "startSec": 970.9,
+      "endSec": 976.9,
+      "props": {
+        "left": {
+          "title": "Words",
+          "points": [
+            "Expressing affection"
+          ],
+          "at": 972.84
+        },
+        "right": {
+          "title": "Practical actions",
+          "points": [
+            "Demonstrating care"
+          ],
+          "at": 975.16
+        },
+        "preferred": "none"
+      }
+    },
+    {
+      "id": "sec-09-05",
+      "sectionId": "sec-09",
+      "type": "statementCollision",
+      "startSec": 976.9,
+      "endSec": 982.2,
+      "props": {
+        "first": {
+          "text": "These differences",
+          "at": 977.3
+        },
+        "script": {
+          "text": "do not automatically mean",
+          "at": 978.16
+        },
+        "second": {
+          "text": "two people are incompatible.",
+          "at": 979.64
+        }
+      }
+    },
+    {
+      "id": "sec-09-06",
+      "sectionId": "sec-09",
+      "type": "wordStack",
+      "startSec": 982.2,
+      "endSec": 987.9,
+      "props": {
+        "variant": "column",
+        "lead": {
+          "text": "What matters is how they",
+          "at": 982.5
+        },
+        "words": [
+          {
+            "text": "Understand",
+            "at": 984.02
+          },
+          {
+            "text": "Respect",
+            "at": 984.96
+          },
+          {
+            "text": "Respond",
+            "at": 985.6
+          }
+        ]
+      }
+    },
+    {
+      "id": "sec-09-07",
+      "sectionId": "sec-09",
+      "type": "pullQuote",
+      "startSec": 987.9,
+      "endSec": 993.0,
+      "props": {
+        "lines": [
+          {
+            "text": "A healthy marriage is built on partnership",
+            "at": 988.16
+          },
+          {
+            "text": "rather than competition.",
+            "at": 991.28
+          }
+        ],
+        "emphasis": [
+          "partnership"
+        ]
+      }
+    },
+    {
+      "id": "sec-09-08",
+      "sectionId": "sec-09",
+      "type": "bridgePlanks",
+      "startSec": 993.0,
+      "endSec": 1082.2,
+      "props": {
+        "cliffsAt": 994.24,
+        "planks": [
+          {
+            "text": "Respectful consultation",
+            "at": 997.74
+          },
+          {
+            "text": "Shared responsibilities",
+            "at": 1007.88
+          },
+          {
+            "text": "Mutual support",
+            "at": 1026.92
+          },
+          {
+            "text": "Honouring individuality",
+            "at": 1049.98
+          }
+        ],
+        "caption": {
+          "text": "work together",
+          "at": 1078.98
+        },
+        "focus": [
+          {
+            "index": 0,
+            "at": 1000.1
+          },
+          {
+            "index": 1,
+            "at": 1007.88
+          },
+          {
+            "index": 2,
+            "at": 1026.92
+          },
+          {
+            "index": 3,
+            "at": 1049.98
+          },
+          {
+            "index": null,
+            "at": 1072.1
+          }
+        ],
+        "railsAt": 1078.22,
+        "ghostAt": 994.24
+      }
+    },
+    {
+      "id": "sec-09-09",
+      "sectionId": "sec-09",
+      "type": "chapterRecap",
+      "startSec": 1082.2,
+      "endSec": 1086.4,
+      "props": {
+        "title": {
+          "text": "Partnership, not competition",
+          "at": 1082.3
+        },
+        "signature": {
+          "type": "bridgePlanks",
+          "props": {
+            "cliffsAt": 0,
+            "planks": [
+              {
+                "text": "Respectful consultation",
+                "at": 0
+              },
+              {
+                "text": "Shared responsibilities",
+                "at": 0
+              },
+              {
+                "text": "Mutual support",
+                "at": 0
+              },
+              {
+                "text": "Honouring individuality",
+                "at": 0
+              }
+            ],
+            "railsAt": 0,
+            "caption": {
+              "text": "work together",
+              "at": 0
+            }
+          }
+        },
+        "cardAt": 1082.3,
+        "words": [
+          {
+            "text": "Respected",
+            "at": 1082.98
+          },
+          {
+            "text": "Supported",
+            "at": 1083.98
+          },
+          {
+            "text": "Valued",
+            "at": 1084.9
+          }
+        ]
+      }
+    }
+  ]
+}
