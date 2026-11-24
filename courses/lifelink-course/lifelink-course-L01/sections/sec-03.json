@@ -8,34 +8,36 @@
  "scenes": [
   {
    "id": "sec-03-01",
-   "type": "wordStack",
+   "type": "foundationLayers",
    "sectionId": "sec-03",
    "startSec": 60,
    "endSec": 68.9,
    "props": {
-    "variant": "column",
-    "lead": {
-     "text": "A commitment founded upon",
-     "at": 60.44
-    },
-    "words": [
+    "courses": [
      {
-      "text": "Faith",
-      "at": 62.02
-     },
-     {
-      "text": "Compassion",
-      "at": 62.84
-     },
-     {
-      "text": "Responsibility",
-      "at": 63.64
-     },
-     {
-      "text": "Trust & respect",
-      "at": 65.0
+      "label": "Founded upon",
+      "at": 60.82,
+      "items": [
+       {
+        "text": "Faith",
+        "at": 62.02
+       },
+       {
+        "text": "Compassion",
+        "at": 62.84
+       },
+       {
+        "text": "Responsibility",
+        "at": 63.64
+       },
+       {
+        "text": "Trust & respect",
+        "at": 65.0
+       }
+      ]
      }
-    ]
+    ],
+    "groundAt": 60.3
    }
   },
   {
@@ -72,14 +74,20 @@
     "left": {
      "title": "A wedding",
      "points": [
-      { "text": "May last a day", "at": 74.76 }
+      {
+       "text": "May last a day",
+       "at": 74.76
+      }
      ],
      "at": 74.34
     },
     "right": {
      "title": "Marriage",
      "points": [
-      { "text": "Its responsibilities can last a lifetime", "at": 78.0 }
+      {
+       "text": "Its responsibilities can last a lifetime",
+       "at": 78.0
+      }
      ],
      "at": 77.6
     },
@@ -145,12 +153,13 @@
   },
   {
    "id": "sec-03-06",
-   "type": "parallelPhrases",
+   "type": "wordStack",
    "sectionId": "sec-03",
    "startSec": 95.8,
    "endSec": 102.8,
    "props": {
-    "items": [
+    "variant": "offset",
+    "words": [
      {
       "text": "Communication",
       "at": 95.98
@@ -160,20 +169,14 @@
       "at": 97.4
      },
      {
-      "text": "Finances",
+      "text": "Finances & family relationships",
       "at": 98.72
      },
      {
-      "text": "Family relationships",
-      "at": 99.86
+      "text": "Maintaining love",
+      "at": 101.18
      }
-    ],
-    "closing": {
-     "lead": "and",
-     "leadAt": 100.82,
-     "text": "Maintaining love",
-     "at": 101.18
-    }
+    ]
    }
   },
   {
@@ -227,7 +230,8 @@
      "text": "sacred purpose",
      "at": 115.02
     },
-    "tint": "royal"
+    "tint": "royal",
+    "leadAt": 112.48
    }
   },
   {
@@ -261,7 +265,8 @@
       "at": 131.66
      }
     ],
-    "ground": "oxblood"
+    "ground": "oxblood",
+    "leadAt": 123.16
    }
   },
   {
@@ -294,7 +299,7 @@
    "type": "lessonMap",
    "sectionId": "sec-03",
    "startSec": 144.1,
-   "endSec": 148.5,
+   "endSec": 244.0,
    "props": {
     "title": {
      "text": "Our journey",
@@ -303,321 +308,27 @@
     "stations": [
      {
       "title": "Divine purpose",
-      "at": 146.52
+      "at": 146.07
      },
      {
       "title": "The marital ecosystem",
-      "at": 160.6
+      "at": 160.15
      },
      {
       "title": "Partnership & sacred trust",
-      "at": 178.9
+      "at": 178.45
      },
      {
       "title": "Qualities of marriage",
-      "at": 195.1
+      "at": 194.65
      },
      {
       "title": "Realistic expectations",
-      "at": 222.04
+      "at": 221.59
      },
      {
       "title": "The mirror check",
-      "at": 235.64
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-03-11b",
-   "type": "kineticStatement",
-   "sectionId": "sec-03",
-   "startSec": 148.5,
-   "endSec": 158.1,
-   "props": {
-    "lines": [
-     {
-      "text": "Why marriage holds such an important position in Islam,",
-      "at": 149.44
-     },
-     {
-      "text": "and how it can contribute to our",
-      "at": 153.52
-     },
-     {
-      "text": "spiritual and personal development.",
-      "at": 155.26
-     }
-    ],
-    "emphasis": [
-     "spiritual",
-     "personal"
-    ],
-    "align": "left",
-    "scale": "h2",
-    "reveal": "focus"
-   }
-  },
-  {
-   "id": "sec-03-12",
-   "type": "highlightLine",
-   "sectionId": "sec-03",
-   "startSec": 158.1,
-   "endSec": 165.7,
-   "props": {
-    "lines": [
-     {
-      "text": "Then, what I call the marital ecosystem.",
-      "at": 158.6
-     },
-     {
-      "text": "Marriage does not exist in isolation.",
-      "at": 162.64
-     }
-    ],
-    "highlight": {
-     "text": "marital ecosystem.",
-     "at": 160.6
-    },
-    "tint": "sky"
-   }
-  },
-  {
-   "id": "sec-03-13",
-   "type": "wordStack",
-   "sectionId": "sec-03",
-   "startSec": 165.7,
-   "endSec": 176.3,
-   "props": {
-    "variant": "row",
-    "lead": {
-     "text": "It affects our",
-     "at": 165.9
-    },
-    "words": [
-     {
-      "text": "Emotional well-being",
-      "at": 166.82
-     },
-     {
-      "text": "Family relationships",
-      "at": 168.54
-     },
-     {
-      "text": "Financial circumstances",
-      "at": 170.06
-     },
-     {
-      "text": "Spiritual development",
-      "at": 172.18
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-03-14",
-   "type": "lessonMap",
-   "sectionId": "sec-03",
-   "startSec": 176.3,
-   "endSec": 182.9,
-   "props": {
-    "title": {
-     "text": "Our journey",
-     "at": 176.3
-    },
-    "stations": [
-     {
-      "title": "Divine purpose",
-      "at": 146.52
-     },
-     {
-      "title": "The marital ecosystem",
-      "at": 160.6
-     },
-     {
-      "title": "Partnership & sacred trust",
-      "at": 178.9
-     },
-     {
-      "title": "Qualities of marriage",
-      "at": 195.1
-     },
-     {
-      "title": "Realistic expectations",
-      "at": 222.04
-     },
-     {
-      "title": "The mirror check",
-      "at": 235.64
-     }
-    ],
-    "current": 2
-   }
-  },
-  {
-   "id": "sec-03-15",
-   "type": "questionPrompt",
-   "sectionId": "sec-03",
-   "startSec": 182.9,
-   "endSec": 193.4,
-   "props": {
-    "lines": [
-     {
-      "text": "What does it actually mean to share",
-      "at": 183.08
-     },
-     {
-      "text": "your life with another individual?",
-      "at": 184.92
-     },
-     {
-      "text": "How do we balance our own needs",
-      "at": 187.28
-     },
-     {
-      "text": "with the needs of someone else?",
-      "at": 190.76
-     }
-    ],
-    "markAt": 182.95,
-    "ground": "paper"
-   }
-  },
-  {
-   "id": "sec-03-16",
-   "type": "lessonMap",
-   "sectionId": "sec-03",
-   "startSec": 193.4,
-   "endSec": 197.6,
-   "props": {
-    "title": {
-     "text": "Our journey",
-     "at": 193.4
-    },
-    "stations": [
-     {
-      "title": "Divine purpose",
-      "at": 146.52
-     },
-     {
-      "title": "The marital ecosystem",
-      "at": 160.6
-     },
-     {
-      "title": "Partnership & sacred trust",
-      "at": 178.9
-     },
-     {
-      "title": "Qualities of marriage",
-      "at": 195.1
-     },
-     {
-      "title": "Realistic expectations",
-      "at": 222.04
-     },
-     {
-      "title": "The mirror check",
-      "at": 235.64
-     }
-    ],
-    "current": 3
-   }
-  },
-  {
-   "id": "sec-03-17",
-   "type": "wordStack",
-   "sectionId": "sec-03",
-   "startSec": 197.6,
-   "endSec": 212.2,
-   "props": {
-    "variant": "offset",
-    "lead": {
-     "text": "When searching for a spouse, people often focus on external qualities:",
-     "at": 198.04
-    },
-    "words": [
-     {
-      "text": "Appearance",
-      "at": 202.62
-     },
-     {
-      "text": "Education",
-      "at": 203.76
-     },
-     {
-      "text": "Employment",
-      "at": 204.64
-     },
-     {
-      "text": "Family & finances",
-      "at": 205.72
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-03-18",
-   "type": "highlightLine",
-   "sectionId": "sec-03",
-   "startSec": 212.2,
-   "endSec": 220.4,
-   "props": {
-    "lines": [
-     {
-      "text": "We must also look at character,",
-      "at": 212.38
-     },
-     {
-      "text": "kindness, honesty, emotional maturity",
-      "at": 214.64
-     },
-     {
-      "text": "and the ability to communicate.",
-      "at": 217.92
-     }
-    ],
-    "highlight": {
-     "text": "character",
-     "at": 214.2
-    },
-    "tint": "royal"
-   }
-  },
-  {
-   "id": "sec-03-19",
-   "type": "lessonMap",
-   "sectionId": "sec-03",
-   "startSec": 220.4,
-   "endSec": 244.0,
-   "props": {
-    "title": {
-     "text": "Our journey",
-     "at": 220.4
-    },
-    "stations": [
-     {
-      "title": "Divine purpose",
-      "at": 146.52
-     },
-     {
-      "title": "The marital ecosystem",
-      "at": 160.6
-     },
-     {
-      "title": "Partnership & sacred trust",
-      "at": 178.9
-     },
-     {
-      "title": "Qualities of marriage",
-      "at": 195.1
-     },
-     {
-      "title": "Realistic expectations",
-      "at": 222.04
-     },
-     {
-      "title": "The mirror check",
-      "at": 235.64
+      "at": 235.19
      }
     ]
    }

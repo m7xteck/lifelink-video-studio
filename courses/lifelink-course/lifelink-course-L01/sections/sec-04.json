@@ -57,9 +57,11 @@
      "mercy"
     ],
     "attribution": {
-     "text": "Surah Ar-Rum · 30:21",
+     "text": "Qur'an 30:21 (translation of meaning)",
      "at": 281.6
-    }
+    },
+    "variant": "scripture",
+    "leadAt": 272.74
    }
   },
   {
@@ -67,160 +69,6 @@
    "type": "threePillars",
    "sectionId": "sec-04",
    "startSec": 284.4,
-   "endSec": 296.4,
-   "props": {
-    "pillars": [
-     {
-      "word": "Sakina",
-      "at": 289.74,
-      "meaning": "Tranquility",
-      "meaningAt": 291.44
-     },
-     {
-      "word": "Mawaddah",
-      "at": 323.28,
-      "meaning": "Affection",
-      "meaningAt": 324.42
-     },
-     {
-      "word": "Rahmah",
-      "at": 349.68,
-      "meaning": "Mercy",
-      "meaningAt": 350.86
-     }
-    ],
-    "baseAt": 286.16,
-    "title": {
-     "text": "Three pillars of marriage",
-     "at": 286.16
-    }
-   }
-  },
-  {
-   "id": "sec-04-04",
-   "type": "wordStack",
-   "sectionId": "sec-04",
-   "startSec": 296.4,
-   "endSec": 309.0,
-   "props": {
-    "variant": "row",
-    "lead": {
-     "text": "Tranquility means",
-     "at": 296.64
-    },
-    "words": [
-     {
-      "text": "Feeling secure",
-      "at": 296.98
-     },
-     {
-      "text": "Expressing without fear",
-      "at": 300.24
-     },
-     {
-      "text": "Dignity and respect",
-      "at": 306.88
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-04-05",
-   "type": "comparison",
-   "sectionId": "sec-04",
-   "startSec": 309.0,
-   "endSec": 321.2,
-   "props": {
-    "left": {
-     "title": "A peaceful marriage does not mean",
-     "points": [
-      { "text": "Disagreements never happen", "at": 311.04 }
-     ],
-     "at": 309.24
-    },
-    "right": {
-     "title": "It means",
-     "points": [
-      { "text": "Both are committed to resolving difficulties without causing unnecessary harm", "at": 315.76 }
-     ],
-     "at": 312.78
-    },
-    "preferred": "right"
-   }
-  },
-  {
-   "id": "sec-04-06",
-   "type": "threePillars",
-   "sectionId": "sec-04",
-   "startSec": 321.2,
-   "endSec": 332.8,
-   "props": {
-    "pillars": [
-     {
-      "word": "Sakina",
-      "at": 289.74,
-      "meaning": "Tranquility",
-      "meaningAt": 291.44
-     },
-     {
-      "word": "Mawaddah",
-      "at": 323.28,
-      "meaning": "Affection",
-      "meaningAt": 324.42
-     },
-     {
-      "word": "Rahmah",
-      "at": 349.68,
-      "meaning": "Mercy",
-      "meaningAt": 350.86
-     }
-    ],
-    "focus": [
-     {
-      "index": 1,
-      "at": 323.28
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-04-07",
-   "type": "parallelPhrases",
-   "sectionId": "sec-04",
-   "startSec": 332.8,
-   "endSec": 347.0,
-   "props": {
-    "items": [
-     {
-      "text": "A kind word",
-      "at": 333.06
-     },
-     {
-      "text": "A thoughtful gesture",
-      "at": 334.26
-     },
-     {
-      "text": "Showing appreciation",
-      "at": 335.62
-     },
-     {
-      "text": "Time together & support",
-      "at": 337.52
-     }
-    ],
-    "closing": {
-     "lead": "These small acts",
-     "leadAt": 343.36,
-     "text": "strengthen emotional connection",
-     "at": 344.44
-    }
-   }
-  },
-  {
-   "id": "sec-04-08",
-   "type": "threePillars",
-   "sectionId": "sec-04",
-   "startSec": 347.0,
    "endSec": 356.2,
    "props": {
     "pillars": [
@@ -243,11 +91,21 @@
       "meaningAt": 350.86
      }
     ],
+    "baseAt": 284.6,
+    "title": {
+     "text": "Three pillars of marriage",
+     "at": 284.6
+    },
+    "ghostAt": 286.16,
     "lintelAt": 352.54,
     "focus": [
      {
+      "index": 1,
+      "at": 321.56
+     },
+     {
       "index": 2,
-      "at": 349.68
+      "at": 347.54
      },
      {
       "index": null,
@@ -283,7 +141,8 @@
     ],
     "align": "left",
     "scale": "h2",
-    "reveal": "focus"
+    "reveal": "focus",
+    "leadAt": 356.66
    }
   },
   {
@@ -294,7 +153,8 @@
    "endSec": 376.6,
    "props": {
     "text": "Our spouse is human, with strengths, weaknesses, emotions and vulnerabilities.",
-    "at": 370.26
+    "at": 370.26,
+    "leadAt": 368.4
    }
   },
   {
@@ -340,7 +200,7 @@
      },
      {
       "index": null,
-      "at": 389.6
+      "at": 389.4
      }
     ]
    }

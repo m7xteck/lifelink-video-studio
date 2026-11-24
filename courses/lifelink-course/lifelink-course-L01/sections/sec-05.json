@@ -31,7 +31,8 @@
           "text": "many different areas of life.",
           "at": 414.52
         },
-        "tint": "sky"
+        "tint": "sky",
+        "leadAt": 406.5
       }
     },
     {
@@ -234,63 +235,39 @@
       }
     },
     {
-      "type": "chapterRecap",
+      "type": "ecosystemRings",
       "id": "sec-05-06",
       "sectionId": "sec-05",
       "startSec": 536.3,
       "endSec": 546,
       "props": {
-        "title": {
-          "text": "The marital ecosystem",
-          "at": 536.54
+        "centre": {
+          "label": "faith",
+          "at": 422.16,
+          "labelAt": 424.56,
+          "sub": "lawful intimacy",
+          "subAt": 423.06
         },
-        "signature": {
-          "type": "ecosystemRings",
-          "props": {
-            "centre": {
-              "label": "faith",
-              "at": 422.16,
-              "labelAt": 424.56,
-              "sub": "lawful intimacy",
-              "subAt": 423.06
-            },
-            "rings": [
-              {
-                "label": "companionship",
-                "at": 432.78
-              },
-              {
-                "label": "support",
-                "at": 456.68
-              },
-              {
-                "label": "faith and character",
-                "at": 475.36
-              },
-              {
-                "label": "shared responsibility",
-                "at": 487.96
-              },
-              {
-                "label": "family",
-                "at": 506.0
-              }
-            ]
-          }
-        },
-        "cardAt": 536.54,
-        "words": [
+        "rings": [
           {
-            "text": "building",
-            "at": 538.92
+            "label": "companionship",
+            "at": 432.78
           },
           {
-            "text": "continuing effort",
-            "at": 542.58
+            "label": "support",
+            "at": 456.68
           },
           {
-            "text": "both spouses",
-            "at": 544.26
+            "label": "faith and character",
+            "at": 475.36
+          },
+          {
+            "label": "shared responsibility",
+            "at": 487.96
+          },
+          {
+            "label": "family",
+            "at": 506.0
           }
         ]
       }
