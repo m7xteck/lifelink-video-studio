@@ -22,3 +22,8 @@ production-memory/course-corpus/**/graphify-out/cache/
 # Board v5: generated sync documents and review copies (uploaded as artifact assets, never committed)
 board-data/
 review-media/
+
+# local working folders (worktree)
+node_modules
+review-media-*/
+previews/**/*.render.json
