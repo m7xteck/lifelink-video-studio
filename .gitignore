@@ -18,3 +18,7 @@ exports/
 # Provisional brand fonts: licence for video use not yet confirmed, so they are kept out of Git
 public/fonts/lifelink-provisional/*.ttf
 production-memory/course-corpus/**/graphify-out/cache/
+
+# Board v5: generated sync documents and review copies (uploaded as artifact assets, never committed)
+board-data/
+review-media/
