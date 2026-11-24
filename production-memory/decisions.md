@@ -30,3 +30,4 @@
 | 2026-11-24 | Board: approved brand:narration-limiter-noise-reduction. Note (verbatim): "" | u_AakDwdb2YRIZP5wkj9VBOQ (board) | board approvals/e15f88e2-05af-40c8-ac03-40ac1850a7dc |
 | 2026-11-24 | Board: approved brand:derived-tints-papershade-hillfar-hillmid-skytint. Note (verbatim): "" | u_AakDwdb2YRIZP5wkj9VBOQ (board) | board approvals/f095ae4b-b0a5-43db-b20d-100837bab2f3 |
 | 2026-11-24 | Board: requested changes on lifelink-course-L01. Note (verbatim): "i gave feedback" | u_AakDwdb2YRIZP5wkj9VBOQ (board) | board approvals/fd74bb16-443e-4bc2-88fc-839a0c4290b5 |
+| 2026-11-24 | Exact brand colours supplied: paper #F2F0E7, oxblood #500000, royal #3960BD, sky #9AB9D5, black #060405, rose #AF3E46; logo artwork supplied (horizontal, stacked, royal wordmark PNG) | Client sent the colour sheet and logo files in chat, as promised on the board ("ask in chat i will give") | design-system.json 1.0.0-proposal.3; brand/logo/ |

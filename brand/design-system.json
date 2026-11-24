@@ -1,6 +1,6 @@
 {
   "$comment": "Single source of truth for every visual decision. PROPOSAL built from the client's brand pack (2026-11-23). Not approved; fonts, colours and logo usage are provisional. Neutral test system archived at brand/archive/design-system-0.1.0-neutral.json.",
-  "version": "1.0.0-proposal.2",
+  "version": "1.0.0-proposal.3",
   "status": "PROPOSAL",
   "statusNote": "LifeLink brand PROPOSAL for client review. Colour codes sampled from a screenshot, fonts awaiting licence confirmation, logo artwork not supplied. Every render carries a watermark until status is APPROVED.",
   "approvedBy": null,
@@ -10,12 +10,12 @@
     "brand/proposals/interpretation-1.0.md"
   ],
   "palette": {
-    "$comment": "Brand palette as sampled from the artboard (provisional hex values).",
-    "paper": "#F3F0E8",
-    "oxblood": "#500002",
-    "royal": "#3961BC",
-    "sky": "#9BB9D6",
-    "black": "#060606",
+    "$comment": "Brand palette: exact codes supplied by the client on 2026-11-24 (brand/intake/uploads-2026-11-24/colour-codes.webp).",
+    "paper": "#F2F0E7",
+    "oxblood": "#500000",
+    "royal": "#3960BD",
+    "sky": "#9AB9D5",
+    "black": "#060405",
     "rose": "#AF3E46"
   },
   "derived": {
@@ -33,13 +33,13 @@
   },
   "colors": {
     "$comment": "Semantic roles used by components. Values reference palette/derived above.",
-    "background": "#F3F0E8",
+    "background": "#F2F0E7",
     "backgroundDeep": "#E7E0D2",
     "surface": "#FAF8F3",
-    "ink": "#500002",
+    "ink": "#500000",
     "inkMuted": "#7D4A4B",
-    "accent": "#3961BC",
-    "accentSoft": "#9BB9D6",
+    "accent": "#3960BD",
+    "accentSoft": "#9AB9D5",
     "secondary": "#AF3E46",
     "line": "#D3C8B6"
   },
@@ -182,11 +182,12 @@
     "embossDepthPx": 2
   },
   "logo": {
-    "provided": false,
-    "rules": [
-      "Wordmark set in LifeLink Script until vector artwork is supplied",
-      "Do not redraw or approximate the two-ring mark"
-    ]
+    "$comment": "Client-supplied logo artwork 2026-11-24 (raster PNG). The crescent/heart mark is the logo icon: use only as part of the logo, never as a decorative motif.",
+    "horizontal": "brand/logo/lifelink-logo-horizontal.png",
+    "stacked": "brand/logo/lifelink-logo-stacked.png",
+    "wordmarkRoyal": "brand/logo/lifelink-wordmark-royal.png",
+    "artworkColour": "#490805 (as exported in the PNGs; palette oxblood is #500000)",
+    "vector": "not yet supplied (optional; raster is sufficient up to its pixel size)"
   },
   "motifs": {
     "twoPaths": "Two lines (two people) that travel separately and join into one two-tone line: each remains whole. Used once per lesson at most, structurally (e.g. a process that ends in an introduction). PROPOSED.",
