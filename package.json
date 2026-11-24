@@ -12,7 +12,11 @@
     "produce": "tsx pipeline/produce.ts",
     "status": "tsx pipeline/status.ts",
     "approve": "tsx pipeline/approve.ts",
-    "test:engine": "tsx pipeline/selftest.ts"
+    "test:engine": "tsx pipeline/selftest.ts",
+    "test:qa-negative": "nice -n 15 tsx pipeline/tests/qa-negative.ts",
+    "test:system": "tsx --test pipeline/tests/*.test.ts",
+    "jobs": "tsx pipeline/jobs.ts",
+    "claims": "tsx pipeline/claims.ts"
   },
   "author": "",
   "license": "UNLICENSED",

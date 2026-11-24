@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "REPLACED_BY_TEST",
+  "courseId": "__qa-test__",
+  "title": "QA negative-test fixture (synthetic, not a lesson)",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationSec": 10,
+  "audio": "audio/__qa-test__/narration.wav",
+  "watermark": "QA fixture",
+  "sections": [{ "id": "sec-a", "title": "Fixture", "startSec": 0, "endSec": 10 }],
+  "scenes": [
+    { "id": "s01", "sectionId": "sec-a", "type": "kineticStatement", "startSec": 0, "endSec": 5,
+      "props": { "lines": [{ "text": "A planted test line,", "at": 0.5 }, { "text": "held long enough.", "at": 2.0 }], "emphasis": [], "align": "left", "scale": "h1" } },
+    { "id": "s02", "sectionId": "sec-a", "type": "quietReflection", "startSec": 5, "endSec": 10,
+      "props": { "text": "A quiet closing line.", "at": 5.5 } }
+  ]
+}

@@ -1,0 +1,11 @@
+1
+00:00:00,500 --> 00:00:03,000
+A planted test line, held long enough.
+
+2
+00:00:04,800 --> 00:00:03,900
+This cue ends before it starts (planted defect).
+
+3
+00:00:05,500 --> 00:00:09,500
+A quiet closing line.

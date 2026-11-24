@@ -1,0 +1,11 @@
+1
+00:00:00,500 --> 00:00:03,000
+A planted test line, held long enough.
+
+2
+00:00:03,200 --> 00:00:05,000
+Second subtitle cue.
+
+3
+00:00:05,500 --> 00:00:09,500
+A quiet closing line.
