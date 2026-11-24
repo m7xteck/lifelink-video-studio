@@ -737,7 +737,7 @@
       "id": "sec-03-16a",
       "sectionId": "sec-03",
       "startSec": 182.9,
-      "endSec": 187.1,
+      "endSec": 187.28,
       "type": "statementCollision",
       "props": {
         "label": "What does it actually mean to share",
@@ -759,7 +759,7 @@
       "type": "kineticStatement",
       "id": "sec-03-16b",
       "sectionId": "sec-03",
-      "startSec": 187.1,
+      "startSec": 187.28,
       "endSec": 193.4,
       "props": {
         "lines": [
@@ -4637,7 +4637,7 @@
       "id": "sec-12-01",
       "sectionId": "sec-12",
       "startSec": 1373.9,
-      "endSec": 1383.4,
+      "endSec": 1383.9,
       "type": "parallelPhrases",
       "props": {
         "items": [
@@ -4662,7 +4662,7 @@
       "type": "kineticStatement",
       "id": "sec-12-02",
       "sectionId": "sec-12",
-      "startSec": 1383.4,
+      "startSec": 1383.9,
       "endSec": 1387.4,
       "props": {
         "lines": [

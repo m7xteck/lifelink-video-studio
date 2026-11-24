@@ -1,17 +1,362 @@
-{"section":{"id": "sec-12", "title": "Character in Action: Three Scenarios", "startSec": 1373.9, "endSec": 1513.9},
-"scenes":[
-{"type": "parallelPhrases", "id": "sec-12-01", "sectionId": "sec-12", "startSec": 1373.9, "endSec": 1383.4, "props": {"items": [{"text": "It's easy to talk about kindness, respect and responsibility", "at": 1374.7}, {"text": "The real challenge is demonstrating these qualities", "at": 1379.0}], "closing": {"lead": "in", "leadAt": 1381.74, "text": "everyday life", "at": 1382.18}}},
-{"type": "kineticStatement", "id": "sec-12-02", "sectionId": "sec-12", "startSec": 1383.4, "endSec": 1387.4, "props": {"kicker": {"text": "Let us explore", "at": 1383.92}, "lines": [{"text": "Three practical scenarios", "at": 1385.3}], "emphasis": ["scenarios"], "align": "center", "scale": "h1"}},
-{"type": "kineticStatement", "id": "sec-12-03", "sectionId": "sec-12", "startSec": 1387.4, "endSec": 1402.4, "props": {"kicker": {"text": "Scenario 1 · Appreciation", "at": 1389.22}, "lines": [{"text": "One spouse returns home after a demanding day", "at": 1390.8}, {"text": "Managing several responsibilities, feeling exhausted", "at": 1394.86}, {"text": "The other spouse notices", "at": 1400.34}], "emphasis": ["notices"], "align": "left", "scale": "h2"}},
-{"type": "comparison", "id": "sec-12-04", "sectionId": "sec-12", "startSec": 1402.4, "endSec": 1410.3, "props": {"left": {"title": "Unhealthy response", "points": ["Assume their efforts are simply expected"], "at": 1402.78}, "right": {"title": "Healthy response", "points": ["Acknowledge what has been done", "Offer support"], "at": 1406.82}, "preferred": "right"}},
-{"type": "quietReflection", "id": "sec-12-05", "sectionId": "sec-12", "startSec": 1410.3, "endSec": 1418.9, "props": {"text": "“I can see you've had a difficult day. Thank you for everything you've done.”", "at": 1412.24}},
-{"type": "kineticStatement", "id": "sec-12-06", "sectionId": "sec-12", "startSec": 1418.9, "endSec": 1428.9, "props": {"kicker": {"text": "Appreciation", "at": 1419.48}, "lines": [{"text": "Not always expensive gifts or elaborate gestures", "at": 1420.18}, {"text": "Small, consistent acts of kindness", "at": 1425.74}], "emphasis": ["consistent"], "align": "center", "scale": "h1"}},
-{"type": "kineticStatement", "id": "sec-12-07", "sectionId": "sec-12", "startSec": 1428.9, "endSec": 1438.8, "props": {"kicker": {"text": "Scenario 2 · Disagreement", "at": 1431.06}, "lines": [{"text": "Different opinions about a significant financial decision", "at": 1435.04}], "emphasis": ["financial"], "align": "left", "scale": "h1"}},
-{"type": "parallelPhrases", "id": "sec-12-08", "sectionId": "sec-12", "startSec": 1438.8, "endSec": 1445.5, "props": {"items": [{"text": "One spouse wants a major purchase", "at": 1439.2}, {"text": "The other is concerned about affordability", "at": 1442.24}]}},
-{"type": "comparison", "id": "sec-12-09", "sectionId": "sec-12", "startSec": 1445.5, "endSec": 1460.4, "props": {"left": {"title": "Unhealthy response", "points": ["Dismiss the other's concerns", "Decide without consultation"], "at": 1445.88}, "right": {"title": "Healthy response", "points": ["Listen carefully", "Explain perspectives", "Work towards agreement"], "at": 1453.82}, "preferred": "right"}},
-{"type": "kineticStatement", "id": "sec-12-10", "sectionId": "sec-12", "startSec": 1460.4, "endSec": 1469.3, "props": {"kicker": {"text": "The aim", "at": 1461.0}, "lines": [{"text": "Not to win the argument", "at": 1461.5}, {"text": "A decision both understand and can support", "at": 1465.1}], "emphasis": ["both"], "align": "center", "scale": "h1"}},
-{"type": "kineticStatement", "id": "sec-12-11", "sectionId": "sec-12", "startSec": 1469.3, "endSec": 1477.6, "props": {"kicker": {"text": "Scenario 3 · Accountability", "at": 1471.58}, "lines": [{"text": "One spouse makes a hurtful comment during a disagreement", "at": 1474.06}], "emphasis": ["hurtful"], "align": "left", "scale": "h1"}},
-{"type": "comparison", "id": "sec-12-12", "sectionId": "sec-12", "startSec": 1477.6, "endSec": 1489.7, "props": {"left": {"title": "Unhealthy response", "points": ["Blame the other person", "Minimise what happened"], "at": 1478.56}, "right": {"title": "Healthy response", "points": ["Acknowledge the mistake", "Apologise sincerely", "Respond differently in future"], "at": 1482.66}, "preferred": "right"}},
-{"type": "kineticStatement", "id": "sec-12-13", "sectionId": "sec-12", "startSec": 1489.7, "endSec": 1498.9, "props": {"kicker": {"text": "Emotional maturity in action", "at": 1490.16}, "lines": [{"text": "Successful relationships are built through everyday choices", "at": 1494.6}], "emphasis": ["everyday"], "align": "center", "scale": "h1"}},
-{"type": "reflectionField", "id": "sec-12-14", "sectionId": "sec-12", "startSec": 1498.9, "endSec": 1513.9, "props": {"script": {"text": "reflect", "at": 1500.02}, "lines": [{"text": "Which of these three qualities", "at": 1503.22}, {"text": "do you need to strengthen?", "at": 1509.72}], "after": [{"text": "Appreciation · Respectful disagreement", "at": 1505.72}, {"text": "Accountability", "at": 1508.6}], "ground": "oxblood"}}
-]}
+{
+  "section": {
+    "id": "sec-12",
+    "title": "Character in Action: Three Scenarios",
+    "startSec": 1373.9,
+    "endSec": 1513.9
+  },
+  "scenes": [
+    {
+      "type": "parallelPhrases",
+      "id": "sec-12-01",
+      "sectionId": "sec-12",
+      "startSec": 1373.9,
+      "endSec": 1383.9,
+      "props": {
+        "items": [
+          {
+            "text": "It's easy to talk about kindness, respect and responsibility",
+            "at": 1374.7
+          },
+          {
+            "text": "The real challenge is demonstrating these qualities",
+            "at": 1379.0
+          }
+        ],
+        "closing": {
+          "lead": "in",
+          "leadAt": 1381.74,
+          "text": "everyday life",
+          "at": 1382.18
+        }
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-12-02",
+      "sectionId": "sec-12",
+      "startSec": 1383.9,
+      "endSec": 1387.4,
+      "props": {
+        "kicker": {
+          "text": "Let us explore",
+          "at": 1383.92
+        },
+        "lines": [
+          {
+            "text": "Three practical scenarios",
+            "at": 1385.3
+          }
+        ],
+        "emphasis": [
+          "scenarios"
+        ],
+        "align": "center",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-12-03",
+      "sectionId": "sec-12",
+      "startSec": 1387.4,
+      "endSec": 1402.4,
+      "props": {
+        "kicker": {
+          "text": "Scenario 1 \u00b7 Appreciation",
+          "at": 1389.22
+        },
+        "lines": [
+          {
+            "text": "One spouse returns home after a demanding day",
+            "at": 1390.8
+          },
+          {
+            "text": "Managing several responsibilities, feeling exhausted",
+            "at": 1394.86
+          },
+          {
+            "text": "The other spouse notices",
+            "at": 1400.34
+          }
+        ],
+        "emphasis": [
+          "notices"
+        ],
+        "align": "left",
+        "scale": "h2"
+      }
+    },
+    {
+      "type": "comparison",
+      "id": "sec-12-04",
+      "sectionId": "sec-12",
+      "startSec": 1402.4,
+      "endSec": 1410.3,
+      "props": {
+        "left": {
+          "title": "Unhealthy response",
+          "points": [
+            "Assume their efforts are simply expected"
+          ],
+          "at": 1402.78
+        },
+        "right": {
+          "title": "Healthy response",
+          "points": [
+            "Acknowledge what has been done",
+            "Offer support"
+          ],
+          "at": 1406.82
+        },
+        "preferred": "right"
+      }
+    },
+    {
+      "type": "quietReflection",
+      "id": "sec-12-05",
+      "sectionId": "sec-12",
+      "startSec": 1410.3,
+      "endSec": 1418.9,
+      "props": {
+        "text": "\u201cI can see you've had a difficult day. Thank you for everything you've done.\u201d",
+        "at": 1412.24
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-12-06",
+      "sectionId": "sec-12",
+      "startSec": 1418.9,
+      "endSec": 1428.9,
+      "props": {
+        "kicker": {
+          "text": "Appreciation",
+          "at": 1419.48
+        },
+        "lines": [
+          {
+            "text": "Not always expensive gifts or elaborate gestures",
+            "at": 1420.18
+          },
+          {
+            "text": "Small, consistent acts of kindness",
+            "at": 1425.74
+          }
+        ],
+        "emphasis": [
+          "consistent"
+        ],
+        "align": "center",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-12-07",
+      "sectionId": "sec-12",
+      "startSec": 1428.9,
+      "endSec": 1438.8,
+      "props": {
+        "kicker": {
+          "text": "Scenario 2 \u00b7 Disagreement",
+          "at": 1431.06
+        },
+        "lines": [
+          {
+            "text": "Different opinions about a significant financial decision",
+            "at": 1435.04
+          }
+        ],
+        "emphasis": [
+          "financial"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "parallelPhrases",
+      "id": "sec-12-08",
+      "sectionId": "sec-12",
+      "startSec": 1438.8,
+      "endSec": 1445.5,
+      "props": {
+        "items": [
+          {
+            "text": "One spouse wants a major purchase",
+            "at": 1439.2
+          },
+          {
+            "text": "The other is concerned about affordability",
+            "at": 1442.24
+          }
+        ]
+      }
+    },
+    {
+      "type": "comparison",
+      "id": "sec-12-09",
+      "sectionId": "sec-12",
+      "startSec": 1445.5,
+      "endSec": 1460.4,
+      "props": {
+        "left": {
+          "title": "Unhealthy response",
+          "points": [
+            "Dismiss the other's concerns",
+            "Decide without consultation"
+          ],
+          "at": 1445.88
+        },
+        "right": {
+          "title": "Healthy response",
+          "points": [
+            "Listen carefully",
+            "Explain perspectives",
+            "Work towards agreement"
+          ],
+          "at": 1453.82
+        },
+        "preferred": "right"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-12-10",
+      "sectionId": "sec-12",
+      "startSec": 1460.4,
+      "endSec": 1469.3,
+      "props": {
+        "kicker": {
+          "text": "The aim",
+          "at": 1461.0
+        },
+        "lines": [
+          {
+            "text": "Not to win the argument",
+            "at": 1461.5
+          },
+          {
+            "text": "A decision both understand and can support",
+            "at": 1465.1
+          }
+        ],
+        "emphasis": [
+          "both"
+        ],
+        "align": "center",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-12-11",
+      "sectionId": "sec-12",
+      "startSec": 1469.3,
+      "endSec": 1477.6,
+      "props": {
+        "kicker": {
+          "text": "Scenario 3 \u00b7 Accountability",
+          "at": 1471.58
+        },
+        "lines": [
+          {
+            "text": "One spouse makes a hurtful comment during a disagreement",
+            "at": 1474.06
+          }
+        ],
+        "emphasis": [
+          "hurtful"
+        ],
+        "align": "left",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "comparison",
+      "id": "sec-12-12",
+      "sectionId": "sec-12",
+      "startSec": 1477.6,
+      "endSec": 1489.7,
+      "props": {
+        "left": {
+          "title": "Unhealthy response",
+          "points": [
+            "Blame the other person",
+            "Minimise what happened"
+          ],
+          "at": 1478.56
+        },
+        "right": {
+          "title": "Healthy response",
+          "points": [
+            "Acknowledge the mistake",
+            "Apologise sincerely",
+            "Respond differently in future"
+          ],
+          "at": 1482.66
+        },
+        "preferred": "right"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-12-13",
+      "sectionId": "sec-12",
+      "startSec": 1489.7,
+      "endSec": 1498.9,
+      "props": {
+        "kicker": {
+          "text": "Emotional maturity in action",
+          "at": 1490.16
+        },
+        "lines": [
+          {
+            "text": "Successful relationships are built through everyday choices",
+            "at": 1494.6
+          }
+        ],
+        "emphasis": [
+          "everyday"
+        ],
+        "align": "center",
+        "scale": "h1"
+      }
+    },
+    {
+      "type": "reflectionField",
+      "id": "sec-12-14",
+      "sectionId": "sec-12",
+      "startSec": 1498.9,
+      "endSec": 1513.9,
+      "props": {
+        "script": {
+          "text": "reflect",
+          "at": 1500.02
+        },
+        "lines": [
+          {
+            "text": "Which of these three qualities",
+            "at": 1503.22
+          },
+          {
+            "text": "do you need to strengthen?",
+            "at": 1509.72
+          }
+        ],
+        "after": [
+          {
+            "text": "Appreciation \u00b7 Respectful disagreement",
+            "at": 1505.72
+          },
+          {
+            "text": "Accountability",
+            "at": 1508.6
+          }
+        ],
+        "ground": "oxblood"
+      }
+    }
+  ]
+}

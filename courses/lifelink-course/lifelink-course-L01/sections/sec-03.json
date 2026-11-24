@@ -427,7 +427,7 @@
       "type": "statementCollision",
       "sectionId": "sec-03",
       "startSec": 182.9,
-      "endSec": 187.1,
+      "endSec": 187.28,
       "props": {
         "label": "What does it actually mean to share",
         "first": {
@@ -448,7 +448,7 @@
       "id": "sec-03-16b",
       "type": "kineticStatement",
       "sectionId": "sec-03",
-      "startSec": 187.1,
+      "startSec": 187.28,
       "endSec": 193.4,
       "props": {
         "lines": [

@@ -1,0 +1,2668 @@
+{
+  "lessonId": "lifelink-course-L01",
+  "video": "renders/lifelink-course-L01/landscape/lifelink-course-L01_landscape_v003.mp4",
+  "createdAt": "2026-11-24T04:28:44.436Z",
+  "result": "FAIL",
+  "summary": "15 pass, 1 fail, 1 warn",
+  "checks": [
+    {
+      "id": "manifest.order",
+      "status": "PASS",
+      "detail": "Scenes are in narration order"
+    },
+    {
+      "id": "manifest.coverage",
+      "status": "PASS",
+      "detail": "Scenes cover the timeline without gaps",
+      "data": []
+    },
+    {
+      "id": "manifest.text-hold",
+      "status": "FAIL",
+      "detail": "sec-03-16a: cue at 185.92s is on screen < 1.5s",
+      "data": [
+        "sec-03-16a: cue at 185.92s is on screen < 1.5s"
+      ]
+    },
+    {
+      "id": "file.decode",
+      "status": "PASS",
+      "detail": "Full decode with no errors"
+    },
+    {
+      "id": "video.resolution",
+      "status": "PASS",
+      "detail": "1920×1080 (expected 1920×1080)"
+    },
+    {
+      "id": "video.codec",
+      "status": "PASS",
+      "detail": "h264 High yuv420p"
+    },
+    {
+      "id": "video.fps",
+      "status": "PASS",
+      "detail": "30.000 fps (expected 30)"
+    },
+    {
+      "id": "duration",
+      "status": "PASS",
+      "detail": "2165.267s (expected 2165.267s)"
+    },
+    {
+      "id": "audio.present",
+      "status": "PASS",
+      "detail": "aac 48000 Hz 2ch"
+    },
+    {
+      "id": "audio.duration",
+      "status": "PASS",
+      "detail": "audio 2165.267s vs expected 2165.267s"
+    },
+    {
+      "id": "audio.loudness",
+      "status": "WARN",
+      "detail": "Integrated -26.1 LUFS, true peak -1.5 dBFS (target −16 LUFS, ≤ −1 dBTP)"
+    },
+    {
+      "id": "audio.sync",
+      "status": "PASS",
+      "detail": "Narration offset vs original recording: 0 ms (correlation 0.9983); tolerance ±33.3 ms",
+      "data": {
+        "lag_ms": 0,
+        "peak_corr": 0.9983
+      }
+    },
+    {
+      "id": "picture.black-frames",
+      "status": "PASS",
+      "detail": "No unexpected black frames"
+    },
+    {
+      "id": "picture.flashes",
+      "status": "PASS",
+      "detail": "No frame-to-frame brightness jumps (max Δ 16.8 of 255)"
+    },
+    {
+      "id": "picture.long-stillness",
+      "status": "PASS",
+      "detail": "No unintended frozen picture (>8s)"
+    },
+    {
+      "id": "layout.text",
+      "status": "PASS",
+      "detail": "No clipped, undersized or overlapping text held on screen (4 momentary mid-animation contacts ignored)",
+      "data": {
+        "persistent": [],
+        "transient": [
+          "text-overlap: Partnership ⟷ and sacred trust @178.97s (13 consecutive frames)",
+          "text-overlap: Cultural expectations ⟷ presented as @832.60s (15 consecutive frames)",
+          "text-overlap: The first: ⟷ Core foundation @1247.10s (15 consecutive frames)",
+          "text-overlap: Finding the right ⟷ life partner @2123.13s (16 consecutive frames)"
+        ]
+      }
+    },
+    {
+      "id": "subtitles.srt",
+      "status": "PASS",
+      "detail": "525 cues; timing monotonic and within duration: true"
+    }
+  ],
+  "frames": [
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/00_0.12s.jpg",
+      "t": 0.12,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/01_0.25s.jpg",
+      "t": 0.25,
+      "why": "s001 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/02_7.30s.jpg",
+      "t": 7.3,
+      "why": "s001 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/03_7.85s.jpg",
+      "t": 7.85,
+      "why": "s002 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/04_16.10s.jpg",
+      "t": 16.1,
+      "why": "s002 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/05_16.65s.jpg",
+      "t": 16.65,
+      "why": "s003 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/06_28.70s.jpg",
+      "t": 28.7,
+      "why": "s003 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/07_29.25s.jpg",
+      "t": 29.25,
+      "why": "s004 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/08_39.60s.jpg",
+      "t": 39.6,
+      "why": "s004 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/09_40.15s.jpg",
+      "t": 40.15,
+      "why": "s005 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/10_45.00s.jpg",
+      "t": 45,
+      "why": "s005 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/11_45.55s.jpg",
+      "t": 45.55,
+      "why": "s006 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/12_54.10s.jpg",
+      "t": 54.1,
+      "why": "s006 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/13_54.65s.jpg",
+      "t": 54.65,
+      "why": "s007 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/14_59.70s.jpg",
+      "t": 59.7,
+      "why": "s007 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/15_60.25s.jpg",
+      "t": 60.25,
+      "why": "sec-03-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/16_68.60s.jpg",
+      "t": 68.6,
+      "why": "sec-03-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/17_69.15s.jpg",
+      "t": 69.15,
+      "why": "sec-03-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/18_73.80s.jpg",
+      "t": 73.8,
+      "why": "sec-03-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/19_74.35s.jpg",
+      "t": 74.35,
+      "why": "sec-03-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/20_79.70s.jpg",
+      "t": 79.7,
+      "why": "sec-03-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/21_80.25s.jpg",
+      "t": 80.25,
+      "why": "sec-03-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/22_87.30s.jpg",
+      "t": 87.3,
+      "why": "sec-03-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/23_87.85s.jpg",
+      "t": 87.85,
+      "why": "sec-03-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/24_95.50s.jpg",
+      "t": 95.5,
+      "why": "sec-03-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/25_96.05s.jpg",
+      "t": 96.05,
+      "why": "sec-03-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/26_102.50s.jpg",
+      "t": 102.5,
+      "why": "sec-03-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/27_103.05s.jpg",
+      "t": 103.05,
+      "why": "sec-03-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/28_112.00s.jpg",
+      "t": 112,
+      "why": "sec-03-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/29_112.55s.jpg",
+      "t": 112.55,
+      "why": "sec-03-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/30_122.60s.jpg",
+      "t": 122.6,
+      "why": "sec-03-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/31_123.15s.jpg",
+      "t": 123.15,
+      "why": "sec-03-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/32_135.60s.jpg",
+      "t": 135.6,
+      "why": "sec-03-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/33_136.15s.jpg",
+      "t": 136.15,
+      "why": "sec-03-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/34_143.80s.jpg",
+      "t": 143.8,
+      "why": "sec-03-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/35_144.35s.jpg",
+      "t": 144.35,
+      "why": "sec-03-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/36_148.20s.jpg",
+      "t": 148.2,
+      "why": "sec-03-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/37_148.75s.jpg",
+      "t": 148.75,
+      "why": "sec-03-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/38_157.80s.jpg",
+      "t": 157.8,
+      "why": "sec-03-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/39_158.35s.jpg",
+      "t": 158.35,
+      "why": "sec-03-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/40_165.40s.jpg",
+      "t": 165.4,
+      "why": "sec-03-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/41_165.95s.jpg",
+      "t": 165.95,
+      "why": "sec-03-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/42_176.00s.jpg",
+      "t": 176,
+      "why": "sec-03-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/43_176.55s.jpg",
+      "t": 176.55,
+      "why": "sec-03-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/44_182.60s.jpg",
+      "t": 182.6,
+      "why": "sec-03-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/45_183.15s.jpg",
+      "t": 183.15,
+      "why": "sec-03-16a transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/46_186.98s.jpg",
+      "t": 186.98,
+      "why": "sec-03-16a settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/47_187.53s.jpg",
+      "t": 187.53,
+      "why": "sec-03-16b transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/48_193.10s.jpg",
+      "t": 193.1,
+      "why": "sec-03-16b settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/49_193.65s.jpg",
+      "t": 193.65,
+      "why": "sec-03-17 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/50_197.30s.jpg",
+      "t": 197.3,
+      "why": "sec-03-17 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/51_197.85s.jpg",
+      "t": 197.85,
+      "why": "sec-03-18 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/52_208.60s.jpg",
+      "t": 208.6,
+      "why": "sec-03-18 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/53_209.15s.jpg",
+      "t": 209.15,
+      "why": "sec-03-19 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/54_220.10s.jpg",
+      "t": 220.1,
+      "why": "sec-03-19 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/55_220.65s.jpg",
+      "t": 220.65,
+      "why": "sec-03-20 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/56_224.10s.jpg",
+      "t": 224.1,
+      "why": "sec-03-20 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/57_224.65s.jpg",
+      "t": 224.65,
+      "why": "sec-03-21 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/58_232.40s.jpg",
+      "t": 232.4,
+      "why": "sec-03-21 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/59_232.95s.jpg",
+      "t": 232.95,
+      "why": "sec-03-22a transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/60_236.40s.jpg",
+      "t": 236.4,
+      "why": "sec-03-22a settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/61_236.95s.jpg",
+      "t": 236.95,
+      "why": "sec-03-22b transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/62_242.60s.jpg",
+      "t": 242.6,
+      "why": "sec-03-22b settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/63_243.15s.jpg",
+      "t": 243.15,
+      "why": "sec-03-23 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/64_253.60s.jpg",
+      "t": 253.6,
+      "why": "sec-03-23 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/65_254.15s.jpg",
+      "t": 254.15,
+      "why": "sec-03-24 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/66_263.70s.jpg",
+      "t": 263.7,
+      "why": "sec-03-24 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/67_264.25s.jpg",
+      "t": 264.25,
+      "why": "sec-04-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/68_272.30s.jpg",
+      "t": 272.3,
+      "why": "sec-04-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/69_272.85s.jpg",
+      "t": 272.85,
+      "why": "sec-04-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/70_284.10s.jpg",
+      "t": 284.1,
+      "why": "sec-04-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/71_284.65s.jpg",
+      "t": 284.65,
+      "why": "sec-04-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/72_296.10s.jpg",
+      "t": 296.1,
+      "why": "sec-04-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/73_296.65s.jpg",
+      "t": 296.65,
+      "why": "sec-04-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/74_308.70s.jpg",
+      "t": 308.7,
+      "why": "sec-04-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/75_309.25s.jpg",
+      "t": 309.25,
+      "why": "sec-04-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/76_320.90s.jpg",
+      "t": 320.9,
+      "why": "sec-04-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/77_321.45s.jpg",
+      "t": 321.45,
+      "why": "sec-04-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/78_332.50s.jpg",
+      "t": 332.5,
+      "why": "sec-04-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/79_333.05s.jpg",
+      "t": 333.05,
+      "why": "sec-04-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/80_346.70s.jpg",
+      "t": 346.7,
+      "why": "sec-04-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/81_347.25s.jpg",
+      "t": 347.25,
+      "why": "sec-04-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/82_355.90s.jpg",
+      "t": 355.9,
+      "why": "sec-04-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/83_356.45s.jpg",
+      "t": 356.45,
+      "why": "sec-04-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/84_367.30s.jpg",
+      "t": 367.3,
+      "why": "sec-04-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/85_367.85s.jpg",
+      "t": 367.85,
+      "why": "sec-04-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/86_376.30s.jpg",
+      "t": 376.3,
+      "why": "sec-04-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/87_376.85s.jpg",
+      "t": 376.85,
+      "why": "sec-04-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/88_390.70s.jpg",
+      "t": 390.7,
+      "why": "sec-04-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/89_391.25s.jpg",
+      "t": 391.25,
+      "why": "sec-04-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/90_405.70s.jpg",
+      "t": 405.7,
+      "why": "sec-04-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/91_406.25s.jpg",
+      "t": 406.25,
+      "why": "sec-05-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/92_416.60s.jpg",
+      "t": 416.6,
+      "why": "sec-05-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/93_417.15s.jpg",
+      "t": 417.15,
+      "why": "sec-05-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/94_430.70s.jpg",
+      "t": 430.7,
+      "why": "sec-05-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/95_431.25s.jpg",
+      "t": 431.25,
+      "why": "sec-05-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/96_437.30s.jpg",
+      "t": 437.3,
+      "why": "sec-05-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/97_437.85s.jpg",
+      "t": 437.85,
+      "why": "sec-05-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/98_444.50s.jpg",
+      "t": 444.5,
+      "why": "sec-05-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/99_445.05s.jpg",
+      "t": 445.05,
+      "why": "sec-05-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/100_454.20s.jpg",
+      "t": 454.2,
+      "why": "sec-05-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/101_454.75s.jpg",
+      "t": 454.75,
+      "why": "sec-05-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/102_455.90s.jpg",
+      "t": 455.9,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/103_458.60s.jpg",
+      "t": 458.6,
+      "why": "sec-05-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/104_459.15s.jpg",
+      "t": 459.15,
+      "why": "sec-05-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/105_472.00s.jpg",
+      "t": 472,
+      "why": "sec-05-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/106_472.55s.jpg",
+      "t": 472.55,
+      "why": "sec-05-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/107_477.10s.jpg",
+      "t": 477.1,
+      "why": "sec-05-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/108_477.65s.jpg",
+      "t": 477.65,
+      "why": "sec-05-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/109_485.60s.jpg",
+      "t": 485.6,
+      "why": "sec-05-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/110_486.15s.jpg",
+      "t": 486.15,
+      "why": "sec-05-10a transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/111_489.70s.jpg",
+      "t": 489.7,
+      "why": "sec-05-10a settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/112_490.25s.jpg",
+      "t": 490.25,
+      "why": "sec-05-10b transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/113_499.00s.jpg",
+      "t": 499,
+      "why": "sec-05-10b settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/114_499.55s.jpg",
+      "t": 499.55,
+      "why": "sec-05-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/115_504.10s.jpg",
+      "t": 504.1,
+      "why": "sec-05-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/116_504.65s.jpg",
+      "t": 504.65,
+      "why": "sec-05-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/117_519.10s.jpg",
+      "t": 519.1,
+      "why": "sec-05-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/118_519.65s.jpg",
+      "t": 519.65,
+      "why": "sec-05-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/119_528.10s.jpg",
+      "t": 528.1,
+      "why": "sec-05-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/120_528.65s.jpg",
+      "t": 528.65,
+      "why": "sec-05-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/121_540.40s.jpg",
+      "t": 540.4,
+      "why": "sec-05-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/122_540.95s.jpg",
+      "t": 540.95,
+      "why": "sec-05-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/123_545.70s.jpg",
+      "t": 545.7,
+      "why": "sec-05-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/124_546.25s.jpg",
+      "t": 546.25,
+      "why": "sec-06-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/125_552.90s.jpg",
+      "t": 552.9,
+      "why": "sec-06-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/126_553.45s.jpg",
+      "t": 553.45,
+      "why": "sec-06-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/127_560.60s.jpg",
+      "t": 560.6,
+      "why": "sec-06-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/128_561.15s.jpg",
+      "t": 561.15,
+      "why": "sec-06-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/129_566.60s.jpg",
+      "t": 566.6,
+      "why": "sec-06-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/130_567.15s.jpg",
+      "t": 567.15,
+      "why": "sec-06-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/131_578.30s.jpg",
+      "t": 578.3,
+      "why": "sec-06-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/132_578.85s.jpg",
+      "t": 578.85,
+      "why": "sec-06-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/133_583.90s.jpg",
+      "t": 583.9,
+      "why": "sec-06-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/134_584.45s.jpg",
+      "t": 584.45,
+      "why": "sec-06-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/135_589.30s.jpg",
+      "t": 589.3,
+      "why": "sec-06-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/136_589.85s.jpg",
+      "t": 589.85,
+      "why": "sec-06-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/137_594.20s.jpg",
+      "t": 594.2,
+      "why": "sec-06-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/138_594.75s.jpg",
+      "t": 594.75,
+      "why": "sec-06-07b transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/139_602.40s.jpg",
+      "t": 602.4,
+      "why": "sec-06-07b settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/140_602.95s.jpg",
+      "t": 602.95,
+      "why": "sec-06-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/141_611.30s.jpg",
+      "t": 611.3,
+      "why": "sec-06-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/142_611.85s.jpg",
+      "t": 611.85,
+      "why": "sec-06-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/143_617.40s.jpg",
+      "t": 617.4,
+      "why": "sec-06-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/144_617.95s.jpg",
+      "t": 617.95,
+      "why": "sec-06-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/145_626.28s.jpg",
+      "t": 626.28,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/146_626.30s.jpg",
+      "t": 626.3,
+      "why": "sec-06-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/147_626.85s.jpg",
+      "t": 626.85,
+      "why": "sec-06-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/148_632.30s.jpg",
+      "t": 632.3,
+      "why": "sec-06-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/149_632.85s.jpg",
+      "t": 632.85,
+      "why": "sec-06-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/150_643.30s.jpg",
+      "t": 643.3,
+      "why": "sec-06-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/151_643.85s.jpg",
+      "t": 643.85,
+      "why": "sec-06-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/152_654.90s.jpg",
+      "t": 654.9,
+      "why": "sec-06-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/153_655.45s.jpg",
+      "t": 655.45,
+      "why": "sec-06-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/154_664.40s.jpg",
+      "t": 664.4,
+      "why": "sec-06-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/155_664.95s.jpg",
+      "t": 664.95,
+      "why": "sec-06-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/156_670.10s.jpg",
+      "t": 670.1,
+      "why": "sec-06-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/157_670.65s.jpg",
+      "t": 670.65,
+      "why": "sec-07-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/158_676.30s.jpg",
+      "t": 676.3,
+      "why": "sec-07-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/159_676.85s.jpg",
+      "t": 676.85,
+      "why": "sec-07-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/160_687.70s.jpg",
+      "t": 687.7,
+      "why": "sec-07-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/161_688.25s.jpg",
+      "t": 688.25,
+      "why": "sec-07-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/162_700.30s.jpg",
+      "t": 700.3,
+      "why": "sec-07-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/163_700.85s.jpg",
+      "t": 700.85,
+      "why": "sec-07-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/164_709.10s.jpg",
+      "t": 709.1,
+      "why": "sec-07-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/165_709.65s.jpg",
+      "t": 709.65,
+      "why": "sec-07-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/166_713.05s.jpg",
+      "t": 713.05,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/167_718.90s.jpg",
+      "t": 718.9,
+      "why": "sec-07-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/168_719.45s.jpg",
+      "t": 719.45,
+      "why": "sec-07-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/169_727.30s.jpg",
+      "t": 727.3,
+      "why": "sec-07-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/170_727.85s.jpg",
+      "t": 727.85,
+      "why": "sec-07-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/171_731.00s.jpg",
+      "t": 731,
+      "why": "sec-07-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/172_731.55s.jpg",
+      "t": 731.55,
+      "why": "sec-07-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/173_740.30s.jpg",
+      "t": 740.3,
+      "why": "sec-07-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/174_740.85s.jpg",
+      "t": 740.85,
+      "why": "sec-07-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/175_750.30s.jpg",
+      "t": 750.3,
+      "why": "sec-07-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/176_750.85s.jpg",
+      "t": 750.85,
+      "why": "sec-07-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/177_760.30s.jpg",
+      "t": 760.3,
+      "why": "sec-07-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/178_760.85s.jpg",
+      "t": 760.85,
+      "why": "sec-07-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/179_769.50s.jpg",
+      "t": 769.5,
+      "why": "sec-07-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/180_770.05s.jpg",
+      "t": 770.05,
+      "why": "sec-07-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/181_780.10s.jpg",
+      "t": 780.1,
+      "why": "sec-07-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/182_780.65s.jpg",
+      "t": 780.65,
+      "why": "sec-07-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/183_786.50s.jpg",
+      "t": 786.5,
+      "why": "sec-07-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/184_787.05s.jpg",
+      "t": 787.05,
+      "why": "sec-07-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/185_796.70s.jpg",
+      "t": 796.7,
+      "why": "sec-07-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/186_797.25s.jpg",
+      "t": 797.25,
+      "why": "sec-07-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/187_809.30s.jpg",
+      "t": 809.3,
+      "why": "sec-07-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/188_809.85s.jpg",
+      "t": 809.85,
+      "why": "sec-08-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/189_815.20s.jpg",
+      "t": 815.2,
+      "why": "sec-08-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/190_815.75s.jpg",
+      "t": 815.75,
+      "why": "sec-08-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/191_820.90s.jpg",
+      "t": 820.9,
+      "why": "sec-08-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/192_821.45s.jpg",
+      "t": 821.45,
+      "why": "sec-08-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/193_829.70s.jpg",
+      "t": 829.7,
+      "why": "sec-08-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/194_830.25s.jpg",
+      "t": 830.25,
+      "why": "sec-08-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/195_840.30s.jpg",
+      "t": 840.3,
+      "why": "sec-08-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/196_840.85s.jpg",
+      "t": 840.85,
+      "why": "sec-08-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/197_852.90s.jpg",
+      "t": 852.9,
+      "why": "sec-08-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/198_853.45s.jpg",
+      "t": 853.45,
+      "why": "sec-08-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/199_866.50s.jpg",
+      "t": 866.5,
+      "why": "sec-08-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/200_867.05s.jpg",
+      "t": 867.05,
+      "why": "sec-08-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/201_872.90s.jpg",
+      "t": 872.9,
+      "why": "sec-08-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/202_873.45s.jpg",
+      "t": 873.45,
+      "why": "sec-08-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/203_882.30s.jpg",
+      "t": 882.3,
+      "why": "sec-08-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/204_882.85s.jpg",
+      "t": 882.85,
+      "why": "sec-08-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/205_891.30s.jpg",
+      "t": 891.3,
+      "why": "sec-08-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/206_891.85s.jpg",
+      "t": 891.85,
+      "why": "sec-08-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/207_901.30s.jpg",
+      "t": 901.3,
+      "why": "sec-08-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/208_901.85s.jpg",
+      "t": 901.85,
+      "why": "sec-08-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/209_912.30s.jpg",
+      "t": 912.3,
+      "why": "sec-08-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/210_912.85s.jpg",
+      "t": 912.85,
+      "why": "sec-08-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/211_922.40s.jpg",
+      "t": 922.4,
+      "why": "sec-08-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/212_922.95s.jpg",
+      "t": 922.95,
+      "why": "sec-08-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/213_926.50s.jpg",
+      "t": 926.5,
+      "why": "sec-08-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/214_927.05s.jpg",
+      "t": 927.05,
+      "why": "sec-08-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/215_939.30s.jpg",
+      "t": 939.3,
+      "why": "sec-08-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/216_939.85s.jpg",
+      "t": 939.85,
+      "why": "sec-08-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/217_946.50s.jpg",
+      "t": 946.5,
+      "why": "sec-08-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/218_947.05s.jpg",
+      "t": 947.05,
+      "why": "sec-09-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/219_955.35s.jpg",
+      "t": 955.35,
+      "why": "sec-09-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/220_955.90s.jpg",
+      "t": 955.9,
+      "why": "sec-09-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/221_961.00s.jpg",
+      "t": 961,
+      "why": "sec-09-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/222_961.55s.jpg",
+      "t": 961.55,
+      "why": "sec-09-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/223_970.60s.jpg",
+      "t": 970.6,
+      "why": "sec-09-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/224_971.15s.jpg",
+      "t": 971.15,
+      "why": "sec-09-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/225_976.60s.jpg",
+      "t": 976.6,
+      "why": "sec-09-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/226_977.15s.jpg",
+      "t": 977.15,
+      "why": "sec-09-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/227_981.90s.jpg",
+      "t": 981.9,
+      "why": "sec-09-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/228_982.45s.jpg",
+      "t": 982.45,
+      "why": "sec-09-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/229_987.60s.jpg",
+      "t": 987.6,
+      "why": "sec-09-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/230_988.15s.jpg",
+      "t": 988.15,
+      "why": "sec-09-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/231_992.70s.jpg",
+      "t": 992.7,
+      "why": "sec-09-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/232_993.25s.jpg",
+      "t": 993.25,
+      "why": "sec-09-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/233_999.50s.jpg",
+      "t": 999.5,
+      "why": "sec-09-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/234_1000.05s.jpg",
+      "t": 1000.05,
+      "why": "sec-09-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/235_1006.10s.jpg",
+      "t": 1006.1,
+      "why": "sec-09-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/236_1006.65s.jpg",
+      "t": 1006.65,
+      "why": "sec-09-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/237_1010.10s.jpg",
+      "t": 1010.1,
+      "why": "sec-09-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/238_1010.65s.jpg",
+      "t": 1010.65,
+      "why": "sec-09-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/239_1015.80s.jpg",
+      "t": 1015.8,
+      "why": "sec-09-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/240_1016.35s.jpg",
+      "t": 1016.35,
+      "why": "sec-09-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/241_1025.60s.jpg",
+      "t": 1025.6,
+      "why": "sec-09-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/242_1026.15s.jpg",
+      "t": 1026.15,
+      "why": "sec-09-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/243_1029.60s.jpg",
+      "t": 1029.6,
+      "why": "sec-09-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/244_1030.15s.jpg",
+      "t": 1030.15,
+      "why": "sec-09-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/245_1035.45s.jpg",
+      "t": 1035.45,
+      "why": "sec-09-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/246_1036.00s.jpg",
+      "t": 1036,
+      "why": "sec-09-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/247_1047.30s.jpg",
+      "t": 1047.3,
+      "why": "sec-09-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/248_1047.85s.jpg",
+      "t": 1047.85,
+      "why": "sec-09-16 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/249_1051.60s.jpg",
+      "t": 1051.6,
+      "why": "sec-09-16 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/250_1052.15s.jpg",
+      "t": 1052.15,
+      "why": "sec-09-17 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/251_1055.60s.jpg",
+      "t": 1055.6,
+      "why": "sec-09-17 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/252_1056.15s.jpg",
+      "t": 1056.15,
+      "why": "sec-09-18 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/253_1064.10s.jpg",
+      "t": 1064.1,
+      "why": "sec-09-18 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/254_1064.65s.jpg",
+      "t": 1064.65,
+      "why": "sec-09-19 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/255_1071.50s.jpg",
+      "t": 1071.5,
+      "why": "sec-09-19 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/256_1072.05s.jpg",
+      "t": 1072.05,
+      "why": "sec-09-20 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/257_1079.90s.jpg",
+      "t": 1079.9,
+      "why": "sec-09-20 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/258_1080.45s.jpg",
+      "t": 1080.45,
+      "why": "sec-09-21 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/259_1086.10s.jpg",
+      "t": 1086.1,
+      "why": "sec-09-21 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/260_1086.65s.jpg",
+      "t": 1086.65,
+      "why": "sec-10-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/261_1095.30s.jpg",
+      "t": 1095.3,
+      "why": "sec-10-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/262_1095.85s.jpg",
+      "t": 1095.85,
+      "why": "sec-10-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/263_1103.30s.jpg",
+      "t": 1103.3,
+      "why": "sec-10-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/264_1103.85s.jpg",
+      "t": 1103.85,
+      "why": "sec-10-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/265_1110.60s.jpg",
+      "t": 1110.6,
+      "why": "sec-10-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/266_1111.15s.jpg",
+      "t": 1111.15,
+      "why": "sec-10-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/267_1117.60s.jpg",
+      "t": 1117.6,
+      "why": "sec-10-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/268_1118.15s.jpg",
+      "t": 1118.15,
+      "why": "sec-10-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/269_1125.90s.jpg",
+      "t": 1125.9,
+      "why": "sec-10-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/270_1126.45s.jpg",
+      "t": 1126.45,
+      "why": "sec-10-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/271_1136.30s.jpg",
+      "t": 1136.3,
+      "why": "sec-10-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/272_1136.85s.jpg",
+      "t": 1136.85,
+      "why": "sec-10-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/273_1142.60s.jpg",
+      "t": 1142.6,
+      "why": "sec-10-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/274_1143.15s.jpg",
+      "t": 1143.15,
+      "why": "sec-10-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/275_1152.30s.jpg",
+      "t": 1152.3,
+      "why": "sec-10-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/276_1152.85s.jpg",
+      "t": 1152.85,
+      "why": "sec-10-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/277_1153.47s.jpg",
+      "t": 1153.47,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/278_1162.90s.jpg",
+      "t": 1162.9,
+      "why": "sec-10-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/279_1163.45s.jpg",
+      "t": 1163.45,
+      "why": "sec-10-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/280_1174.10s.jpg",
+      "t": 1174.1,
+      "why": "sec-10-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/281_1174.65s.jpg",
+      "t": 1174.65,
+      "why": "sec-10-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/282_1182.20s.jpg",
+      "t": 1182.2,
+      "why": "sec-10-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/283_1182.75s.jpg",
+      "t": 1182.75,
+      "why": "sec-10-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/284_1188.00s.jpg",
+      "t": 1188,
+      "why": "sec-10-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/285_1188.55s.jpg",
+      "t": 1188.55,
+      "why": "sec-10-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/286_1196.60s.jpg",
+      "t": 1196.6,
+      "why": "sec-10-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/287_1197.15s.jpg",
+      "t": 1197.15,
+      "why": "sec-10-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/288_1203.20s.jpg",
+      "t": 1203.2,
+      "why": "sec-10-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/289_1203.75s.jpg",
+      "t": 1203.75,
+      "why": "sec-10-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/290_1208.90s.jpg",
+      "t": 1208.9,
+      "why": "sec-10-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/291_1209.45s.jpg",
+      "t": 1209.45,
+      "why": "sec-10-16a transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/292_1214.60s.jpg",
+      "t": 1214.6,
+      "why": "sec-10-16a settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/293_1215.15s.jpg",
+      "t": 1215.15,
+      "why": "sec-10-16b transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/294_1219.90s.jpg",
+      "t": 1219.9,
+      "why": "sec-10-16b settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/295_1220.45s.jpg",
+      "t": 1220.45,
+      "why": "sec-10-17 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/296_1228.20s.jpg",
+      "t": 1228.2,
+      "why": "sec-10-17 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/297_1228.75s.jpg",
+      "t": 1228.75,
+      "why": "sec-11-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/298_1242.60s.jpg",
+      "t": 1242.6,
+      "why": "sec-11-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/299_1243.15s.jpg",
+      "t": 1243.15,
+      "why": "sec-11-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/300_1252.60s.jpg",
+      "t": 1252.6,
+      "why": "sec-11-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/301_1253.15s.jpg",
+      "t": 1253.15,
+      "why": "sec-11-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/302_1267.60s.jpg",
+      "t": 1267.6,
+      "why": "sec-11-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/303_1268.15s.jpg",
+      "t": 1268.15,
+      "why": "sec-11-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/304_1279.60s.jpg",
+      "t": 1279.6,
+      "why": "sec-11-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/305_1280.15s.jpg",
+      "t": 1280.15,
+      "why": "sec-11-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/306_1291.20s.jpg",
+      "t": 1291.2,
+      "why": "sec-11-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/307_1291.75s.jpg",
+      "t": 1291.75,
+      "why": "sec-11-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/308_1300.60s.jpg",
+      "t": 1300.6,
+      "why": "sec-11-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/309_1301.15s.jpg",
+      "t": 1301.15,
+      "why": "sec-11-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/310_1306.60s.jpg",
+      "t": 1306.6,
+      "why": "sec-11-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/311_1307.15s.jpg",
+      "t": 1307.15,
+      "why": "sec-11-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/312_1316.15s.jpg",
+      "t": 1316.15,
+      "why": "sec-11-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/313_1316.70s.jpg",
+      "t": 1316.7,
+      "why": "sec-11-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/314_1331.15s.jpg",
+      "t": 1331.15,
+      "why": "sec-11-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/315_1331.70s.jpg",
+      "t": 1331.7,
+      "why": "sec-11-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/316_1336.70s.jpg",
+      "t": 1336.7,
+      "why": "sec-11-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/317_1337.25s.jpg",
+      "t": 1337.25,
+      "why": "sec-11-11a transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/318_1343.00s.jpg",
+      "t": 1343,
+      "why": "sec-11-11a settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/319_1343.55s.jpg",
+      "t": 1343.55,
+      "why": "sec-11-11b transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/320_1347.30s.jpg",
+      "t": 1347.3,
+      "why": "sec-11-11b settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/321_1347.85s.jpg",
+      "t": 1347.85,
+      "why": "sec-11-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/322_1354.70s.jpg",
+      "t": 1354.7,
+      "why": "sec-11-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/323_1355.25s.jpg",
+      "t": 1355.25,
+      "why": "sec-11-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/324_1364.70s.jpg",
+      "t": 1364.7,
+      "why": "sec-11-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/325_1365.25s.jpg",
+      "t": 1365.25,
+      "why": "sec-11-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/326_1373.60s.jpg",
+      "t": 1373.6,
+      "why": "sec-11-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/327_1374.15s.jpg",
+      "t": 1374.15,
+      "why": "sec-12-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/328_1383.60s.jpg",
+      "t": 1383.6,
+      "why": "sec-12-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/329_1384.15s.jpg",
+      "t": 1384.15,
+      "why": "sec-12-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/330_1387.10s.jpg",
+      "t": 1387.1,
+      "why": "sec-12-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/331_1387.65s.jpg",
+      "t": 1387.65,
+      "why": "sec-12-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/332_1402.10s.jpg",
+      "t": 1402.1,
+      "why": "sec-12-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/333_1402.65s.jpg",
+      "t": 1402.65,
+      "why": "sec-12-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/334_1410.00s.jpg",
+      "t": 1410,
+      "why": "sec-12-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/335_1410.55s.jpg",
+      "t": 1410.55,
+      "why": "sec-12-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/336_1418.60s.jpg",
+      "t": 1418.6,
+      "why": "sec-12-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/337_1419.15s.jpg",
+      "t": 1419.15,
+      "why": "sec-12-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/338_1428.60s.jpg",
+      "t": 1428.6,
+      "why": "sec-12-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/339_1429.15s.jpg",
+      "t": 1429.15,
+      "why": "sec-12-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/340_1438.50s.jpg",
+      "t": 1438.5,
+      "why": "sec-12-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/341_1439.05s.jpg",
+      "t": 1439.05,
+      "why": "sec-12-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/342_1445.20s.jpg",
+      "t": 1445.2,
+      "why": "sec-12-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/343_1445.75s.jpg",
+      "t": 1445.75,
+      "why": "sec-12-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/344_1460.10s.jpg",
+      "t": 1460.1,
+      "why": "sec-12-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/345_1460.65s.jpg",
+      "t": 1460.65,
+      "why": "sec-12-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/346_1469.00s.jpg",
+      "t": 1469,
+      "why": "sec-12-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/347_1469.55s.jpg",
+      "t": 1469.55,
+      "why": "sec-12-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/348_1477.30s.jpg",
+      "t": 1477.3,
+      "why": "sec-12-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/349_1477.85s.jpg",
+      "t": 1477.85,
+      "why": "sec-12-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/350_1489.40s.jpg",
+      "t": 1489.4,
+      "why": "sec-12-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/351_1489.95s.jpg",
+      "t": 1489.95,
+      "why": "sec-12-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/352_1498.60s.jpg",
+      "t": 1498.6,
+      "why": "sec-12-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/353_1499.15s.jpg",
+      "t": 1499.15,
+      "why": "sec-12-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/354_1513.60s.jpg",
+      "t": 1513.6,
+      "why": "sec-12-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/355_1514.15s.jpg",
+      "t": 1514.15,
+      "why": "sec-13-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/356_1523.20s.jpg",
+      "t": 1523.2,
+      "why": "sec-13-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/357_1523.75s.jpg",
+      "t": 1523.75,
+      "why": "sec-13-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/358_1535.60s.jpg",
+      "t": 1535.6,
+      "why": "sec-13-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/359_1536.15s.jpg",
+      "t": 1536.15,
+      "why": "sec-13-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/360_1544.90s.jpg",
+      "t": 1544.9,
+      "why": "sec-13-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/361_1545.45s.jpg",
+      "t": 1545.45,
+      "why": "sec-13-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/362_1553.20s.jpg",
+      "t": 1553.2,
+      "why": "sec-13-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/363_1553.75s.jpg",
+      "t": 1553.75,
+      "why": "sec-13-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/364_1561.10s.jpg",
+      "t": 1561.1,
+      "why": "sec-13-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/365_1561.65s.jpg",
+      "t": 1561.65,
+      "why": "sec-13-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/366_1567.20s.jpg",
+      "t": 1567.2,
+      "why": "sec-13-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/367_1567.75s.jpg",
+      "t": 1567.75,
+      "why": "sec-13-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/368_1573.90s.jpg",
+      "t": 1573.9,
+      "why": "sec-13-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/369_1574.45s.jpg",
+      "t": 1574.45,
+      "why": "sec-13-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/370_1579.28s.jpg",
+      "t": 1579.28,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/371_1580.90s.jpg",
+      "t": 1580.9,
+      "why": "sec-13-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/372_1581.45s.jpg",
+      "t": 1581.45,
+      "why": "sec-13-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/373_1593.00s.jpg",
+      "t": 1593,
+      "why": "sec-13-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/374_1593.55s.jpg",
+      "t": 1593.55,
+      "why": "sec-13-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/375_1598.10s.jpg",
+      "t": 1598.1,
+      "why": "sec-13-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/376_1598.65s.jpg",
+      "t": 1598.65,
+      "why": "sec-13-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/377_1610.20s.jpg",
+      "t": 1610.2,
+      "why": "sec-13-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/378_1610.75s.jpg",
+      "t": 1610.75,
+      "why": "sec-13-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/379_1615.40s.jpg",
+      "t": 1615.4,
+      "why": "sec-13-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/380_1615.95s.jpg",
+      "t": 1615.95,
+      "why": "sec-13-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/381_1624.40s.jpg",
+      "t": 1624.4,
+      "why": "sec-13-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/382_1624.95s.jpg",
+      "t": 1624.95,
+      "why": "sec-13-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/383_1628.40s.jpg",
+      "t": 1628.4,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/384_1629.90s.jpg",
+      "t": 1629.9,
+      "why": "sec-13-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/385_1630.45s.jpg",
+      "t": 1630.45,
+      "why": "sec-13-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/386_1639.90s.jpg",
+      "t": 1639.9,
+      "why": "sec-13-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/387_1640.45s.jpg",
+      "t": 1640.45,
+      "why": "sec-13-16 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/388_1648.20s.jpg",
+      "t": 1648.2,
+      "why": "sec-13-16 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/389_1648.75s.jpg",
+      "t": 1648.75,
+      "why": "sec-13-17 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/390_1655.10s.jpg",
+      "t": 1655.1,
+      "why": "sec-13-17 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/391_1655.65s.jpg",
+      "t": 1655.65,
+      "why": "sec-13-18 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/392_1667.60s.jpg",
+      "t": 1667.6,
+      "why": "sec-13-18 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/393_1668.15s.jpg",
+      "t": 1668.15,
+      "why": "sec-14-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/394_1682.60s.jpg",
+      "t": 1682.6,
+      "why": "sec-14-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/395_1683.15s.jpg",
+      "t": 1683.15,
+      "why": "sec-14-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/396_1697.00s.jpg",
+      "t": 1697,
+      "why": "sec-14-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/397_1697.55s.jpg",
+      "t": 1697.55,
+      "why": "sec-14-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/398_1702.20s.jpg",
+      "t": 1702.2,
+      "why": "sec-14-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/399_1702.75s.jpg",
+      "t": 1702.75,
+      "why": "sec-14-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/400_1710.50s.jpg",
+      "t": 1710.5,
+      "why": "sec-14-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/401_1711.05s.jpg",
+      "t": 1711.05,
+      "why": "sec-14-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/402_1721.70s.jpg",
+      "t": 1721.7,
+      "why": "sec-14-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/403_1722.25s.jpg",
+      "t": 1722.25,
+      "why": "sec-14-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/404_1726.70s.jpg",
+      "t": 1726.7,
+      "why": "sec-14-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/405_1727.25s.jpg",
+      "t": 1727.25,
+      "why": "sec-14-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/406_1738.40s.jpg",
+      "t": 1738.4,
+      "why": "sec-14-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/407_1738.95s.jpg",
+      "t": 1738.95,
+      "why": "sec-14-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/408_1748.70s.jpg",
+      "t": 1748.7,
+      "why": "sec-14-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/409_1749.25s.jpg",
+      "t": 1749.25,
+      "why": "sec-14-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/410_1762.30s.jpg",
+      "t": 1762.3,
+      "why": "sec-14-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/411_1762.85s.jpg",
+      "t": 1762.85,
+      "why": "sec-14-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/412_1773.70s.jpg",
+      "t": 1773.7,
+      "why": "sec-14-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/413_1774.25s.jpg",
+      "t": 1774.25,
+      "why": "sec-14-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/414_1786.70s.jpg",
+      "t": 1786.7,
+      "why": "sec-14-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/415_1787.25s.jpg",
+      "t": 1787.25,
+      "why": "sec-14-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/416_1800.30s.jpg",
+      "t": 1800.3,
+      "why": "sec-14-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/417_1800.85s.jpg",
+      "t": 1800.85,
+      "why": "sec-15-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/418_1805.70s.jpg",
+      "t": 1805.7,
+      "why": "sec-15-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/419_1806.25s.jpg",
+      "t": 1806.25,
+      "why": "sec-15-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/420_1816.10s.jpg",
+      "t": 1816.1,
+      "why": "sec-15-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/421_1816.65s.jpg",
+      "t": 1816.65,
+      "why": "sec-15-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/422_1828.60s.jpg",
+      "t": 1828.6,
+      "why": "sec-15-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/423_1829.15s.jpg",
+      "t": 1829.15,
+      "why": "sec-15-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/424_1837.10s.jpg",
+      "t": 1837.1,
+      "why": "sec-15-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/425_1837.65s.jpg",
+      "t": 1837.65,
+      "why": "sec-15-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/426_1851.30s.jpg",
+      "t": 1851.3,
+      "why": "sec-15-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/427_1851.85s.jpg",
+      "t": 1851.85,
+      "why": "sec-15-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/428_1862.30s.jpg",
+      "t": 1862.3,
+      "why": "sec-15-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/429_1862.85s.jpg",
+      "t": 1862.85,
+      "why": "sec-15-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/430_1870.10s.jpg",
+      "t": 1870.1,
+      "why": "sec-15-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/431_1870.65s.jpg",
+      "t": 1870.65,
+      "why": "sec-15-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/432_1882.70s.jpg",
+      "t": 1882.7,
+      "why": "sec-15-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/433_1883.25s.jpg",
+      "t": 1883.25,
+      "why": "sec-15-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/434_1888.10s.jpg",
+      "t": 1888.1,
+      "why": "sec-15-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/435_1888.65s.jpg",
+      "t": 1888.65,
+      "why": "sec-15-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/436_1899.30s.jpg",
+      "t": 1899.3,
+      "why": "sec-15-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/437_1899.85s.jpg",
+      "t": 1899.85,
+      "why": "sec-15-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/438_1904.50s.jpg",
+      "t": 1904.5,
+      "why": "sec-15-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/439_1905.05s.jpg",
+      "t": 1905.05,
+      "why": "sec-15-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/440_1914.10s.jpg",
+      "t": 1914.1,
+      "why": "sec-15-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/441_1914.65s.jpg",
+      "t": 1914.65,
+      "why": "sec-15-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/442_1919.10s.jpg",
+      "t": 1919.1,
+      "why": "sec-15-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/443_1919.65s.jpg",
+      "t": 1919.65,
+      "why": "sec-15-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/444_1922.40s.jpg",
+      "t": 1922.4,
+      "why": "sec-15-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/445_1922.95s.jpg",
+      "t": 1922.95,
+      "why": "sec-15-14b transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/446_1926.70s.jpg",
+      "t": 1926.7,
+      "why": "sec-15-14b settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/447_1927.25s.jpg",
+      "t": 1927.25,
+      "why": "sec-15-14c transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/448_1931.30s.jpg",
+      "t": 1931.3,
+      "why": "sec-15-14c settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/449_1931.85s.jpg",
+      "t": 1931.85,
+      "why": "sec-15-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/450_1938.70s.jpg",
+      "t": 1938.7,
+      "why": "sec-15-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/451_1939.25s.jpg",
+      "t": 1939.25,
+      "why": "sec-16-01 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/452_1953.20s.jpg",
+      "t": 1953.2,
+      "why": "sec-16-01 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/453_1953.75s.jpg",
+      "t": 1953.75,
+      "why": "sec-16-02 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/454_1965.00s.jpg",
+      "t": 1965,
+      "why": "sec-16-02 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/455_1965.55s.jpg",
+      "t": 1965.55,
+      "why": "sec-16-03 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/456_1973.60s.jpg",
+      "t": 1973.6,
+      "why": "sec-16-03 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/457_1974.15s.jpg",
+      "t": 1974.15,
+      "why": "sec-16-04 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/458_1981.70s.jpg",
+      "t": 1981.7,
+      "why": "sec-16-04 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/459_1982.25s.jpg",
+      "t": 1982.25,
+      "why": "sec-16-05 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/460_1986.90s.jpg",
+      "t": 1986.9,
+      "why": "sec-16-05 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/461_1987.45s.jpg",
+      "t": 1987.45,
+      "why": "sec-16-06 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/462_1993.70s.jpg",
+      "t": 1993.7,
+      "why": "random sample"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/463_1994.60s.jpg",
+      "t": 1994.6,
+      "why": "sec-16-06 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/464_1995.15s.jpg",
+      "t": 1995.15,
+      "why": "sec-16-07 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/465_1999.40s.jpg",
+      "t": 1999.4,
+      "why": "sec-16-07 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/466_1999.95s.jpg",
+      "t": 1999.95,
+      "why": "sec-16-08 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/467_2007.10s.jpg",
+      "t": 2007.1,
+      "why": "sec-16-08 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/468_2007.65s.jpg",
+      "t": 2007.65,
+      "why": "sec-16-09 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/469_2010.50s.jpg",
+      "t": 2010.5,
+      "why": "sec-16-09 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/470_2011.05s.jpg",
+      "t": 2011.05,
+      "why": "sec-16-10 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/471_2018.10s.jpg",
+      "t": 2018.1,
+      "why": "sec-16-10 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/472_2018.65s.jpg",
+      "t": 2018.65,
+      "why": "sec-16-11 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/473_2023.98s.jpg",
+      "t": 2023.98,
+      "why": "sec-16-11 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/474_2024.53s.jpg",
+      "t": 2024.53,
+      "why": "sec-16-12 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/475_2034.30s.jpg",
+      "t": 2034.3,
+      "why": "sec-16-12 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/476_2034.85s.jpg",
+      "t": 2034.85,
+      "why": "sec-16-13 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/477_2040.30s.jpg",
+      "t": 2040.3,
+      "why": "sec-16-13 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/478_2040.85s.jpg",
+      "t": 2040.85,
+      "why": "sec-16-14 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/479_2047.70s.jpg",
+      "t": 2047.7,
+      "why": "sec-16-14 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/480_2048.25s.jpg",
+      "t": 2048.25,
+      "why": "sec-16-15 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/481_2054.30s.jpg",
+      "t": 2054.3,
+      "why": "sec-16-15 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/482_2054.85s.jpg",
+      "t": 2054.85,
+      "why": "sec-16-16 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/483_2060.00s.jpg",
+      "t": 2060,
+      "why": "sec-16-16 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/484_2060.55s.jpg",
+      "t": 2060.55,
+      "why": "sec-16-17 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/485_2064.90s.jpg",
+      "t": 2064.9,
+      "why": "sec-16-17 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/486_2065.45s.jpg",
+      "t": 2065.45,
+      "why": "sec-16-18 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/487_2074.30s.jpg",
+      "t": 2074.3,
+      "why": "sec-16-18 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/488_2074.85s.jpg",
+      "t": 2074.85,
+      "why": "sec-16-19 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/489_2087.30s.jpg",
+      "t": 2087.3,
+      "why": "sec-16-19 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/490_2087.85s.jpg",
+      "t": 2087.85,
+      "why": "sec-16-20 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/491_2093.70s.jpg",
+      "t": 2093.7,
+      "why": "sec-16-20 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/492_2094.25s.jpg",
+      "t": 2094.25,
+      "why": "sec-16-21 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/493_2102.10s.jpg",
+      "t": 2102.1,
+      "why": "sec-16-21 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/494_2102.65s.jpg",
+      "t": 2102.65,
+      "why": "sec-16-22 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/495_2108.00s.jpg",
+      "t": 2108,
+      "why": "sec-16-22 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/496_2108.55s.jpg",
+      "t": 2108.55,
+      "why": "sec-16-23 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/497_2120.30s.jpg",
+      "t": 2120.3,
+      "why": "sec-16-23 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/498_2120.85s.jpg",
+      "t": 2120.85,
+      "why": "sec-16-24 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/499_2126.90s.jpg",
+      "t": 2126.9,
+      "why": "sec-16-24 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/500_2127.45s.jpg",
+      "t": 2127.45,
+      "why": "sec-16-25 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/501_2138.10s.jpg",
+      "t": 2138.1,
+      "why": "sec-16-25 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/502_2138.65s.jpg",
+      "t": 2138.65,
+      "why": "sec-16-26 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/503_2145.70s.jpg",
+      "t": 2145.7,
+      "why": "sec-16-26 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/504_2146.25s.jpg",
+      "t": 2146.25,
+      "why": "sec-16-27 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/505_2150.30s.jpg",
+      "t": 2150.3,
+      "why": "sec-16-27 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/506_2150.85s.jpg",
+      "t": 2150.85,
+      "why": "sec-16-28 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/507_2159.30s.jpg",
+      "t": 2159.3,
+      "why": "sec-16-28 settled"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/508_2159.85s.jpg",
+      "t": 2159.85,
+      "why": "sec-16-29 transition-in"
+    },
+    {
+      "file": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/frames/509_2164.96s.jpg",
+      "t": 2164.96,
+      "why": "sec-16-29 settled"
+    }
+  ],
+  "contactSheet": "quality-reports/lifelink-course-L01/lifelink-course-L01_landscape_v003/contact-sheet.jpg",
+  "creativeReview": {
+    "status": "PENDING",
+    "note": "Objective checks only. Creative/brand review is recorded separately and never inferred from these results."
+  }
+}

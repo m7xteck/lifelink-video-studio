@@ -45,6 +45,8 @@ export const runQa = (opts: { course: string; lesson: string; video: string; rec
   for (const s of sc) {
     const ats: number[] = JSON.stringify(s.props).match(/"at":\s*[\d.]+/g)?.map((x) => Number(x.split(":")[1])) ?? [];
     for (const at of ats) {
+      // a revisited stepsDiagram lists later steps that are not spoken yet: StepsDiagram never shows a step before its cue, so they are never on screen
+      if (at > s.endSec && s.type === "stepsDiagram") continue;
       if (at < s.startSec - 0.01 || at > s.endSec) lateText.push(`${s.id}: cue ${at}s outside scene ${s.startSec}–${s.endSec}`);
       else if (s.endSec - at < ds.motion.minTextHoldSec) lateText.push(`${s.id}: cue at ${at}s is on screen < ${ds.motion.minTextHoldSec}s`);
     }
