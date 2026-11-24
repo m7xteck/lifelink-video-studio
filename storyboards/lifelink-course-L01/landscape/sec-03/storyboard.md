@@ -1,6 +1,6 @@
 # Storyboard — Module 01: The sacred purpose of marriage
 
-Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
+Lesson `lifelink-course-L01` · 36:08.3 · 149 scenes · 16 sections · 16:9
 
 ## Creative plan: Module 01, opening (0:00–0:40.7), preview for approval
 
@@ -37,18 +37,18 @@ Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
 
 ## Scenes
 
-### 8. sec-03-01 · parallelPhrases · 1:00.0–1:08.9 (8.9s)
+### 8. sec-03-01 · foundationLayers · 1:00.0–1:08.9 (8.9s)
 
 ![sec-03-01](frames/08_sec-03-01.jpg)
 
-**On screen:** A commitment founded upon / Faith / Compassion / Responsibility / Trust and mutual respect  
+**On screen:** Founded upon / Faith / Compassion / Responsibility / Trust & respect  
 **Narration:** It is a commitment founded upon faith, compassion, responsibility, trust and mutual respect.
 
-### 9. sec-03-02 · kineticStatement · 1:08.9–1:14.1 (5.2s)
+### 9. sec-03-02 · highlightLine · 1:08.9–1:14.1 (5.2s)
 
 ![sec-03-02](frames/09_sec-03-02.jpg)
 
-**On screen:** It is not simply about / finding someone you love / or planning a beautiful wedding.  
+**On screen:** It is not simply about finding someone you love / or planning a beautiful wedding. / not simply / sky  
 **Narration:** It is not simply about finding someone you love or planning a beautiful wedding.
 
 ### 10. sec-03-03 · comparison · 1:14.1–1:20.0 (5.9s)
@@ -62,21 +62,21 @@ Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
 
 ![sec-03-04](frames/11_sec-03-04.jpg)
 
-**On screen:** This is why we have developed / the LifeLink Marriage Academy. / Across our 18 compulsory modules, / Academy  
+**On screen:** This is why we have developed / the LifeLink Marriage Academy. / Across our 18 compulsory modules, / Academy / ink  
 **Narration:** This is why we have developed the LifeLink Marriage Academy. Across our 18 compulsory modules,
 
-### 12. sec-03-05 · parallelPhrases · 1:27.6–1:35.8 (8.2s)
+### 12. sec-03-05 · highlightLine · 1:27.6–1:35.8 (8.2s)
 
 ![sec-03-05](frames/12_sec-03-05.jpg)
 
-**On screen:** We will explore the foundations of a successful marriage / Choosing a compatible partner / Understanding Islamic responsibilities  
+**On screen:** The foundations of a successful marriage: / choosing a compatible partner, / understanding Islamic responsibilities / foundations / sky  
 **Narration:** we will explore the foundations of a successful marriage, from choosing a compatible partner and understanding Islamic responsibilities to
 
-### 13. sec-03-06 · parallelPhrases · 1:35.8–1:42.8 (7.0s)
+### 13. sec-03-06 · wordStack · 1:35.8–1:42.8 (7.0s)
 
 ![sec-03-06](frames/13_sec-03-06.jpg)
 
-**On screen:** Communication / Managing conflict / Finances / Family relationships / and / Maintaining love  
+**On screen:** Communication / Managing conflict / Finances & family relationships / Maintaining love / offset  
 **Narration:** communication, managing conflict, finances, family relationships and maintaining love.
 
 ### 14. sec-03-07 · statementCollision · 1:42.8–1:52.3 (9.5s)
@@ -86,11 +86,11 @@ Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
 **On screen:** Our aim is not simply to help you / prepare for marriage, / but to equip you / with the tools / to build a healthy, respectful and lasting relationship.  
 **Narration:** Our aim is not simply to help you prepare for marriage, but to equip you with the tools to build a healthy, respectful and lasting relationship.
 
-### 15. sec-03-08 · kineticStatement · 1:52.3–2:02.9 (10.6s)
+### 15. sec-03-08 · highlightLine · 1:52.3–2:02.9 (10.6s)
 
 ![sec-03-08](frames/15_sec-03-08.jpg)
 
-**On screen:** The sacred purpose of marriage / and what it means to enter this partnership / with the right intentions and expectations. / sacred / purpose / In this first module  
+**On screen:** The sacred purpose of marriage, / what it means to enter this partnership / with the right intentions and expectations. / sacred purpose / royal  
 **Narration:** In this first module, we will explore the sacred purpose of marriage and what it means to enter this partnership with the right intentions and expectations.
 
 ### 16. sec-03-09 · reflectionField · 2:02.9–2:15.9 (13.0s)
@@ -104,117 +104,26 @@ Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
 
 ![sec-03-10](frames/17_sec-03-10.jpg)
 
-**On screen:** What we will be learning throughout this module / Before we explore the foundations of marriage  
+**On screen:** Before we explore the foundations of marriage, / what we will be learning throughout this module. / learning / ink  
 **Narration:** Before we explore the foundations of marriage, I would like to explain what we will be learning throughout this module.
 
-### 18. sec-03-11 · kineticStatement · 2:24.1–2:28.5 (4.4s)
+### 18. sec-03-11 · lessonMap · 2:24.1–4:04.0 (99.9s)
 
 ![sec-03-11](frames/18_sec-03-11.jpg)
 
-**On screen:** The divine purpose of marriage / divine / purpose / Roadmap · 01  
-**Narration:** Our journey begins with understanding the divine purpose of marriage.
+**On screen:** Our journey / Divine purpose / The marital ecosystem / Partnership & sacred trust / Qualities of marriage / Realistic expectations / The mirror check / An important position in Islam / Spiritual & personal development / Marriage does not exist in isolation / Emotional well-being, family / Finances, spiritual development / Wider responsibilities / What does it mean to share your life? / Balance our needs with someone else's / External qualities / Appearance, education, employment / Family background, financial stability / We must also look at character / Kindness, honesty / Emotional maturity, communication / Relationships experience difficulties / Assumptions never discussed / Look inward, reflect on our readiness  
+**Narration:** Our journey begins with understanding the divine purpose of marriage. We will look at why marriage holds such an important position in Islam and how it can contribute to our spiritual and personal development. We will then explore what I call the marital ecosystem. Marriage does not exist in isolation. It affects our emotional well -being, family relationships, financial circumstances, spiritual development and wider responsibilities. Next, we will consider the concept of partnership and a manner of sacred trust. What does it actually mean to share your life with another individual? How do we balance our own needs and ambitions with the needs of someone else? We will also examine the qualities of a successful marriage. Often when people are searching for a spouse, they focus on external qualities such as appearance, education, employment, family background or financial stability. Although some of these considerations may be important, we must also look at the emotional maturity and the ability to communicate. We will then explore realistic expectations. Many relationships experience difficulties because individuals enter marriage with assumptions that have never been discussed. Finally, we will complete what we call the mirror check. This is an opportunity to look inward and reflect on our own readiness for marriage. Throughout this module,
 
-### 19. sec-03-12 · parallelPhrases · 2:28.5–2:38.1 (9.6s)
+### 19. sec-03-20 · pullQuote · 4:04.0–4:13.9 (9.9s)
 
-![sec-03-12](frames/19_sec-03-12.jpg)
+![sec-03-20](frames/19_sec-03-20.jpg)
 
-**On screen:** We will look at / Why marriage holds such an important position in Islam / How it can contribute to our spiritual and personal development  
-**Narration:** We will look at why marriage holds such an important position in Islam and how it can contribute to our spiritual and personal development.
+**On screen:** Remember, the aim is not perfection. / None of us are perfect, / and marriage does not require us / to become perfect individuals. / not perfection.  
+**Narration:** remember that the aim is not perfection. None of us are perfect and marriage does not require us to become perfect individuals.
 
-### 20. sec-03-13 · kineticStatement · 2:38.1–2:45.7 (7.6s)
+### 20. sec-03-21 · wordStack · 4:13.9–4:24.0 (10.1s)
 
-![sec-03-13](frames/20_sec-03-13.jpg)
+![sec-03-21](frames/20_sec-03-21.jpg)
 
-**On screen:** The marital ecosystem / Marriage does not exist in isolation. / ecosystem / Roadmap · 02  
-**Narration:** We will then explore what I call the marital ecosystem. Marriage does not exist in isolation.
-
-### 21. sec-03-14 · parallelPhrases · 2:45.7–2:56.3 (10.6s)
-
-![sec-03-14](frames/21_sec-03-14.jpg)
-
-**On screen:** It affects / Emotional well-being / Family relationships / Financial circumstances / Spiritual development and wider responsibilities  
-**Narration:** It affects our emotional well -being, family relationships, financial circumstances, spiritual development and wider responsibilities.
-
-### 22. sec-03-15 · kineticStatement · 2:56.3–3:02.9 (6.6s)
-
-![sec-03-15](frames/22_sec-03-15.jpg)
-
-**On screen:** Partnership / and sacred trust / sacred / trust / Roadmap · 03  
-**Narration:** Next, we will consider the concept of partnership and a manner of sacred trust.
-
-### 23. sec-03-16a · statementCollision · 3:02.9–3:07.1 (4.2s)
-
-![sec-03-16a](frames/23_sec-03-16a.jpg)
-
-**On screen:** What does it actually mean to share / your life / with another / individual?  
-**Narration:** What does it actually mean to share your life with another individual?
-
-### 24. sec-03-16b · kineticStatement · 3:07.1–3:13.4 (6.3s)
-
-![sec-03-16b](frames/24_sec-03-16b.jpg)
-
-**On screen:** How do we balance / our own needs and ambitions / with the needs of someone else?  
-**Narration:** How do we balance our own needs and ambitions with the needs of someone else?
-
-### 25. sec-03-17 · kineticStatement · 3:13.4–3:17.6 (4.2s)
-
-![sec-03-17](frames/25_sec-03-17.jpg)
-
-**On screen:** The qualities of a successful marriage / qualities / Roadmap · 04  
-**Narration:** We will also examine the qualities of a successful marriage.
-
-### 26. sec-03-18 · parallelPhrases · 3:17.6–3:28.9 (11.3s)
-
-![sec-03-18](frames/26_sec-03-18.jpg)
-
-**On screen:** When searching for a spouse, people often focus on / Appearance / Education / Employment / Family background or financial stability  
-**Narration:** Often when people are searching for a spouse, they focus on external qualities such as appearance, education, employment, family background or financial stability.
-
-### 27. sec-03-19 · kineticStatement · 3:28.9–3:40.4 (11.5s)
-
-![sec-03-19](frames/27_sec-03-19.jpg)
-
-**On screen:** we must also look at / character, kindness, honesty, / emotional maturity / and the ability to communicate. / also / Although some of these considerations may be important  
-**Narration:** Although some of these considerations may be important, we must also look at the emotional maturity and the ability to communicate.
-
-### 28. sec-03-20 · kineticStatement · 3:40.4–3:44.4 (4.0s)
-
-![sec-03-20](frames/28_sec-03-20.jpg)
-
-**On screen:** Realistic expectations / Realistic / Roadmap · 05  
-**Narration:** We will then explore realistic expectations.
-
-### 29. sec-03-21 · statementCollision · 3:44.4–3:52.7 (8.3s)
-
-![sec-03-21](frames/29_sec-03-21.jpg)
-
-**On screen:** Many relationships experience / difficulties / because / individuals enter marriage / with assumptions that have never been discussed.  
-**Narration:** Many relationships experience difficulties because individuals enter marriage with assumptions that have never been discussed.
-
-### 30. sec-03-22a · kineticStatement · 3:52.7–3:56.7 (4.0s)
-
-![sec-03-22a](frames/30_sec-03-22a.jpg)
-
-**On screen:** The Mirror Check / Mirror / Roadmap · 06  
-**Narration:** Finally, we will complete what we call the mirror check.
-
-### 31. sec-03-22b · reflectionField · 3:56.7–4:02.9 (6.2s)
-
-![sec-03-22b](frames/31_sec-03-22b.jpg)
-
-**On screen:** This is an opportunity to / look inward / and reflect on our own readiness for marriage. / oxblood  
-**Narration:** This is an opportunity to look inward and reflect on our own readiness for marriage.
-
-### 32. sec-03-23 · statementCollision · 4:02.9–4:13.9 (11.0s)
-
-![sec-03-23](frames/32_sec-03-23.jpg)
-
-**On screen:** Throughout this module, remember that / the aim is / not perfection. / None of us are perfect, / and marriage does not require us to become perfect individuals.  
-**Narration:** Throughout this module, remember that the aim is not perfection. None of us are perfect and marriage does not require us to become perfect individuals.
-
-### 33. sec-03-24 · parallelPhrases · 4:13.9–4:24.0 (10.1s)
-
-![sec-03-24](frames/33_sec-03-24.jpg)
-
-**On screen:** However, it does require us to / Recognise our responsibilities / Understand our strengths / Identify areas in which we need to grow  
+**On screen:** However, it does require us to / Recognise our responsibilities / Understand our strengths / Identify areas to grow / column  
 **Narration:** However, it does require us to recognise our responsibilities, understand our strengths and identify areas in which we need to grow.

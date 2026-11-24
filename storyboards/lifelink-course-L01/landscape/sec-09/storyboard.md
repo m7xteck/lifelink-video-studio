@@ -1,6 +1,6 @@
 # Storyboard — Module 01: The sacred purpose of marriage
 
-Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
+Lesson `lifelink-course-L01` · 36:08.3 · 149 scenes · 16 sections · 16:9
 
 ## Creative plan: Module 01, opening (0:00–0:40.7), preview for approval
 
@@ -37,149 +37,65 @@ Lesson `lifelink-course-L01` · 36:05.3 · 250 scenes · 16 sections · 16:9
 
 ## Scenes
 
-### 107. sec-09-01 · parallelPhrases · 15:46.8–15:55.6 (8.9s)
+### 60. sec-09-01 · wordStack · 15:46.8–15:55.6 (8.9s)
 
-![sec-09-01](frames/107_sec-09-01.jpg)
+![sec-09-01](frames/60_sec-09-01.jpg)
 
-**On screen:** Two individuals who may have very different / Personalities / Experiences / Perspectives  
+**On screen:** This brings together two individuals who may have very different / Personalities / Experiences / Perspectives / offset  
 **Narration:** This brings together two individuals who may have very different personalities, experiences and perspectives.
 
-### 108. sec-09-02 · statementCollision · 15:55.6–16:01.3 (5.6s)
+### 61. sec-09-02 · highlightLine · 15:55.6–16:01.3 (5.6s)
 
-![sec-09-02](frames/108_sec-09-02.jpg)
+![sec-09-02](frames/61_sec-09-02.jpg)
 
-**On screen:** Even when two people share the same religious values / they will / not necessarily / think alike.  
+**On screen:** Even when two people share the same religious values, / they will not necessarily think alike. / think alike / sky  
 **Narration:** Even when two people share the same religious values, they will not necessarily think alike. One
 
-### 109. sec-09-03 · kineticStatement · 16:01.3–16:10.9 (9.6s)
+### 62. sec-09-03 · kineticStatement · 16:01.3–16:10.9 (9.6s)
 
-![sec-09-03](frames/109_sec-09-03.jpg)
+![sec-09-03](frames/62_sec-09-03.jpg)
 
-**On screen:** One person may be naturally outgoing, / whilst the other is more reserved. / One may prefer careful planning, / whilst the other is more spontaneous. / outgoing / reserved / planning / spontaneous  
+**On screen:** One person may be naturally outgoing, / whilst the other is more reserved. / One may prefer careful planning, / whilst the other is more spontaneous. / outgoing / reserved / planning / spontaneous / rise  
 **Narration:** person may be naturally outgoing, whilst the other is more reserved. One may prefer careful planning, whilst the other is more spontaneous.
 
-### 110. sec-09-04 · comparison · 16:10.9–16:16.9 (6.0s)
+### 63. sec-09-04 · comparison · 16:10.9–16:16.9 (6.0s)
 
-![sec-09-04](frames/110_sec-09-04.jpg)
+![sec-09-04](frames/63_sec-09-04.jpg)
 
 **On screen:** Words / Expressing affection / Practical actions / Demonstrating care  
 **Narration:** One may express affection through words, whilst the other demonstrates care through practical actions.
 
-### 111. sec-09-05 · statementCollision · 16:16.9–16:22.2 (5.3s)
+### 64. sec-09-05 · statementCollision · 16:16.9–16:22.2 (5.3s)
 
-![sec-09-05](frames/111_sec-09-05.jpg)
+![sec-09-05](frames/64_sec-09-05.jpg)
 
 **On screen:** These differences / do not automatically mean / two people are incompatible.  
 **Narration:** These differences do not automatically mean that two people are incompatible.
 
-### 112. sec-09-06 · parallelPhrases · 16:22.2–16:27.9 (5.7s)
+### 65. sec-09-06 · wordStack · 16:22.2–16:27.9 (5.7s)
 
-![sec-09-06](frames/112_sec-09-06.jpg)
+![sec-09-06](frames/65_sec-09-06.jpg)
 
-**On screen:** What matters is how they / Understand / Respect / Respond  
+**On screen:** What matters is how they / Understand / Respect / Respond / column  
 **Narration:** What matters is how they understand, respect and respond to those differences.
 
-### 113. sec-09-07 · kineticStatement · 16:27.9–16:33.0 (5.1s)
+### 66. sec-09-07 · pullQuote · 16:27.9–16:33.0 (5.1s)
 
-![sec-09-07](frames/113_sec-09-07.jpg)
+![sec-09-07](frames/66_sec-09-07.jpg)
 
-**On screen:** A healthy marriage is built on / partnership / rather than competition. / partnership  
+**On screen:** A healthy marriage is built on partnership / rather than competition. / partnership  
 **Narration:** A healthy marriage is built on partnership rather than competition.
 
-### 114. sec-09-08 · stepsDiagram · 16:33.0–16:39.8 (6.8s)
+### 67. sec-09-08 · bridgePlanks · 16:33.0–18:02.2 (89.2s)
 
-![sec-09-08](frames/114_sec-09-08.jpg)
+![sec-09-08](frames/67_sec-09-08.jpg)
 
-**On screen:** Four elements of partnership / Respectful consultation / Shared responsibilities / Mutual support / Honouring individuality  
-**Narration:** Let us consider the four elements shown on this slide. The first is respectful consultation.
+**On screen:** Respectful consultation / Shared responsibilities / Mutual support / Honouring individuality / work together  
+**Narration:** Let us consider the four elements shown on this slide. The first is respectful consultation. Important decisions should involve meaningful discussion, particularly when these decisions affect both spouses. The second is shared responsibilities. Marriage involves practical commitments and couples need to understand how these responsibilities will be managed. This does not necessarily mean dividing every task equally, it means developing arrangements that are fair, understood and agreed upon. The third is mutual support. A successful partnership involves supporting one another's personal, professional and spiritual development. For example, if one spouse wishes to continue their education, a supportive partner will consider how that ambition can be accommodated alongside their shared responsibilities. The fourth is honouring individuality. Being married does not mean losing your identity. Both spouses remain individuals with their own personalities, interests, strengths and aspirations. Marriage should provide opportunities for growth rather than requiring one person to disappear into their expectations of another. Ultimately, a healthy partnership is not about asking who has more power. It's about asking how can we work together to build a relationship in which both
 
-### 115. sec-09-09 · kineticStatement · 16:39.8–16:46.4 (6.6s)
+### 68. sec-09-09 · chapterRecap · 18:02.2–18:06.4 (4.2s)
 
-![sec-09-09](frames/115_sec-09-09.jpg)
+![sec-09-09](frames/68_sec-09-09.jpg)
 
-**On screen:** Important decisions / should involve meaningful discussion, / particularly when these decisions / affect both spouses. / meaningful / discussion / both / Respectful consultation  
-**Narration:** Important decisions should involve meaningful discussion, particularly when these decisions affect both spouses.
-
-### 116. sec-09-10 · stepsDiagram · 16:46.4–16:50.4 (4.0s)
-
-![sec-09-10](frames/116_sec-09-10.jpg)
-
-**On screen:** Four elements of partnership / Respectful consultation / Shared responsibilities / Mutual support / Honouring individuality  
-**Narration:** The second is shared responsibilities. Marriage involves
-
-### 117. sec-09-11 · kineticStatement · 16:50.4–16:56.1 (5.7s)
-
-![sec-09-11](frames/117_sec-09-11.jpg)
-
-**On screen:** Marriage involves practical commitments / and couples need to understand / how these responsibilities will be managed. / practical / understand / Shared responsibilities  
-**Narration:** practical commitments and couples need to understand how these responsibilities will be managed.
-
-### 118. sec-09-12 · kineticStatement · 16:56.1–17:05.9 (9.8s)
-
-![sec-09-12](frames/118_sec-09-12.jpg)
-
-**On screen:** This does not necessarily mean / dividing every task equally, / it means developing arrangements that are / fair, understood and agreed upon. / fair / understood / agreed  
-**Narration:** This does not necessarily mean dividing every task equally, it means developing arrangements that are fair, understood and agreed upon.
-
-### 119. sec-09-13 · stepsDiagram · 17:05.9–17:09.9 (4.0s)
-
-![sec-09-13](frames/119_sec-09-13.jpg)
-
-**On screen:** Four elements of partnership / Respectful consultation / Shared responsibilities / Mutual support / Honouring individuality  
-**Narration:** The third is mutual support. A successful partnership
-
-### 120. sec-09-14 · parallelPhrases · 17:09.9–17:15.8 (5.8s)
-
-![sec-09-14](frames/120_sec-09-14.jpg)
-
-**On screen:** Supporting one another's / Personal / Professional / Spiritual / development  
-**Narration:** involves supporting one another's personal, professional and spiritual development.
-
-### 121. sec-09-15 · kineticStatement · 17:15.8–17:27.6 (11.8s)
-
-![sec-09-15](frames/121_sec-09-15.jpg)
-
-**On screen:** If one spouse wishes / to continue their education, / a supportive partner will consider / how that ambition can be accommodated / alongside their shared responsibilities. / supportive / accommodated / For example  
-**Narration:** For example, if one spouse wishes to continue their education, a supportive partner will consider how that ambition can be accommodated alongside their shared responsibilities.
-
-### 122. sec-09-16 · stepsDiagram · 17:27.6–17:31.9 (4.3s)
-
-![sec-09-16](frames/122_sec-09-16.jpg)
-
-**On screen:** Four elements of partnership / Respectful consultation / Shared responsibilities / Mutual support / Honouring individuality  
-**Narration:** The fourth is honouring individuality.
-
-### 123. sec-09-17 · statementCollision · 17:31.9–17:35.9 (4.0s)
-
-![sec-09-17](frames/123_sec-09-17.jpg)
-
-**On screen:** Honouring individuality / Being married / does not mean / losing your identity.  
-**Narration:** Being married does not mean losing your identity.
-
-### 124. sec-09-18 · parallelPhrases · 17:35.9–17:44.4 (8.5s)
-
-![sec-09-18](frames/124_sec-09-18.jpg)
-
-**On screen:** Both spouses remain individuals with their own / Personalities / Interests / Strengths / Aspirations  
-**Narration:** Both spouses remain individuals with their own personalities, interests, strengths and aspirations.
-
-### 125. sec-09-19 · kineticStatement · 17:44.4–17:51.8 (7.4s)
-
-![sec-09-19](frames/125_sec-09-19.jpg)
-
-**On screen:** Marriage should provide / opportunities for growth / rather than requiring one person / to disappear / into their expectations of another. / growth  
-**Narration:** Marriage should provide opportunities for growth rather than requiring one person to disappear into their expectations of another.
-
-### 126. sec-09-20 · comparison · 17:51.8–18:00.2 (8.4s)
-
-![sec-09-20](frames/126_sec-09-20.jpg)
-
-**On screen:** Not asking / Who has more power? / But asking / How can we work together?  
-**Narration:** Ultimately, a healthy partnership is not about asking who has more power. It's about asking how can we work together to
-
-### 127. sec-09-21 · parallelPhrases · 18:00.2–18:06.4 (6.2s)
-
-![sec-09-21](frames/127_sec-09-21.jpg)
-
-**On screen:** A relationship in which both of us are / Respected / Supported / Valued  
-**Narration:** build a relationship in which both of us are respected, supported and valued.
+**On screen:** Partnership, not competition / bridgePlanks / Respectful consultation / Shared responsibilities / Mutual support / Honouring individuality / work together / Respected / Supported / Valued  
+**Narration:** of us are respected, supported and valued.
