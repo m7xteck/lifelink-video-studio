@@ -3,7 +3,7 @@
   "id": "sec-16",
   "title": "The Mirror Check and Closing",
   "startSec": 1939,
-  "endSec": 2165.26
+  "endSec": 2168.26
  },
  "scenes": [
   {
@@ -325,7 +325,6 @@
       "meaningAt": 2086.78
      }
     ],
-    "baseAt": 2075.38,
     "lintelAt": 2084.2,
     "focus": [
      {
@@ -339,16 +338,13 @@
      {
       "index": 1,
       "at": 2092.5
-     },
-     {
-      "index": null,
-      "at": 2093.4
      }
     ],
     "title": {
      "text": "Three foundations",
      "at": 2076.8
-    }
+    },
+    "recall": true
    }
   },
   {
@@ -487,7 +483,7 @@
        }
       },
       "label": "The ecosystem",
-      "at": 2109.42
+      "at": 2109.6
      },
      {
       "signature": {
@@ -543,131 +539,7 @@
        }
       },
       "label": "Private character",
-      "at": 2110.14
-     },
-     {
-      "signature": {
-       "type": "pressuresShelter",
-       "props": {
-        "houseAt": 686.32,
-        "pressures": [
-         {
-          "text": "Rising living costs",
-          "at": 694.18
-         },
-         {
-          "text": "Housing expenses",
-          "at": 695.9
-         },
-         {
-          "text": "Financial stability",
-          "at": 698.16
-         },
-         {
-          "text": "Social media",
-          "at": 711.54
-         },
-         {
-          "text": "Changing roles",
-          "at": 753.4
-         },
-         {
-          "text": "Cultural differences",
-          "at": 770.04
-         }
-        ],
-        "values": [
-         {
-          "text": "Justice",
-          "at": 788.62
-         },
-         {
-          "text": "Compassion",
-          "at": 789.48
-         },
-         {
-          "text": "Responsibility",
-          "at": 790.32
-         },
-         {
-          "text": "Consultation",
-          "at": 791.68
-         }
-        ],
-        "foundationAt": 793.22
-       }
-      },
-      "label": "A changing world",
-      "at": 2110.86
-     },
-     {
-      "signature": {
-       "type": "sortTrays",
-       "props": {
-        "trays": [
-         {
-          "label": "Islamic teachings",
-          "at": 816.98
-         },
-         {
-          "label": "Cultural expectations",
-          "at": 818.82
-         },
-         {
-          "label": "Personal preferences",
-          "at": 937.34
-         }
-        ],
-        "cards": [
-         {
-          "text": "Expensive wedding",
-          "tray": 1,
-          "at": 845.08
-         },
-         {
-          "text": "Status and reputation",
-          "tray": 1,
-          "at": 870.14
-         },
-         {
-          "text": "Wealth and standing",
-          "tray": 1,
-          "at": 878.74
-         },
-         {
-          "text": "Character",
-          "tray": 0,
-          "at": 887.7
-         },
-         {
-          "text": "Faith",
-          "tray": 0,
-          "at": 889.0
-         },
-         {
-          "text": "Compatibility",
-          "tray": 0,
-          "at": 889.6
-         },
-         {
-          "text": "Expected roles at home",
-          "tray": 1,
-          "at": 897.56
-         },
-         {
-          "text": "Rights and responsibilities",
-          "tray": 0,
-          "at": 903.8
-         }
-        ],
-        "caption": {
-         "text": "prevent misunderstandings",
-         "at": 942.28
-        }
-       }
-      },
-      "label": "Faith or culture",
-      "at": 2111.58
+      "at": 2110.5
      },
      {
       "signature": {
@@ -700,7 +572,7 @@
        }
       },
       "label": "Partnership",
-      "at": 2112.3
+      "at": 2111.38
      },
      {
       "signature": {
@@ -742,178 +614,7 @@
        }
       },
       "label": "Amanah",
-      "at": 2113.02
-     },
-     {
-      "signature": {
-       "type": "foundationLayers",
-       "props": {
-        "courses": [
-         {
-          "label": "Core foundation",
-          "at": 0,
-          "items": [
-           {
-            "text": "Faith",
-            "at": 0
-           },
-           {
-            "text": "Respect",
-            "at": 0
-           },
-           {
-            "text": "Trust",
-            "at": 0
-           }
-          ]
-         },
-         {
-          "label": "Action",
-          "at": 0,
-          "items": [
-           {
-            "text": "Communication",
-            "at": 0
-           },
-           {
-            "text": "Responsibility",
-            "at": 0
-           },
-           {
-            "text": "Cooperation",
-            "at": 0
-           }
-          ]
-         },
-         {
-          "label": "Grace and repair",
-          "at": 0,
-          "items": [
-           {
-            "text": "Compassion",
-            "at": 0
-           },
-           {
-            "text": "Patience",
-            "at": 0
-           },
-           {
-            "text": "Appreciation",
-            "at": 0
-           },
-           {
-            "text": "Forgiveness",
-            "at": 0
-           }
-          ]
-         }
-        ],
-        "groundAt": 0
-       }
-      },
-      "label": "Qualities",
-      "at": 2113.74
-     },
-     {
-      "signature": {
-       "type": "scenarioCard",
-       "props": {
-        "ordinal": {
-         "text": "third",
-         "at": 1470.04
-        },
-        "cardAt": 1469.5,
-        "topic": {
-         "text": "Accountability",
-         "at": 1471.58
-        },
-        "situation": [
-         {
-          "text": "A hurtful comment during a disagreement",
-          "at": 1475.22
-         }
-        ],
-        "avoid": {
-         "text": "Blame the other or minimise what happened",
-         "at": 1478.56,
-         "strikeAt": 1482.54
-        },
-        "response": [
-         {
-          "text": "Acknowledge the mistake",
-          "at": 1482.66
-         },
-         {
-          "text": "Apologise sincerely",
-          "at": 1484.56
-         },
-         {
-          "text": "Respond differently in future",
-          "at": 1487.66
-         }
-        ],
-        "outcome": {
-         "text": "emotional maturity in action",
-         "at": 1490.56
-        },
-        "past": [
-         "Appreciation",
-         "Disagreement"
-        ]
-       }
-      },
-      "label": "Character in action",
-      "at": 2114.46
-     },
-     {
-      "signature": {
-       "type": "mythTruth",
-       "props": {
-        "myth": {
-         "text": "Our spouse will change completely.",
-         "at": 0
-        },
-        "tearAt": 0,
-        "truth": {
-         "text": "Honest conversations before marriage are so important.",
-         "at": 0
-        },
-        "past": [
-         "Always happy",
-         "Never disagree",
-         "Automatically know",
-         "Love alone",
-         "Solve all problems"
-        ],
-        "short": "Change completely"
-       }
-      },
-      "label": "Realistic expectations",
-      "at": 2115.18
-     },
-     {
-      "signature": {
-       "type": "pathLandscape",
-       "props": {
-        "lines": [
-         {
-          "text": "As life progresses,",
-          "at": 1703.62
-         },
-         {
-          "text": "circumstances change.",
-          "at": 1705.4
-         },
-         {
-          "text": "Careers develop; financial responsibilities may increase.",
-          "at": 1707.32
-         }
-        ],
-        "firstStepAt": 1703.76
-       }
-      },
-      "label": "Lifelong learning",
-      "at": 2115.9
+      "at": 2112.18
      },
      {
       "signature": {
@@ -1044,9 +745,13 @@
        }
       },
       "label": "The mirror check",
-      "at": 2116.62
+      "at": 2113.06
      }
-    ]
+    ],
+    "title": {
+     "text": "Your learning journey",
+     "at": 2116.08
+    }
    }
   },
   {
@@ -1155,7 +860,7 @@
    "sectionId": "sec-16",
    "type": "reflectionField",
    "startSec": 2150.6,
-   "endSec": 2159.6,
+   "endSec": 2164.4,
    "props": {
     "lines": [
      {
@@ -1175,21 +880,12 @@
       "at": 2156.58
      }
     ],
-    "ground": "royal"
-   }
-  },
-  {
-   "id": "sec-16-29",
-   "sectionId": "sec-16",
-   "startSec": 2159.6,
-   "endSec": 2165.26,
-   "type": "kineticStatement",
-   "props": {
-    "lines": [
-     {
-      "text": "Ameen",
-      "at": 2159.76
-     },
+    "ground": "royal",
+    "script": {
+     "text": "Ameen",
+     "at": 2159.76
+    },
+    "after": [
      {
       "text": "Assalamu alaikum",
       "at": 2160.8
@@ -1198,12 +894,22 @@
       "text": "wa rahmatullahi wa barakatuh",
       "at": 2161.9
      }
-    ],
+    ]
+   }
+  },
+  {
+   "id": "sec-16-29",
+   "sectionId": "sec-16",
+   "startSec": 2164.4,
+   "endSec": 2168.26,
+   "type": "kineticStatement",
+   "props": {
+    "lines": [],
     "align": "center",
     "scale": "h2",
     "reveal": "focus",
     "signoffLogo": {
-     "at": 2163.0,
+     "at": 2164.9,
      "variant": "horizontal"
     }
    }

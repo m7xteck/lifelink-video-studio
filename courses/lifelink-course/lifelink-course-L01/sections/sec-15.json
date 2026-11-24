@@ -43,66 +43,6 @@
    "id": "sec-15-02",
    "sectionId": "sec-15",
    "startSec": 1806.0,
-   "endSec": 1829.0,
-   "type": "scenarioCard",
-   "props": {
-    "ordinal": {
-     "text": "first",
-     "at": 1806.32
-    },
-    "cardAt": 1806.1,
-    "topic": {
-     "text": "Family time",
-     "at": 1807.84
-    },
-    "situation": [
-     {
-      "text": "A couple disagree about visiting families",
-      "at": 1811.32
-     },
-     {
-      "text": "One: visit parents every weekend",
-      "at": 1816.58
-     },
-     {
-      "text": "Other: more time together as a couple",
-      "at": 1820.9
-     }
-    ]
-   }
-  },
-  {
-   "id": "sec-15-03",
-   "sectionId": "sec-15",
-   "startSec": 1829.0,
-   "endSec": 1837.4,
-   "type": "highlightLine",
-   "props": {
-    "lines": [
-     {
-      "text": "Problems can arise if either person assumes",
-      "at": 1829.96
-     },
-     {
-      "text": "their own expectation should",
-      "at": 1832.92
-     },
-     {
-      "text": "automatically take priority.",
-      "at": 1834.58
-     }
-    ],
-    "highlight": {
-     "text": "automatically take priority.",
-     "at": 1834.58
-    },
-    "tint": "sky"
-   }
-  },
-  {
-   "id": "sec-15-04",
-   "sectionId": "sec-15",
-   "startSec": 1837.4,
    "endSec": 1862.6,
    "type": "scenarioCard",
    "props": {
@@ -222,17 +162,32 @@
     "left": {
      "title": "A spouse can provide",
      "points": [
-      { "text": "Companionship", "at": 1889.86 },
-      { "text": "Affection", "at": 1891.02 },
-      { "text": "Emotional support", "at": 1891.86 }
+      {
+       "text": "Companionship",
+       "at": 1889.86
+      },
+      {
+       "text": "Affection",
+       "at": 1891.02
+      },
+      {
+       "text": "Emotional support",
+       "at": 1891.86
+      }
      ],
      "at": 1888.86
     },
     "right": {
      "title": "Cannot be expected to",
      "points": [
-      { "text": "Meet every emotional need", "at": 1895.22 },
-      { "text": "Resolve every personal challenge", "at": 1897.12 }
+      {
+       "text": "Meet every emotional need",
+       "at": 1895.22
+      },
+      {
+       "text": "Resolve every personal challenge",
+       "at": 1897.12
+      }
      ],
      "at": 1893.32
     },
@@ -336,7 +291,7 @@
    "sectionId": "sec-15",
    "startSec": 1927.0,
    "endSec": 1931.6,
-   "type": "reflectionField",
+   "type": "kineticStatement",
    "props": {
     "lines": [
      {
@@ -348,7 +303,10 @@
       "at": 1929.16
      }
     ],
-    "ground": "oxblood"
+    "emphasis": [],
+    "align": "center",
+    "scale": "h1",
+    "reveal": "focus"
    }
   },
   {
