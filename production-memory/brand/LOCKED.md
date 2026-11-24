@@ -36,3 +36,13 @@ _None._ (status in `brand/design-system.json` = PROPOSAL, checked 2026-11-24)
 ## Hard constraints that already apply (from the brief and CLAUDE.md, not brand locks)
 - Never present a render as LifeLink-branded while status ≠ APPROVED; watermark always on.
 - Changing colours/fonts/logo rules requires explicit client approval recorded in `decisions.md`.
+
+## Client decisions on the brand board (2026-11-24, recorded verbatim in decisions.md)
+- **Fonts APPROVED and licensed:** LifeLink Text (Geneva 22 Soft, rebuilt) — "it is licensed"; LifeLink Script (Australian Mirages Bold) — "it is licensed".
+- **Derived tints APPROVED** (paperShade, hillFar, hillMid, skyTint…).
+- **Colours APPROVED in principle**, exact codes to come from the client — "ask in chat i will give". Until received, sampled values stay in use.
+- **Logo APPROVED**, artwork to come — "ask for it in chat i will send it". The crescent/heart seen on the artboard is the logo icon — "that is the logo icon, if you want better quality i can send it". Use it only as part of the logo, never as a decorative motif.
+- **No people imagery** (rejected) — "no people imagery".
+- **Watermark rule approved:** stays on every render until the brand is fully locked (colour codes + logo artwork received).
+- **Narration limiter / noise reduction APPROVED** (no note). Limiter to standard loudness; noise reduction only where it audibly helps without altering the voice.
+- **Music / SFX:** changes requested — "very subtle sfx". Narration-only until a very subtle SFX sample is approved; no music.

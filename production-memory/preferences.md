@@ -40,3 +40,6 @@ without being bored and also with an understanding of whats been said and rememb
 - "Prefer pictorial scenes over type-only" was flagged in `decisions.md` (2026-11-23) as possibly global; the 2026-11-24
   direction confirms the spirit, but restraint where nothing meaningful can be pictured is equally confirmed.
 - Lesson-specific only (do not generalise): the 2×2 grid for 4 phrases and the s005 timing offsets in L01.
+
+## Pictorial vs text — client decision 2026-11-24 (board approvals, verbatim)
+Prefer pictorial scenes over type-only where a picture genuinely helps — "yes but not 100% of the time" — with "a good balance" of restrained text moments. Now a global preference.
