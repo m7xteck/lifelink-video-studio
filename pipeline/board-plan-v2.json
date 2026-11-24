@@ -77,6 +77,31 @@
    "names": [
     "Learner auditor \u00b7 whole lesson"
    ]
+  },
+  {
+   "phase": "Components",
+   "stage": "v2-revise",
+   "total": 2,
+   "defaultMin": 35,
+   "names": [
+    "Motion Designer \u00b7 text, highlights, transitions",
+    "Motion Designer \u00b7 pictures"
+   ]
+  },
+  {
+   "phase": "Chapters",
+   "stage": "v2-revise",
+   "total": 7,
+   "defaultMin": 30,
+   "names": [
+    "Revision Director \u00b7 chapters 3+4",
+    "Revision Director \u00b7 chapters 5+6",
+    "Revision Director \u00b7 chapters 7+8",
+    "Revision Director \u00b7 chapters 9+10",
+    "Revision Director \u00b7 chapters 11+12",
+    "Revision Director \u00b7 chapters 13+14",
+    "Revision Director \u00b7 chapters 15+16"
+   ]
   }
  ],
  "pairs": [
@@ -101,9 +126,9 @@
    "startedAt": "2026-11-24T09:42:39Z"
   },
   {
-   "stage": "v2-revise",
-   "label": "Targeted revisions",
-   "min": 60
+   "stage": "v2-render5",
+   "label": "Render v005 + automatic checks",
+   "min": 130
   },
   {
    "stage": "v2-deliver",
@@ -115,8 +140,12 @@
   "title": "Module 01 \u00b7 v2 variety & memory pass",
   "state": "working",
   "startedAt": "2026-11-24T07:47:00Z",
-  "note": "v004 rendered and checked. Now: video review of all 36 minutes on real clips + an independent learner audit; then targeted fixes.",
+  "note": "Video review + learner audit done: fixing their findings (shared animation fixes first, then chapter pairs), then render v005.",
   "evidence": [
+   {
+    "at": "2026-11-24T12:50:00Z",
+    "text": "Video review of all 36 min on real clips (3 Quality Directors) + learner audit: findings saved with timecodes and fixes (production-memory/lesson-notes/L01-v004-review-findings.md)."
+   },
    {
     "at": "2026-11-24T12:10:00Z",
     "text": "v004 rendered (36:05) and checked: 14 pass, 1 warning. Loudness now \u221216.5 LUFS (pass), sync 5 ms, no black frames or flashes. Real items: 9 short text holds, one small label at 22:28; long still stretches to be judged in video review."
