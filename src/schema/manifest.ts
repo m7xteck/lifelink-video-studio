@@ -26,6 +26,9 @@ const CoreSceneSchemas = [
       kicker: z.object({ text: z.string(), at: z.number() }).optional(),
       /** Entrance: "rise" (words rise from a mask), "focus" (words come into focus, no movement), "ink" (line written left→right). Omit to vary automatically by scene. */
       reveal: z.enum(["rise", "focus", "ink"]).optional(),
+      /** Closing card only: the client's logo as a still sign-off under the lines. `true` = horizontal logo shortly after
+       *  the last line is spoken; or set the cue (`at`) and `variant` explicitly. Comes into focus in place, then holds. */
+      signoffLogo: z.union([z.boolean(), z.object({ at: z.number().optional(), variant: z.enum(["horizontal", "stacked"]).default("horizontal") })]).optional(),
     }),
   }),
   z.object({

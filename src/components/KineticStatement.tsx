@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { brand, fonts, motion, textStyle, type } from "../brand/tokens";
-import { BrandLabel, InkWipe, PaperGround } from "../motion/brand";
+import { BrandLabel, InkWipe, LogoMark, PaperGround } from "../motion/brand";
 import { useProgress, useSceneEnvelope } from "../motion/time";
 import { useLayout } from "../motion/layout";
 import type { SceneOf } from "../schema/manifest";
@@ -16,7 +16,7 @@ const norm = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}'’-]/gu, "");
  * No camera drift: once the last word lands, the frame is still (client rule).
  */
 export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> = ({ scene }) => {
-  const { lines, emphasis, align, scale, kicker } = scene.props;
+  const { lines, emphasis, align, scale, kicker, signoffLogo } = scene.props;
   // Entrance style varies so consecutive statements don't all "drop up" the same way (client feedback v003).
   // Explicit `reveal` wins; otherwise picked deterministically from the scene id.
   const reveal = scene.props.reveal ?? REVEALS[[...scene.id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % REVEALS.length];
@@ -62,9 +62,28 @@ export const KineticStatement: React.FC<{ scene: SceneOf<"kineticStatement"> }> 
               })}
             </div>
           ))}
+          {signoffLogo && <SignoffLogo spec={signoffLogo} lastAt={lines[lines.length - 1]?.at ?? scene.startSec} center={center} />}
         </div>
       </AbsoluteFill>
     </AbsoluteFill>
+  );
+};
+
+/**
+ * Closing sign-off: the client's logo under the last line, in oxblood on paper. It takes its place in the layout from
+ * the start (so the lines never shift), comes into focus where it stands once the last line has been spoken, and then
+ * holds perfectly still to the end. No movement.
+ */
+const SignoffLogo: React.FC<{ spec: true | { at?: number; variant: "horizontal" | "stacked" }; lastAt: number; center: boolean }> = ({ spec, lastAt, center }) => {
+  const L = useLayout();
+  const s = spec === true ? { variant: "horizontal" as const } : spec;
+  const at = ("at" in s && s.at != null) ? s.at : lastAt + 1.3;
+  const p = useProgress(at, 1.1);
+  const width = Math.round((s.variant === "stacked" ? 300 : 440) * L.u);
+  return (
+    <div style={{ display: "flex", justifyContent: center ? "center" : "flex-start", marginTop: Math.round(64 * L.u), opacity: p, filter: p > 0 && p < 1 ? `blur(${((1 - p) * 5).toFixed(2)}px)` : undefined }}>
+      <div style={{ position: "relative" }}><LogoMark variant={s.variant} width={width} color={P.oxblood} /></div>
+    </div>
   );
 };
 

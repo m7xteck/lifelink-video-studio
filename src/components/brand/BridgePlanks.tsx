@@ -5,6 +5,7 @@ import { useLayout } from "../../motion/layout";
 import { useNarrationTime, useProgress, useSceneEnvelope } from "../../motion/time";
 import { Ink, PaperDefs } from "../../illustrations/paper";
 import { focusWeights } from "../../motion/focus";
+import { PaperTextureDefs, TextureGate } from "./paperTexture";
 import type { SceneOf } from "../../schema/manifest";
 
 const P = brand.palette, D = brand.derived as Record<string, string>;
@@ -79,19 +80,36 @@ export const BridgePlanks: React.FC<{ scene: SceneOf<"bridgePlanks"> }> = ({ sce
             <stop offset="55%" stopColor={D.skyTint} stopOpacity="0.35" />
             <stop offset="100%" stopColor={D.paperLight} stopOpacity="0.7" />
           </linearGradient>
+          <linearGradient id={`${id}-rock`} gradientUnits="userSpaceOnUse" x1="0" y1={DECK} x2="0" y2="1080">
+            <stop offset="0%" stopColor={D.skyTint} stopOpacity="0.45" />
+            <stop offset="100%" stopColor={D.skyTint} stopOpacity="0" />
+          </linearGradient>
+          <PaperTextureDefs id={id} strength={0.26} />
         </defs>
         {/* still landscape: sky, three far ridges receding into the gorge, then the cliffs */}
         <rect width="1920" height="1080" fill={`url(#${id}-sky)`} />
         <path d={ridge(462, 16, 210, 1.7)} fill={D.skyTint} opacity={0.9} />
         <path d={ridge(610, 18, 230, 0.6)} fill={D.skyTint} filter={`url(#${id}-shadow-1)`} />
-        <path d={ridge(740, 22, 300, 2.4)} fill={D.hillFar} filter={`url(#${id}-shadow-1)`} />
-        <path d={ridge(900, 20, 360, 4.2)} fill={D.hillMid} filter={`url(#${id}-shadow-2)`} />
-        <path d={LEFT_BACK} fill={P.royal} filter={`url(#${id}-shadow-2)`} />
-        <path d={RIGHT_BACK} fill={P.royal} filter={`url(#${id}-shadow-2)`} />
-        <path d={LEFT_CLIFF} fill={D.hillMid} filter={`url(#${id}-shadow-3)`} />
-        <path d={RIGHT_CLIFF} fill={D.hillMid} filter={`url(#${id}-shadow-3)`} />
-        <rect x={0} y={DECK} width={EDGE_L} height={8} fill={D.royalDeep} opacity={0.55} />
-        <rect x={EDGE_R} y={DECK} width={1920 - EDGE_R} height={8} fill={D.royalDeep} opacity={0.55} />
+        {/* layered tints recede from pale sky to the nearest stratum; the cliffs stay quiet (light tints + paper grain)
+            so the oxblood bridge and its paper tags lead the frame. Shadow and texture on separate copies (nested filters clip). */}
+        <path d={ridge(740, 22, 300, 2.4)} fill={D.hillFar} opacity={0.4} filter={`url(#${id}-shadow-1)`} />
+        <path d={ridge(900, 20, 360, 4.2)} fill={D.hillFar} opacity={0.6} filter={`url(#${id}-shadow-1)`} />
+        {[LEFT_BACK, RIGHT_BACK].map((d) => (
+          <React.Fragment key={d}>
+            <path d={d} fill={D.hillMid} opacity={0.8} filter={`url(#${id}-shadow-2)`} />
+            <path d={d} fill={D.hillMid} opacity={0.8} filter={`url(#${id}-tex)`} />
+          </React.Fragment>
+        ))}
+        {[LEFT_CLIFF, RIGHT_CLIFF].map((d) => (
+          <React.Fragment key={d}>
+            <path d={d} fill={D.hillFar} filter={`url(#${id}-shadow-2)`} />
+            <path d={d} fill={D.hillFar} filter={`url(#${id}-tex)`} />
+            {/* soft wash toward the sky tint at the cliff top: the rock lightens with distance from the gorge floor */}
+            <path d={d} fill={`url(#${id}-rock)`} />
+          </React.Fragment>
+        ))}
+        <rect x={0} y={DECK} width={EDGE_L} height={6} fill={P.royal} opacity={0.35} />
+        <rect x={EDGE_R} y={DECK} width={1920 - EDGE_R} height={6} fill={P.royal} opacity={0.35} />
         {ends && <Ends left={ends.left} right={ends.right} at={ends.at} />}
 
         {/* anchor posts stand up on the cliff tops */}
@@ -116,6 +134,7 @@ export const BridgePlanks: React.FC<{ scene: SceneOf<"bridgePlanks"> }> = ({ sce
         </g>
         {caption && <CaptionScript id={`${id}-cap`} text={caption.text} at={caption.at} until={planks.slice(0, n).find((p) => p.at > caption.at)?.at} />}
       </svg>
+      <TextureGate />
     </AbsoluteFill>
   );
 };
@@ -161,8 +180,8 @@ const Ends: React.FC<{ left: string; right: string; at: number }> = ({ left, rig
   const size = Math.min(32, fitSize(left, 32, 300), fitSize(right, 32, 300));
   return (
     <g opacity={p}>
-      <text data-qa-text="" x={EDGE_L / 2} y={DECK + 180} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={D.paperLight}>{left}</text>
-      <text data-qa-text="" x={(EDGE_R + 1920) / 2} y={DECK + 180} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={D.paperLight}>{right}</text>
+      <text data-qa-text="" x={EDGE_L / 2} y={DECK + 180} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={P.oxblood}>{left}</text>
+      <text data-qa-text="" x={(EDGE_R + 1920) / 2} y={DECK + 180} textAnchor="middle" fontFamily={fonts.text} fontSize={size} fill={P.oxblood}>{right}</text>
     </g>
   );
 };

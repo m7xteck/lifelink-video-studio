@@ -17,7 +17,7 @@ export const MaskedWords: React.FC<{
         const isEm = emph.has(bare);
         return (
           <React.Fragment key={i}>
-            <Word at={at + i * motion.wordStaggerSec} style={isEm ? { color: colors.accent, fontFamily: fonts.script, fontSize: "1.12em", letterSpacing: 0, ...emphasisStyle } : undefined}>
+            <Word at={at + i * motion.wordStaggerSec} script={isEm} style={isEm ? { color: colors.accent, fontFamily: fonts.script, fontSize: "1.12em", letterSpacing: 0, ...emphasisStyle } : undefined}>
               {w}
             </Word>
             {i < words.length - 1 ? " " : null}
@@ -28,11 +28,16 @@ export const MaskedWords: React.FC<{
   );
 };
 
-const Word: React.FC<{ at: number; style?: React.CSSProperties; children: React.ReactNode }> = ({ at, style, children }) => {
+/** `script`: script letters (p, f, g, y…) swing far left of and below their box, so the mask gets generous room on every
+ *  side (padding cancelled by equal negative margins: the word sits exactly where it did, only the clip is larger). */
+const PAD_TEXT: React.CSSProperties = { paddingBottom: "0.08em", marginBottom: "-0.08em" };
+const PAD_SCRIPT: React.CSSProperties = { padding: "0.14em 0.24em 0.36em 0.3em", margin: "-0.14em -0.24em -0.36em -0.3em" };
+
+const Word: React.FC<{ at: number; style?: React.CSSProperties; script?: boolean; children: React.ReactNode }> = ({ at, style, script, children }) => {
   const p = useProgress(at, motion.durationsSec.base);
   return (
-    <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", paddingBottom: "0.08em", marginBottom: "-0.08em" }}>
-      <span style={{ display: "inline-block", transform: `translateY(${(1 - p) * 105}%)`, opacity: p < 0.02 ? 0 : 1, ...style }}>
+    <span style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", ...(script ? PAD_SCRIPT : PAD_TEXT) }}>
+      <span style={{ display: "inline-block", transform: `translateY(${(1 - p) * (script ? 145 : 105)}%)`, opacity: p < 0.02 ? 0 : 1, ...style }}>
         {children}
       </span>
     </span>

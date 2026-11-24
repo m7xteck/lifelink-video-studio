@@ -1201,7 +1201,11 @@
     ],
     "align": "center",
     "scale": "h2",
-    "reveal": "focus"
+    "reveal": "focus",
+    "signoffLogo": {
+     "at": 2163.0,
+     "variant": "horizontal"
+    }
    }
   }
  ]

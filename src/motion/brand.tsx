@@ -109,6 +109,36 @@ export const BlindEmboss: React.FC<{ children: (stroke: string) => React.ReactNo
   </div>
 );
 
+/**
+ * The client's logo (icon + wordmark), drawn as a solid colour through its alpha mask so it stays crisp at any size
+ * and takes any brand colour (oxblood on paper; paper/emboss tones on royal). The crescent/heart icon is only ever
+ * shown as part of this logo, never on its own. `width` is the width of the artwork itself (transparent margins of
+ * the PNG are cropped away), so layout can be computed from the visible logo.
+ */
+export const LOGO_ART = {
+  horizontal: { file: "brand/lifelink-logo-horizontal-mask.png", w: 1374, h: 416, box: [49, 97, 1288, 347] },
+  stacked: { file: "brand/lifelink-logo-stacked-mask.png", w: 1112, h: 832, box: [131, 139, 964, 758] },
+} as const;
+export type LogoVariant = keyof typeof LOGO_ART;
+export const logoAspect = (v: LogoVariant) => { const b = LOGO_ART[v].box; return (b[2] - b[0]) / (b[3] - b[1]); };
+
+export const LogoMark: React.FC<{ variant?: LogoVariant; width: number; color: string; style?: React.CSSProperties }> = ({ variant = "horizontal", width, color, style }) => {
+  const a = LOGO_ART[variant], [x0, y0, x1, y1] = a.box;
+  const s = width / (x1 - x0);
+  const url = `url("${staticFile(a.file)}")`;
+  const mask: React.CSSProperties = {
+    WebkitMaskImage: url, maskImage: url, WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat",
+    WebkitMaskSize: `${a.w * s}px ${a.h * s}px`, maskSize: `${a.w * s}px ${a.h * s}px`,
+    WebkitMaskPosition: `${-x0 * s}px ${-y0 * s}px`, maskPosition: `${-x0 * s}px ${-y0 * s}px`, maskMode: "alpha",
+  };
+  return (
+    <div role="img" aria-label="LifeLink" style={{ width, height: (y1 - y0) * s, background: color, ...mask, ...style }}>
+      {/* invisible <Img>: makes Remotion wait for the mask artwork before capturing the frame */}
+      <Img src={staticFile(a.file)} style={{ width: 1, height: 1, opacity: 0, position: "absolute" }} />
+    </div>
+  );
+};
+
 /** Hairline that draws (horizontal or vertical). */
 export const Rule: React.FC<{ at: number; length: number; color: string; vertical?: boolean; thickness?: number; dur?: number; style?: React.CSSProperties }> = ({ at, length, color, vertical, thickness = 1.5, dur = 1.2, style }) => {
   const p = useProgress(at, dur, ease.settle);

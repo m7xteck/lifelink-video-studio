@@ -5,7 +5,7 @@
  *
  * Options:
  *   --orientation portrait     9:16 recomposition (layouts adapt; nothing is cropped)
- *   --preview                  tier-2 motion preview: 960×540 (scale 0.5), watermarked "PREVIEW", written under
+ *   --preview                  tier-2 motion preview: 960×540 (scale 0.5), watermarked "Preview for approval", written under
  *                              previews/<lesson>/ — never versioned as a master, never reads or writes the
  *                              master section cache (always rendered fresh, in one pass over the window)
  *   --from 12.5 --to 85        render only a time window (e.g. a 60–90 s sample)
@@ -72,9 +72,10 @@ export const renderLesson = async (): Promise<RenderResult> => {
     if (ds.status !== "APPROVED" || st?.approval?.creative !== "approved") throw new Error(`--final refused: brand ${ds.status}, lesson approval ${st?.approval?.creative ?? "none"} (needs the client's approval via npm run approve)`);
   }
   const variant = `${portrait ? "portrait" : "landscape"}${preview ? "-preview" : ""}${final ? "-final" : ""}${a.from || a.to ? "-sample" : ""}`;
-  // Previews always carry a PREVIEW watermark (plus the mandatory brand notice while the brand is unapproved).
+  // Brand locked: previews carry exactly the review notice ("Preview for approval", LOCKED.md). While the brand is
+  // unapproved they also say "Preview · 540p · not final" before the mandatory brand notice.
   const manifest: Manifest = preview
-    ? { ...parsed, watermark: ["Preview · 540p · not final", parsed.watermark ?? brandWatermark].filter(Boolean).join(" · ") }
+    ? { ...parsed, watermark: ds.status === "APPROVED" ? parsed.watermark ?? brandWatermark : ["Preview · 540p · not final", parsed.watermark ?? brandWatermark].filter(Boolean).join(" · ") }
     : parsed;
   const fps = manifest.fps;
   const winFrom = a.from ? Number(a.from) : 0;

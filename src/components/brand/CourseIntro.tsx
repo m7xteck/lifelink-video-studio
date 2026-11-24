@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { brand, ease, fonts, textStyle } from "../../brand/tokens";
-import { BlindEmboss, BrandLabel, CharRise, PaperGround, Rule } from "../../motion/brand";
+import { BlindEmboss, BrandLabel, CharRise, LogoMark, PaperGround, Rule } from "../../motion/brand";
 import { useLayout } from "../../motion/layout";
 import { useProgress, useSceneEnvelope } from "../../motion/time";
 import type { SceneOf } from "../../schema/manifest";
@@ -10,7 +10,7 @@ const P = brand.palette, D = brand.derived as Record<string, string>;
 
 /*
  * Course introduction — "The Invitation". Every movement maps to the narration:
- *   • a raking light reveals the wordmark pressed into the card stock → the brand presents itself
+ *   • a raking light reveals the logo pressed into the card stock     → the brand presents itself
  *   • the envelope's flap opens and a letter rises out of it          → "welcome to …": an invitation
  *   • the course title is set on the letter as it is spoken
  *   • the credit line appears when the presenter names it
@@ -39,6 +39,7 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
   const notch = envH * 0.4;                                          // depth of the pocket's V
   const flapScale = 1 - 2 * flap;                                    // 1 = closed (down), -1 = open (up)
   const wordX = envX / 2, wordY = L.height * 0.46;
+  const logoW = Math.min(Math.round(600 * L.u), Math.round((envX - L.safeX) * 0.82)); // fits between the safe edge and the envelope
 
   const Flap = () => (
     <path d={`M${envX},${openY} L${envX + envW / 2},${openY + envH * 0.48} L${envX + envW},${openY} Z`}
@@ -51,7 +52,8 @@ export const CourseIntro: React.FC<{ scene: SceneOf<"courseIntro"> }> = ({ scene
       <PaperGround color={P.royal} deep={D.royalDeep} grain={0.11} seed={5} />
       <BlindEmboss light="rgba(255,255,255,0.30)" shadow="rgba(8,20,60,0.55)" face={P.royal} reveal={light} depth={3}>
         {(c) => (
-          <div style={{ position: "absolute", left: wordX, top: wordY, transform: "translate(-50%, -50%)", fontFamily: fonts.script, fontSize: Math.round(200 * L.u), color: c, whiteSpace: "nowrap", lineHeight: 1 }}>LifeLink</div>
+          // the client's horizontal logo (icon + wordmark) pressed into the card, same place as the former script wordmark
+          <LogoMark variant="horizontal" width={logoW} color={c} style={{ position: "absolute", left: wordX, top: wordY, transform: "translate(-50%, -50%)" }} />
         )}
       </BlindEmboss>
       {credit && (

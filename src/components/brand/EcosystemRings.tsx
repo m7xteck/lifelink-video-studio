@@ -75,6 +75,8 @@ export const EcosystemRings: React.FC<{ scene: SceneOf<"ecosystemRings"> }> = ({
   const labelX = outerLeft - 44;
   const w = focusWeights(rings.length, focus, t);
   const disc = useProgress(centre.at, 1.2, ease.settle);
+  // a blank sheet gives way once its coloured sheet has fully opened over it
+  const sheetIn = rings.map((r) => interpolate(t, [r.at + 1.0, r.at + 1.4], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }));
 
   // ring being discussed: the focused ring, else (when examples are being given) the most recently named ring
   const focusIdx = typeof focus === "number" ? focus
@@ -95,6 +97,19 @@ export const EcosystemRings: React.FC<{ scene: SceneOf<"ecosystemRings"> }> = ({
       <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" width={L.width} height={L.height} style={{ position: "absolute", inset: 0 }}>
         <PaperDefs id={id} />
         <defs><PaperTextureDefs id={id} strength={0.22} /></defs>
+        {/* lead-in ("at the centre is…"): the places of the dimensions still to be named are already laid out as faint,
+            unlabelled blank sheets, so the frame reads as the whole ecosystem waiting around its centre; each one is
+            covered by its coloured sheet when it is named. They appear with the centre disc, then hold still. */}
+        {rings.map((r, i) => ({ r, i })).reverse().map(({ i }) => {
+          const c = centreOf(CX, i);
+          const g = Math.min(disc, 1 - sheetIn[i]) * 0.9;
+          return g > 0 ? (
+            <g key={`ghost-${i}`} opacity={g}>
+              <circle cx={c.x} cy={c.y} r={radius(i)} fill={D.paperShade} filter={`url(#${id}-shadow-1)`} opacity={0.75} />
+              <circle cx={c.x} cy={c.y} r={radius(i) - 1} fill="none" stroke={D.hairline} strokeWidth={1.5} />
+            </g>
+          ) : null;
+        })}
         {/* sheets: outermost first, so each inner sheet lies on top of the one around it */}
         {rings.map((r, i) => ({ r, i })).reverse().map(({ r, i }) => (
           <Sheet key={i} id={id} i={i} cx={CX} at={r.at} weight={w[i]} lift={lift[i]} />
