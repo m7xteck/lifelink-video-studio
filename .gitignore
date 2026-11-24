@@ -18,3 +18,6 @@ exports/
 # Provisional brand fonts: licence for video use not yet confirmed, so they are kept out of Git
 public/fonts/lifelink-provisional/*.ttf
 production-memory/course-corpus/**/graphify-out/cache/
+
+# preview render records (local only)
+previews/**/*.render.json
