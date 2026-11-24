@@ -42,3 +42,19 @@ Edit only the affected scenes in the manifest (or component). Section cache mean
 - Fonts are local files (`public/fonts/`); the headless browser cannot fetch font CDNs.
 - Whisper models download from huggingface.co (allowed in the environment); `HF_HUB_DISABLE_XET=1` is set by the pipeline.
 - Large media is gitignored (`media/`, `public/audio/`, `renders/`, `deliverables/`). See `documentation/STORAGE.md`.
+
+## Operating playbook (plain-language requests)
+Start every task with `npx tsx pipeline/memory.ts brief --course <slug>` (LOCKED brand > preferences > course decisions > lesson notes; rejected treatments; techniques). `pipeline/jobs.ts` (job ledger) and `pipeline/claims.ts` (file-ownership claims) are being built by a colleague — use them once present; until then report progress from `status.json` and render/QA records only.
+
+| Client says | Production Director does |
+|---|---|
+| "Start production on these five lessons" | Ingest/transcribe via `npm run produce -- --course c --lessons a,b,…` (stops at the creative-plan and approval gates). One `jobs` entry per lesson/step; heavy jobs run one at a time, so say it is sequential (~97 min cold render per 36-min lesson). Creative Director plans each lesson from the brief, `cue-slice.ts`/`find-cue.ts`, section files + `sections.ts check/merge`, `rhythm.ts`. Storyboard → wait for `approve`. |
+| "Show me the production progress" | `npm run status` (+ `jobs` ledger when present). Report measured facts (states, renders, QA results, blockers) separately from estimates; never invent progress. |
+| "Why is lesson three taking longer?" | Compare its status history, `jobs` times/retries, render records (`*.render.json`: sections re-rendered vs cached, wall clock) and QA failures; check `failure-patterns.md`. Answer with the measured cause. |
+| "Improve this section but keep the rest" | Map the time to its section/scenes; claim the section file (`claims`); edit only those scenes; `sections.ts check` + `rhythm.ts --section`; re-render — the section cache re-renders only that section; QA + `clip-review.py` on that stretch; log in `lesson-notes/<lesson>.md` and `memory.ts feedback add --scope lesson`. |
+| "Use the creative style I approved in lesson one" | Read lesson-one notes, `course-decisions/<course>.md`, `motion-library/registry.json` usage; reuse its signature images/treatments (developed, not copied scene-for-scene); record the instruction as a course decision with the client's words. |
+| "Check whether we're repeating animations" | `npx tsx pipeline/rhythm.ts --course c --lesson l` (type/kicker repetition), compare scene types/reveals with the previous lesson's manifest and `registry.json`, then `clip-review.py` on suspect stretches. Report counts, not impressions. |
+| "Resume the unfinished batch" | Read `jobs` ledger/status for incomplete steps; check `.locks/` for stale locks; re-run `produce`/`render` — chunk cache resumes; never redo approved work. |
+| "Show me what the studio learned from the last course" | `memory.ts search <course>`, `feedback-log.jsonl`, `rejected.md`, `failure-patterns.md`, `techniques.md`, course decisions. Propose which items could become global rules and ask the client first — never promote them yourself. |
+
+After any request: record client feedback with `memory.ts feedback add`, run `npm run test:qa-negative` after QA changes, and never claim approval or creative quality from automated checks.
