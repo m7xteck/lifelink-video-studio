@@ -150,7 +150,10 @@ const PivotWord: React.FC<{ text: string; at: number; u: number }> = ({ text, at
   return (
     <div style={{ position: "absolute", left: 0, width: "100%", top: 884 * u, textAlign: "center" }}>
       <span data-qa-text="" style={{ display: "inline-block", fontFamily: fonts.script, fontSize: 78 * u, color: P.oxblood, lineHeight: 1.25, padding: "0.05em 0.2em 0.15em",
-        opacity: p > 0 ? 1 : 0, WebkitMaskImage: mask, maskImage: mask }}>{text}</span>
+        opacity: p > 0 ? 1 : 0, WebkitMaskImage: mask, maskImage: mask }}>
+        {/* the script face's space glyph is near zero: give each word an explicit gap (as ScriptWord does) */}
+        {text.split(" ").map((w, i) => <span key={i} style={{ marginLeft: i ? 78 * u * 0.28 : 0 }}>{w}</span>)}
+      </span>
     </div>
   );
 };

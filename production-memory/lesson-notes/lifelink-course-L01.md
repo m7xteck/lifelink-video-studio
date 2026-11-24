@@ -32,3 +32,9 @@
 - FAIL layout.text: "Scenario" case-tab label at 20 px (< brand minReadablePx 22); also present in v004. Fix: label 20→22 px, filed-tab fit floor 20→22 px (ScenarioCard.tsx).
 - FAIL text-hold: sec-13-09 "Effort" (1623.12 s) held 1.18 s. Fix: scene end 1624.3→1624.65; sec-13-11 starts 1624.65, its "another" index cue 1624.58→1624.68 (spoken at 1624.58; +0.1 s).
 - WARN long-stillness: 48 stretches >8 s fully static (mostly signature pictures holding during explanation) — to be reviewed on real clips, not auto-fixed.
+
+## 2026-11-24 — v007 "living hold" polish (client: "yes" to the stillness pass)
+- v006 QA: 16 pass, 0 fail; WARN 49 fully static stretches > 8 s (≈ 9.6 min). Clip review: 17:15–17:28 bridge hold acceptable; 18:57–19:18 balance scale static through "not ownership… humiliation, threats, violence or coercion" — weak.
+- Change 1 (all scenes): slow documentary push-in per scene in Lesson.tsx (constant rate ≤ 0.0006/s, ≤ 3.5 % per scene, eases in over 2 s, starts at 1.0). A global sine "breathe" was tried first and rejected: its turning points still froze for > 8 s (freezedetect on preview).
+- Change 2: balance scale pivot script "not ownership" inked at 1143.34 s (spoken). Fixed PivotWord word spacing (script space glyph ≈ 0 → "notownership").
+- Preview 1136–1160 s: no freezes ≥ 8 s (was 8.3 s+).

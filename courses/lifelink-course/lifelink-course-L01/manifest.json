@@ -2845,6 +2845,10 @@
         "release": {
           "side": "right",
           "at": 1184.54
+        },
+        "pivot": {
+          "text": "not ownership",
+          "at": 1143.34
         }
       }
     },
