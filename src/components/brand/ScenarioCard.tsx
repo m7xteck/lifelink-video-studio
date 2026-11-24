@@ -81,13 +81,13 @@ export const ScenarioCard: React.FC<{ scene: SceneOf<"scenarioCard"> }> = ({ sce
             {/* case tab */}
             <div style={{ position: "absolute", left: FX + 28, top: FY - TAB_H + 4, width: 250, height: TAB_H, background: D.paperShade, borderRadius: "6px 6px 0 0", overflow: "hidden" }}>
               <Grain opacity={0.5} />
-              <div style={{ position: "absolute", left: 0, right: 0, top: 14, textAlign: "center", ...tracked(20, D.oxbloodMuted) }}><span data-qa-text="">Scenario</span></div>
+              <div style={{ position: "absolute", left: 0, right: 0, top: 14, textAlign: "center", ...tracked(22, D.oxbloodMuted) }}><span data-qa-text="">Scenario</span></div>
             </div>
             {/* earlier cases, filed */}
             {tabs.map((tb, i) => (
               <div key={i} style={{ position: "absolute", left: tabX[i], top: FY - TAB_H + 10, width: tb.w, height: TAB_H - 6, background: D.hairline, borderRadius: "6px 6px 0 0", overflow: "hidden" }}>
                 <Grain opacity={0.45} flip />
-                <div data-qa-text="" style={txt(fit1(tb.p, 26, 260, 20), D.oxbloodMuted, { position: "absolute", left: 0, right: 0, top: 7, textAlign: "center", whiteSpace: "nowrap" })}>{tb.p}</div>
+                <div data-qa-text="" style={txt(fit1(tb.p, 26, 260, 22), D.oxbloodMuted, { position: "absolute", left: 0, right: 0, top: 7, textAlign: "center", whiteSpace: "nowrap" })}>{tb.p}</div>
               </div>
             ))}
             <div style={{ position: "absolute", left: FX, top: FY, width: FW, height: FH, background: D.paperShade, borderRadius: 6, overflow: "hidden" }}><Grain opacity={0.5} /></div>

@@ -259,7 +259,7 @@
       "sectionId": "sec-13",
       "type": "mythTruth",
       "startSec": 1610.5,
-      "endSec": 1624.3,
+      "endSec": 1624.65,
       "props": {
         "myth": {
           "text": "Love alone is enough.",
@@ -308,7 +308,7 @@
       "id": "sec-13-11",
       "sectionId": "sec-13",
       "type": "mythTruth",
-      "startSec": 1624.3,
+      "startSec": 1624.65,
       "endSec": 1639.9,
       "props": {
         "myth": {
@@ -322,7 +322,7 @@
         },
         "index": {
           "text": "another",
-          "at": 1624.58
+          "at": 1624.68
         },
         "notes": [
           {

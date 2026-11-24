@@ -4203,7 +4203,7 @@
       "id": "sec-13-09",
       "sectionId": "sec-13",
       "startSec": 1610.5,
-      "endSec": 1624.3,
+      "endSec": 1624.65,
       "type": "mythTruth",
       "props": {
         "index": {
@@ -4252,13 +4252,13 @@
     {
       "id": "sec-13-11",
       "sectionId": "sec-13",
-      "startSec": 1624.3,
+      "startSec": 1624.65,
       "endSec": 1639.9,
       "type": "mythTruth",
       "props": {
         "index": {
           "text": "another",
-          "at": 1624.58
+          "at": 1624.68
         },
         "myth": {
           "text": "Marriage will solve all our personal problems.",

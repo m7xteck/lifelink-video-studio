@@ -26,3 +26,9 @@
 - Lesson-specific only (not global rules): the 2×2 grid for 4 phrases and the s005 timing offsets.
 - 2026-11-23 Exec: moved s004/s005 boundary 40.7→39.9 (into pause) so 'Marriage is not simply' appears when spoken without crossfade overlap; v014 QA pass. Open polish: s006 kicker readable ~0.6 s after spoken; s006 reuses s003 layout; s007 script optically smaller.
 - 2026-11-24 Client chose "Yes, opening and closing (Recommended)" for the real logo. s001: script "LifeLink" in BlindEmboss replaced by the horizontal logo (alpha mask, CSS mask-image) — same emboss reveal, position, timing; rest of the approved opening untouched. sec-16-29: kineticStatement `signoffLogo` (horizontal, oxblood, at 2163.0, focus-in 1.1 s then still to 2165.26). Polish fixes: MaskedWords script-emphasis mask padding ("preparing" no longer clipped to "nreparing", sec-16-03); ecosystemRings lead-in shows faint unlabelled blank sheets around the faith disc (sec-05-03, 422–433 s); BridgePlanks cliffs softened to hillFar/hillMid tints with paper grain. Previews now watermarked "Preview for approval" only (brand locked).
+
+## 2026-11-24 — v005 QA → v006 fixes
+- v005 full render (cloud, resumed from chunk cache; 1492 s wall clock for the resumed run). QA: 14 pass, 2 fail, 1 warn.
+- FAIL layout.text: "Scenario" case-tab label at 20 px (< brand minReadablePx 22); also present in v004. Fix: label 20→22 px, filed-tab fit floor 20→22 px (ScenarioCard.tsx).
+- FAIL text-hold: sec-13-09 "Effort" (1623.12 s) held 1.18 s. Fix: scene end 1624.3→1624.65; sec-13-11 starts 1624.65, its "another" index cue 1624.58→1624.68 (spoken at 1624.58; +0.1 s).
+- WARN long-stillness: 48 stretches >8 s fully static (mostly signature pictures holding during explanation) — to be reviewed on real clips, not auto-fixed.
