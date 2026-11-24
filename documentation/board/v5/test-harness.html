@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Board v5 test harness (NOT published)</title>
+</head>
+<body>
+<p id="harness-msg" style="font:14px system-ui;padding:16px">Loading test harness…</p>
+<script>
+/*
+ * TEST HARNESS — never publish. Defines a fake window.claude (db + user) backed by an in-memory store,
+ * seeds it, then writes studio-board.html into this document so the board boots against the fake.
+ * Seed order: /__seed (served by run-tests.cjs from board-data/*.json when present) → fixtures/seed.json (FIXTURE).
+ * URL params: ?readonly=1 (can("data.write") = false), ?signedout=1 (no user id), ?nodb=1 (db unavailable),
+ *             ?delay=ms (snapshot latency, default 150).
+ */
+(function () {
+  const qs = new URLSearchParams(location.search);
+  const delay = +(qs.get("delay") || 150);
+  const store = new Map();             // path -> body
+  const listeners = new Set();
+  const fake = { store, writes: [], failNext: null, source: null };
+  window.__fakeDb = fake;
+  const clone = (o) => JSON.parse(JSON.stringify(o));
+  const segs = (p) => String(p).split("/");
+  const validPath = (p, even) => { const s = segs(p); if (s.some((x) => !/^[A-Za-z0-9_\-.~:@+]+$/.test(x) || x === "." || x === "..")) throw new TypeError("bad path " + p); if ((s.length % 2 === 0) !== even) throw new TypeError("wrong parity " + p); };
+  const parentOf = (p) => segs(p).slice(0, -1).join("/");
+  const snapDoc = (path) => { const b = store.get(path); const fz = b ? Object.freeze(clone(b)) : undefined; return { id: segs(path).pop(), exists: !!b, data: () => fz, metadata: { fromCache: false, hasPendingWrites: false } }; };
+  function runQuery(q) {
+    let docs = [...store.keys()].filter((p) => parentOf(p) === q.coll).map(snapDoc);
+    for (const [f, op, v] of q.filters) docs = docs.filter((d) => { const x = d.data()[f]; return op === "==" ? x === v : op === "!=" ? x !== v : op === "<" ? x < v : op === "<=" ? x <= v : op === ">" ? x > v : op === ">=" ? x >= v : op === "in" ? v.includes(x) : op === "not-in" ? !v.includes(x) : op === "array-contains" ? Array.isArray(x) && x.includes(v) : true; });
+    if (q.order) { const [f, dir] = q.order; docs.sort((a, b) => { const x = a.data()[f], y = b.data()[f]; const c = x == null ? 1 : y == null ? -1 : x < y ? -1 : x > y ? 1 : 0; return dir === "desc" ? -c : c; }); }
+    else docs.sort((a, b) => a.id.localeCompare(b.id));
+    if (q.lim) docs = docs.slice(0, q.lim);
+    return { docs, size: docs.length, empty: !docs.length, metadata: { fromCache: false, hasPendingWrites: false }, docChanges: () => [] };
+  }
+  function notify(path) { for (const l of listeners) { if (l.doc ? l.doc === path : parentOf(path) === l.q.coll) setTimeout(() => l.fire(), 10); } }
+  function query(coll, filters = [], order = null, lim = null) {
+    const q = { coll, filters, order, lim };
+    return {
+      where: (f, op, v) => query(coll, [...filters, [f, op, v]], order, lim),
+      orderBy: (f, dir = "asc") => query(coll, filters, [f, dir], lim),
+      limit: (n) => query(coll, filters, order, n),
+      get: async () => runQuery(q),
+      onSnapshot(next, error) { const l = { q, fire: () => next(runQuery(q)) }; listeners.add(l); setTimeout(l.fire, delay); return () => listeners.delete(l); },
+    };
+  }
+  async function guardWrite(op, path, data) {
+    await new Promise((r) => setTimeout(r, 120));
+    if (fake.failNext) { const e = fake.failNext; fake.failNext = null; throw e; }
+    if (qs.get("readonly")) throw { code: "invalid_argument", message: "write rejected: view-only member" };
+    if (data !== undefined && (typeof data !== "object" || Array.isArray(data) || data === null)) throw { code: "invalid_argument", message: "body must be an object" };
+    fake.writes.push({ op, path, data: data === undefined ? undefined : clone(data), at: Date.now() });
+  }
+  function docRef(path) {
+    validPath(path, true);
+    return {
+      id: segs(path).pop(), path,
+      get: async () => snapDoc(path),
+      async set(data) { await guardWrite("set", path, data); store.set(path, clone(data)); notify(path); },
+      async update(data) { if (!store.has(path)) throw { code: "invalid_argument", message: "document does not exist" }; await guardWrite("update", path, data); store.set(path, { ...store.get(path), ...clone(data) }); notify(path); },
+      async delete() { await guardWrite("delete", path); store.delete(path); notify(path); },
+      onSnapshot(next) { const l = { doc: path, fire: () => next(snapDoc(path)) }; listeners.add(l); setTimeout(l.fire, delay); return () => listeners.delete(l); },
+      collection: (sub) => collRef(path + "/" + sub),
+    };
+  }
+  function collRef(path) {
+    validPath(path, false);
+    let n = 0;
+    return Object.assign(query(path), { path, doc: (id) => docRef(path + "/" + (id || "auto" + Date.now() + (n++))), add: async (data) => { const r = docRef(path + "/auto" + Date.now() + (n++)); await r.set(data); return r; } });
+  }
+  const db = { doc: docRef, collection: collRef };
+  // Studio-side helper for tests: change a doc as the studio would (bypasses write log).
+  fake.studioSet = (path, data) => { store.set(path, clone(data)); notify(path); };
+  fake.studioMerge = (path, data) => { store.set(path, { ...(store.get(path) || {}), ...clone(data) }); notify(path); };
+  const user = {
+    id: async () => (qs.get("signedout") ? null : "u-director"),
+    can: async (c) => (qs.get("readonly") ? false : c === "data.write" ? true : null),
+    canEdit: async () => !qs.get("readonly"), isOwner: async () => true,
+    me: async () => ({ id: qs.get("signedout") ? null : "u-director", name: "Test Director", avatarUrl: "", color: "#888", email: null, isOwner: true, canEdit: true }),
+  };
+  window.claude = { use: async (name) => (name === "db" ? (qs.get("nodb") ? null : db) : name === "user" ? user : null) };
+
+  async function seed() {
+    let data = null;
+    try { const r = await fetch("/__seed"); if (r.ok) { data = await r.json(); fake.source = data._source || "board-data"; } } catch (e) {}
+    if (!data) { const r = await fetch("fixtures/seed.json"); data = await r.json(); fake.source = "fixtures/seed.json (FIXTURE)"; }
+    for (const [p, body] of Object.entries(data.docs)) store.set(p, body);
+  }
+  seed().then(() => fetch("studio-board.html")).then((r) => r.text()).then((html) => {
+    document.open();
+    document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></head><body>' + html + "</body></html>");
+    document.close();
+  }).catch((e) => { document.getElementById("harness-msg").textContent = "Harness failed: " + e.message; });
+})();
+</script>
+</body>
+</html>

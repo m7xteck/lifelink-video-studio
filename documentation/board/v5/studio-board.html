@@ -1,0 +1,1255 @@
+<title>LifeLink Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* ===== Tokens: dark first (review work), paper light theme. Every colour on the page is one of these. ===== */
+:root {
+  --bg: #130b0d; --surface: #1c1214; --raised: #261819; --sunken: #0f0809; --line: #3a2629; --line-strong: #56393d;
+  --ink: #f4ebe6; --muted: #c4aeaa; --faint: #a48c88;
+  --burgundy: #9b2335; --burgundy-hover: #b22b40; --on-burgundy: #ffffff; --burgundy-ink: #f2bec4;
+  --royal: #94b4f2; --ok: #74c896; --warn: #e6b366; --fail: #ec8089;
+  --video: #000000; --on-video: #f4ebe6; --scrim: rgba(0,0,0,.55); --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.25);
+  --ui: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --nav-w: 240px; --gut: max(16px, min(4vw, 44px)); --r: 12px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #f3f0e8; --surface: #fbf9f4; --raised: #ece6da; --sunken: #e9e3d7; --line: #ddd2c1; --line-strong: #c4b49e;
+  --ink: #2c0a0d; --muted: #6b4f51; --faint: #7a6260;
+  --burgundy: #500002; --burgundy-hover: #6d0a10; --on-burgundy: #ffffff; --burgundy-ink: #6b0a12;
+  --royal: #2c53ad; --ok: #23683f; --warn: #8a5208; --fail: #a3313b;
+  --scrim: rgba(20,4,6,.5); --shadow: 0 1px 2px rgba(60,20,20,.08), 0 8px 24px rgba(60,20,20,.08); color-scheme: light } }
+:root[data-theme="light"] {
+  --bg: #f3f0e8; --surface: #fbf9f4; --raised: #ece6da; --sunken: #e9e3d7; --line: #ddd2c1; --line-strong: #c4b49e;
+  --ink: #2c0a0d; --muted: #6b4f51; --faint: #7a6260;
+  --burgundy: #500002; --burgundy-hover: #6d0a10; --on-burgundy: #ffffff; --burgundy-ink: #6b0a12;
+  --royal: #2c53ad; --ok: #23683f; --warn: #8a5208; --fail: #a3313b;
+  --scrim: rgba(20,4,6,.5); --shadow: 0 1px 2px rgba(60,20,20,.08), 0 8px 24px rgba(60,20,20,.08); color-scheme: light }
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--ui); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--royal); }
+.num, .tc { font-variant-numeric: tabular-nums; }
+.tc { font-family: var(--mono); }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--royal); outline-offset: 2px; border-radius: 6px; }
+svg.i { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+svg.i.sm { width: 16px; height: 16px; }
+h1 { margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.2; font-weight: 600; letter-spacing: -.01em; text-wrap: balance; }
+h2 { margin: 0 0 14px; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+h3 { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.35; }
+p { margin: 0; }
+.meta { font-size: 12.5px; color: var(--muted); }
+.muted { color: var(--muted); }
+.ok { color: var(--ok); } .fail { color: var(--fail); } .warn { color: var(--warn); } .run { color: var(--royal); }
+
+/* ===== Shell: sidebar + main ===== */
+.app { display: grid; grid-template-columns: var(--nav-w) minmax(0, 1fr); min-height: 100vh; }
+.app.collapsed { --nav-w: 72px; }
+nav.side { position: sticky; top: 0; height: 100vh; align-self: start; border-right: 1px solid var(--line); background: var(--surface);
+  display: flex; flex-direction: column; padding: max(18px, env(safe-area-inset-top, 0px)) 12px 14px max(12px, env(safe-area-inset-left, 0px)); gap: 4px; overflow-y: auto; }
+.brand { display: flex; align-items: center; gap: 10px; padding: 2px 8px 18px; color: var(--burgundy-ink); font-weight: 700; letter-spacing: .02em; font-size: 16px; }
+.brand .mark { width: 32px; height: 32px; border-radius: 9px; background: var(--burgundy); color: var(--on-burgundy); display: grid; place-items: center; font-size: 15px; flex: none; }
+.brand small { display: block; font-weight: 600; color: var(--faint); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; }
+.grp { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); font-weight: 700; padding: 14px 10px 6px; }
+nav.side a { position: relative; display: flex; align-items: center; gap: 12px; padding: 9px 10px; border-radius: 9px; color: var(--muted); text-decoration: none; font-size: 14.5px; font-weight: 500; min-height: 40px; }
+nav.side a:hover { color: var(--ink); background: var(--raised); }
+nav.side a[aria-current="page"] { color: var(--ink); background: var(--raised); font-weight: 600; }
+nav.side a[aria-current="page"]::before { content: ""; position: absolute; left: -12px; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: var(--burgundy-ink); }
+nav.side a[aria-current="page"] svg { color: var(--burgundy-ink); }
+nav.side .lbl { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.count { min-width: 22px; height: 20px; padding: 0 6px; border-radius: 10px; background: color-mix(in srgb, var(--burgundy-ink) 16%, transparent); color: var(--burgundy-ink); font-size: 12px; font-weight: 700; display: inline-grid; place-items: center; }
+.count.f { background: color-mix(in srgb, var(--fail) 16%, transparent); color: var(--fail); }
+.navfoot { margin-top: auto; padding-top: 12px; }
+.collapse { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 9px 10px; border: 0; background: none; color: var(--muted); border-radius: 9px; cursor: pointer; font-size: 14px; min-height: 40px; }
+.collapse:hover { background: var(--raised); color: var(--ink); }
+.app.collapsed .lbl, .app.collapsed .grp, .app.collapsed .brand-t, .app.collapsed nav.side .count { display: none; }
+.app.collapsed .grp-sep { display: block; }
+.grp-sep { display: none; height: 1px; background: var(--line); margin: 10px 8px; }
+.app.collapsed nav.side a, .app.collapsed .collapse { justify-content: center; padding: 10px 0; }
+.app.collapsed .brand { justify-content: center; padding-inline: 0; }
+.app.collapsed .collapse svg { transform: rotate(180deg); }
+.app.collapsed nav.side a .dot { position: absolute; top: 7px; right: 12px; width: 8px; height: 8px; border-radius: 50%; background: var(--burgundy-ink); }
+nav.side a .dot { display: none; }
+.app.collapsed nav.side a .dot { display: block; }
+
+main { min-width: 0; padding: max(20px, env(safe-area-inset-top, 0px)) max(var(--gut), env(safe-area-inset-right, 0px)) 72px var(--gut); }
+.wrap { max-width: 1320px; margin: 0 auto; display: grid; gap: 40px; }
+.top { display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: space-between; align-items: flex-end; }
+.top > div:first-child { flex: 1 1 420px; min-width: 0; }
+.top .sub { color: var(--muted); margin-top: 6px; font-size: 15px; }
+.tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.fresh { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.fresh b { color: var(--ink); font-weight: 600; }
+.fresh .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none; }
+.fresh.stale { border-color: color-mix(in srgb, var(--warn) 55%, transparent); color: var(--ink); }
+.fresh.stale .pip { background: var(--warn); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; background: var(--surface); }
+.seg button { background: none; border: 0; color: var(--muted); font-size: 14px; padding: 7px 13px; cursor: pointer; min-height: 36px; }
+.seg button:hover { color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--raised); color: var(--ink); font-weight: 600; }
+.iconbtn { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; }
+.iconbtn:hover { color: var(--ink); border-color: var(--line-strong); }
+.banner { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; color: var(--muted); }
+.banner b { color: var(--ink); }
+.banner.warn { border-color: color-mix(in srgb, var(--warn) 50%, transparent); }
+.banner.warn svg { color: var(--warn); }
+
+/* ===== Common blocks ===== */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink); background: var(--raised); border: 1px solid var(--line); border-radius: 9px; padding: 8px 14px; cursor: pointer; white-space: nowrap; min-height: 38px; text-decoration: none; }
+.btn:hover:not(:disabled) { border-color: var(--line-strong); }
+.btn.primary { background: var(--burgundy); border-color: var(--burgundy); color: var(--on-burgundy); }
+.btn.primary:hover:not(:disabled) { background: var(--burgundy-hover); border-color: var(--burgundy-hover); }
+.btn.ghost { background: none; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.btn.lg { font-size: 15px; padding: 11px 18px; min-height: 44px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.chip.ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+.chip.warn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); }
+.chip.fail { color: var(--fail); border-color: color-mix(in srgb, var(--fail) 40%, transparent); }
+.chip.run { color: var(--royal); border-color: color-mix(in srgb, var(--royal) 40%, transparent); }
+.tag { font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; border-radius: 5px; padding: 1px 6px; white-space: nowrap; }
+.tag.m { color: var(--ok); border: 1px solid color-mix(in srgb, var(--ok) 50%, transparent); }
+.tag.e { color: var(--muted); border: 1px dashed var(--muted); }
+.list { display: grid; border-top: 1px solid var(--line); }
+.list:empty { display: none; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: center; }
+.row .m { grid-column: 1 / -1; }
+.stripe-row { grid-template-columns: 4px minmax(0, 1fr) auto; gap: 16px; }
+.stripe { align-self: stretch; border-radius: 2px; background: var(--line-strong); }
+.k-approval, .k-review { background: var(--royal); } .k-failure { background: var(--fail); } .k-decision { background: var(--warn); }
+.empty { padding: 28px; text-align: center; color: var(--muted); border: 1px dashed var(--line-strong); border-radius: var(--r); display: grid; gap: 8px; justify-items: center; }
+.empty b { color: var(--ink); font-size: 16px; }
+.skel { display: grid; gap: 10px; }
+.skel i { display: block; height: 14px; border-radius: 6px; background: var(--raised); }
+.skel i:nth-child(2n) { width: 72%; } .skel i:nth-child(3n) { width: 48%; }
+.skel.block i { height: 120px; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.tech { display: none; font-family: var(--mono); font-size: 12.5px; color: var(--faint); word-break: break-all; }
+body.technical .tech { display: block; }
+body.technical span.tech { display: inline; }
+.note { font-size: 14px; color: var(--muted); max-width: 72ch; }
+.status { font-size: 13.5px; min-height: 1.4em; }
+.status.saved { color: var(--ok); } .status.err { color: var(--fail); } .status.wait { color: var(--muted); }
+textarea, input[type="search"], input[type="text"], select { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); border-radius: 9px; padding: 9px 12px; font-size: 15px; min-height: 40px; }
+textarea { width: 100%; min-height: 84px; resize: vertical; line-height: 1.5; }
+textarea:disabled { opacity: .6; }
+label.fl { display: grid; gap: 6px; font-size: 13.5px; color: var(--muted); font-weight: 600; }
+.filters { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.search { position: relative; flex: 1 1 260px; max-width: 420px; }
+.search svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--faint); }
+.search input { width: 100%; padding-left: 38px; }
+.bar { height: 8px; border-radius: 4px; background: var(--raised); overflow: hidden; }
+.bar > i { display: block; height: 100%; width: var(--w); background: var(--ok); border-radius: 4px; }
+.bar.royal > i { background: var(--royal); } .bar.ink > i { background: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; font-size: 12.5px; color: var(--faint); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); }
+td { padding: 11px 12px 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tscroll { overflow-x: auto; }
+details > summary { cursor: pointer; list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+.flash { outline: 2px solid var(--royal); outline-offset: 4px; }
+
+/* ===== Overview ===== */
+.nba { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px 28px; align-items: center; padding: 26px 28px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--burgundy-ink); box-shadow: var(--shadow); }
+.nba .kick { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--burgundy-ink); }
+.nba h3 { font-size: 22px; margin-top: 6px; }
+.nba .why { color: var(--muted); margin-top: 6px; max-width: 70ch; }
+.nba-more { display: grid; margin-top: 4px; }
+.nba-more .row { padding: 12px 0; }
+.hero { display: grid; grid-template-columns: minmax(240px, 380px) minmax(0, 1fr); gap: 28px; padding: 0; overflow: hidden; }
+.thumb { background: var(--sunken); align-self: stretch; min-height: 200px; display: grid; align-content: center; justify-items: center; gap: 8px; place-items: center; color: var(--muted); font-size: 13.5px; text-align: center; padding: 16px; position: relative; }
+.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero .body { padding: 24px 28px 24px 0; display: grid; gap: 16px; align-content: start; }
+.hero .name { font-size: 21px; font-weight: 600; line-height: 1.3; }
+.steps { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 6px; list-style: none; margin: 0; padding: 0; }
+.steps li { display: grid; gap: 7px; font-size: 12.5px; color: var(--muted); min-width: 0; }
+.steps li::before { content: ""; height: 6px; border-radius: 3px; background: var(--line); }
+.steps li.done::before { background: var(--ok); } .steps li.running::before { background: var(--royal); } .steps li.blocked::before { background: var(--fail); }
+.steps li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.steps li.cur { color: var(--ink); font-weight: 700; }
+.progress { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; }
+.progress .big { font-size: 28px; font-weight: 600; }
+.nextreq { display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 14px 16px; border-radius: 10px; background: var(--raised); }
+.nextreq .l { font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+.qtiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.qtile { display: grid; gap: 2px; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); text-decoration: none; color: var(--ink); }
+.qtile:hover { border-color: var(--line-strong); }
+.qtile .v { font-size: 26px; font-weight: 600; }
+.qtile .k { font-size: 13px; color: var(--muted); }
+
+/* ===== Courses ===== */
+.kanban { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 14px; overflow-x: auto; padding-bottom: 8px; }
+.col { background: var(--sunken); border-radius: var(--r); padding: 12px; display: grid; gap: 10px; align-content: start; min-height: 140px; }
+.col h4 { margin: 0 4px 2px; font-size: 13px; font-weight: 700; color: var(--muted); display: flex; justify-content: space-between; }
+.lcard { display: grid; gap: 8px; padding: 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+.lcard:hover { border-color: var(--line-strong); }
+
+/* ===== Lesson ===== */
+.chap { border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+.chap + .chap { margin-top: 10px; }
+.chap > summary { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 18px; }
+.chap > summary .n { font-size: 13px; font-weight: 700; color: var(--faint); }
+.chap > summary:hover { background: var(--raised); border-radius: var(--r); }
+.chap[open] > summary { border-bottom: 1px solid var(--line); border-radius: var(--r) var(--r) 0 0; }
+.chap .inner { padding: 6px 18px 14px; }
+.narr { color: var(--muted); max-width: 60ch; }
+
+/* ===== Review Centre ===== */
+.rv-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.rv-head label.fl select { min-width: 150px; }
+.rv { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 28px; align-items: start; }
+.players { display: grid; gap: 12px; }
+.players.cmp { grid-template-columns: 1fr 1fr; }
+.pl { position: relative; background: var(--video); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; border: 1px solid var(--line); }
+.pl video { width: 100%; height: 100%; display: block; background: var(--video); }
+.pl .vlabel { position: absolute; left: 10px; top: 10px; font-size: 12.5px; font-weight: 700; color: var(--on-video); background: var(--scrim); padding: 3px 9px; border-radius: 6px; }
+.pl .vmsg { position: absolute; inset: 0; display: grid; place-items: center; color: var(--on-video); text-align: center; padding: 24px; font-size: 14px; background: var(--scrim); }
+.pl .vmsg[hidden] { display: none; }
+.abtoggle { display: none; }
+.players.ab .abtoggle { display: inline-flex; }
+.players.ab { grid-template-columns: 1fr; }
+.players.ab .pl.off { display: none; }
+.transport { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.play { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--burgundy); color: var(--on-burgundy); display: grid; place-items: center; cursor: pointer; }
+.play:hover { background: var(--burgundy-hover); }
+.play svg { width: 22px; height: 22px; }
+.tcbig { font-family: var(--mono); font-size: 22px; font-weight: 500; letter-spacing: -.01em; }
+.tcbig small { font-size: 14px; color: var(--muted); }
+.tgroup { display: inline-flex; gap: 4px; }
+.speed select { min-height: 38px; padding: 6px 10px; font-size: 14px; }
+.scrub { position: relative; height: 64px; touch-action: none; cursor: pointer; user-select: none; }
+.scrub .lane { position: absolute; left: 0; right: 0; }
+.scrub .track { position: absolute; left: 0; right: 0; top: 34px; height: 8px; border-radius: 4px; background: var(--raised); }
+.scrub .played { position: absolute; left: 0; top: 34px; height: 8px; border-radius: 4px; background: var(--burgundy-ink); width: 0; }
+.scrub .head { position: absolute; top: 28px; width: 16px; height: 20px; margin-left: -8px; border-radius: 5px; background: var(--ink); box-shadow: var(--shadow); }
+.scrub:focus-visible { outline-offset: 4px; }
+.mk { position: absolute; transform: translateX(-50%); border: 0; padding: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.mk.sc { top: 26px; height: 24px; width: 12px; }
+.mk.sc::after { content: ""; width: 2px; height: 24px; background: var(--muted); border-radius: 1px; opacity: .8; }
+.mk.qa { top: 4px; width: 18px; height: 18px; }
+.mk.qa::after { content: ""; width: 10px; height: 10px; background: var(--warn); transform: rotate(45deg); border-radius: 2px; }
+.mk.qa.f::after { background: var(--fail); }
+.mk.cm { top: 4px; width: 18px; height: 18px; }
+.mk.cm::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--royal); }
+.mk:hover::after, .mk:focus-visible::after { transform: scale(1.3); }
+.mk.qa:hover::after { transform: rotate(45deg) scale(1.3); }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; border-radius: 2px; }
+.nowscene { display: grid; gap: 4px; padding: 14px 16px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); }
+.side-panel { display: grid; gap: 22px; }
+.cmt { display: grid; gap: 6px; padding: 12px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); text-align: left; cursor: pointer; width: 100%; }
+.cmt:hover { border-color: var(--line-strong); }
+.cmt .when { font-family: var(--mono); font-size: 13px; color: var(--royal); }
+.cmts { display: grid; gap: 8px; max-height: 420px; overflow-y: auto; }
+.kbd { font-family: var(--mono); font-size: 12px; border: 1px solid var(--line-strong); border-radius: 4px; padding: 0 5px; color: var(--muted); }
+
+/* ===== Efficiency ===== */
+.insight { display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 6px 16px; padding: 20px 22px; }
+.insight .imp { justify-self: start; grid-row: span 4; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; align-self: start; }
+.imp.high { color: var(--fail); background: color-mix(in srgb, var(--fail) 14%, transparent); }
+.imp.medium { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+.imp.low { color: var(--muted); background: var(--raised); }
+.insight .ev { font-size: 14px; color: var(--muted); }
+.insight .act { font-size: 14.5px; font-weight: 600; }
+.estbox { border: 1px dashed var(--line-strong); border-radius: var(--r); padding: 18px 22px; }
+.rbar { display: grid; grid-template-columns: 70px minmax(0, 1fr) 90px; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.tile { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); }
+.tile .v { font-size: 26px; font-weight: 600; }
+
+/* ===== Responsive ===== */
+@media (max-width: 1180px) { .rv { grid-template-columns: 1fr; } .cmts { max-height: none; } }
+@media (max-width: 1100px) {
+  .app, .app.collapsed { --nav-w: 72px; }
+  .app .lbl, .app .grp, .app .brand-t, .app nav.side .count, .collapse { display: none; }
+  .app .grp-sep { display: block; }
+  .app nav.side a { justify-content: center; padding: 10px 0; }
+  .app .brand { justify-content: center; padding-inline: 0; }
+  .app nav.side a .dot { display: block; position: absolute; top: 7px; right: 12px; width: 8px; height: 8px; border-radius: 50%; background: var(--burgundy-ink); }
+  .grid2 { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 220px minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  .app, .app.collapsed { grid-template-columns: minmax(0, 1fr); }
+  nav.side { position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; top: auto; height: auto; flex-direction: row; overflow-x: auto; overflow-y: hidden; border-right: 0; border-top: 1px solid var(--line);
+    padding: 6px max(8px, env(safe-area-inset-right, 0px)) max(6px, env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); gap: 2px; scrollbar-width: none; }
+  .brand, .grp, .grp-sep, .navfoot { display: none !important; }
+  .app nav.side a { flex-direction: column; gap: 3px; padding: 6px 10px; min-width: 72px; font-size: 12.5px; min-height: 52px; }
+  .app nav.side .lbl { display: block; overflow: visible; }
+  nav.side a[aria-current="page"]::before { left: 18px; right: 18px; top: 0; bottom: auto; width: auto; height: 3px; border-radius: 0 0 3px 3px; }
+  main { padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(96px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+  .wrap { gap: 32px; }
+  .nba { grid-template-columns: 1fr; padding: 20px; }
+  .nba .btn { justify-self: start; white-space: normal; }
+  .hero { grid-template-columns: 1fr; }
+  .hero .body { padding: 0 18px 20px; }
+  .thumb { min-height: 0; aspect-ratio: 16/9; }
+  .qtiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stripe-row { grid-template-columns: 4px minmax(0, 1fr); }
+  .stripe-row > .btn, .stripe-row > a.btn { grid-column: 2; justify-self: start; }
+  .steps li span { display: none; }
+  .steps li.cur span { display: block; position: static; }
+  .card { padding: 18px; }
+  table.stack thead { display: none; }
+  table.stack tr { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  table.stack td { border: 0; padding: 0; }
+  table.stack td.wide { grid-column: 1 / -1; }
+  .chap > summary { grid-template-columns: 30px minmax(0, 1fr); }
+  .chap > summary > :last-child { grid-column: 2; }
+  .tcbig { font-size: 19px; }
+  .rbar { grid-template-columns: 54px minmax(0, 1fr); }
+  .rbar > :last-child { grid-column: 2; }
+  .insight { grid-template-columns: 1fr; }
+  .insight .imp { grid-row: auto; justify-self: start; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn, nav.side a, .iconbtn, .seg button, .qtile, .lcard, .cmt, .mk::after, .collapse, .play { transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .15s ease; }
+  .app { transition: grid-template-columns .18s ease; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-overview" viewBox="0 0 24 24"><rect x="3.75" y="3.75" width="7" height="9" rx="1.5"/><rect x="13.25" y="3.75" width="7" height="5" rx="1.5"/><rect x="13.25" y="11.25" width="7" height="9" rx="1.5"/><rect x="3.75" y="15.25" width="7" height="5" rx="1.5"/></symbol>
+  <symbol id="i-courses" viewBox="0 0 24 24"><path d="M4.75 5.75A1.75 1.75 0 0 1 6.5 4h12.75v13H6.5a1.75 1.75 0 0 0-1.75 1.75z"/><path d="M4.75 18.75A1.75 1.75 0 0 0 6.5 20.5h12.75V17"/><path d="M9 8.25h6"/></symbol>
+  <symbol id="i-queue" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11"/><circle cx="4.75" cy="6.5" r="1.25"/><circle cx="4.75" cy="12" r="1.25"/><circle cx="4.75" cy="17.5" r="1.25"/></symbol>
+  <symbol id="i-agents" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.25"/><path d="M3.25 19.5c.75-3.1 3-4.9 5.75-4.9s5 1.8 5.75 4.9"/><path d="M15.25 4.9a3.25 3.25 0 0 1 0 6.2M17 14.9c1.9.6 3.2 2.2 3.75 4.6"/></symbol>
+  <symbol id="i-review" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.25"/><path d="M10.25 9.25v5.5L14.75 12z"/></symbol>
+  <symbol id="i-approvals" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.25"/><path d="m8.6 12.2 2.35 2.35 4.5-4.75"/></symbol>
+  <symbol id="i-efficiency" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6.5 16.5v-4M11 16.5V8.5M15.5 16.5v-6M20 16.5V5"/></symbol>
+  <symbol id="i-memory" viewBox="0 0 24 24"><path d="M9.25 18h5.5M10.25 21h3.5"/><path d="M12 3a6 6 0 0 0-3.55 10.84c.68.5 1.05 1.25 1.05 2.08V16h5v.08c0-.83.37-1.58 1.05-2.08A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-library" viewBox="0 0 24 24"><path d="M3.75 5.25a1 1 0 0 1 1-1h14.5a1 1 0 0 1 1 1V8H3.75z"/><path d="M5 8v10.25A1.75 1.75 0 0 0 6.75 20h10.5A1.75 1.75 0 0 0 19 18.25V8"/><path d="M10 12h4"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M14.5 6.5 9 12l5.5 5.5"/></symbol>
+  <symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6.5 15 12l-5.5 5.5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 5.2v13.6a.8.8 0 0 0 1.2.7l11-6.8a.8.8 0 0 0 0-1.4l-11-6.8a.8.8 0 0 0-1.2.7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.75" height="14" rx="1"/><rect x="13.75" y="5" width="3.75" height="14" rx="1"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v3.75h3.75"/></symbol>
+  <symbol id="i-fwd" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v3.75h-3.75"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9M19.5 9V4.5H15M4.5 15v4.5H9M19.5 15v4.5H15"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.75"/><path d="M12 3v1.75M12 19.25V21M3 12h1.75M19.25 12H21M5.6 5.6l1.25 1.25M17.15 17.15l1.25 1.25M5.6 18.4l1.25-1.25M17.15 6.85l1.25-1.25"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.6A7.75 7.75 0 0 1 9.4 4.5a7.75 7.75 0 1 0 10.1 10.1z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.25"/><path d="m20 20-4.5-4.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4.2 2.9 19.5h18.2z"/><path d="M12 10v4M12 16.75v.01"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13.5 6.5 19 12l-5.5 5.5"/></symbol>
+  <symbol id="i-compare" viewBox="0 0 24 24"><rect x="3" y="5" width="7.75" height="14" rx="1.5"/><rect x="13.25" y="5" width="7.75" height="14" rx="1.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5 11 13M17.5 14v4.5a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1H10"/></symbol>
+</svg>
+
+<div class="app" id="app">
+  <nav class="side" id="nav" aria-label="Studio views"></nav>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<script>
+"use strict";
+/* ================= Config ================= */
+const VIEWS = {
+  overview: { label: "Overview", group: "Produce", icon: "overview", title: "Overview" },
+  courses: { label: "Courses", group: "Produce", icon: "courses", title: "Courses" },
+  queue: { label: "Queue", group: "Produce", icon: "queue", title: "Queue" },
+  agents: { label: "Agents", group: "Produce", icon: "agents", title: "Agents" },
+  review: { label: "Review", group: "Review", icon: "review", title: "Video Review Centre" },
+  approvals: { label: "Approvals", group: "Review", icon: "approvals", title: "Approvals" },
+  efficiency: { label: "Efficiency", group: "Studio", icon: "efficiency", title: "Efficiency" },
+  memory: { label: "Creative memory", group: "Studio", icon: "memory", title: "Creative memory" },
+  library: { label: "Delivery library", group: "Studio", icon: "library", title: "Delivery library" },
+};
+const SOURCES = ["studio", "lessons", "jobs", "review", "efficiency", "memory", "comments", "approvals", "requests"];
+const FPS = 30, SPEEDS = [0.5, 1, 1.25, 1.5, 2], STALE_MIN = 30;
+
+/* ================= Tiny store ================= */
+const S = {
+  db: null, user: null, uid: null, canW: null, readOnly: false, noDb: false,
+  meta: null, overview: null, lessons: {}, jobs: {}, review: {}, eff: null, memory: null,
+  comments: [], approvals: [], requests: [], loaded: new Set(), errors: {}, slow: false,
+  mode: lsGet("ll.mode") || "director", drafts: {}, status: {}, ui: {}, pendingSeek: null,
+};
+
+/* ================= Helpers ================= */
+function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function lsSet(k, v) { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} }
+function h(tag, a, ...kids) {
+  const el = document.createElement(tag);
+  if (a) for (const k in a) {
+    const v = a[k];
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k === "text") el.textContent = v;
+    else if (k === "value") el.value = v;
+    else if (k.startsWith("on") && typeof v === "function") el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? "" : String(v));
+  }
+  add(el, kids);
+  return el;
+}
+function add(el, kids) { for (const k of kids.flat(Infinity)) { if (k == null || k === false) continue; el.append(k instanceof Node ? k : document.createTextNode(String(k))); } return el; }
+function icon(name, cls) {
+  const s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  s.setAttribute("class", "i" + (cls ? " " + cls : "")); s.setAttribute("aria-hidden", "true");
+  const u = document.createElementNS("http://www.w3.org/2000/svg", "use"); u.setAttribute("href", "#i-" + name); s.append(u); return s;
+}
+const arr = (x) => (Array.isArray(x) ? x : []);
+const str = (x) => (x == null ? "" : String(x));
+const enc = encodeURIComponent;
+const dec = (s) => { try { return decodeURIComponent(s); } catch (e) { return s; } };
+const pad = (n, w = 2) => String(n).padStart(w, "0");
+function fmtTC(sec) {
+  if (!isFinite(sec) || sec < 0) sec = 0;
+  const t = Math.round(sec * 10) / 10, hrs = Math.floor(t / 3600), m = Math.floor((t % 3600) / 60), s = t % 60;
+  const ss = (s < 10 ? "0" : "") + s.toFixed(1);
+  return hrs ? `${hrs}:${pad(m)}:${ss}` : `${pad(m)}:${ss}`;
+}
+function fmtDur(sec) { if (!isFinite(sec)) return ""; const m = Math.floor(sec / 60), s = Math.round(sec % 60); return `${m}:${pad(s)}`; }
+function fmtMin(min) { if (min == null || !isFinite(min)) return "—"; return min >= 90 ? `${(min / 60).toFixed(1)} h` : `${Math.round(min)} min`; }
+function dt(iso) { const d = new Date(iso); return isNaN(d) ? null : d; }
+function fmtClock(iso) {
+  const d = dt(iso); if (!d) return str(iso);
+  const today = new Date().toDateString() === d.toDateString();
+  const t = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  return today ? t : `${d.toLocaleDateString([], { day: "numeric", month: "short" })}, ${t}`;
+}
+function ago(iso) {
+  const d = dt(iso); if (!d) return "";
+  const m = Math.round((Date.now() - d) / 60000);
+  if (m < 1) return "just now"; if (m < 60) return `${m} min ago`;
+  const hr = Math.round(m / 60); if (hr < 36) return `${hr} h ago`;
+  return `${Math.round(hr / 24)} days ago`;
+}
+function bytes(n) { if (n == null) return ""; const u = ["B", "KB", "MB", "GB"]; let i = 0; while (n >= 1000 && i < 3) { n /= 1000; i++; } return `${n.toFixed(i ? 1 : 0)} ${u[i]}`; }
+const human = (s) => { const t = str(s).replace(/[-_]/g, " ").replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase(); return t.charAt(0).toUpperCase() + t.slice(1); };
+const newId = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2, 10));
+const lessonTitle = (id) => S.lessons[id]?.title || id;
+function chip(text, tone) { return h("span", { class: "chip" + (tone ? " " + tone : "") }, text); }
+const tagM = () => h("span", { class: "tag m", title: "Measured from studio records" }, "Measured");
+const tagE = () => h("span", { class: "tag e", title: "An estimate, not a measurement" }, "Estimate");
+const tech = (...k) => h("span", { class: "tech" }, ...k);
+const techB = (...k) => h("div", { class: "tech" }, ...k);
+function skel(n = 3, block) { return h("div", { class: "skel" + (block ? " block" : ""), "aria-busy": "true", "aria-label": "Loading studio data" }, Array.from({ length: n }, () => h("i"))); }
+function empty(title, text, ...extra) { return h("div", { class: "empty" }, h("b", null, title), text ? h("p", null, text) : null, ...extra); }
+const ready = (src) => S.loaded.has(src);
+function srcErr(src) { const e = S.errors[src]; return e ? h("div", { class: "banner warn", role: "alert" }, icon("alert"), h("div", null, h("b", null, "Couldn't load this part of the studio data. "), str(e.message || e.code))) : null; }
+function stateTone(st) { st = str(st).toLowerCase(); return st === "done" || st === "pass" || st === "approved" || st === "recorded" || st === "accepted" ? "ok" : st === "running" ? "run" : st === "failed" || st === "fail" || st === "refused" || st === "reject" ? "fail" : st === "blocked" || st === "warn" || st === "changes" ? "warn" : ""; }
+function section(title, ...kids) { const id = "h-" + newId().slice(0, 8); return h("section", { "aria-labelledby": id }, h("h2", { id }, title), ...kids); }
+
+/* refs: "lesson:<id>:v004:chapter:<chapterId>" */
+function parseRef(r) {
+  const p = str(r).split(":"), o = {};
+  if (p[0] === "lesson") { o.lesson = p[1]; for (let i = 2; i < p.length; i++) { if (p[i] === "chapter") o.chapter = p[++i]; else if (p[i] === "scene") o.scene = p[++i]; else if (/^v\d+/i.test(p[i])) o.version = p[i]; } }
+  return o;
+}
+function actionHref(a) {
+  if (!a) return null;
+  const v = str(a.view).toLowerCase(), r = str(a.ref), p = parseRef(r);
+  if (v === "review") return p.lesson ? `#review/${enc(p.lesson)}/${enc(p.version || "")}/${enc(p.chapter || "")}` : "#review";
+  if (v === "lesson") return "#lesson-" + enc(p.lesson || r);
+  if (v === "approvals") return r ? "#approvals/" + enc(r) : "#approvals";
+  if (v === "queue") return r ? "#queue/" + enc(r) : "#queue";
+  return VIEWS[v] ? "#" + v : "#overview";
+}
+function route() {
+  const raw = location.hash.replace(/^#/, "");
+  if (raw.startsWith("lesson-")) return { view: "lesson", id: dec(raw.slice(7)) };
+  const [v, ...rest] = raw.split("/");
+  if (v === "review") return { view: "review", lesson: dec(rest[0] || ""), version: dec(rest[1] || ""), chapter: dec(rest[2] || "") };
+  if (v === "approvals" || v === "queue") return { view: v, ref: dec(rest.join("/")) };
+  return { view: VIEWS[v] ? v : "overview" };
+}
+
+/* ================= Data: subscriptions ================= */
+function subscribe() {
+  for (const name of SOURCES) {
+    try {
+      S.db.collection(name).onSnapshot((snap) => {
+        const docs = snap.docs.filter((d) => d.exists);
+        if (name === "studio") { for (const d of docs) { if (d.id === "meta") S.meta = d.data(); if (d.id === "overview") S.overview = d.data(); } }
+        else if (name === "efficiency") S.eff = (docs.find((d) => d.id === "summary") || docs[0])?.data() || null;
+        else if (name === "memory") S.memory = (docs.find((d) => d.id === "library") || docs[0])?.data() || null;
+        else if (name === "lessons" || name === "jobs" || name === "review") { const m = {}; for (const d of docs) m[d.id] = d.data(); S[name] = m; }
+        else S[name] = docs.map((d) => ({ ...d.data(), _doc: d.id })).sort((a, b) => str(b.at).localeCompare(str(a.at)));
+        if (!snap.metadata || !snap.metadata.fromCache) S.loaded.add(name);
+        else if (snap.size) S.loaded.add(name);
+        invalidate();
+      }, (e) => { S.errors[name] = e; S.loaded.add(name); if (e && e.code === "revoked") { S.readOnly = true; S.roWhy = "Access to the studio data was withdrawn for this view."; } invalidate(); });
+    } catch (e) { S.errors[name] = { message: e.message }; S.loaded.add(name); }
+  }
+}
+
+/* ================= Writes (comments / approvals / requests) ================= */
+function writeBlock() {
+  if (S.noDb) return "Live studio data isn't connected in this view, so comments, approvals and requests are turned off.";
+  if (!S.uid) return "Sign in to comment, approve or send requests. You can still watch and read everything.";
+  if (S.canW === false) return "You have view-only access. Ask the studio owner for Contributor access to comment, approve or send requests.";
+  if (S.readOnly) return S.roWhy || "This view can't save changes.";
+  return null;
+}
+async function write(coll, body, statusEl) {
+  const why = writeBlock();
+  if (why) { setStatus(statusEl, "err", why); return null; }
+  const id = newId();
+  const doc = { ...body, id, by: S.uid, at: new Date().toISOString(), status: "new" };
+  setStatus(statusEl, "wait", "Saving…");
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      await S.db.collection(coll).doc(id).set(doc);
+      setStatus(statusEl, "saved", `Saved ${fmtClock(doc.at)}`);
+      return doc;
+    } catch (e) {
+      const code = e && e.code;
+      if (code === "unavailable" && attempt === 0) { await new Promise((r) => setTimeout(r, 400 + Math.random() * 600)); continue; }
+      let msg = (e && e.message) || String(e);
+      if (code === "invalid_argument" && S.canW == null) { S.readOnly = true; S.roWhy = "The studio refused the save: this view is read-only for you."; msg = S.roWhy; invalidate(); }
+      if (code === "quota_exceeded") msg = "The board's storage is full, so nothing more can be saved. Tell the studio: " + msg;
+      setStatus(statusEl, "err", "Not saved: " + msg);
+      return null;
+    }
+  }
+}
+function setStatus(el, kind, text) {
+  if (!el) return;
+  const key = el.dataset.skey;
+  if (key) S.status[key] = [kind, text];
+  const els = key ? [el, ...document.querySelectorAll(`[data-skey="${CSS.escape(key)}"]`)] : [el];
+  for (const x of els) { x.className = "status " + kind; x.textContent = text; }
+}
+/* A status line survives re-renders when given a key (writes resolve after the snapshot re-draws the view). */
+function statusEl(key) {
+  const el = h("p", { class: "status", role: "status", "aria-live": "polite", "data-skey": key || null });
+  const s = key && S.status[key];
+  if (s) { el.className = "status " + s[0]; el.textContent = s[1]; }
+  return el;
+}
+function draft(key, attrs) {
+  const t = h("textarea", { ...attrs, "data-key": key, value: S.drafts[key] || "" });
+  t.addEventListener("input", () => { S.drafts[key] = t.value; });
+  if (writeBlock()) t.disabled = true;
+  return t;
+}
+function blockedNote() { const w = writeBlock(); return w ? h("p", { class: "note" }, w) : null; }
+
+/* ================= Shell: nav + top bar ================= */
+function counts() {
+  const pend = pendingItems().filter((i) => !myDecision(itemRef(i))).length;
+  const failed = Object.values(S.jobs).reduce((n, j) => n + arr(j.tasks).filter((t) => t.status === "failed").length, 0);
+  return { approvals: pend, queue: failed, overview: arr(S.overview?.attention).length };
+}
+function renderNav(r) {
+  const nav = document.getElementById("nav"), c = counts();
+  const cur = r.view === "lesson" ? "courses" : r.view;
+  nav.replaceChildren(h("div", { class: "brand" }, h("span", { class: "mark", "aria-hidden": "true" }, "L"), h("span", { class: "brand-t" }, "LifeLink", h("small", null, "Video Studio"))));
+  let g = null;
+  for (const [k, v] of Object.entries(VIEWS)) {
+    if (v.group !== g) { if (g) nav.append(h("div", { class: "grp-sep", "aria-hidden": "true" })); g = v.group; nav.append(h("div", { class: "grp", "aria-hidden": "true" }, g)); }
+    const n = k === "queue" ? c.queue : k === "approvals" ? c.approvals : 0;
+    nav.append(h("a", { href: "#" + k, "aria-current": cur === k ? "page" : null, title: v.label },
+      icon(v.icon), h("span", { class: "lbl" }, v.label),
+      n ? h("span", { class: "count" + (k === "queue" ? " f" : ""), "aria-label": `${n} ${k === "queue" ? "failed" : "waiting"}` }, n) : null,
+      n ? h("span", { class: "dot", "aria-hidden": "true" }) : null));
+  }
+  const collapsed = document.getElementById("app").classList.contains("collapsed");
+  nav.append(h("div", { class: "navfoot" }, h("button", { class: "collapse", type: "button", "aria-expanded": String(!collapsed), "aria-label": collapsed ? "Expand sidebar" : "Collapse sidebar", onclick: toggleNav }, icon("chev"), h("span", { class: "lbl" }, "Collapse"))));
+}
+function toggleNav() { const a = document.getElementById("app"); a.classList.toggle("collapsed"); lsSet("ll.nav", a.classList.contains("collapsed") ? "collapsed" : "open"); renderNav(route()); }
+function freshness() {
+  if (!ready("studio")) return h("span", { class: "fresh" }, h("span", { class: "pip" }), "Loading last update…");
+  const ls = S.meta?.lastSync;
+  if (!ls) return h("span", { class: "fresh stale", role: "status" }, h("span", { class: "pip" }), "No verified update from the studio yet");
+  const min = Math.floor((Date.now() - dt(ls)) / 60000);
+  const stale = min > STALE_MIN;
+  return h("span", { class: "fresh" + (stale ? " stale" : ""), id: "fresh", title: "Time of the last verified sync from the studio session. The board is not a live monitor." },
+    h("span", { class: "pip" }), "Last verified update ", h("b", { class: "num" }, fmtClock(ls)),
+    stale ? h("span", null, ` · Not updated for ${min} min — the studio session may be idle`) : h("span", null, ` · ${ago(ls)}`));
+}
+function isDark() { const t = document.documentElement.dataset.theme; return t ? t === "dark" : !matchMedia("(prefers-color-scheme: light)").matches; }
+function topbar(title, sub) {
+  const dark = isDark();
+  return h("header", { class: "top" },
+    h("div", null, h("h1", null, title), sub ? h("p", { class: "sub" }, sub) : null),
+    h("div", { class: "tools" }, freshness(),
+      h("div", { class: "seg", role: "group", "aria-label": "Detail level" },
+        h("button", { type: "button", "aria-pressed": String(S.mode !== "technical"), onclick: () => setMode("director") }, "Director"),
+        h("button", { type: "button", "aria-pressed": String(S.mode === "technical"), onclick: () => setMode("technical") }, "Technical")),
+      h("button", { class: "iconbtn", type: "button", "aria-label": dark ? "Switch to light theme" : "Switch to dark theme", title: dark ? "Light theme" : "Dark theme", onclick: () => { const t = isDark() ? "light" : "dark"; document.documentElement.dataset.theme = t; lsSet("ll.theme", t); render(true); } }, icon(dark ? "sun" : "moon"))));
+}
+function setMode(m) { S.mode = m; lsSet("ll.mode", m); document.body.classList.toggle("technical", m === "technical"); render(true); }
+function banners() {
+  const out = [];
+  const w = writeBlock();
+  if (w) out.push(h("div", { class: "banner" }, icon("alert"), h("div", null, h("b", null, "Actions are off. "), w)));
+  if (S.slow && S.loaded.size < SOURCES.length && !S.noDb) out.push(h("div", { class: "banner warn", role: "status" }, icon("alert"), h("div", null, h("b", null, "The studio data can't be reached yet. "), "What's shown may be incomplete or out of date.")));
+  return out.length ? h("div", { style: "display:grid;gap:10px" }, out) : null;
+}
+
+/* ================= Shared derivations ================= */
+function itemRef(i) { return str(i.action?.ref) || str(i.id); }
+function pendingItems() {
+  const o = S.overview; if (!o) return [];
+  const seen = new Set(), out = [];
+  for (const i of [...arr(o.nextActions), ...arr(o.attention)]) {
+    if (!(i.kind === "approval" || i.kind === "decision" || str(i.action?.view) === "approvals")) continue;
+    const r = itemRef(i); if (seen.has(r)) continue; seen.add(r); out.push(i);
+  }
+  return out;
+}
+function myDecision(ref) { return S.approvals.find((a) => a.itemRef === ref && (!S.uid || a.by === S.uid)); }
+function decisionsFor(ref) { return S.approvals.filter((a) => a.itemRef === ref); }
+function allTasks() { const out = []; for (const [lid, j] of Object.entries(S.jobs)) for (const t of arr(j.tasks)) out.push({ ...t, _lesson: j.lessonId || lid }); return out; }
+const DEC = { approve: "Approved", changes: "Changes requested", reject: "Rejected" };
+function decisionStatus(a) { return a.status === "recorded" ? `Recorded${a.recordedIn && S.mode === "technical" ? " in " + a.recordedIn : " by the studio"}` : a.status === "new" ? "Sent — the studio records it at its next check" : human(a.status); }
+
+/* ================= View: Overview ================= */
+function viewOverview() {
+  const o = S.overview, wrap = [];
+  const active = o?.activeLessonId ? S.lessons[o.activeLessonId] : null;
+  const hr = new Date().getHours(), greet = hr < 12 ? "Good morning" : hr < 18 ? "Good afternoon" : "Good evening";
+  const inProd = Object.values(S.lessons).filter((l) => !/FINAL|DELIVERED/i.test(str(l.state))).length;
+  wrap.push(topbar(greet + ".", ready("studio") && ready("lessons") ? `${inProd === 1 ? "One lesson" : inProd + " lessons"} in production.` : "Loading the studio's latest verified state…"));
+  wrap.push(banners());
+  if (!ready("studio")) { wrap.push(skel(3, true), skel(5)); return wrap; }
+  wrap.push(srcErr("studio"));
+  if (!o) { wrap.push(empty("No overview from the studio yet", "The studio session hasn't synced an overview. It appears here after the next verified sync.")); return wrap; }
+
+  // Next best action
+  const na = arr(o.nextActions);
+  if (na.length) {
+    const [first, ...rest] = na;
+    wrap.push(h("section", { "aria-labelledby": "h-nba" },
+      h("h2", { id: "h-nba" }, "Next best action"),
+      h("div", { class: "nba" },
+        h("div", null, h("div", { class: "kick" }, kindLabel(first.kind)), h("h3", null, first.title), h("p", { class: "why" }, first.detail),
+          first.since ? h("p", { class: "meta", style: "margin-top:8px" }, "Waiting since " + fmtClock(first.since)) : null, techB(itemRef(first), " · ", first.source)),
+        actBtn(first, "btn primary lg")),
+      rest.length ? h("div", { class: "nba-more list", style: "margin-top:14px" }, rest.slice(0, 3).map((i) => itemRow(i))) : null));
+  } else wrap.push(section("Next best action", empty("Nothing needs you right now", "The studio has no open decision or review for you.")));
+
+  // Active production hero (full width), then attention + recent side by side
+  wrap.push(section("Now producing", active ? hero(active) : ready("lessons") ? empty("No lesson is in production", o.activeLessonId ? "The active lesson hasn't synced yet." : "Start a lesson with the studio to see it here.") : skel(4, true)));
+  const att = arr(o.attention);
+  wrap.push(h("div", { class: "grid2" },
+    section("Needs your attention", att.length ? h("div", { class: "list" }, att.map((i) => itemRow(i))) : empty("All clear", "Nothing is waiting for you.")),
+    section("Recent verified results", arr(o.recent).length ? h("div", { class: "list" }, arr(o.recent).slice(0, 6).map((r) => h("div", { class: "row" }, h("span", null, r.text), h("span", { class: "meta num" }, fmtClock(r.at)), techB(r.kind, " · ", r.source)))) : empty("No verified results yet", ""))));
+
+  // Queue counts
+  const q = o.queueCounts || {};
+  const QC = [["running", "Running", "run"], ["queued", "Queued", ""], ["blocked", "Blocked", "warn"], ["failed", "Failed", "fail"], ["done", "Done", "ok"]];
+  wrap.push(section("Production queue", h("div", { class: "qtiles" }, QC.map(([k, l, tone]) => h("a", { class: "qtile", href: "#queue" }, h("span", { class: "v num " + tone }, q[k] ?? 0), h("span", { class: "k" }, l))))));
+  return wrap;
+}
+function kindLabel(k) { return { approval: "Approval needed", failure: "Something failed", decision: "Decision needed", review: "Ready for your review" }[k] || human(k); }
+function actBtn(i, cls) { const href = actionHref(i.action); return href ? h("a", { class: cls || "btn", href }, str(i.action?.label) || "Open", icon("arrow", "sm")) : null; }
+function itemRow(i) {
+  return h("div", { class: "row stripe-row" }, h("span", { class: "stripe k-" + i.kind, "aria-hidden": "true" }),
+    h("div", null, h("div", { style: "font-weight:600" }, i.title), h("div", { class: "muted", style: "font-size:14px" }, i.detail),
+      h("div", { class: "meta" }, kindLabel(i.kind), i.since ? " · since " + fmtClock(i.since) : ""), techB(itemRef(i), " · ", i.source)),
+    actBtn(i));
+}
+function stepper(stage) {
+  const steps = arr(stage?.steps);
+  if (!steps.length) return null;
+  return h("ol", { class: "steps", style: `--n:${steps.length}`, "aria-label": "Production stages" },
+    steps.map((s) => { const cur = s.id === stage.current || s.label === stage.current; return h("li", { class: s.state + (cur ? " cur" : ""), "aria-current": cur ? "step" : null }, h("span", null, s.label), h("span", { class: "sr" }, ": " + s.state)); }));
+}
+function nextFor(lessonId) {
+  const o = S.overview; if (!o) return null;
+  return [...arr(o.nextActions), ...arr(o.attention)].find((i) => str(i.action?.ref).includes(lessonId)) || null;
+}
+function hero(l) {
+  const steps = arr(l.stage?.steps), done = steps.filter((s) => s.state === "done").length;
+  const cur = steps.find((s) => s.id === l.stage?.current || s.label === l.stage?.current);
+  const thumbUrl = l.thumbnail?.assetUrl || S.review[l.id]?.thumbnail?.url;
+  const next = nextFor(l.id);
+  const latest = arr(l.renders).slice(-1)[0];
+  return h("div", { class: "card hero" },
+    h("div", { class: "thumb" }, thumbUrl ? h("img", { src: thumbUrl, alt: "Preview frame of " + l.title }) : [icon("review"), h("span", null, "No preview frame uploaded yet")]),
+    h("div", { class: "body" },
+      h("div", null, h("div", { class: "name" }, l.title), h("div", { class: "meta num" }, courseTitle(l.courseId), " · ", fmtDur(l.durationSec), latest ? ` · latest render ${latest.version}` : "", tech(" · ", l.id, " · state ", l.state))),
+      h("div", { class: "progress" }, h("span", { class: "big num" }, `${done} of ${steps.length}`), h("span", { class: "muted" }, "stages done", cur ? h("span", null, " · now: ", h("b", { class: "run" }, cur.label)) : null), tagM()),
+      stepper(l.stage),
+      l.now?.text ? h("p", null, l.now.text, " ", tagM(), l.now.at ? h("span", { class: "meta" }, " · " + ago(l.now.at)) : null) : null,
+      l.eta ? h("p", { class: "muted" }, "Ready for you around ", h("b", { class: "num", style: "color:var(--ink)" }, fmtClock(l.eta.at)), " ", tagE(), " · ", l.eta.basis) : null,
+      next ? h("div", { class: "nextreq" }, h("div", null, h("div", { class: "l" }, "Next required action"), h("div", { style: "font-weight:600" }, next.title)), actBtn(next, "btn primary")) : null,
+      h("div", { class: "filters" }, h("a", { class: "btn", href: "#lesson-" + enc(l.id) }, "Open lesson workspace"), S.review[l.id] ? h("a", { class: "btn ghost", href: "#review/" + enc(l.id) }, icon("review", "sm"), "Review copies") : null)));
+}
+function courseTitle(id) { return arr(S.overview?.courses).find((c) => c.id === id)?.title || id || ""; }
+
+/* ================= View: Courses ================= */
+function viewCourses() {
+  const out = [topbar("Courses", "Every lesson, where it is, and what it needs."), banners()];
+  if (!ready("lessons") || !ready("studio")) { out.push(skel(6)); return out; }
+  out.push(srcErr("lessons"));
+  const ui = S.ui.courses || (S.ui.courses = { q: "", state: "", layout: lsGet("ll.courses") || "list" });
+  const lessons = Object.values(S.lessons);
+  const states = [...new Set(lessons.map((l) => l.state).filter(Boolean))];
+  const match = (l) => (!ui.q || (str(l.title) + " " + l.id).toLowerCase().includes(ui.q.toLowerCase())) && (!ui.state || l.state === ui.state);
+  out.push(h("div", { class: "filters" },
+    h("label", { class: "search" }, h("span", { class: "sr" }, "Search lessons"), icon("search", "sm"), h("input", { type: "search", placeholder: "Search lessons", value: ui.q, "data-key": "courses-q", oninput: (e) => { ui.q = e.target.value; invalidate(); } })),
+    h("label", null, h("span", { class: "sr" }, "Filter by state"), h("select", { onchange: (e) => { ui.state = e.target.value; invalidate(); } }, h("option", { value: "" }, "All states"), states.map((s) => h("option", { value: s, selected: ui.state === s }, human(s))))),
+    h("div", { class: "seg", role: "group", "aria-label": "Layout" }, ["list", "board"].map((k) => h("button", { type: "button", "aria-pressed": String(ui.layout === k), onclick: () => { ui.layout = k; lsSet("ll.courses", k); invalidate(); } }, k === "list" ? "List" : "Board")))));
+  const shown = lessons.filter(match);
+  if (!lessons.length) { out.push(empty("No lessons synced yet", "Lessons appear after the studio's next verified sync.")); return out; }
+  if (!shown.length) { out.push(empty("No lessons match", "Try a different search or state.")); return out; }
+  if (ui.layout === "board") {
+    const cols = arr(shown[0].stage?.steps).map((s) => ({ id: s.id, label: s.label }));
+    const colOf = (l) => cols.findIndex((c) => c.id === l.stage?.current || c.label === l.stage?.current);
+    out.push(h("div", { class: "kanban", role: "list" }, cols.map((c, ci) => { const ls = shown.filter((l) => colOf(l) === ci); return h("div", { class: "col", role: "listitem" }, h("h4", null, c.label, h("span", { class: "num" }, ls.length)), ls.map(lessonCard)); })));
+  } else {
+    const courses = arr(S.overview?.courses);
+    const used = new Set();
+    for (const c of courses) {
+      const ls = arr(c.lessonIds).map((id) => { used.add(id); return S.lessons[id] || { id, _missing: true }; }).filter((l) => l._missing ? !ui.q && !ui.state : match(l));
+      if (ls.length) out.push(section(c.title || c.id, h("div", { class: "list" }, ls.map(lessonRow))));
+    }
+    const other = shown.filter((l) => !used.has(l.id));
+    if (other.length) out.push(section("Other lessons", h("div", { class: "list" }, other.map(lessonRow))));
+  }
+  return out;
+}
+function curStep(l) { return arr(l.stage?.steps).find((s) => s.id === l.stage?.current || s.label === l.stage?.current); }
+function lessonCard(l) { const r = arr(l.renders).slice(-1)[0]; return h("a", { class: "lcard", href: "#lesson-" + enc(l.id) }, h("b", null, l.title), h("span", { class: "meta" }, human(l.state), " · ", fmtDur(l.durationSec)), r?.qa ? chip(`${r.version} QA ${r.qa.result}`, stateTone(r.qa.result)) : null); }
+function lessonRow(l) {
+  if (l._missing) return h("div", { class: "row" }, h("span", { class: "muted" }, l.id), h("span", { class: "meta" }, "No data synced for this lesson yet"));
+  const st = curStep(l), r = arr(l.renders).slice(-1)[0];
+  return h("div", { class: "row" },
+    h("div", null, h("a", { href: "#lesson-" + enc(l.id), style: "font-weight:600;color:var(--ink)" }, l.title), h("div", { class: "meta" }, human(l.state), " · ", fmtDur(l.durationSec), st ? " · now: " + st.label : ""), techB(l.id, " · ", l.source)),
+    h("div", { class: "filters" }, r?.qa ? chip(`${r.version} QA ${r.qa.result}`, stateTone(r.qa.result)) : chip("No render yet"), h("a", { class: "btn", href: "#lesson-" + enc(l.id) }, "Open")));
+}
+
+/* ================= View: Lesson workspace ================= */
+function viewLesson(r) {
+  const l = S.lessons[r.id];
+  if (!ready("lessons")) return [topbar("Lesson"), skel(8)];
+  if (!l) return [topbar("Lesson not found"), empty("This lesson hasn't synced", "It may not exist yet, or the studio hasn't sent its data.", h("a", { class: "btn", href: "#courses" }, "Back to courses"))];
+  const latest = arr(l.renders).slice(-1)[0];
+  const rv = S.review[l.id];
+  const out = [topbar(l.title, `${courseTitle(l.courseId)} · ${fmtDur(l.durationSec)} · ${human(l.state)}`), banners()];
+  out.push(h("div", { class: "card", style: "display:grid;gap:14px" }, stepper(l.stage), l.now?.text ? h("p", null, l.now.text, " ", tagM()) : null, l.eta ? h("p", { class: "muted" }, "Ready around ", fmtClock(l.eta.at), " ", tagE(), " · ", l.eta.basis) : null, techB(l.id, " · ", l.source),
+    h("div", { class: "filters" }, rv ? h("a", { class: "btn primary", href: "#review/" + enc(l.id) }, icon("review", "sm"), "Open in Review Centre") : h("span", { class: "meta" }, "No review copies uploaded for this lesson yet."))));
+  // Chapters → scenes
+  const qaV = latest?.version;
+  const issues = arr(l.qaIssues).filter((q) => q.version === qaV);
+  const chs = arr(l.chapters);
+  out.push(section(h("span", null, `Chapters and scenes`), chs.length ? h("div", null, chs.map((c, i) => {
+    const sc = arr(l.scenes).filter((s) => s.chapterId === c.id);
+    const ci = issues.filter((q) => q.atSec != null && q.atSec >= c.startSec && q.atSec < c.endSec);
+    const appr = sc.filter((s) => s.approval === "approved").length, chg = sc.filter((s) => s.approval === "changes").length;
+    const hasMedia = rv && arr(rv.versions).some((v) => arr(v.chapters).some((x) => x.chapterId === c.id && x.url));
+    return h("details", { class: "chap", open: i === 0 ? true : null },
+      h("summary", null, h("span", { class: "n num" }, pad(i + 1)), h("div", null, h("div", { style: "font-weight:600" }, c.title), h("div", { class: "meta num" }, `${fmtTC(c.startSec)}–${fmtTC(c.endSec)} · ${sc.length} scenes · ${appr} approved`, chg ? ` · ${chg} need changes` : "", tech(" · ", c.id))),
+        h("div", { class: "filters" }, ci.length ? chip(`${ci.length} QA`, "warn") : null, hasMedia ? h("a", { class: "btn ghost", href: `#review/${enc(l.id)}//${enc(c.id)}`, onclick: (e) => e.stopPropagation() }, "Watch") : null)),
+      h("div", { class: "inner tscroll" }, sc.length ? h("table", { class: "stack" },
+        h("thead", null, h("tr", null, h("th", null, "Time"), h("th", null, "Scene"), h("th", null, "Narration"), h("th", null, "Approval"), h("th", null, "QA"))),
+        h("tbody", null, sc.map((s) => { const qi = issues.filter((q) => q.atSec != null && q.atSec >= s.startSec && q.atSec < s.endSec);
+          return h("tr", null, h("td", { class: "tc num" }, fmtTC(s.startSec)), h("td", null, human(s.type), tech(" ", s.id)), h("td", { class: "wide narr" }, s.narration ? "“" + s.narration + "”" : "—"),
+            h("td", null, s.approval === "approved" ? chip("Approved", "ok") : s.approval === "changes" ? chip("Changes", "warn") : h("span", { class: "meta" }, "Not yet")),
+            h("td", null, qi.length ? qi.map((q) => h("div", { class: q.status === "fail" ? "fail" : "warn", style: "font-size:13.5px" }, q.detail)) : h("span", { class: "meta" }, "—"))); }))) : h("p", { class: "meta" }, "No scenes planned for this chapter yet.")));
+  })) : empty("No chapters yet", "Chapters appear once the creative plan exists.")));
+  // Renders
+  out.push(section(h("span", null, "Renders ", tagM()), arr(l.renders).length ? h("div", { class: "list" }, arr(l.renders).slice().reverse().map((rd) => h("div", { class: "row" },
+    h("div", null, h("div", { style: "font-weight:600" }, rd.version, rd.label ? " · " + rd.label : ""), h("div", { class: "meta num" }, fmtClock(rd.createdAt), " · ", fmtMin(rd.wallClockMin), " wall clock · reused ", rd.reusedSections, " of ", rd.totalSections, " sections"),
+      h("div", { class: "bar", style: `margin-top:8px;max-width:320px;--w:${rd.totalSections ? (100 * rd.reusedSections / rd.totalSections).toFixed(1) : 0}%`, role: "img", "aria-label": `${rd.reusedSections} of ${rd.totalSections} sections reused` }, h("i")),
+      techB(rd.output, rd.outputExists === false ? " (missing)" : "", " · ", rd.qa?.report || "", " · ", rd.source)),
+    h("div", { class: "filters" }, rd.qa ? h("span", { class: "meta" }, h("span", { class: "ok" }, rd.qa.pass + " pass"), " · ", h("span", { class: rd.qa.fail ? "fail" : "" }, rd.qa.fail + " fail"), " · ", h("span", { class: rd.qa.warn ? "warn" : "" }, rd.qa.warn + " warn")) : h("span", { class: "meta" }, "QA not run"),
+      rv && arr(rv.versions).some((v) => v.version === rd.version && arr(v.chapters).some((c) => c.url)) ? h("a", { class: "btn", href: `#review/${enc(l.id)}/${enc(rd.version)}` }, "Review") : null)))) : empty("No renders yet", "")));
+  // QA issues
+  if (arr(l.qaIssues).length) out.push(section("QA findings", h("div", { class: "list" }, arr(l.qaIssues).slice().reverse().map((q) => h("div", { class: "row" }, h("div", null, h("span", { class: q.status === "fail" ? "fail" : "warn", style: "font-weight:600" }, human(q.check)), " · ", q.detail, h("div", { class: "meta" }, q.version, q.atSec != null ? " at " + fmtTC(q.atSec) : "")), chip(human(q.status), stateTone(q.status)))))));
+  out.push(h("div", { class: "grid2" },
+    section("Revisions", arr(l.revisions).length ? h("div", { class: "list" }, arr(l.revisions).slice().reverse().map((v) => h("div", { class: "row" }, h("span", null, v.text), h("span", { class: "meta num" }, fmtClock(v.at)), techB(v.source)))) : empty("No revisions yet", "")),
+    section("Deliverables", deliverables(l))));
+  return out;
+}
+function deliverables(l) {
+  const d = arr(l.deliverables);
+  if (!d.length) return empty("No deliverables yet", "Files appear here once the lesson is packaged.");
+  return h("div", { class: "list" }, d.map((x) => { const url = x.url || x.assetUrl;
+    return h("div", { class: "row" }, h("div", null, h("div", { style: "font-weight:600" }, x.kind), h("div", { class: "meta" }, x.exists ? (x.bytes ? bytes(x.bytes) + " · " : "") + (url ? "Uploaded to the board" : "Kept in the studio (not uploaded to the board)") : "Not produced yet"), techB(x.path)),
+      x.exists ? (url ? h("a", { class: "btn", href: url, target: "_blank", rel: "noopener" }, icon("link", "sm"), "Open file") : chip("Ready", "ok")) : chip("Missing", "fail")); }));
+}
+
+/* ================= View: Review Centre (flagship) ================= */
+let RV = null; // live controller for the mounted review view
+function reviewPick(r) {
+  const lessonIds = Object.keys(S.review);
+  const lessonId = (r.lesson && S.review[r.lesson]) ? r.lesson : (S.overview?.activeLessonId && S.review[S.overview.activeLessonId] ? S.overview.activeLessonId : lessonIds[0]);
+  const rv = lessonId ? S.review[lessonId] : null;
+  const versions = arr(rv?.versions).slice().sort((a, b) => str(b.version).localeCompare(str(a.version), undefined, { numeric: true }));
+  const withMedia = (v) => arr(v.chapters).some((c) => c.url);
+  const version = versions.find((v) => v.version === r.version) || versions.find(withMedia) || versions[0] || null;
+  const chapters = arr(version?.chapters);
+  const chapter = chapters.find((c) => c.chapterId === r.chapter) || chapters.find((c) => c.url) || chapters[0] || null;
+  return { lessonId, rv, versions, version, chapters, chapter, lesson: lessonId ? S.lessons[lessonId] : null };
+}
+function viewReview(r) {
+  const out = [];
+  if (!ready("review") || !ready("lessons")) { out.push(topbar("Video Review Centre"), skel(1, true), skel(3)); return out; }
+  const p = reviewPick(r);
+  out.push(topbar("Video Review Centre", p.lesson ? p.lesson.title : p.lessonId || ""), banners(), srcErr("review"));
+  if (!p.lessonId) { out.push(empty("No review copies uploaded yet", "When the studio uploads 540p review copies of a render, each chapter plays here with its scenes, QA findings and your comments.")); return out; }
+  // Pickers
+  const go = (lesson, version, chapter) => { location.hash = `#review/${enc(lesson)}/${enc(version || "")}/${enc(chapter || "")}`; };
+  const head = h("div", { class: "rv-head" },
+    Object.keys(S.review).length > 1 ? h("label", { class: "fl" }, "Lesson", h("select", { onchange: (e) => go(e.target.value) }, Object.keys(S.review).map((id) => h("option", { value: id, selected: id === p.lessonId }, lessonTitle(id))))) : null,
+    h("label", { class: "fl" }, "Version", h("select", { id: "rv-version", onchange: (e) => go(p.lessonId, e.target.value, p.chapter?.chapterId) }, p.versions.map((v) => h("option", { value: v.version, selected: v === p.version }, `${v.version}${arr(v.chapters).some((c) => c.url) ? "" : " (no review copies)"} · ${fmtClock(v.createdAt)}`)))),
+    p.chapters.length ? h("label", { class: "fl" }, "Chapter", h("select", { id: "rv-chapter", onchange: (e) => go(p.lessonId, p.version.version, e.target.value) }, p.chapters.map((c) => h("option", { value: c.chapterId, selected: c === p.chapter }, `${chapterNo(p, c.chapterId)}${c.title}${c.url ? "" : " (no copy)"}`)))) : null,
+    p.chapters.length > 1 ? h("div", { class: "tgroup" }, navChapter(p, -1, go), navChapter(p, 1, go)) : null);
+  out.push(head);
+  if (!p.version || !p.chapters.some((c) => c.url)) { out.push(empty("No review copies uploaded yet for this version", "The studio uploads a 540p copy of each chapter after a render. Pick another version above, or check back after the next sync.", p.lesson ? h("a", { class: "btn", href: "#lesson-" + enc(p.lessonId) }, "Open lesson workspace") : null)); return out; }
+  if (!p.chapter?.url) { out.push(empty("No review copy for this chapter in " + p.version.version, "Other chapters of this version have copies. Choose one above.")); return out; }
+  out.push(reviewBody(p));
+  return out;
+}
+function chapterNo(p, id) { const i = arr(p.lesson?.chapters).findIndex((c) => c.id === id); return i >= 0 ? `${i + 1}. ` : ""; }
+function navChapter(p, d, go) {
+  const i = p.chapters.indexOf(p.chapter), t = p.chapters[i + d];
+  return h("button", { class: "iconbtn", type: "button", disabled: !t, "aria-label": d < 0 ? "Previous chapter" : "Next chapter", onclick: () => t && go(p.lessonId, p.version.version, t.chapterId) }, icon(d < 0 ? "chev" : "chevr"));
+}
+function reviewBody(p) {
+  const ch = p.chapter, L = p.lesson, lessonId = p.lessonId, ver = p.version.version;
+  const scenes = arr(L?.scenes).filter((s) => s.chapterId === ch.chapterId || (!s.chapterId && s.startSec >= ch.startSec && s.startSec < ch.endSec)).sort((a, b) => a.startSec - b.startSec);
+  const chLen = Math.max(0.1, ch.endSec - ch.startSec);
+  const ctl = { p, key: `${lessonId}|${ver}|${ch.chapterId}`, cmp: null };
+  // players
+  const mkPlayer = (src, label) => {
+    const v = h("video", { src, preload: "metadata", playsinline: true, "aria-label": `Review copy ${label}`, tabindex: "-1" });
+    const msg = h("div", { class: "vmsg", hidden: true });
+    v.addEventListener("error", () => { msg.hidden = false; msg.textContent = `This review copy couldn't be played${v.error ? " (media error " + v.error.code + ")" : ""}. The link may have expired: reload the page. If it persists, tell the studio.`; });
+    return { v, wrap: h("div", { class: "pl" }, v, h("span", { class: "vlabel" }, label), msg) };
+  };
+  const A = mkPlayer(ch.url, ver);
+  const A_v = A.v; ctl.A = A_v;
+  const players = h("div", { class: "players", id: "players" }, A.wrap);
+  A_v.addEventListener("click", () => toggle());
+  const dur = () => (isFinite(A_v.duration) && A_v.duration > 0 ? A_v.duration : chLen);
+  const lessonT = () => ch.startSec + (A_v.currentTime || 0);
+  const sceneAt = (t) => scenes.find((s) => t >= s.startSec && t < s.endSec) || null;
+  // transport
+  const playBtn = h("button", { class: "play", type: "button", "aria-label": "Play", onclick: () => toggle() }, icon("play"));
+  const tcNow = h("span", { class: "tc", id: "tc-now" }, fmtTC(ch.startSec));
+  const tcRel = h("span", { class: "tech" });
+  const speed = h("select", { "aria-label": "Playback speed", onchange: (e) => { A_v.playbackRate = +e.target.value; if (ctl.cmp) ctl.cmp.playbackRate = +e.target.value; } }, SPEEDS.map((s) => h("option", { value: s, selected: s === 1 }, s + "×")));
+  const seekRel = (t) => { A_v.currentTime = Math.max(0, Math.min(dur() - 0.01, t)); sync(true); paint(); };
+  const step = (d) => { A_v.pause(); seekRel((A_v.currentTime || 0) + d); };
+  function toggle() { if (A_v.paused) { A_v.play().catch((e) => setStatus(cStatus, "err", "Playback was blocked: " + e.message)); } else A_v.pause(); }
+  const transport = h("div", { class: "transport" }, playBtn,
+    h("div", { class: "tcbig", "aria-live": "off" }, tcNow, h("small", null, " / " + fmtTC(ch.endSec)), " ", tcRel),
+    h("div", { class: "tgroup" },
+      h("button", { class: "iconbtn", type: "button", "aria-label": "Back 5 seconds", title: "Back 5 s (J or ←)", onclick: () => seekRel(A_v.currentTime - 5) }, icon("back")),
+      h("button", { class: "iconbtn", type: "button", "aria-label": "Forward 5 seconds", title: "Forward 5 s (L or →)", onclick: () => seekRel(A_v.currentTime + 5) }, icon("fwd")),
+      h("button", { class: "iconbtn", type: "button", "aria-label": "Previous frame", title: "Previous frame (,)", onclick: () => step(-1 / FPS) }, icon("chev")),
+      h("button", { class: "iconbtn", type: "button", "aria-label": "Next frame", title: "Next frame (.)", onclick: () => step(1 / FPS) }, icon("chevr"))),
+    h("label", { class: "speed" }, h("span", { class: "sr" }, "Speed"), speed),
+    h("button", { class: "iconbtn", type: "button", "aria-label": "Full screen", onclick: () => { const el = players; (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el); } }, icon("full")));
+  // scrub timeline with markers
+  const played = h("div", { class: "played" }), headEl = h("div", { class: "head" });
+  const markers = h("div", { class: "lane", style: "inset:0" });
+  const scrub = h("div", { class: "scrub", role: "slider", tabindex: "0", "aria-label": "Position in chapter", "aria-valuemin": "0" }, h("div", { class: "track" }), played, headEl, markers);
+  const posFromX = (x) => { const r = scrub.getBoundingClientRect(); return Math.max(0, Math.min(1, (x - r.left) / r.width)) * dur(); };
+  let dragging = false;
+  scrub.addEventListener("pointerdown", (e) => { if (e.target.closest(".mk")) return; dragging = true; scrub.setPointerCapture(e.pointerId); seekRel(posFromX(e.clientX)); });
+  scrub.addEventListener("pointermove", (e) => { if (dragging) seekRel(posFromX(e.clientX)); });
+  scrub.addEventListener("pointerup", () => { dragging = false; });
+  const pct = (rel) => (100 * rel / dur()).toFixed(3) + "%";
+  function paintMarkers() {
+    const d = dur(), ms = [];
+    scenes.forEach((s, i) => { const rel = s.startSec - ch.startSec; if (rel < 0 || rel > d) return;
+      ms.push(h("button", { class: "mk sc", type: "button", style: `left:${pct(rel)}`, "aria-label": `Scene ${i + 1}: ${human(s.type)} at ${fmtTC(s.startSec)}`, title: `Scene ${i + 1} · ${human(s.type)} · ${fmtTC(s.startSec)}`, "data-scene": s.id, onclick: () => seekRel(rel + 0.001) })); });
+    arr(L?.qaIssues).filter((q) => q.version === ver && q.atSec != null && q.atSec >= ch.startSec && q.atSec <= ch.endSec).forEach((q) => { const rel = q.atSec - ch.startSec; if (rel > d) return;
+      ms.push(h("button", { class: "mk qa" + (q.status === "fail" ? " f" : ""), type: "button", style: `left:${pct(rel)}`, "aria-label": `QA ${q.status}: ${q.detail} at ${fmtTC(q.atSec)}`, title: `QA ${q.status}: ${q.detail}`, onclick: () => seekRel(rel) })); });
+    S.comments.filter((c) => c.lessonId === lessonId && c.version === ver && c.chapterId === ch.chapterId && c.atSec != null).forEach((c) => { const rel = c.atSec - ch.startSec; if (rel < 0 || rel > d) return;
+      ms.push(h("button", { class: "mk cm", type: "button", style: `left:${pct(rel)}`, "aria-label": `Comment at ${fmtTC(c.atSec)}: ${c.text}`, title: `${fmtTC(c.atSec)} · ${c.text}`, onclick: () => seekRel(rel) })); });
+    markers.replaceChildren(...ms);
+    scrub.setAttribute("aria-valuemax", d.toFixed(1));
+  }
+  const nowScene = h("div", { class: "nowscene", "aria-live": "polite" });
+  let lastScene = undefined;
+  function paint() {
+    const t = lessonT(), rel = A_v.currentTime || 0;
+    tcNow.textContent = fmtTC(t); tcRel.textContent = `chapter +${fmtTC(rel)}`;
+    played.style.width = pct(rel); headEl.style.left = pct(rel);
+    scrub.setAttribute("aria-valuenow", rel.toFixed(1)); scrub.setAttribute("aria-valuetext", `Lesson time ${fmtTC(t)}`);
+    const s = sceneAt(t);
+    if (s !== lastScene) {
+      lastScene = s;
+      const i = scenes.indexOf(s);
+      nowScene.replaceChildren(s ? h("div", { class: "meta" }, `Scene ${i + 1} of ${scenes.length} · ${human(s.type)}`, s.approval === "approved" ? " · approved" : s.approval === "changes" ? " · changes requested" : "", tech(" · ", s.id)) : h("div", { class: "meta" }, "No scene data at this time"),
+        s?.narration ? h("div", null, "“" + s.narration + "”") : null);
+    }
+    stamp.textContent = `At ${fmtTC(t)} · ${s ? "scene " + (scenes.indexOf(s) + 1) : "no scene"} · ${ver} · ${ch.title}`;
+  }
+  A_v.addEventListener("timeupdate", paint);
+  A_v.addEventListener("seeked", paint);
+  A_v.addEventListener("loadedmetadata", () => { paintMarkers(); if (S.pendingSeek != null) { const rel = S.pendingSeek - ch.startSec; S.pendingSeek = null; if (rel >= 0) seekRel(rel); } paint(); });
+  A_v.addEventListener("play", () => { playBtn.replaceChildren(icon("pause")); playBtn.setAttribute("aria-label", "Pause"); sync(); });
+  A_v.addEventListener("pause", () => { playBtn.replaceChildren(icon("play")); playBtn.setAttribute("aria-label", "Play"); sync(); });
+  A_v.addEventListener("ratechange", () => { speed.value = String(A_v.playbackRate); });
+
+  // compare (second version with media for the same chapter)
+  const others = p.versions.filter((v) => v !== p.version);
+  const abSeg = h("div", { class: "seg abtoggle", role: "group", "aria-label": "Show version" });
+  const cmpSel = h("select", { "aria-label": "Compare with another version", onchange: (e) => setCompare(e.target.value) }, h("option", { value: "" }, "No comparison"),
+    others.map((v) => { const c = arr(v.chapters).find((x) => x.chapterId === ch.chapterId && x.url); return h("option", { value: v.version, disabled: !c }, c ? v.version : `${v.version} (no review copy for this chapter)`); }));
+  let B = null, abShow = "A";
+  function setCompare(vv) {
+    if (B) { B.wrap.remove(); B.v.pause(); B.v.removeAttribute("src"); B.v.load(); B = null; ctl.cmp = null; }
+    players.classList.remove("cmp", "ab"); A.wrap.classList.remove("off"); A_v.muted = false;
+    if (!vv) { abSeg.replaceChildren(); return; }
+    const v = p.versions.find((x) => x.version === vv), c = arr(v?.chapters).find((x) => x.chapterId === ch.chapterId);
+    if (!c?.url) return;
+    B = mkPlayer(c.url, vv); ctl.cmp = B.v; B.v.muted = true; B.v.playbackRate = A_v.playbackRate;
+    B.v.addEventListener("loadedmetadata", () => sync(true));
+    players.append(B.wrap);
+    layoutCompare();
+    abSeg.replaceChildren(...[["A", ver], ["B", vv]].map(([k, l]) => h("button", { type: "button", "aria-pressed": String(abShow === k), onclick: () => { abShow = k; layoutCompare(); abSeg.querySelectorAll("button").forEach((b, i) => b.setAttribute("aria-pressed", String((i === 0 ? "A" : "B") === k))); } }, `${k} · ${l}`)));
+  }
+  const wide = matchMedia("(min-width: 1000px)");
+  function layoutCompare() {
+    if (!B) return;
+    const sbs = wide.matches;
+    players.classList.toggle("cmp", sbs); players.classList.toggle("ab", !sbs);
+    A.wrap.classList.toggle("off", !sbs && abShow === "B"); B.wrap.classList.toggle("off", !sbs && abShow === "A");
+    A_v.muted = !sbs && abShow === "B"; B.v.muted = sbs || abShow === "A";
+  }
+  wide.addEventListener ? wide.addEventListener("change", layoutCompare) : null;
+  function sync(force) {
+    if (!B) return; const bv = B.v;
+    const target = Math.min(A_v.currentTime, (isFinite(bv.duration) ? bv.duration - 0.01 : A_v.currentTime));
+    if (force || Math.abs(bv.currentTime - target) > 0.15) { try { bv.currentTime = target; } catch (e) {} }
+    if (A_v.paused && !bv.paused) bv.pause(); else if (!A_v.paused && bv.paused) bv.play().catch(() => {});
+  }
+  A_v.addEventListener("timeupdate", () => sync(false));
+
+  // comment composer
+  const stamp = h("span", { id: "stamp" });
+  const cStatus = statusEl();
+  const ckey = "cmt:" + ctl.key;
+  const cText = draft(ckey, { id: "cmt-text", rows: 3, placeholder: "What should change here?", onfocus: () => A_v.pause() });
+  const cBtn = h("button", { class: "btn primary", type: "button", disabled: !!writeBlock(), onclick: async () => {
+    const text = cText.value.trim();
+    if (!text) { setStatus(cStatus, "err", "Write a comment first."); cText.focus(); return; }
+    const t = Math.round(lessonT() * 10) / 10, s = sceneAt(t);
+    cBtn.disabled = true;
+    const ok = await write("comments", { lessonId, version: ver, chapterId: ch.chapterId, atSec: t, sceneId: s ? s.id : null, text }, cStatus);
+    cBtn.disabled = !!writeBlock();
+    if (ok) { cText.value = ""; delete S.drafts[ckey]; }
+  } }, "Add comment at this time");
+  // decision
+  const ref = `lesson:${lessonId}:${ver}:chapter:${ch.chapterId}`;
+  const dkey = "dec:" + ref, dStatus = statusEl();
+  const dNote = draft(dkey, { id: "dec-note", rows: 2, placeholder: "Note for the studio (required to request changes)" });
+  const decide = async (decision, btn) => {
+    const note = dNote.value.trim();
+    if (decision !== "approve" && !note) { setStatus(dStatus, "err", "Add a note so the studio knows what to change. Requests without a note aren't sent."); dNote.focus(); return; }
+    btn.disabled = true;
+    const ok = await write("approvals", { itemRef: ref, decision, note, lessonId, version: ver, chapterId: ch.chapterId }, dStatus);
+    btn.disabled = !!writeBlock();
+    if (ok) { dNote.value = ""; delete S.drafts[dkey]; setStatus(dStatus, "saved", `Saved: ${DEC[decision]} for ${ch.title} (${ver}). The studio records it at its next check.`); }
+  };
+  const apBtn = h("button", { class: "btn primary", type: "button", disabled: !!writeBlock(), onclick: (e) => decide("approve", e.currentTarget) }, "Approve chapter");
+  const chBtn = h("button", { class: "btn", type: "button", disabled: !!writeBlock(), onclick: (e) => decide("changes", e.currentTarget) }, "Request changes");
+  const decHist = h("div", { class: "list" });
+  const cList = h("div", { class: "cmts", id: "cmt-list" });
+
+  function refreshLists() {
+    const mine = S.comments.filter((c) => c.lessonId === lessonId && c.version === ver).sort((a, b) => (a.chapterId === ch.chapterId ? 0 : 1) - (b.chapterId === ch.chapterId ? 0 : 1) || (a.atSec || 0) - (b.atSec || 0));
+    cList.replaceChildren(...(mine.length ? mine.map((c) => {
+      const chTitle = arr(p.version.chapters).find((x) => x.chapterId === c.chapterId)?.title || c.chapterId;
+      return h("button", { class: "cmt", type: "button", "aria-label": `Go to comment at ${fmtTC(c.atSec)}`, onclick: () => {
+        if (c.chapterId === ch.chapterId) { seekRel((c.atSec || 0) - ch.startSec); A_v.focus?.(); }
+        else { S.pendingSeek = c.atSec; location.hash = `#review/${enc(lessonId)}/${enc(ver)}/${enc(c.chapterId)}`; } } },
+        h("span", { class: "when" }, fmtTC(c.atSec), c.chapterId !== ch.chapterId ? " · " + chTitle : "", " · ", sceneLabel(c.sceneId)),
+        h("span", null, c.text),
+        h("span", { class: "meta" }, c.status === "task-created" ? "Task created for the studio" : c.status === "resolved" ? "Resolved" : "Sent — the studio picks it up at its next check", " · ", fmtClock(c.at), tech(" · ", c.taskId || "", " ", c.id, " by ", c.by)));
+    }) : [h("p", { class: "meta" }, "No comments on this version yet.")]));
+    const ds = decisionsFor(ref);
+    decHist.replaceChildren(...ds.map((a) => h("div", { class: "row" }, h("div", null, h("b", { class: a.decision === "approve" ? "ok" : "warn" }, DEC[a.decision] || a.decision), a.note ? h("div", null, "“" + a.note + "”") : null, h("div", { class: "meta" }, fmtClock(a.at), " · ", decisionStatus(a))))));
+    paintMarkers();
+  }
+  function sceneLabel(id) { const i = scenes.findIndex((s) => s.id === id); return i >= 0 ? `scene ${i + 1}` : id ? `scene ${id}` : "no scene"; }
+  ctl.refresh = refreshLists;
+  ctl.onKey = (e) => {
+    const k = e.key;
+    if (k === " " || k === "k" || k === "K") { if (e.target.closest("button")) return; e.preventDefault(); toggle(); }
+    else if (k === "j" || k === "J" || k === "ArrowLeft") { e.preventDefault(); seekRel(A_v.currentTime - 5); }
+    else if (k === "l" || k === "L" || k === "ArrowRight") { e.preventDefault(); seekRel(A_v.currentTime + 5); }
+    else if (k === ",") { e.preventDefault(); step(-1 / FPS); }
+    else if (k === ".") { e.preventDefault(); step(1 / FPS); }
+  };
+  ctl.destroy = () => { A_v.pause(); if (B) B.v.pause(); wide.removeEventListener && wide.removeEventListener("change", layoutCompare); };
+  RV = ctl;
+  refreshLists(); paint();
+
+  const left = h("div", { style: "display:grid;gap:14px;min-width:0" }, players, transport, scrub,
+    h("div", { class: "legend" }, h("span", null, h("i", { style: "background:var(--muted);width:3px" }), "Scene start"), h("span", null, h("i", { style: "background:var(--warn);transform:rotate(45deg)" }), "QA finding"), h("span", null, h("i", { style: "background:var(--royal);border-radius:50%" }), "Comment"),
+      h("span", null, "Keys: ", h("span", { class: "kbd" }, "Space"), " play · ", h("span", { class: "kbd" }, "J"), "/", h("span", { class: "kbd" }, "L"), " ±5 s · ", h("span", { class: "kbd" }, ","), "/", h("span", { class: "kbd" }, "."), " frame")),
+    nowScene,
+    h("div", { class: "filters" }, h("label", { class: "filters", style: "gap:8px;font-size:14px;color:var(--muted);font-weight:600" }, icon("compare"), "Compare with", cmpSel), abSeg,
+      others.length ? null : h("span", { class: "meta" }, "No other version to compare yet.")),
+    techB(`asset ${ch.assetId || "—"} · ${bytes(ch.sizeBytes)} · chapter ${ch.chapterId} ${fmtTC(ch.startSec)}–${fmtTC(ch.endSec)} · ${p.rv.source || ""}`));
+  const right = h("aside", { class: "side-panel", "aria-label": "Comments and decision" },
+    h("section", { class: "card", style: "display:grid;gap:12px", "aria-labelledby": "h-dec" }, h("h2", { id: "h-dec", style: "margin:0" }, "Your decision on this chapter"),
+      h("p", { class: "note" }, `${ch.title} · ${ver}. Nothing is approved until you say so.`),
+      h("label", { class: "fl" }, "Note", dNote), h("div", { class: "filters" }, apBtn, chBtn), dStatus, decHist),
+    h("section", { class: "card", style: "display:grid;gap:12px", "aria-labelledby": "h-cmt" }, h("h2", { id: "h-cmt", style: "margin:0" }, "Comment"),
+      h("label", { class: "fl", for: "cmt-text" }, stamp), cText, h("div", { class: "filters" }, cBtn), cStatus, blockedNote(),
+      h("p", { class: "meta" }, "Each comment keeps its timecode, scene, chapter and version, and becomes a revision task.")),
+    h("section", { "aria-labelledby": "h-cl" }, h("h2", { id: "h-cl" }, `Comments on ${ver}`), cList));
+  paint();
+  return h("div", { class: "rv", "data-rv": ctl.key }, left, right);
+}
+document.addEventListener("keydown", (e) => {
+  if (!RV || route().view !== "review") return;
+  const t = e.target;
+  if (t.closest && t.closest("input, textarea, select, [contenteditable]")) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  RV.onKey(e);
+});
+
+/* ================= View: Approvals ================= */
+function viewApprovals(r) {
+  const out = [topbar("Approvals", "Decisions only you can make. Nothing is approved by default."), banners()];
+  if (!ready("studio") || !ready("approvals")) { out.push(skel(5)); return out; }
+  out.push(srcErr("approvals"));
+  const items = pendingItems();
+  out.push(section(h("span", null, "Waiting for you"), items.length ? h("div", { style: "display:grid;gap:14px" }, items.map((i) => approvalCard(i, r.ref))) : empty("Nothing is waiting for your approval", "")));
+  const hist = S.approvals;
+  out.push(section("History", hist.length ? h("div", { class: "list" }, hist.map((a) => h("div", { class: "row" },
+    h("div", null, h("b", { class: a.decision === "approve" ? "ok" : a.decision === "reject" ? "fail" : "warn" }, DEC[a.decision] || a.decision), " · ", refLabel(a.itemRef), a.note ? h("div", null, "“" + a.note + "”") : null,
+      h("div", { class: "meta" }, fmtClock(a.at), " · ", a.by && a.by === S.uid ? "you" : "a reviewer", " · ", decisionStatus(a)), techB(a.itemRef, " · ", a.id, " · ", a.recordedIn || "")),
+    chip(a.status === "recorded" ? "Recorded" : "Sent", a.status === "recorded" ? "ok" : "run")))) : empty("No decisions yet", "Your approvals and change requests will be listed here with your words.")));
+  return out;
+}
+function refLabel(ref) { const p = parseRef(ref); if (p.lesson) { const c = arr(S.lessons[p.lesson]?.chapters).find((x) => x.id === p.chapter); return `${lessonTitle(p.lesson)}${p.version ? " " + p.version : ""}${c ? " · " + c.title : p.chapter ? " · " + p.chapter : ""}`; } const it = [...arr(S.overview?.attention), ...arr(S.overview?.nextActions)].find((i) => itemRef(i) === ref); return it ? it.title : human(ref); }
+function approvalCard(i, focusRef) {
+  const ref = itemRef(i), key = "appr:" + ref, st = statusEl("st:" + key), mine = myDecision(ref), p = parseRef(ref);
+  const note = draft(key, { rows: 2, placeholder: "Your words, recorded verbatim (required for changes or reject)", "aria-label": "Note for " + i.title });
+  const send = async (decision, btn) => {
+    const n = note.value.trim();
+    if (decision !== "approve" && !n) { setStatus(st, "err", "Add a note so the studio knows what you want changed."); note.focus(); return; }
+    btn.disabled = true;
+    const ok = await write("approvals", { itemRef: ref, decision, note: n }, st);
+    btn.disabled = !!writeBlock();
+    if (ok) { note.value = ""; delete S.drafts[key]; }
+  };
+  const dis = !!writeBlock();
+  const card = h("article", { class: "card" + (focusRef && focusRef === ref ? " flash" : ""), style: "display:grid;gap:12px", "data-ref": ref },
+    h("div", { class: "filters", style: "justify-content:space-between" }, h("span", { class: "meta" }, kindLabel(i.kind), i.since ? " · waiting since " + fmtClock(i.since) : ""), mine ? chip("Your decision: " + (DEC[mine.decision] || mine.decision), mine.decision === "approve" ? "ok" : "warn") : null),
+    h("h3", null, i.title), h("p", { class: "muted" }, i.detail), techB(ref, " · ", i.source),
+    p.lesson && p.chapter ? h("a", { class: "btn ghost", href: actionHref({ view: "review", ref }), style: "justify-self:start" }, icon("review", "sm"), "Watch in Review Centre") : null,
+    mine ? h("p", { class: "meta" }, decisionStatus(mine), mine.note ? ` · “${mine.note}”` : "") : null,
+    note, h("div", { class: "filters" },
+      h("button", { class: "btn primary", type: "button", disabled: dis, onclick: (e) => send("approve", e.currentTarget) }, mine ? "Approve instead" : "Approve"),
+      h("button", { class: "btn", type: "button", disabled: dis, onclick: (e) => send("changes", e.currentTarget) }, "Request changes"),
+      h("button", { class: "btn ghost", type: "button", disabled: dis, onclick: (e) => send("reject", e.currentTarget) }, "Reject")), st);
+  return card;
+}
+
+/* ================= View: Queue ================= */
+const ORDER = ["running", "failed", "blocked", "queued", "done"];
+const ACTIONS = { failed: ["retry"], blocked: ["retry", "prioritise", "cancel"], queued: ["prioritise", "cancel"], running: ["cancel"] };
+const ACT_LABEL = { retry: "Retry", cancel: "Cancel", prioritise: "Prioritise" };
+function viewQueue(r) {
+  const out = [topbar("Queue", "What the studio is doing, waiting on, or stuck on. Requests are acted on at the studio's next check."), banners()];
+  if (!ready("jobs") || !ready("requests")) { out.push(skel(6)); return out; }
+  out.push(srcErr("jobs"));
+  const q = S.overview?.queueCounts;
+  if (q) out.push(h("div", { class: "qtiles" }, ORDER.map((k) => h("div", { class: "qtile" }, h("span", { class: "v num " + stateTone(k) }, q[k] ?? 0), h("span", { class: "k" }, human(k))))));
+  const myReq = S.requests.filter((x) => !S.uid || x.by === S.uid).slice(0, 6);
+  if (myReq.length) out.push(section("Your requests", h("div", { class: "list" }, myReq.map((x) => h("div", { class: "row" }, h("div", null, h("b", null, ACT_LABEL[x.action] || x.action), " · ", taskName(x.jobId), h("div", { class: "meta" }, fmtClock(x.at), x.result ? " · " + x.result : ""), techB(x.jobId, " · ", x.id)), reqChip(x))))));
+  const jobs = Object.entries(S.jobs);
+  if (!jobs.length) { out.push(empty("No jobs recorded yet", "Jobs appear when the studio's job ledger syncs.")); return out; }
+  for (const [lid, j] of jobs) {
+    const tasks = arr(j.tasks);
+    const byId = Object.fromEntries(tasks.map((t) => [t.id, t]));
+    out.push(section(lessonTitle(j.lessonId || lid), ORDER.map((st) => {
+      const ts = tasks.filter((t) => t.status === st); if (!ts.length) return null;
+      const body = h("div", { class: "list" }, ts.map((t) => taskRow(t, byId, r.ref, j.lessonId || lid)));
+      const head = h("h3", { style: "font-size:15px;margin:18px 0 6px", class: stateTone(st) }, `${human(st)} · ${ts.length}`);
+      return st === "done" ? h("details", null, h("summary", { class: "btn ghost", style: "margin-top:14px" }, `Done · ${ts.length}`), body) : h("div", null, head, body);
+    }), tasks.filter((t) => !ORDER.includes(t.status)).length ? h("div", { class: "list" }, tasks.filter((t) => !ORDER.includes(t.status)).map((t) => taskRow(t, byId, r.ref, j.lessonId || lid))) : null));
+  }
+  return out;
+}
+function taskName(id) { const t = allTasks().find((x) => x.id === id); return t ? (t.note || human(t.kind)) : id; }
+function reqChip(x) { return chip({ new: "Sent", accepted: "Accepted", done: "Done", refused: "Refused" }[x.status] || human(x.status), stateTone(x.status === "new" ? "running" : x.status)); }
+function taskRow(t, byId, focus, lessonId) {
+  const st = statusEl("req:" + t.id);
+  const reqs = S.requests.filter((x) => x.jobId === t.id);
+  const open = (a) => reqs.find((x) => x.action === a && (x.status === "new" || x.status === "accepted"));
+  const dis = writeBlock();
+  const btns = (ACTIONS[t.status] || []).map((a) => {
+    const o = open(a);
+    return h("button", { class: "btn" + (a === "retry" ? " primary" : ""), type: "button", disabled: !!(dis || o), title: o ? "Already requested" : dis || null, "aria-label": `${ACT_LABEL[a]}: ${t.note || t.kind}`, onclick: async (e) => {
+      e.currentTarget.disabled = true;
+      const ok = await write("requests", { jobId: t.id, action: a, note: "", lessonId }, st);
+      if (ok) setStatus(st, "saved", "Request sent — the studio acts on it at its next check.");
+      else e.currentTarget.disabled = false;
+    } }, o ? ACT_LABEL[a] + " requested" : ACT_LABEL[a]);
+  });
+  const dur = t.startedAt && t.finishedAt ? Math.round((dt(t.finishedAt) - dt(t.startedAt)) / 60000) : null;
+  return h("div", { class: "row" + (focus && focus === t.id ? " flash" : ""), "data-job": t.id },
+    h("div", null, h("div", { style: "font-weight:600" }, t.note || human(t.kind)),
+      h("div", { class: "meta" }, t.owner, " · ", human(t.kind), t.startedAt ? " · started " + fmtClock(t.startedAt) : "", t.finishedAt ? " · finished " + fmtClock(t.finishedAt) : "", dur != null ? ` (${fmtMin(dur)})` : "", t.attempts > 1 ? ` · attempt ${t.attempts} of ${t.maxRetries + 1}` : ""),
+      arr(t.deps).length ? h("div", { class: "meta" }, "Waits for: ", arr(t.deps).map((d) => byId[d] ? (byId[d].note || human(byId[d].kind)) + ` (${byId[d].status})` : d).join(", ")) : null,
+      t.lastError ? h("div", { class: "fail", style: "font-size:14px" }, t.lastError) : null,
+      reqs.length ? h("div", { class: "filters", style: "margin-top:6px" }, reqs.slice(0, 3).map((x) => h("span", { class: "meta" }, `${ACT_LABEL[x.action]} request: `, reqChip(x), x.result ? " " + x.result : ""))) : null,
+      st, techB(t.id, " · attempts ", t.attempts, "/", t.maxRetries, " · ", t.source)),
+    btns.length ? h("div", { class: "filters" }, btns) : chip(human(t.status), stateTone(t.status)));
+}
+
+/* ================= View: Agents ================= */
+function viewAgents() {
+  const out = [topbar("Agents", "Who worked on what, with real start and finish times."), banners()];
+  if (!ready("jobs")) { out.push(skel(6)); return out; }
+  const tasks = allTasks();
+  if (!tasks.length) { out.push(empty("No agent work recorded yet", "")); return out; }
+  const groups = {};
+  for (const t of tasks) (groups[t.kind] = groups[t.kind] || []).push(t);
+  for (const [k, ts] of Object.entries(groups)) {
+    out.push(section(`${human(k)} · ${ts.length}`, h("div", { class: "grid3" }, ts.map((t) => {
+      const dur = t.startedAt && t.finishedAt ? Math.round((dt(t.finishedAt) - dt(t.startedAt)) / 60000) : null;
+      return h("article", { class: "card", style: "display:grid;gap:8px;padding:18px" },
+        h("div", { class: "filters", style: "justify-content:space-between" }, h("b", null, t.owner), chip(human(t.status), stateTone(t.status))),
+        h("p", null, t.note || human(t.kind)),
+        h("p", { class: "meta" }, t.startedAt ? `Started ${fmtClock(t.startedAt)}` : "Not started", t.finishedAt ? ` · finished ${fmtClock(t.finishedAt)}` : "", dur != null ? ` · ${fmtMin(dur)}` : "", " ", t.startedAt ? tagM() : null),
+        arr(t.outputs).length ? h("p", { class: "meta" }, `${arr(t.outputs).length} output${arr(t.outputs).length > 1 ? "s" : ""} recorded`) : null,
+        techB(arr(t.outputs).join("\n")),
+        t.lastError ? h("p", { class: "fail", style: "font-size:14px" }, t.lastError) : null,
+        techB(`${t.id} · attempts ${t.attempts}/${t.maxRetries} · deps ${arr(t.deps).join(", ") || "none"} · ${t.source} · ${t._lesson}`));
+    }))));
+  }
+  return out;
+}
+
+/* ================= View: Efficiency ================= */
+function viewEfficiency() {
+  const out = [topbar("Efficiency", "What would save the most time, backed by measured studio records."), banners()];
+  if (!ready("efficiency")) { out.push(skel(3, true), skel(5)); return out; }
+  out.push(srcErr("efficiency"));
+  const e = S.eff;
+  if (!e) { out.push(empty("No efficiency data yet", "It appears after renders and agent runs are recorded.")); return out; }
+  const rank = { high: 0, medium: 1, low: 2 };
+  const ins = arr(e.insights).slice().sort((a, b) => (rank[a.impact] ?? 3) - (rank[b.impact] ?? 3));
+  out.push(section("Insights, biggest impact first", ins.length ? h("div", { style: "display:grid;gap:14px" }, ins.map((i) => h("article", { class: "card insight" },
+    h("span", { class: "imp " + i.impact }, i.impact + " impact"), h("h3", null, i.title), h("p", { class: "muted" }, i.detail),
+    h("p", { class: "ev" }, h("b", null, "Evidence "), tagM(), " ", i.evidence), h("p", { class: "act" }, "Suggested action: ", i.action), techB(i.source)))) : empty("No insights yet", "")));
+  const m = e.measured || {};
+  const fr = arr(m.fullRenders), maxMin = Math.max(1, ...fr.map((r) => r.minutes || 0));
+  out.push(section(h("span", null, "Measured ", tagM()),
+    h("div", { class: "tiles" },
+      h("div", { class: "tile" }, h("div", { class: "meta" }, "Full renders"), h("div", { class: "v num" }, fr.length)),
+      h("div", { class: "tile" }, h("div", { class: "meta" }, "Agent runs"), h("div", { class: "v num" }, arr(m.agentRuns).length)),
+      m.qaFailRate != null ? h("div", { class: "tile" }, h("div", { class: "meta" }, "Renders failing QA"), h("div", { class: "v num" }, Math.round(m.qaFailRate * 100) + "%"), h("div", { class: "meta" }, m.qaFailRateBasis || "")) : null,
+      m.revisionsCount != null ? h("div", { class: "tile" }, h("div", { class: "meta" }, "Revisions"), h("div", { class: "v num" }, m.revisionsCount), h("div", { class: "meta" }, m.revisionsBasis || "")) : null),
+    fr.length ? h("div", { style: "margin-top:22px" }, h("h3", { style: "font-size:15px;margin-bottom:6px" }, "Render time and section reuse"),
+      fr.map((r) => h("div", { class: "rbar" }, h("b", { class: "num" }, r.version),
+        h("div", { style: "display:grid;gap:6px" },
+          h("div", { class: "bar ink", style: `--w:${(100 * r.minutes / maxMin).toFixed(1)}%`, role: "img", "aria-label": `${r.minutes} minutes` }, h("i")),
+          h("div", { class: "bar", style: `--w:${r.total ? (100 * r.reused / r.total).toFixed(1) : 0}%`, role: "img", "aria-label": `${r.reused} of ${r.total} sections reused` }, h("i"))),
+        h("span", { class: "meta num" }, fmtMin(r.minutes), h("br"), `${r.reused}/${r.total} reused`))),
+      h("p", { class: "meta", style: "margin-top:8px" }, "Upper bar: wall-clock minutes. Lower bar: sections reused from cache (more is faster).")) : null,
+    arr(m.agentRuns).length ? h("div", { class: "tscroll", style: "margin-top:22px" }, h("table", null,
+      h("thead", null, h("tr", null, ["Run", "Agents", "Wall clock", "Agent time", "Tokens", "Output"].map((x) => h("th", null, x)))),
+      h("tbody", null, arr(m.agentRuns).map((a) => h("tr", null, h("td", null, a.run, a.finished === false ? h("span", { class: "meta" }, " (running)") : null), h("td", { class: "num" }, a.agents), h("td", { class: "num" }, fmtMin(a.wallMin)), h("td", { class: "num" }, fmtMin(a.agentMin)), h("td", { class: "num" }, a.tokensM + "M"), h("td", { class: "num" }, a.outputK + "K")))))) : null));
+  if (arr(e.estimates).length) out.push(section(h("span", null, "Estimates ", tagE()), h("div", { class: "estbox" }, h("div", { class: "list", style: "border-top:0" }, arr(e.estimates).map((x) => h("div", { class: "row" }, h("div", null, h("b", null, x.label), h("div", { class: "meta" }, "Basis: ", x.basis)), h("span", { class: "num", style: "font-weight:600" }, x.value, " ", tagE())))))));
+  if (arr(e.notMeasured).length) out.push(section("Not measured", h("div", { class: "list" }, arr(e.notMeasured).map((x) => h("div", { class: "row" }, h("span", { class: "muted" }, x))))));
+  return out;
+}
+
+/* ================= View: Creative memory ================= */
+function viewMemory() {
+  const out = [topbar("Creative memory", "What the studio has learned and must respect."), banners()];
+  if (!ready("memory")) { out.push(skel(6)); return out; }
+  const m = S.memory;
+  if (!m) { out.push(empty("No creative memory synced yet", "")); return out; }
+  const ui = S.ui.memory || (S.ui.memory = { q: "" });
+  out.push(h("div", { class: "filters" }, h("label", { class: "search" }, h("span", { class: "sr" }, "Search creative memory"), icon("search", "sm"), h("input", { type: "search", placeholder: "Search rules, preferences, components…", value: ui.q, "data-key": "mem-q", oninput: (e) => { ui.q = e.target.value; invalidate(); } }))));
+  const q = ui.q.toLowerCase(), hit = (o) => !q || JSON.stringify(o).toLowerCase().includes(q);
+  const block = (title, items, row) => { const xs = arr(items).filter(hit); return xs.length ? section(`${title} · ${xs.length}`, h("div", { class: "list" }, xs.map((x) => h("div", { class: "row" }, ...[].concat(row(x)))))) : null; };
+  const txt = (x) => typeof x === "string" ? x : x.text || x.title || x.name || x.summary || x.item || JSON.stringify(x);
+  if (m.proposal && hit(m.proposal)) out.push(section("Current brand proposal", h("div", { class: "card", style: "display:grid;gap:8px" }, h("div", { class: "filters" }, chip(human(m.proposal.status), m.proposal.approvedBy ? "ok" : "warn"), h("span", { class: "meta" }, m.proposal.version, m.proposal.approvedBy ? " · approved by " + m.proposal.approvedBy : " · not approved")), h("ul", { style: "margin:0;padding-left:20px" }, arr(m.proposal.summary).map((s) => h("li", null, s))), techB(m.proposal.source))));
+  out.push(block("Locked rules", m.locked, (x) => [h("span", null, txt(x)), chip("Locked", "fail"), techB(x.source)]));
+  out.push(block("Open items", m.openItems, (x) => [h("div", null, h("b", null, x.item), h("div", { class: "meta" }, x.needed)), chip(human(x.state), "warn"), techB(x.source)]));
+  out.push(block("Preferences", m.preferences, (x) => [h("span", null, txt(x)), h("span"), techB(x.source)]));
+  out.push(block("Rejected treatments", m.rejected, (x) => [h("div", null, h("b", null, x.treatment || txt(x)), h("div", { class: "meta" }, [x.why && "Why: " + x.why, x.instead && "Instead: " + x.instead].filter(Boolean).join(" · "))), h("span", { class: "meta num" }, x.date || ""), techB(x.source)]));
+  out.push(block("Techniques", m.techniques, (x) => [h("span", null, txt(x)), h("span"), techB(x.id, " · ", x.source)]));
+  const comps = arr(m.components).filter(hit).sort((a, b) => (b.uses || 0) - (a.uses || 0)), maxU = Math.max(1, ...comps.map((c) => c.uses || 0));
+  if (comps.length) out.push(section(`Components · ${comps.length}`, h("div", { class: "list" }, comps.map((c) => h("div", { class: "rbar", style: "grid-template-columns:minmax(0,220px) minmax(0,1fr) 110px" },
+    h("div", null, h("b", null, human(c.name)), h("div", { class: "meta" }, human(c.type), c.status ? " · " + c.status : ""), techB(c.name)),
+    h("div", { class: "bar royal", style: `--w:${(100 * (c.uses || 0) / maxU).toFixed(1)}%`, role: "img", "aria-label": `${c.uses} uses` }, h("i")),
+    h("span", { class: "meta num" }, `${c.uses} uses`, h("br"), c.lastUsed ? "last " + fmtClock(c.lastUsed) : "not used yet"))))));
+  out.push(block("Client feedback", m.feedback, (x) => [h("div", null, "“" + (x.quote || txt(x)) + "”", h("div", { class: "meta" }, [x.date, x.scope, x.lesson && lessonTitle(x.lesson)].filter(Boolean).join(" · "))), chip(human(x.status || ""), stateTone(x.status === "addressed" ? "done" : "")), techB(x.source)]));
+  if (out.length <= 3 && q) out.push(empty("Nothing matches", "Try another word."));
+  return out;
+}
+
+/* ================= View: Delivery library ================= */
+function viewLibrary() {
+  const out = [topbar("Delivery library", "Finished files and review copies. Files open only when they've been uploaded to the board."), banners()];
+  if (!ready("lessons")) { out.push(skel(6)); return out; }
+  const ls = Object.values(S.lessons);
+  if (!ls.length) { out.push(empty("No lessons synced yet", "")); return out; }
+  for (const l of ls) {
+    const rv = S.review[l.id];
+    const copies = arr(rv?.versions).map((v) => ({ v, n: arr(v.chapters).filter((c) => c.url).length })).filter((x) => x.n);
+    out.push(section(l.title, deliverables(l),
+      copies.length ? h("div", { class: "list", style: "margin-top:14px" }, copies.map(({ v, n }) => h("div", { class: "row" }, h("div", null, h("b", null, `Review copies · ${v.version}`), h("div", { class: "meta" }, `${n} chapter${n > 1 ? "s" : ""} at 540p · ${fmtClock(v.createdAt)}`)), h("a", { class: "btn", href: `#review/${enc(l.id)}/${enc(v.version)}` }, icon("review", "sm"), "Watch")))) : null));
+  }
+  return out;
+}
+
+/* ================= Router + render ================= */
+let lastKey = "", pending = false;
+function invalidate() { if (pending) return; pending = true; requestAnimationFrame(() => { pending = false; render(); }); }
+function render(force) {
+  const r = route(), key = JSON.stringify(r) + "|" + S.mode;
+  const main = document.getElementById("main");
+  renderNav(r);
+  // Review Centre: keep the player mounted while only data changes
+  if (!force && r.view === "review" && key === lastKey && RV && main.querySelector(`[data-rv="${CSS.escape(RV.key)}"]`)) {
+    const p = reviewPick(r);
+    if (p.chapter && RV.key === `${p.lessonId}|${p.version?.version}|${p.chapter.chapterId}`) { RV.refresh(); const f = main.querySelector("#fresh"); if (f) f.replaceWith(freshness()); return; }
+  }
+  // keep focus + caret across re-renders
+  const ae = document.activeElement, fk = ae && ae.dataset ? ae.dataset.key : null, sel = fk && "selectionStart" in ae ? [ae.selectionStart, ae.selectionEnd] : null;
+  if (RV) { RV.destroy(); RV = null; }
+  const changed = key !== lastKey; lastKey = key;
+  const views = { overview: viewOverview, courses: viewCourses, lesson: viewLesson, review: viewReview, approvals: viewApprovals, queue: viewQueue, agents: viewAgents, efficiency: viewEfficiency, memory: viewMemory, library: viewLibrary };
+  let content;
+  try { content = (views[r.view] || viewOverview)(r); }
+  catch (e) { console.error(e); content = [topbar(VIEWS[r.view]?.title || "Studio"), h("div", { class: "banner warn", role: "alert" }, icon("alert"), h("div", null, h("b", null, "This view couldn't be drawn from the current data. "), str(e.message)))]; }
+  main.replaceChildren(h("div", { class: "wrap" }, content));
+  document.title = (r.view === "lesson" ? "Lesson" : VIEWS[r.view]?.title || "Overview") + " · LifeLink Studio";
+  if (fk) { const el = main.querySelector(`[data-key="${CSS.escape(fk)}"]`); if (el) { el.focus(); if (sel) try { el.setSelectionRange(sel[0], sel[1]); } catch (e) {} } }
+  if (changed) {
+    const fl = main.querySelector(".flash");
+    if (fl) fl.scrollIntoView({ block: "center" }); else window.scrollTo(0, 0);
+    if (!fk && ae && ae !== document.body && !main.contains(ae) && !document.getElementById("nav").contains(ae)) main.focus({ preventScroll: true });
+  }
+}
+window.addEventListener("hashchange", () => render());
+setInterval(() => { const f = document.getElementById("fresh"); if (f) f.replaceWith(freshness()); }, 30000);
+
+/* ================= Boot ================= */
+(async function init() {
+  const t = lsGet("ll.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  if (lsGet("ll.nav") === "collapsed") document.getElementById("app").classList.add("collapsed");
+  document.body.classList.toggle("technical", S.mode === "technical");
+  render();
+  try { S.db = (await window.claude?.use?.("db")) || null; } catch (e) { S.db = null; }
+  try { S.user = (await window.claude?.use?.("user")) || null; } catch (e) { S.user = null; }
+  if (S.user) {
+    try { S.uid = await S.user.id(); } catch (e) { S.uid = null; }
+    try { S.canW = await S.user.can("data.write"); } catch (e) { S.canW = null; }
+  }
+  if (!S.db) { S.noDb = true; SOURCES.forEach((s) => S.loaded.add(s)); }
+  else subscribe();
+  render(true);
+  setTimeout(() => { if (S.loaded.size < SOURCES.length) { S.slow = true; invalidate(); } }, 10000);
+})();
+</script>
