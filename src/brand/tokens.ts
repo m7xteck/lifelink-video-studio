@@ -25,7 +25,8 @@ export const fonts = {
 };
 export const isApprovedBrand = ds.status === "APPROVED";
 /** Shown on every render until the client approves the brand. Cannot be switched off by a manifest. */
-export const brandWatermark = isApprovedBrand ? null : ds.status === "PROPOSAL" ? "Concept for approval · provisional brand" : "Engine test · neutral style · not LifeLink brand";
+// Brand locked ⇒ review renders say only "Preview for approval"; a final master (render.ts --final, lesson APPROVED) passes final:true and has none.
+export const brandWatermark = isApprovedBrand ? "Preview for approval" : ds.status === "PROPOSAL" ? "Concept for approval · provisional brand" : "Engine test · neutral style · not LifeLink brand";
 export const palette = (ds as { palette?: Record<string, string> }).palette ?? {};
 export const texture = (ds as { texture?: { paperGrainOpacity: number; embossDepthPx: number } }).texture ?? { paperGrainOpacity: 0.06, embossDepthPx: 2 };
 export const textStyle = {

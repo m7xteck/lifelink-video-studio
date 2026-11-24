@@ -1,9 +1,13 @@
 {
   "$comment": "Single source of truth for every visual decision. PROPOSAL built from the client's brand pack (2026-11-23). Not approved; fonts, colours and logo usage are provisional. Neutral test system archived at brand/archive/design-system-0.1.0-neutral.json.",
-  "version": "1.0.0-proposal.3",
-  "status": "PROPOSAL",
+  "version": "1.0.0",
+  "status": "APPROVED",
   "statusNote": "LifeLink brand PROPOSAL for client review. Colour codes sampled from a screenshot, fonts awaiting licence confirmation, logo artwork not supplied. Every render carries a watermark until status is APPROVED.",
-  "approvedBy": null,
+  "approvedBy": {
+    "client": "LifeLink",
+    "date": "2026-11-24",
+    "how": "Client chose 'Lock it (Recommended)' after approving fonts (licensed), exact colours, tints and logo; see production-memory/decisions.md"
+  },
   "approvedAt": null,
   "sources": [
     "brand/intake/BRAND_INTAKE.md",

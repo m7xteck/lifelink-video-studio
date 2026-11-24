@@ -19,22 +19,18 @@ How to lock (from `workflows/brand-onboarding.md`): on explicit approval, copy t
 ## Locked rules
 _None._ (status in `brand/design-system.json` = PROPOSAL, checked 2026-11-24)
 
-## Not yet locked (open items that block a lock)
+## Not yet locked (open items)
 | Item | Current state | What is needed |
 |---|---|---|
-| Colours | Hex values sampled from a screenshot of the artboard (paper, oxblood, royal, sky, black, rose) | Client confirms exact codes |
-| Derived tints (paperShade, hillFar, hillMid, skyTint…) | Created by the studio for depth/legibility | Client approval |
-| Display font "LifeLink Script" (Australian Mirages Bold) | Loads; used for ≤4-word accents | Commercial video licence confirmation |
-| Text font "LifeLink Text" (Geneva 22 Soft, rebuilt) | Rebuilt with fontTools for Chromium | Licence + permission to use a rebuilt file |
-| Logo | Not supplied; wordmark set in script as placeholder | Vector artwork + usage rules |
-| Crescent/heart icons seen on the artboard | Conflict with questionnaire prohibitions | Client decision |
-| Imagery of people | Not used ("No people until imagery rules are confirmed") | Client decision |
-| Music / SFX | Not approved (narration only) | Client decision |
-| Narration limiter / noise reduction | Gain-only master; limiter would reach −16 LUFS | Client yes/no |
-| Watermark | Mandatory in code while status ≠ APPROVED | Removed only after lock |
+| Music / SFX | Narration only. Client asked for "very subtle sfx" (no music) | Client approval of a very subtle SFX sample |
+
+## LOCKED 2026-11-24 (client approved "Lock it" when asked; details verbatim in decisions.md)
+Exact colours (paper #F2F0E7, oxblood #500000, royal #3960BD, sky #9AB9D5, black #060405, rose #AF3E46); derived tints; LifeLink Text and LifeLink Script fonts (licensed);
+logo artwork in brand/logo/ (crescent/heart = logo icon, only as part of the logo); no people imagery; gentle narration limiter.
+Watermark: review copies show "Preview for approval"; only a master rendered after the client approves the lesson (`render.ts --final`) has none.
 
 ## Hard constraints that already apply (from the brief and CLAUDE.md, not brand locks)
-- Never present a render as LifeLink-branded while status ≠ APPROVED; watermark always on.
+- Brand status is APPROVED (locked 2026-11-24). Review renders carry "Preview for approval" until the client approves that lesson.
 - Changing colours/fonts/logo rules requires explicit client approval recorded in `decisions.md`.
 
 ## Client decisions on the brand board (2026-11-24, recorded verbatim in decisions.md)

@@ -6,11 +6,11 @@ import { MAX_SCENE_OVERLAP_SEC, SceneClock } from "../motion/time";
 import { SceneRenderer, groundOf } from "../scenes/SceneRenderer";
 import { GroundBackdrop } from "../motion/GroundBackdrop";
 import { QaGuard } from "../motion/QaGuard";
-import { brandWatermark, colors, fonts, palette, textStyle } from "../brand/tokens";
+import { brandWatermark, isApprovedBrand, colors, fonts, palette, textStyle } from "../brand/tokens";
 
 const isDark = (hex: string) => { const n = parseInt(hex.slice(1), 16); return 0.2126 * ((n >> 16) & 255) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255) < 110; };
 
-export type LessonProps = { manifest: Manifest; orientation?: "landscape" | "portrait"; muted?: boolean; qa?: boolean };
+export type LessonProps = { manifest: Manifest; orientation?: "landscape" | "portrait"; muted?: boolean; qa?: boolean; final?: boolean };
 
 /** Duration and size come from the manifest — the narration is the master timeline. */
 export const calculateLessonMetadata: CalculateMetadataFunction<LessonProps> = ({ props }) => {
@@ -25,7 +25,8 @@ export const calculateLessonMetadata: CalculateMetadataFunction<LessonProps> = (
   };
 };
 
-export const Lesson: React.FC<LessonProps> = ({ manifest, muted = false, qa = true }) => {
+export const Lesson: React.FC<LessonProps> = ({ manifest, muted = false, qa = true, final = false }) => {
+  const watermark = final && isApprovedBrand ? null : manifest.watermark ?? brandWatermark; // clean only for an approved lesson on a locked brand
   const { fps } = useVideoConfig();
   const overlap = MAX_SCENE_OVERLAP_SEC; // scenes stay mounted while their fade-out completes
   return (
@@ -46,10 +47,9 @@ export const Lesson: React.FC<LessonProps> = ({ manifest, muted = false, qa = tr
         );
       })}
       {manifest.audio && !muted && <Audio src={staticFile(manifest.audio)} />}
-      {(manifest.watermark || brandWatermark) && (
+      {watermark && (
         <div style={{ position: "absolute", top: 28, right: 36, fontFamily: fonts.text, fontSize: 18, letterSpacing: "0.12em", color: colors.inkMuted, background: `${colors.surface}cc`, padding: "6px 12px", borderRadius: 4, textTransform: "uppercase", zIndex: 10 }}>
-          {/* While the brand is unapproved the watermark is mandatory, whatever the manifest says. */}
-          {manifest.watermark ?? brandWatermark}
+          {watermark}
         </div>
       )}
       {qa && <QaGuard />}

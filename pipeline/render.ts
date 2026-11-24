@@ -36,6 +36,7 @@ import { BROWSER } from "./lib/browser";
 import { P, lessonDir, renderDir } from "./lib/paths";
 import { ff, ffprobe } from "./lib/media";
 import { withLock } from "./lib/lock";
+import { readStatus } from "./lib/status";
 import { planChunks, type ChunkPlan } from "./lib/render-cache";
 export { planChunks, buildComponentMap, sharedEngineFiles } from "./lib/render-cache";
 import ds from "../brand/design-system.json";
@@ -43,7 +44,7 @@ import ds from "../brand/design-system.json";
 const { values: a } = parseArgs({
   options: {
     course: { type: "string" }, lesson: { type: "string" }, orientation: { type: "string", default: "landscape" },
-    preview: { type: "boolean", default: false }, force: { type: "boolean", default: false },
+    preview: { type: "boolean", default: false }, force: { type: "boolean", default: false }, final: { type: "boolean", default: false },
     from: { type: "string" }, to: { type: "string" }, concurrency: { type: "string" }, label: { type: "string" },
   },
 });
@@ -52,7 +53,7 @@ if (!a.course || !a.lesson) { console.error("Usage: --course <id> --lesson <id>"
 const log = (...m: unknown[]) => console.log(`[render ${a.lesson}]`, ...m);
 
 /** Same rule as src/brand/tokens.ts brandWatermark: mandatory while the brand is unapproved. */
-const brandWatermark = ds.status === "APPROVED" ? null : ds.status === "PROPOSAL" ? "Concept for approval · provisional brand" : "Engine test · neutral style · not LifeLink brand";
+const brandWatermark = ds.status === "APPROVED" ? "Preview for approval" : ds.status === "PROPOSAL" ? "Concept for approval · provisional brand" : "Engine test · neutral style · not LifeLink brand";
 
 export type RenderResult = { output: string; record: string; qaIssues: QaEvent[]; chunks: ChunkInfo[]; durationSec: number };
 type QaEvent = { frame: number; issues: Record<string, unknown>[] };
@@ -64,7 +65,13 @@ export const renderLesson = async (): Promise<RenderResult> => {
   const preview = a.preview;
   const portrait = a.orientation === "portrait";
   const scale = preview ? 0.5 : 1;
-  const variant = `${portrait ? "portrait" : "landscape"}${preview ? "-preview" : ""}${a.from || a.to ? "-sample" : ""}`;
+  // --final: the clean master, only once the brand is locked AND the client has approved this lesson (status.json approval.creative).
+  const final = a.final && !preview;
+  if (final) {
+    const st = readStatus(lessonDir(a.course!, a.lesson!));
+    if (ds.status !== "APPROVED" || st?.approval?.creative !== "approved") throw new Error(`--final refused: brand ${ds.status}, lesson approval ${st?.approval?.creative ?? "none"} (needs the client's approval via npm run approve)`);
+  }
+  const variant = `${portrait ? "portrait" : "landscape"}${preview ? "-preview" : ""}${final ? "-final" : ""}${a.from || a.to ? "-sample" : ""}`;
   // Previews always carry a PREVIEW watermark (plus the mandatory brand notice while the brand is unapproved).
   const manifest: Manifest = preview
     ? { ...parsed, watermark: ["Preview · 540p · not final", parsed.watermark ?? brandWatermark].filter(Boolean).join(" · ") }
@@ -84,7 +91,7 @@ export const renderLesson = async (): Promise<RenderResult> => {
   log("bundling project…");
   const serveUrl = await bundle({ entryPoint: join(P.root, "src/index.ts"), publicDir: join(P.root, "public") });
   process.on("exit", () => rmSync(serveUrl, { recursive: true, force: true })); // ~450 MB per bundle
-  const inputProps = { manifest, orientation: portrait ? "portrait" : "landscape", muted: true, qa: true };
+  const inputProps = { manifest, orientation: portrait ? "portrait" : "landscape", muted: true, qa: true, final };
   const composition = await selectComposition({ serveUrl, id: portrait ? "LessonPortrait" : "Lesson", inputProps, browserExecutable: BROWSER ?? undefined });
 
   // Section chunks clipped to the requested window.
