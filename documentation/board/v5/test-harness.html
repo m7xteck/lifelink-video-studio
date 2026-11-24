@@ -13,7 +13,7 @@
  * seeds it, then writes studio-board.html into this document so the board boots against the fake.
  * Seed order: /__seed (served by run-tests.cjs from board-data/*.json when present) → fixtures/seed.json (FIXTURE).
  * URL params: ?readonly=1 (can("data.write") = false), ?signedout=1 (no user id), ?nodb=1 (db unavailable),
- *             ?delay=ms (snapshot latency, default 150).
+ *             ?delay=ms (snapshot latency, default 150), ?seed=fixture (skip board-data).
  */
 (function () {
   const qs = new URLSearchParams(location.search);
@@ -84,7 +84,7 @@
 
   async function seed() {
     let data = null;
-    try { const r = await fetch("/__seed"); if (r.ok) { data = await r.json(); fake.source = data._source || "board-data"; } } catch (e) {}
+    if (qs.get("seed") !== "fixture") try { const r = await fetch("/__seed"); if (r.ok) { data = await r.json(); fake.source = data._source || "board-data"; } } catch (e) {}
     if (!data) { const r = await fetch("fixtures/seed.json"); data = await r.json(); fake.source = "fixtures/seed.json (FIXTURE)"; }
     for (const [p, body] of Object.entries(data.docs)) store.set(p, body);
   }

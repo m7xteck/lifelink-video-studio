@@ -78,12 +78,13 @@ nav.side a .dot { display: none; }
 .app.collapsed nav.side a .dot { display: block; }
 
 main { min-width: 0; padding: max(20px, env(safe-area-inset-top, 0px)) max(var(--gut), env(safe-area-inset-right, 0px)) 72px var(--gut); }
-.wrap { max-width: 1320px; margin: 0 auto; display: grid; gap: 40px; }
+.wrap { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.wrap p, .wrap li, .row > div, .card { overflow-wrap: anywhere; min-width: 0; }
 .top { display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: space-between; align-items: flex-end; }
 .top > div:first-child { flex: 1 1 420px; min-width: 0; }
 .top .sub { color: var(--muted); margin-top: 6px; font-size: 15px; }
 .tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.fresh { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.fresh { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 14px; color: var(--muted); padding: 7px 12px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
 .fresh b { color: var(--ink); font-weight: 600; }
 .fresh .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex: none; }
 .fresh.stale { border-color: color-mix(in srgb, var(--warn) 55%, transparent); color: var(--ink); }
@@ -184,6 +185,39 @@ details > summary::-webkit-details-marker { display: none; }
 .qtile:hover { border-color: var(--line-strong); }
 .qtile .v { font-size: 26px; font-weight: 600; }
 .qtile .k { font-size: 13px; color: var(--muted); }
+
+
+/* ===== Live production ===== */
+.live { display: grid; gap: 22px; padding: 26px 28px; }
+.live-top { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 20px; align-items: center; }
+.thumb.sm { align-self: start; min-height: 0; aspect-ratio: 16/9; border-radius: 10px; padding: 0; overflow: hidden; }
+.live-title { font-size: 22px; }
+.eta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.eta-big { font-size: clamp(30px, 4.6vw, 46px); font-weight: 700; line-height: 1.1; letter-spacing: -.015em; color: var(--burgundy-ink); }
+.pbar { height: 12px; border-radius: 999px; background: var(--raised); overflow: hidden; display: flex; }
+.pbar span { display: block; height: 100%; }
+.pbar .b-done { background: var(--ok); } .pbar .b-run { background: var(--royal); }
+.nowline { font-size: 16px; } .nowline b { color: var(--royal); }
+.wnow { display: grid; gap: 4px; }
+.wrow { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto auto; gap: 12px; align-items: center; padding: 9px 12px; border-radius: 9px; background: color-mix(in srgb, var(--royal) 9%, transparent); }
+.wname { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.run-pip { width: 8px; height: 8px; border-radius: 50%; background: var(--royal); }
+.strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 14px 8px; }
+.strip li { display: grid; gap: 4px; align-content: start; position: relative; min-width: 0; font-size: 14px; }
+.strip .node { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; border: 1.5px solid var(--line-strong); color: var(--muted); background: var(--surface); }
+.strip li.done .node { background: var(--ok); border-color: var(--ok); color: var(--surface); }
+.strip li.cur .node { border-color: var(--royal); color: var(--royal); box-shadow: 0 0 0 3px color-mix(in srgb, var(--royal) 22%, transparent); }
+.strip .sn { font-weight: 600; line-height: 1.3; }
+.strip li.queued .sn { color: var(--muted); font-weight: 500; }
+.strip li.cur .sn { color: var(--royal); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; min-width: 0; }
+.fact h3 { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; gap: 8px; align-items: baseline; }
+.fact ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.fact li { font-size: 14.5px; line-height: 1.5; padding-left: 16px; position: relative; overflow-wrap: anywhere; }
+.fact li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); }
+.fact.q li::before { background: var(--warn); } .fact.b li::before { background: var(--fail); }
+.fact li small { display: block; color: var(--muted); font-size: 12.5px; }
 
 /* ===== Courses ===== */
 .kanban { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 14px; overflow-x: auto; padding-bottom: 8px; }
@@ -299,6 +333,13 @@ details > summary::-webkit-details-marker { display: none; }
   .steps li span { display: none; }
   .steps li.cur span { display: block; position: static; }
   .card { padding: 18px; }
+  .live { padding: 20px 18px; gap: 18px; }
+  .live-top { grid-template-columns: 96px minmax(0, 1fr); gap: 14px; }
+  .live-title { font-size: 18px; }
+  .wrow { grid-template-columns: 10px minmax(0, 1fr) auto; }
+  .wrow > :last-child { display: none; }
+  .strip { grid-template-columns: 1fr; gap: 8px; }
+  .strip li { grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 12px; }
   table.stack thead { display: none; }
   table.stack tr { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
   table.stack td { border: 0; padding: 0; }
@@ -327,6 +368,7 @@ details > summary::-webkit-details-marker { display: none; }
   <symbol id="i-efficiency" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6.5 16.5v-4M11 16.5V8.5M15.5 16.5v-6M20 16.5V5"/></symbol>
   <symbol id="i-memory" viewBox="0 0 24 24"><path d="M9.25 18h5.5M10.25 21h3.5"/><path d="M12 3a6 6 0 0 0-3.55 10.84c.68.5 1.05 1.25 1.05 2.08V16h5v.08c0-.83.37-1.58 1.05-2.08A6 6 0 0 0 12 3z"/></symbol>
   <symbol id="i-library" viewBox="0 0 24 24"><path d="M3.75 5.25a1 1 0 0 1 1-1h14.5a1 1 0 0 1 1 1V8H3.75z"/><path d="M5 8v10.25A1.75 1.75 0 0 0 6.75 20h10.5A1.75 1.75 0 0 0 19 18.25V8"/><path d="M10 12h4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.5 12.5 4 4 9-9"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="M14.5 6.5 9 12l5.5 5.5"/></symbol>
   <symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6.5 15 12l-5.5 5.5"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 5.2v13.6a.8.8 0 0 0 1.2.7l11-6.8a.8.8 0 0 0 0-1.4l-11-6.8a.8.8 0 0 0-1.2.7z"/></symbol>
@@ -351,24 +393,31 @@ details > summary::-webkit-details-marker { display: none; }
 <script>
 "use strict";
 /* ================= Config ================= */
+/* Director mode shows the first four; "Studio details" appear only in Technical mode. */
 const VIEWS = {
-  overview: { label: "Overview", group: "Produce", icon: "overview", title: "Overview" },
-  courses: { label: "Courses", group: "Produce", icon: "courses", title: "Courses" },
-  queue: { label: "Queue", group: "Produce", icon: "queue", title: "Queue" },
-  agents: { label: "Agents", group: "Produce", icon: "agents", title: "Agents" },
-  review: { label: "Review", group: "Review", icon: "review", title: "Video Review Centre" },
-  approvals: { label: "Approvals", group: "Review", icon: "approvals", title: "Approvals" },
-  efficiency: { label: "Efficiency", group: "Studio", icon: "efficiency", title: "Efficiency" },
-  memory: { label: "Creative memory", group: "Studio", icon: "memory", title: "Creative memory" },
-  library: { label: "Delivery library", group: "Studio", icon: "library", title: "Delivery library" },
+  overview: { label: "Overview", icon: "overview", title: "Overview" },
+  review: { label: "Review", icon: "review", title: "Review" },
+  approvals: { label: "Approvals", icon: "approvals", title: "Approvals" },
+  library: { label: "Library", icon: "library", title: "Library" },
+  courses: { label: "Courses", icon: "courses", title: "Courses", tech: true },
+  queue: { label: "Queue", icon: "queue", title: "Queue", tech: true },
+  agents: { label: "Agents", icon: "agents", title: "Agents", tech: true },
+  efficiency: { label: "Efficiency", icon: "efficiency", title: "Efficiency", tech: true },
+  memory: { label: "Creative memory", icon: "memory", title: "Creative memory", tech: true },
 };
+/* Live-run stages (studio/live.stageStats keys): order and plain names. Unknown keys are title-cased. */
+const STAGES = [
+  ["v2-components", "Build new animations"], ["v2-plan", "Re-plan chapters"], ["v2-review", "Chapter review & fix"],
+  ["v2-polish", "Animation polish"], ["v2-render", "Render v004 + checks"], ["v2-videoqa", "Video review + learner audit"],
+  ["v2-revise", "Targeted revisions"], ["v2-deliver", "Deliver"],
+];
 const SOURCES = ["studio", "lessons", "jobs", "review", "efficiency", "memory", "comments", "approvals", "requests"];
 const FPS = 30, SPEEDS = [0.5, 1, 1.25, 1.5, 2], STALE_MIN = 30;
 
 /* ================= Tiny store ================= */
 const S = {
   db: null, user: null, uid: null, canW: null, readOnly: false, noDb: false,
-  meta: null, overview: null, lessons: {}, jobs: {}, review: {}, eff: null, memory: null,
+  meta: null, overview: null, live: null, lessons: {}, jobs: {}, review: {}, eff: null, memory: null,
   comments: [], approvals: [], requests: [], loaded: new Set(), errors: {}, slow: false,
   mode: lsGet("ll.mode") || "director", drafts: {}, status: {}, ui: {}, pendingSeek: null,
 };
@@ -469,7 +518,7 @@ function subscribe() {
     try {
       S.db.collection(name).onSnapshot((snap) => {
         const docs = snap.docs.filter((d) => d.exists);
-        if (name === "studio") { for (const d of docs) { if (d.id === "meta") S.meta = d.data(); if (d.id === "overview") S.overview = d.data(); } }
+        if (name === "studio") { for (const d of docs) { if (d.id === "meta") S.meta = d.data(); if (d.id === "overview") S.overview = d.data(); if (d.id === "live") S.live = d.data(); } }
         else if (name === "efficiency") S.eff = (docs.find((d) => d.id === "summary") || docs[0])?.data() || null;
         else if (name === "memory") S.memory = (docs.find((d) => d.id === "library") || docs[0])?.data() || null;
         else if (name === "lessons" || name === "jobs" || name === "review") { const m = {}; for (const d of docs) m[d.id] = d.data(); S[name] = m; }
@@ -544,9 +593,11 @@ function renderNav(r) {
   const nav = document.getElementById("nav"), c = counts();
   const cur = r.view === "lesson" ? "courses" : r.view;
   nav.replaceChildren(h("div", { class: "brand" }, h("span", { class: "mark", "aria-hidden": "true" }, "L"), h("span", { class: "brand-t" }, "LifeLink", h("small", null, "Video Studio"))));
-  let g = null;
+  let techHead = false;
+  const techMode = S.mode === "technical";
   for (const [k, v] of Object.entries(VIEWS)) {
-    if (v.group !== g) { if (g) nav.append(h("div", { class: "grp-sep", "aria-hidden": "true" })); g = v.group; nav.append(h("div", { class: "grp", "aria-hidden": "true" }, g)); }
+    if (v.tech && !techMode && cur !== k) continue;
+    if (v.tech && !techHead) { techHead = true; nav.append(h("div", { class: "grp-sep", "aria-hidden": "true" }), h("div", { class: "grp", "aria-hidden": "true" }, "Studio details")); }
     const n = k === "queue" ? c.queue : k === "approvals" ? c.approvals : 0;
     nav.append(h("a", { href: "#" + k, "aria-current": cur === k ? "page" : null, title: v.label },
       icon(v.icon), h("span", { class: "lbl" }, v.label),
@@ -564,7 +615,7 @@ function freshness() {
   const min = Math.floor((Date.now() - dt(ls)) / 60000);
   const stale = min > STALE_MIN;
   return h("span", { class: "fresh" + (stale ? " stale" : ""), id: "fresh", title: "Time of the last verified sync from the studio session. The board is not a live monitor." },
-    h("span", { class: "pip" }), "Last verified update ", h("b", { class: "num" }, fmtClock(ls)),
+    h("span", { class: "pip" }), h("span", { style: "white-space:nowrap" }, "Last verified update ", h("b", { class: "num" }, fmtClock(ls))),
     stale ? h("span", null, ` · Not updated for ${min} min — the studio session may be idle`) : h("span", null, ` · ${ago(ls)}`));
 }
 function isDark() { const t = document.documentElement.dataset.theme; return t ? t === "dark" : !matchMedia("(prefers-color-scheme: light)").matches; }
@@ -606,42 +657,111 @@ function decisionStatus(a) { return a.status === "recorded" ? `Recorded${a.recor
 
 /* ================= View: Overview ================= */
 function viewOverview() {
-  const o = S.overview, wrap = [];
+  const o = S.overview, L = S.live, wrap = [], techMode = S.mode === "technical";
   const active = o?.activeLessonId ? S.lessons[o.activeLessonId] : null;
-  const hr = new Date().getHours(), greet = hr < 12 ? "Good morning" : hr < 18 ? "Good afternoon" : "Good evening";
-  const inProd = Object.values(S.lessons).filter((l) => !/FINAL|DELIVERED/i.test(str(l.state))).length;
-  wrap.push(topbar(greet + ".", ready("studio") && ready("lessons") ? `${inProd === 1 ? "One lesson" : inProd + " lessons"} in production.` : "Loading the studio's latest verified state…"));
-  wrap.push(banners());
+  const hr = new Date().getHours();
+  wrap.push(topbar(hr < 12 ? "Good morning." : hr < 18 ? "Good afternoon." : "Good evening."), banners());
   if (!ready("studio")) { wrap.push(skel(3, true), skel(5)); return wrap; }
   wrap.push(srcErr("studio"));
-  if (!o) { wrap.push(empty("No overview from the studio yet", "The studio session hasn't synced an overview. It appears here after the next verified sync.")); return wrap; }
-
-  // Next best action
-  const na = arr(o.nextActions);
+  // (b) live production
+  if (L) wrap.push(liveHero(L, active));
+  else if (active) wrap.push(section("Now producing", hero(active)));
+  else wrap.push(empty("Nothing in production", "The studio hasn't sent a live run yet."));
+  // (c) next best action: one card + up to two more
+  const na = arr(o?.nextActions);
   if (na.length) {
     const [first, ...rest] = na;
-    wrap.push(h("section", { "aria-labelledby": "h-nba" },
-      h("h2", { id: "h-nba" }, "Next best action"),
+    wrap.push(h("section", { "aria-labelledby": "h-nba" }, h("h2", { id: "h-nba" }, "Next best action"),
       h("div", { class: "nba" },
-        h("div", null, h("div", { class: "kick" }, kindLabel(first.kind)), h("h3", null, first.title), h("p", { class: "why" }, first.detail),
-          first.since ? h("p", { class: "meta", style: "margin-top:8px" }, "Waiting since " + fmtClock(first.since)) : null, techB(itemRef(first), " · ", first.source)),
+        h("div", null, h("div", { class: "kick" }, kindLabel(first.kind)), h("h3", null, first.title), h("p", { class: "why" }, first.detail), techB(itemRef(first), " · ", first.source)),
         actBtn(first, "btn primary lg")),
-      rest.length ? h("div", { class: "nba-more list", style: "margin-top:14px" }, rest.slice(0, 3).map((i) => itemRow(i))) : null));
-  } else wrap.push(section("Next best action", empty("Nothing needs you right now", "The studio has no open decision or review for you.")));
-
-  // Active production hero (full width), then attention + recent side by side
-  wrap.push(section("Now producing", active ? hero(active) : ready("lessons") ? empty("No lesson is in production", o.activeLessonId ? "The active lesson hasn't synced yet." : "Start a lesson with the studio to see it here.") : skel(4, true)));
+      rest.length ? h("div", { class: "nba-more list", style: "margin-top:14px" }, rest.slice(0, 2).map((i) => itemRow(i))) : null));
+  } else if (o) wrap.push(section("Next best action", empty("Nothing needs you right now", "")));
+  // (d) evidence
+  if (L) wrap.push(section("Evidence", h("div", { class: "facts" },
+    fact("Verified results", arr(L.evidence).slice().sort((x, y) => str(y.at).localeCompare(str(x.at))), (e) => [e.text, e.at ? h("small", null, fmtClock(e.at)) : null], ""),
+    fact("QA findings", arr(L.qaFindings), (e) => [e.text, e.state ? h("small", null, human(e.state)) : null], "q"),
+    fact("Blockers", arr(L.blockers), (e) => [e.text], "b"))));
+  if (!techMode || !o) return wrap;
+  // Technical mode keeps the detailed overview below
   const att = arr(o.attention);
   wrap.push(h("div", { class: "grid2" },
-    section("Needs your attention", att.length ? h("div", { class: "list" }, att.map((i) => itemRow(i))) : empty("All clear", "Nothing is waiting for you.")),
-    section("Recent verified results", arr(o.recent).length ? h("div", { class: "list" }, arr(o.recent).slice(0, 6).map((r) => h("div", { class: "row" }, h("span", null, r.text), h("span", { class: "meta num" }, fmtClock(r.at)), techB(r.kind, " · ", r.source)))) : empty("No verified results yet", ""))));
-
-  // Queue counts
+    section("Needs attention", att.length ? h("div", { class: "list" }, att.map((i) => itemRow(i))) : empty("All clear", "")),
+    section("Recent results", arr(o.recent).length ? h("div", { class: "list" }, arr(o.recent).slice(0, 6).map((r) => h("div", { class: "row" }, h("span", null, r.text), h("span", { class: "meta num" }, fmtClock(r.at)), techB(r.kind, " · ", r.source)))) : empty("None yet", ""))));
   const q = o.queueCounts || {};
   const QC = [["running", "Running", "run"], ["queued", "Queued", ""], ["blocked", "Blocked", "warn"], ["failed", "Failed", "fail"], ["done", "Done", "ok"]];
-  wrap.push(section("Production queue", h("div", { class: "qtiles" }, QC.map(([k, l, tone]) => h("a", { class: "qtile", href: "#queue" }, h("span", { class: "v num " + tone }, q[k] ?? 0), h("span", { class: "k" }, l))))));
+  wrap.push(section("Queue", h("div", { class: "qtiles" }, QC.map(([k, l, tone]) => h("a", { class: "qtile", href: "#queue" }, h("span", { class: "v num " + tone }, q[k] ?? 0), h("span", { class: "k" }, l))))));
+  if (active) wrap.push(section("Lesson", hero(active)));
   return wrap;
 }
+function fact(title, items, row, cls) {
+  return h("div", { class: "fact " + cls }, h("h3", null, title, " ", h("span", { class: "meta num" }, items.length)),
+    items.length ? h("ul", null, items.map((e) => h("li", null, ...row(e)))) : h("p", { class: "meta" }, "None"));
+}
+
+/* ----- Live production (studio/live = the production board's run document) ----- */
+const stageName = (id) => (STAGES.find((x) => x[0] === id) || [, human(id).replace(/\b\w/g, (c) => c.toUpperCase())])[1];
+function liveStages(L) {
+  const stats = L.stageStats || {}, agents = arr(L.agents);
+  const ids = Object.keys(stats).sort((a, b) => { const ia = STAGES.findIndex((x) => x[0] === a), ib = STAGES.findIndex((x) => x[0] === b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); });
+  for (const a of agents) if (a.stage && !ids.includes(a.stage)) ids.push(a.stage);
+  return ids.map((id) => {
+    const st = stats[id] || {}, mine = agents.filter((a) => a.stage === id);
+    const total = st.agentsTotal || mine.length, done = st.agentsDone ?? mine.filter((a) => a.state === "done").length;
+    const state = total && done >= total ? "done" : mine.some((a) => a.state === "working" || a.state === "done") ? "working" : "queued";
+    return { id, name: stageName(id), state, etaAt: st.etaAt, total, done, tokens: st.tokens, finishedAt: state === "done" ? mine.map((a) => a.finishedAt || "").sort().pop() : null };
+  });
+}
+function leftText(iso) {
+  const t = dt(iso); if (!t) return "Estimating…";
+  const ms = t - Date.now();
+  return ms > 60000 ? "About " + spanText(ms) + " left" : ms > -15 * 60000 ? "Almost done" : "Running late";
+}
+function spanText(ms) { const m = Math.max(0, Math.round(ms / 60000)), hh = Math.floor(m / 60); return m < 1 ? "under a minute" : hh ? `${hh} h ${m % 60} min` : `${m} min`; }
+const tok = (n) => (!n ? "0" : n >= 1e9 ? (n / 1e9).toFixed(2) + "B" : n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "k" : String(n));
+function liveHero(L, lesson) {
+  const agents = arr(L.agents), total = L.agentsTotal || agents.length;
+  const done = agents.filter((a) => a.state === "done").length, working = agents.filter((a) => a.state === "working").length, todo = Math.max(0, total - done - working);
+  const stages = liveStages(L), cur = stages.find((x) => x.state !== "done");
+  const thumbUrl = lesson?.thumbnail?.assetUrl || (lesson && S.review[lesson.id]?.thumbnail?.url);
+  const pct = (n) => (total ? (100 * n / total).toFixed(2) : 0) + "%";
+  const finished = L.finishedAt || L.state === "done";
+  const live = agents.filter((a) => a.state === "working").sort((a, b) => (a.order || 0) - (b.order || 0));
+  return h("section", { class: "card live", "aria-labelledby": "h-live" },
+    h("div", { class: "live-top" },
+      h("div", { class: "thumb sm" }, thumbUrl ? h("img", { src: thumbUrl, alt: "", onerror: (e) => e.target.replaceWith(icon("review")) }) : icon("review")),
+      h("div", { style: "min-width:0" },
+        h("h2", { id: "h-live", style: "margin:0 0 4px" }, "Live production ", chip(finished ? "Finished" : human(L.state || "working"), finished ? "ok" : L.state === "failed" ? "fail" : "run")),
+        h("h3", { class: "live-title" }, L.title || lesson?.title || "Production run"),
+        lesson ? h("p", { class: "meta" }, lesson.title) : null, techB(L.source || "studio/live"))),
+    h("div", { class: "eta" },
+      finished ? h("span", { class: "eta-big" }, "Finished") : h("span", { class: "eta-big num", "data-left": L.etaAt || "" }, leftText(L.etaAt)),
+      finished ? null : tagE(),
+      L.etaAt && !finished ? h("span", { class: "muted num" }, "finishes around ", h("b", { style: "color:var(--ink)" }, fmtClock(L.etaAt))) : null),
+    total ? h("div", null,
+      h("div", { class: "pbar", role: "progressbar", "aria-label": "Production progress", "aria-valuemin": "0", "aria-valuemax": String(total), "aria-valuenow": String(done), "aria-valuetext": `${done} of ${total} finished` },
+        h("span", { class: "b-done", style: `width:${pct(done)}` }), h("span", { class: "b-run", style: `width:${pct(working)}` })),
+      h("div", { class: "legend", style: "margin-top:8px" }, h("span", null, h("i", { style: "background:var(--ok)" }), `${done} finished`), h("span", null, h("i", { style: "background:var(--royal)" }), `${working} working`), h("span", null, h("i", { style: "background:var(--raised);outline:1px solid var(--line-strong)" }), `${todo} to do`), tagM())) : null,
+    cur ? h("p", { class: "nowline" }, "Now: ", h("b", null, cur.name)) : null,
+    live.length ? h("div", { class: "wnow" }, h("div", { class: "meta", style: "font-weight:700" }, "Working now ", tagM()),
+      live.map((a) => h("div", { class: "wrow" }, h("span", { class: "pip run-pip", "aria-hidden": "true" }), h("span", { class: "wname" }, a.name),
+        h("span", { class: "meta num", "data-since": a.startedAt || "" }, a.startedAt ? spanText(Date.now() - dt(a.startedAt)) : "just started"),
+        a.tokens ? h("span", { class: "meta num" }, tok(a.tokens) + " tokens") : h("span")))) : null,
+    stages.length ? h("div", null, h("div", { class: "meta", style: "font-weight:700;margin-bottom:10px" }, "Stages · expected finish ", tagE()),
+      h("ol", { class: "strip" }, stages.map((x, i) => h("li", { class: x.state + (x === cur ? " cur" : ""), "aria-current": x === cur ? "step" : null },
+        h("span", { class: "node", "aria-hidden": "true" }, x.state === "done" ? icon("check", "sm") : String(i + 1)),
+        h("span", { class: "sn" }, x.name),
+        h("span", { class: "meta num" }, x.state === "done" ? "Done" + (x.finishedAt ? " " + fmtClock(x.finishedAt) : "") : x.etaAt ? "~" + fmtClock(x.etaAt) : "—"),
+        h("span", { class: "sr" }, x.state === "done" ? "done" : x === cur ? "in progress" : "to do"),
+        techB(`${x.id} · ${x.done}/${x.total}${x.tokens ? " · " + tok(x.tokens) : ""}`))))) : null,
+    L.note ? h("p", { class: "note" }, L.note) : null,
+    h("p", { class: "meta" }, "Studio update ", fmtClock(L.updatedAt), " · time left counts down between updates"));
+}
+function tickLive() {
+  document.querySelectorAll("[data-left]").forEach((el) => { el.textContent = leftText(el.dataset.left); });
+  document.querySelectorAll("[data-since]").forEach((el) => { if (el.dataset.since) el.textContent = spanText(Date.now() - dt(el.dataset.since)); });
+}
+setInterval(tickLive, 20000);
 function kindLabel(k) { return { approval: "Approval needed", failure: "Something failed", decision: "Decision needed", review: "Ready for your review" }[k] || human(k); }
 function actBtn(i, cls) { const href = actionHref(i.action); return href ? h("a", { class: cls || "btn", href }, str(i.action?.label) || "Open", icon("arrow", "sm")) : null; }
 function itemRow(i) {
@@ -667,7 +787,7 @@ function hero(l) {
   const next = nextFor(l.id);
   const latest = arr(l.renders).slice(-1)[0];
   return h("div", { class: "card hero" },
-    h("div", { class: "thumb" }, thumbUrl ? h("img", { src: thumbUrl, alt: "Preview frame of " + l.title }) : [icon("review"), h("span", null, "No preview frame uploaded yet")]),
+    h("div", { class: "thumb" }, thumbUrl ? h("img", { src: thumbUrl, alt: "Preview frame of " + l.title, onerror: (e) => e.target.replaceWith(h("span", null, "Preview frame not available")) }) : [icon("review"), h("span", null, "No preview frame uploaded yet")]),
     h("div", { class: "body" },
       h("div", null, h("div", { class: "name" }, l.title), h("div", { class: "meta num" }, courseTitle(l.courseId), " · ", fmtDur(l.durationSec), latest ? ` · latest render ${latest.version}` : "", tech(" · ", l.id, " · state ", l.state))),
       h("div", { class: "progress" }, h("span", { class: "big num" }, `${done} of ${steps.length}`), h("span", { class: "muted" }, "stages done", cur ? h("span", null, " · now: ", h("b", { class: "run" }, cur.label)) : null), tagM()),
@@ -681,7 +801,7 @@ function courseTitle(id) { return arr(S.overview?.courses).find((c) => c.id === 
 
 /* ================= View: Courses ================= */
 function viewCourses() {
-  const out = [topbar("Courses", "Every lesson, where it is, and what it needs."), banners()];
+  const out = [topbar("Courses"), banners()];
   if (!ready("lessons") || !ready("studio")) { out.push(skel(6)); return out; }
   out.push(srcErr("lessons"));
   const ui = S.ui.courses || (S.ui.courses = { q: "", state: "", layout: lsGet("ll.courses") || "list" });
@@ -787,9 +907,9 @@ function reviewPick(r) {
 }
 function viewReview(r) {
   const out = [];
-  if (!ready("review") || !ready("lessons")) { out.push(topbar("Video Review Centre"), skel(1, true), skel(3)); return out; }
+  if (!ready("review") || !ready("lessons")) { out.push(topbar("Review"), skel(1, true), skel(3)); return out; }
   const p = reviewPick(r);
-  out.push(topbar("Video Review Centre", p.lesson ? p.lesson.title : p.lessonId || ""), banners(), srcErr("review"));
+  out.push(topbar("Review", p.lesson ? p.lesson.title : p.lessonId || ""), banners(), srcErr("review"));
   if (!p.lessonId) { out.push(empty("No review copies uploaded yet", "When the studio uploads 540p review copies of a render, each chapter plays here with its scenes, QA findings and your comments.")); return out; }
   // Pickers
   const go = (lesson, version, chapter) => { location.hash = `#review/${enc(lesson)}/${enc(version || "")}/${enc(chapter || "")}`; };
@@ -1012,7 +1132,7 @@ document.addEventListener("keydown", (e) => {
 
 /* ================= View: Approvals ================= */
 function viewApprovals(r) {
-  const out = [topbar("Approvals", "Decisions only you can make. Nothing is approved by default."), banners()];
+  const out = [topbar("Approvals", "Nothing is approved until you say so."), banners()];
   if (!ready("studio") || !ready("approvals")) { out.push(skel(5)); return out; }
   out.push(srcErr("approvals"));
   const items = pendingItems();
@@ -1054,7 +1174,7 @@ const ORDER = ["running", "failed", "blocked", "queued", "done"];
 const ACTIONS = { failed: ["retry"], blocked: ["retry", "prioritise", "cancel"], queued: ["prioritise", "cancel"], running: ["cancel"] };
 const ACT_LABEL = { retry: "Retry", cancel: "Cancel", prioritise: "Prioritise" };
 function viewQueue(r) {
-  const out = [topbar("Queue", "What the studio is doing, waiting on, or stuck on. Requests are acted on at the studio's next check."), banners()];
+  const out = [topbar("Queue"), banners()];
   if (!ready("jobs") || !ready("requests")) { out.push(skel(6)); return out; }
   out.push(srcErr("jobs"));
   const q = S.overview?.queueCounts;
@@ -1104,7 +1224,7 @@ function taskRow(t, byId, focus, lessonId) {
 
 /* ================= View: Agents ================= */
 function viewAgents() {
-  const out = [topbar("Agents", "Who worked on what, with real start and finish times."), banners()];
+  const out = [topbar("Agents"), banners()];
   if (!ready("jobs")) { out.push(skel(6)); return out; }
   const tasks = allTasks();
   if (!tasks.length) { out.push(empty("No agent work recorded yet", "")); return out; }
@@ -1128,7 +1248,7 @@ function viewAgents() {
 
 /* ================= View: Efficiency ================= */
 function viewEfficiency() {
-  const out = [topbar("Efficiency", "What would save the most time, backed by measured studio records."), banners()];
+  const out = [topbar("Efficiency"), banners()];
   if (!ready("efficiency")) { out.push(skel(3, true), skel(5)); return out; }
   out.push(srcErr("efficiency"));
   const e = S.eff;
@@ -1163,7 +1283,7 @@ function viewEfficiency() {
 
 /* ================= View: Creative memory ================= */
 function viewMemory() {
-  const out = [topbar("Creative memory", "What the studio has learned and must respect."), banners()];
+  const out = [topbar("Creative memory"), banners()];
   if (!ready("memory")) { out.push(skel(6)); return out; }
   const m = S.memory;
   if (!m) { out.push(empty("No creative memory synced yet", "")); return out; }
@@ -1174,7 +1294,7 @@ function viewMemory() {
   const txt = (x) => typeof x === "string" ? x : x.text || x.title || x.name || x.summary || x.item || JSON.stringify(x);
   if (m.proposal && hit(m.proposal)) out.push(section("Current brand proposal", h("div", { class: "card", style: "display:grid;gap:8px" }, h("div", { class: "filters" }, chip(human(m.proposal.status), m.proposal.approvedBy ? "ok" : "warn"), h("span", { class: "meta" }, m.proposal.version, m.proposal.approvedBy ? " · approved by " + m.proposal.approvedBy : " · not approved")), h("ul", { style: "margin:0;padding-left:20px" }, arr(m.proposal.summary).map((s) => h("li", null, s))), techB(m.proposal.source))));
   out.push(block("Locked rules", m.locked, (x) => [h("span", null, txt(x)), chip("Locked", "fail"), techB(x.source)]));
-  out.push(block("Open items", m.openItems, (x) => [h("div", null, h("b", null, x.item), h("div", { class: "meta" }, x.needed)), chip(human(x.state), "warn"), techB(x.source)]));
+  out.push(block("Open items", m.openItems, (x) => [h("div", null, h("b", null, x.item), h("div", { class: "meta" }, x.needed), str(x.state).length > 24 ? h("div", { class: "meta warn" }, x.state) : null), str(x.state).length > 24 ? h("span") : chip(human(x.state), "warn"), techB(x.source)]));
   out.push(block("Preferences", m.preferences, (x) => [h("span", null, txt(x)), h("span"), techB(x.source)]));
   out.push(block("Rejected treatments", m.rejected, (x) => [h("div", null, h("b", null, x.treatment || txt(x)), h("div", { class: "meta" }, [x.why && "Why: " + x.why, x.instead && "Instead: " + x.instead].filter(Boolean).join(" · "))), h("span", { class: "meta num" }, x.date || ""), techB(x.source)]));
   out.push(block("Techniques", m.techniques, (x) => [h("span", null, txt(x)), h("span"), techB(x.id, " · ", x.source)]));
@@ -1190,7 +1310,7 @@ function viewMemory() {
 
 /* ================= View: Delivery library ================= */
 function viewLibrary() {
-  const out = [topbar("Delivery library", "Finished files and review copies. Files open only when they've been uploaded to the board."), banners()];
+  const out = [topbar("Library"), banners()];
   if (!ready("lessons")) { out.push(skel(6)); return out; }
   const ls = Object.values(S.lessons);
   if (!ls.length) { out.push(empty("No lessons synced yet", "")); return out; }

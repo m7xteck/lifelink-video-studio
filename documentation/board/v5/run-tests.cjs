@@ -38,9 +38,10 @@ function serve() {
 }
 
 (async () => {
-  if (!boardDataSeed()) execFileSync("node", [path.join(__dirname, "fixtures/make-fixture.mjs")], { stdio: "inherit" });
+  execFileSync("node", [path.join(__dirname, "fixtures/make-fixture.mjs")], { stdio: "inherit" });
   const srv = await serve();
-  const base = `http://localhost:${srv.address().port}/documentation/board/v5/test-harness.html`;
+  const root = `http://localhost:${srv.address().port}/documentation/board/v5/test-harness.html`;
+  const base = root + "?seed=fixture";
   const browser = await chromium.launch();
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, colorScheme: "dark" });
   const page = await ctx.newPage();
@@ -53,13 +54,38 @@ function serve() {
 
   try {
     // 1. Overview
-    await page.goto(base.replace("test-harness.html", "test-harness.html?delay=1500") + "#overview");
+    await page.goto(base + "&delay=1500" + "#overview");
     const skeleton = await page.locator('[aria-busy="true"]').first().waitFor({ timeout: 3000 }).then(() => true, () => false);
     ok("skeleton shown while data loads", skeleton);
     await page.getByRole("heading", { name: "Next best action" }).waitFor({ timeout: 8000 });
     ok("overview renders with Next Best Action", true, "seed: " + (await page.evaluate(() => window.__fakeDb.source)));
     ok("freshness shows 'Last verified update'", await page.getByText("Last verified update").isVisible());
-    ok("active production hero shows stages", await page.locator(".hero .steps li").count() > 3);
+    // Live production hero (studio/live)
+    const LIVE = JSON.parse(fs.readFileSync(path.join(__dirname, "fixtures/seed.json"), "utf8")).docs["studio/live"];
+    const nDone = LIVE.agents.filter((a) => a.state === "done").length, nWork = LIVE.agents.filter((a) => a.state === "working").length, nTot = LIVE.agentsTotal || LIVE.agents.length;
+    const etaTxt = await page.locator(".eta-big").textContent();
+    ok("live hero: 'About X left' countdown + finishes-around clock", /^About (\d+ h )?\d+ min left$/.test(etaTxt) && (await page.getByText("finishes around").isVisible()), etaTxt);
+    const bw = await page.evaluate(() => { const b = document.querySelector(".pbar").getBoundingClientRect().width; return [document.querySelector(".pbar .b-done").getBoundingClientRect().width / b, document.querySelector(".pbar .b-run").getBoundingClientRect().width / b]; });
+    ok("progress bar widths match agent counts", Math.abs(bw[0] - nDone / nTot) < 0.01 && Math.abs(bw[1] - nWork / nTot) < 0.01, `done ${bw[0].toFixed(3)} vs ${(nDone / nTot).toFixed(3)}, working ${bw[1].toFixed(3)} vs ${(nWork / nTot).toFixed(3)}`);
+    ok("working-now rows = working agents", (await page.locator(".wrow").count()) === nWork, String(nWork));
+    const strip = await page.locator(".strip li").count(), stripDone = await page.locator(".strip li.done").count();
+    ok("stage strip: 8 stages, done ticks match stageStats", strip === 8 && stripDone === Object.values(LIVE.stageStats).filter((s) => s.agentsTotal && s.agentsDone >= s.agentsTotal).length, `${strip} stages, ${stripDone} done, current: ${await page.locator(".strip li.cur .sn").textContent()}`);
+    ok("evidence: verified / QA findings / blockers lists", (await page.locator(".fact").count()) === 3 && (await page.locator(".fact.b li").count()) === LIVE.blockers.length);
+    ok("Director nav shows exactly 4 items", (await page.locator("nav.side a").count()) === 4, (await page.locator("nav.side a .lbl").allTextContents()).join(", "));
+    await page.getByRole("button", { name: "Technical" }).click();
+    ok("Technical nav adds 'Studio details' (9 items)", (await page.locator("nav.side a").count()) === 9 && (await page.locator(".grp", { hasText: "Studio details" }).count()) === 1);
+    await page.getByRole("button", { name: "Director" }).click();
+    // countdown ticks between studio updates (fake clock, +30 min)
+    const cctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }); // own context: the fake clock is per context
+    const cp = await cctx.newPage();
+    await cp.clock.install({ time: new Date() });
+    await cp.goto(base + "#overview"); await cp.locator(".eta-big").waitFor({ timeout: 8000 });
+    const e1 = await cp.locator(".eta-big").textContent();
+    await cp.clock.fastForward("30:00"); await cp.waitForTimeout(200);
+    const e2 = await cp.locator(".eta-big").textContent();
+    const mins = (s) => { const m = s.match(/(?:(\d+) h )?(\d+) min/); return m ? (+(m[1] || 0)) * 60 + +m[2] : NaN; };
+    ok("countdown updates live (−30 min after 30 min)", Math.abs(mins(e1) - mins(e2) - 30) <= 1, `${e1} → ${e2}`);
+    await cctx.close();
     await shot("01-overview-1440-dark");
     await page.evaluate(() => window.scrollTo(0, 99999)); await shot("01b-overview-1440-dark-bottom"); await page.evaluate(() => window.scrollTo(0, 0));
 
@@ -222,12 +248,12 @@ function serve() {
 
     // 17. Read-only viewer
     const ro = await ctx.newPage();
-    await ro.goto(base.replace("test-harness.html", "test-harness.html?readonly=1") + "#review/lifelink-course-L01/v004/sec-04");
+    await ro.goto(base + "&readonly=1" + "#review/lifelink-course-L01/v004/sec-04");
     await ro.locator(".pl video").waitFor();
     ok("read-only viewer: actions disabled with explanation", (await ro.getByRole("button", { name: "Approve chapter" }).isDisabled()) && (await ro.getByText("You have view-only access").first().isVisible()));
     await ro.close();
     const nd = await ctx.newPage();
-    await nd.goto(base.replace("test-harness.html", "test-harness.html?nodb=1") + "#overview"); await nd.locator("h1").waitFor(); await nd.waitForTimeout(300);
+    await nd.goto(base + "&nodb=1" + "#overview"); await nd.locator("h1").waitFor(); await nd.waitForTimeout(300);
     ok("db unavailable: says so, no fake data", await nd.getByText("Live studio data isn't connected").first().isVisible());
     await nd.close();
 
@@ -260,6 +286,21 @@ function serve() {
     });
     ok("WCAG AA (4.5:1) for all text tokens on all surfaces, both themes", contrast.dark.min >= 4.5 && contrast.light.min >= 4.5 && contrast.dark.button >= 4.5 && contrast.light.button >= 4.5, JSON.stringify(contrast));
     ok("no page errors", !errors.filter((e) => !/favicon|fonts\.g|__seed/.test(e)).length, errors.join(" | ").slice(0, 400));
+
+    // 19. Smoke on the real synced data (board-data/), when present
+    if (boardDataSeed()) {
+      const rp = await ctx.newPage(); const rerr = [];
+      rp.on("pageerror", (e) => rerr.push(e.message));
+      const bad = [];
+      for (const [wd, ht] of [[1440, 900], [390, 844]]) {
+        await rp.setViewportSize({ width: wd, height: ht });
+        for (const v of ["overview", "review", "approvals", "library", "courses", "queue", "agents", "efficiency", "memory"]) { await rp.goto(root + "#" + v); await rp.locator("h1").waitFor(); await rp.waitForTimeout(400); if (!(await rp.evaluate(() => document.scrollingElement.scrollWidth <= innerWidth))) bad.push(`${v}@${wd}`); }
+        await rp.goto(root + "#overview"); await rp.locator("h1").waitFor(); await rp.waitForTimeout(500);
+        await rp.screenshot({ path: path.join(SHOTS, `20-real-data-overview-${wd}.png`) });
+      }
+      ok("real board-data: all views render without errors or overflow", !rerr.length && !bad.length, (rerr.join(" | ") + " " + bad.join(", ")).slice(0, 300));
+      await rp.close();
+    }
   } catch (e) {
     ok("test run completed without exception", false, e.message.split("\n")[0]);
     await shot("zz-failure");
