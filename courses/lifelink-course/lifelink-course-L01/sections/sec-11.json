@@ -11,7 +11,7 @@
    "id": "sec-11-01",
    "sectionId": "sec-11",
    "startSec": 1228.5,
-   "endSec": 1242.9,
+   "endSec": 1243.2,
    "props": {
     "title": {
      "text": "Our journey",
@@ -50,7 +50,7 @@
    "type": "foundationLayers",
    "id": "sec-11-02",
    "sectionId": "sec-11",
-   "startSec": 1242.9,
+   "startSec": 1243.2,
    "endSec": 1256.3,
    "props": {
     "courses": [
@@ -113,39 +113,33 @@
       ]
      }
     ],
-    "groundAt": 1245.8
+    "groundAt": 1243.3,
+    "ghostAt": 1245.8
    }
   },
   {
-   "type": "wordStack",
+   "type": "kineticStatement",
    "id": "sec-11-03",
    "sectionId": "sec-11",
    "startSec": 1256.3,
    "endSec": 1262.4,
    "props": {
-    "variant": "row",
-    "lead": {
-     "text": "Respect means recognising your spouse's",
-     "at": 1256.54
-    },
-    "words": [
+    "lines": [
      {
-      "text": "Dignity",
+      "text": "Respect means recognising your spouse's",
+      "at": 1256.54
+     },
+     {
+      "text": "dignity, opinions, needs and feelings.",
       "at": 1258.78
-     },
-     {
-      "text": "Opinions",
-      "at": 1259.58
-     },
-     {
-      "text": "Needs",
-      "at": 1260.44
-     },
-     {
-      "text": "Feelings",
-      "at": 1261.06
      }
-    ]
+    ],
+    "emphasis": [
+     "dignity"
+    ],
+    "align": "left",
+    "scale": "h2",
+    "reveal": "rise"
    }
   },
   {
@@ -397,44 +391,76 @@
    }
   },
   {
-   "type": "scenarioCard",
+   "type": "foundationLayers",
    "id": "sec-11-10",
    "sectionId": "sec-11",
    "startSec": 1347.8,
    "endSec": 1365.0,
    "props": {
-    "ordinal": {
-     "text": "consider",
-     "at": 1348.02
-    },
-    "cardAt": 1347.9,
-    "topic": {
-     "text": "Repair",
-     "at": 1348.56
-    },
-    "situation": [
+    "courses": [
      {
-      "text": "A disagreement",
-      "at": 1350.16
+      "label": "Core foundation",
+      "at": 1247.98,
+      "items": [
+       {
+        "text": "Faith",
+        "at": 1250.12
+       },
+       {
+        "text": "Respect",
+        "at": 1250.92
+       },
+       {
+        "text": "Trust",
+        "at": 1251.74
+       }
+      ]
      },
      {
-      "text": "An insensitive comment",
-      "at": 1352.72
+      "label": "Action",
+      "at": 1270.0,
+      "items": [
+       {
+        "text": "Communication",
+        "at": 1280.36
+       },
+       {
+        "text": "Responsibility",
+        "at": 1291.86
+       },
+       {
+        "text": "Cooperation",
+        "at": 1301.3
+       }
+      ]
+     },
+     {
+      "label": "Grace and repair",
+      "at": 1308.54,
+      "items": [
+       {
+        "text": "Compassion",
+        "at": 1316.54
+       },
+       {
+        "text": "Patience",
+        "at": 1321.98
+       },
+       {
+        "text": "Appreciation",
+        "at": 1327.1
+       },
+       {
+        "text": "Forgiveness",
+        "at": 1332.26
+       }
+      ]
      }
     ],
-    "responseLabel": "A healthy response",
-    "response": [
+    "focus": [
      {
-      "text": "Recognise the impact",
-      "at": 1356.66
-     },
-     {
-      "text": "Apologise sincerely",
-      "at": 1359.68
-     },
-     {
-      "text": "Make an effort not to repeat it",
-      "at": 1361.56
+      "index": 2,
+      "at": 1348.02
      }
     ]
    }
