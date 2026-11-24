@@ -44,7 +44,7 @@ Edit only the affected scenes in the manifest (or component). Section cache mean
 - Large media is gitignored (`media/`, `public/audio/`, `renders/`, `deliverables/`). See `documentation/STORAGE.md`.
 
 ## Operating playbook (plain-language requests)
-Start every task with `npx tsx pipeline/memory.ts brief --course <slug>` (LOCKED brand > preferences > course decisions > lesson notes; rejected treatments; techniques). `pipeline/jobs.ts` (job ledger) and `pipeline/claims.ts` (file-ownership claims) are being built by a colleague — use them once present; until then report progress from `status.json` and render/QA records only.
+Start every task with `npx tsx pipeline/memory.ts brief --course <slug>` (LOCKED brand > preferences > course decisions > lesson notes; rejected treatments; techniques). Track every task in the job ledger (`npx tsx pipeline/jobs.ts …`; workflow runs via `jobs.ts import-workflow`) and claim shared files before editing (`npx tsx pipeline/claims.ts claim <path> --owner <task-id>`). Report progress from the ledger, `status.json` and render/QA records only.
 
 | Client says | Production Director does |
 |---|---|
