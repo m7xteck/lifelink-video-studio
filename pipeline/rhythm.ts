@@ -35,9 +35,11 @@ const report = (msg: string, scenes: Scene[]) => {
   (scenes.every(approved) ? infos : fails).push(msg);
 };
 
+const SERIES = new Set(["mythTruth"]); // intentional consecutive series (see production-memory/lesson-notes/L01-v004-review-findings.md)
 // Rule 1a: same type twice in a row
 for (let i = 1; i < S.length; i++) {
-  if (S[i].type === S[i - 1].type) report(`R1 repeat: ${S[i - 1].id} → ${S[i].id} are both ${S[i].type}`, [S[i - 1], S[i]]);
+  // The six myths are one deliberately developing series (client asked for all myths to use the tearing slip): exempt.
+  if (S[i].type === S[i - 1].type && !SERIES.has(S[i].type)) report(`R1 repeat: ${S[i - 1].id} → ${S[i].id} are both ${S[i].type}`, [S[i - 1], S[i]]);
 }
 // Rule 1b: > 3 of one type in any 8 consecutive scenes (report each offending window start once per type run)
 const seen = new Set<string>();
@@ -46,7 +48,7 @@ for (let i = 0; i + 1 < S.length; i++) {
   const counts = new Map<string, Scene[]>();
   for (const s of win) counts.set(s.type, [...(counts.get(s.type) ?? []), s]);
   for (const [type, list] of counts) {
-    if (list.length <= 3) continue;
+    if (list.length <= 3 || SERIES.has(type)) continue;
     const key = `${type}:${list.slice(0, 4).map((s) => s.id).join(",")}`;
     if (seen.has(key)) continue;
     seen.add(key);

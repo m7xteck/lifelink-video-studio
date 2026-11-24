@@ -6,7 +6,7 @@
   "fps": 30,
   "width": 1920,
   "height": 1080,
-  "durationSec": 2165.26,
+  "durationSec": 2168.26,
   "audio": "audio/lifelink-course-L01.wav",
   "watermark": null,
   "sections": [
@@ -104,7 +104,7 @@
       "id": "sec-16",
       "title": "The Mirror Check and Closing",
       "startSec": 1939,
-      "endSec": 2165.26
+      "endSec": 2168.26
     }
   ],
   "scenes": [
@@ -322,31 +322,33 @@
       "sectionId": "sec-03",
       "startSec": 60,
       "endSec": 68.9,
-      "type": "wordStack",
+      "type": "foundationLayers",
       "props": {
-        "lead": {
-          "text": "A commitment founded upon",
-          "at": 60.44
-        },
-        "words": [
+        "courses": [
           {
-            "text": "Faith",
-            "at": 62.02
-          },
-          {
-            "text": "Compassion",
-            "at": 62.84
-          },
-          {
-            "text": "Responsibility",
-            "at": 63.64
-          },
-          {
-            "text": "Trust & respect",
-            "at": 65
+            "label": "Founded upon",
+            "at": 60.82,
+            "items": [
+              {
+                "text": "Faith",
+                "at": 62.02
+              },
+              {
+                "text": "Compassion",
+                "at": 62.84
+              },
+              {
+                "text": "Responsibility",
+                "at": 63.64
+              },
+              {
+                "text": "Trust & respect",
+                "at": 65
+              }
+            ]
           }
         ],
-        "variant": "column"
+        "groundAt": 60.3
       }
     },
     {
@@ -465,9 +467,9 @@
       "sectionId": "sec-03",
       "startSec": 95.8,
       "endSec": 102.8,
-      "type": "parallelPhrases",
+      "type": "wordStack",
       "props": {
-        "items": [
+        "words": [
           {
             "text": "Communication",
             "at": 95.98
@@ -477,20 +479,15 @@
             "at": 97.4
           },
           {
-            "text": "Finances",
+            "text": "Finances & family relationships",
             "at": 98.72
           },
           {
-            "text": "Family relationships",
-            "at": 99.86
+            "text": "Maintaining love",
+            "at": 101.18
           }
         ],
-        "closing": {
-          "lead": "and",
-          "leadAt": 100.82,
-          "text": "Maintaining love",
-          "at": 101.18
-        }
+        "variant": "offset"
       }
     },
     {
@@ -544,7 +541,8 @@
           "text": "sacred purpose",
           "at": 115.02
         },
-        "tint": "royal"
+        "tint": "royal",
+        "leadAt": 112.48
       }
     },
     {
@@ -578,7 +576,8 @@
             "at": 131.66
           }
         ],
-        "ground": "oxblood"
+        "ground": "oxblood",
+        "leadAt": 123.16
       }
     },
     {
@@ -610,7 +609,7 @@
       "id": "sec-03-11",
       "sectionId": "sec-03",
       "startSec": 144.1,
-      "endSec": 148.5,
+      "endSec": 244,
       "type": "lessonMap",
       "props": {
         "title": {
@@ -620,321 +619,27 @@
         "stations": [
           {
             "title": "Divine purpose",
-            "at": 146.52
+            "at": 146.07
           },
           {
             "title": "The marital ecosystem",
-            "at": 160.6
+            "at": 160.15
           },
           {
             "title": "Partnership & sacred trust",
-            "at": 178.9
+            "at": 178.45
           },
           {
             "title": "Qualities of marriage",
-            "at": 195.1
+            "at": 194.65
           },
           {
             "title": "Realistic expectations",
-            "at": 222.04
+            "at": 221.59
           },
           {
             "title": "The mirror check",
-            "at": 235.64
-          }
-        ]
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-03-11b",
-      "sectionId": "sec-03",
-      "startSec": 148.5,
-      "endSec": 158.1,
-      "props": {
-        "lines": [
-          {
-            "text": "Why marriage holds such an important position in Islam,",
-            "at": 149.44
-          },
-          {
-            "text": "and how it can contribute to our",
-            "at": 153.52
-          },
-          {
-            "text": "spiritual and personal development.",
-            "at": 155.26
-          }
-        ],
-        "emphasis": [
-          "spiritual",
-          "personal"
-        ],
-        "align": "left",
-        "scale": "h2",
-        "reveal": "focus"
-      }
-    },
-    {
-      "id": "sec-03-12",
-      "sectionId": "sec-03",
-      "startSec": 158.1,
-      "endSec": 165.7,
-      "type": "highlightLine",
-      "props": {
-        "lines": [
-          {
-            "text": "Then, what I call the marital ecosystem.",
-            "at": 158.6
-          },
-          {
-            "text": "Marriage does not exist in isolation.",
-            "at": 162.64
-          }
-        ],
-        "highlight": {
-          "text": "marital ecosystem.",
-          "at": 160.6
-        },
-        "tint": "sky"
-      }
-    },
-    {
-      "id": "sec-03-13",
-      "sectionId": "sec-03",
-      "startSec": 165.7,
-      "endSec": 176.3,
-      "type": "wordStack",
-      "props": {
-        "lead": {
-          "text": "It affects our",
-          "at": 165.9
-        },
-        "words": [
-          {
-            "text": "Emotional well-being",
-            "at": 166.82
-          },
-          {
-            "text": "Family relationships",
-            "at": 168.54
-          },
-          {
-            "text": "Financial circumstances",
-            "at": 170.06
-          },
-          {
-            "text": "Spiritual development",
-            "at": 172.18
-          }
-        ],
-        "variant": "row"
-      }
-    },
-    {
-      "id": "sec-03-14",
-      "sectionId": "sec-03",
-      "startSec": 176.3,
-      "endSec": 182.9,
-      "type": "lessonMap",
-      "props": {
-        "title": {
-          "text": "Our journey",
-          "at": 176.3
-        },
-        "stations": [
-          {
-            "title": "Divine purpose",
-            "at": 146.52
-          },
-          {
-            "title": "The marital ecosystem",
-            "at": 160.6
-          },
-          {
-            "title": "Partnership & sacred trust",
-            "at": 178.9
-          },
-          {
-            "title": "Qualities of marriage",
-            "at": 195.1
-          },
-          {
-            "title": "Realistic expectations",
-            "at": 222.04
-          },
-          {
-            "title": "The mirror check",
-            "at": 235.64
-          }
-        ],
-        "current": 2
-      }
-    },
-    {
-      "id": "sec-03-15",
-      "sectionId": "sec-03",
-      "startSec": 182.9,
-      "endSec": 193.4,
-      "type": "questionPrompt",
-      "props": {
-        "lines": [
-          {
-            "text": "What does it actually mean to share",
-            "at": 183.08
-          },
-          {
-            "text": "your life with another individual?",
-            "at": 184.92
-          },
-          {
-            "text": "How do we balance our own needs",
-            "at": 187.28
-          },
-          {
-            "text": "with the needs of someone else?",
-            "at": 190.76
-          }
-        ],
-        "markAt": 182.95,
-        "ground": "paper"
-      }
-    },
-    {
-      "id": "sec-03-16",
-      "sectionId": "sec-03",
-      "startSec": 193.4,
-      "endSec": 197.6,
-      "type": "lessonMap",
-      "props": {
-        "title": {
-          "text": "Our journey",
-          "at": 193.4
-        },
-        "stations": [
-          {
-            "title": "Divine purpose",
-            "at": 146.52
-          },
-          {
-            "title": "The marital ecosystem",
-            "at": 160.6
-          },
-          {
-            "title": "Partnership & sacred trust",
-            "at": 178.9
-          },
-          {
-            "title": "Qualities of marriage",
-            "at": 195.1
-          },
-          {
-            "title": "Realistic expectations",
-            "at": 222.04
-          },
-          {
-            "title": "The mirror check",
-            "at": 235.64
-          }
-        ],
-        "current": 3
-      }
-    },
-    {
-      "id": "sec-03-17",
-      "sectionId": "sec-03",
-      "startSec": 197.6,
-      "endSec": 212.2,
-      "type": "wordStack",
-      "props": {
-        "lead": {
-          "text": "When searching for a spouse, people often focus on external qualities:",
-          "at": 198.04
-        },
-        "words": [
-          {
-            "text": "Appearance",
-            "at": 202.62
-          },
-          {
-            "text": "Education",
-            "at": 203.76
-          },
-          {
-            "text": "Employment",
-            "at": 204.64
-          },
-          {
-            "text": "Family & finances",
-            "at": 205.72
-          }
-        ],
-        "variant": "offset"
-      }
-    },
-    {
-      "id": "sec-03-18",
-      "sectionId": "sec-03",
-      "startSec": 212.2,
-      "endSec": 220.4,
-      "type": "highlightLine",
-      "props": {
-        "lines": [
-          {
-            "text": "We must also look at character,",
-            "at": 212.38
-          },
-          {
-            "text": "kindness, honesty, emotional maturity",
-            "at": 214.64
-          },
-          {
-            "text": "and the ability to communicate.",
-            "at": 217.92
-          }
-        ],
-        "highlight": {
-          "text": "character",
-          "at": 214.2
-        },
-        "tint": "royal"
-      }
-    },
-    {
-      "id": "sec-03-19",
-      "sectionId": "sec-03",
-      "startSec": 220.4,
-      "endSec": 244,
-      "type": "lessonMap",
-      "props": {
-        "title": {
-          "text": "Our journey",
-          "at": 220.4
-        },
-        "stations": [
-          {
-            "title": "Divine purpose",
-            "at": 146.52
-          },
-          {
-            "title": "The marital ecosystem",
-            "at": 160.6
-          },
-          {
-            "title": "Partnership & sacred trust",
-            "at": 178.9
-          },
-          {
-            "title": "Qualities of marriage",
-            "at": 195.1
-          },
-          {
-            "title": "Realistic expectations",
-            "at": 222.04
-          },
-          {
-            "title": "The mirror check",
-            "at": 235.64
+            "at": 235.19
           }
         ]
       }
@@ -1048,175 +753,17 @@
           "mercy"
         ],
         "attribution": {
-          "text": "Surah Ar-Rum · 30:21",
+          "text": "Qur'an 30:21 (translation of meaning)",
           "at": 281.6
-        }
+        },
+        "variant": "scripture",
+        "leadAt": 272.74
       }
     },
     {
       "id": "sec-04-03",
       "sectionId": "sec-04",
       "startSec": 284.4,
-      "endSec": 296.4,
-      "type": "threePillars",
-      "props": {
-        "pillars": [
-          {
-            "word": "Sakina",
-            "at": 289.74,
-            "meaning": "Tranquility",
-            "meaningAt": 291.44
-          },
-          {
-            "word": "Mawaddah",
-            "at": 323.28,
-            "meaning": "Affection",
-            "meaningAt": 324.42
-          },
-          {
-            "word": "Rahmah",
-            "at": 349.68,
-            "meaning": "Mercy",
-            "meaningAt": 350.86
-          }
-        ],
-        "baseAt": 286.16,
-        "title": {
-          "text": "Three pillars of marriage",
-          "at": 286.16
-        }
-      }
-    },
-    {
-      "id": "sec-04-04",
-      "sectionId": "sec-04",
-      "startSec": 296.4,
-      "endSec": 309,
-      "type": "wordStack",
-      "props": {
-        "lead": {
-          "text": "Tranquility means",
-          "at": 296.64
-        },
-        "words": [
-          {
-            "text": "Feeling secure",
-            "at": 296.98
-          },
-          {
-            "text": "Expressing without fear",
-            "at": 300.24
-          },
-          {
-            "text": "Dignity and respect",
-            "at": 306.88
-          }
-        ],
-        "variant": "row"
-      }
-    },
-    {
-      "type": "comparison",
-      "id": "sec-04-05",
-      "sectionId": "sec-04",
-      "startSec": 309,
-      "endSec": 321.2,
-      "props": {
-        "left": {
-          "title": "A peaceful marriage does not mean",
-          "points": [
-            {
-              "text": "Disagreements never happen",
-              "at": 311.04
-            }
-          ],
-          "at": 309.24
-        },
-        "right": {
-          "title": "It means",
-          "points": [
-            {
-              "text": "Both are committed to resolving difficulties without causing unnecessary harm",
-              "at": 315.76
-            }
-          ],
-          "at": 312.78
-        },
-        "preferred": "right"
-      }
-    },
-    {
-      "id": "sec-04-06",
-      "sectionId": "sec-04",
-      "startSec": 321.2,
-      "endSec": 332.8,
-      "type": "threePillars",
-      "props": {
-        "pillars": [
-          {
-            "word": "Sakina",
-            "at": 289.74,
-            "meaning": "Tranquility",
-            "meaningAt": 291.44
-          },
-          {
-            "word": "Mawaddah",
-            "at": 323.28,
-            "meaning": "Affection",
-            "meaningAt": 324.42
-          },
-          {
-            "word": "Rahmah",
-            "at": 349.68,
-            "meaning": "Mercy",
-            "meaningAt": 350.86
-          }
-        ],
-        "focus": [
-          {
-            "index": 1,
-            "at": 323.28
-          }
-        ]
-      }
-    },
-    {
-      "id": "sec-04-07",
-      "sectionId": "sec-04",
-      "startSec": 332.8,
-      "endSec": 347,
-      "type": "parallelPhrases",
-      "props": {
-        "items": [
-          {
-            "text": "A kind word",
-            "at": 333.06
-          },
-          {
-            "text": "A thoughtful gesture",
-            "at": 334.26
-          },
-          {
-            "text": "Showing appreciation",
-            "at": 335.62
-          },
-          {
-            "text": "Time together & support",
-            "at": 337.52
-          }
-        ],
-        "closing": {
-          "lead": "These small acts",
-          "leadAt": 343.36,
-          "text": "strengthen emotional connection",
-          "at": 344.44
-        }
-      }
-    },
-    {
-      "id": "sec-04-08",
-      "sectionId": "sec-04",
-      "startSec": 347,
       "endSec": 356.2,
       "type": "threePillars",
       "props": {
@@ -1240,11 +787,21 @@
             "meaningAt": 350.86
           }
         ],
+        "baseAt": 284.6,
         "lintelAt": 352.54,
+        "title": {
+          "text": "Three pillars of marriage",
+          "at": 284.6
+        },
+        "ghostAt": 286.16,
         "focus": [
           {
+            "index": 1,
+            "at": 321.56
+          },
+          {
             "index": 2,
-            "at": 349.68
+            "at": 347.54
           },
           {
             "index": null,
@@ -1280,7 +837,8 @@
         ],
         "align": "left",
         "scale": "h2",
-        "reveal": "focus"
+        "reveal": "focus",
+        "leadAt": 356.66
       }
     },
     {
@@ -1291,7 +849,8 @@
       "endSec": 376.6,
       "props": {
         "text": "Our spouse is human, with strengths, weaknesses, emotions and vulnerabilities.",
-        "at": 370.26
+        "at": 370.26,
+        "leadAt": 368.4
       }
     },
     {
@@ -1337,7 +896,7 @@
           },
           {
             "index": null,
-            "at": 389.6
+            "at": 389.4
           }
         ]
       }
@@ -1396,7 +955,8 @@
           "text": "many different areas of life.",
           "at": 414.52
         },
-        "tint": "sky"
+        "tint": "sky",
+        "leadAt": 407.1
       }
     },
     {
@@ -1603,59 +1163,35 @@
       "sectionId": "sec-05",
       "startSec": 536.3,
       "endSec": 546,
-      "type": "chapterRecap",
+      "type": "ecosystemRings",
       "props": {
-        "title": {
-          "text": "The marital ecosystem",
-          "at": 536.54
+        "centre": {
+          "label": "faith",
+          "at": 422.16,
+          "labelAt": 424.56,
+          "sub": "lawful intimacy",
+          "subAt": 423.06
         },
-        "signature": {
-          "type": "ecosystemRings",
-          "props": {
-            "centre": {
-              "label": "faith",
-              "at": 422.16,
-              "labelAt": 424.56,
-              "sub": "lawful intimacy",
-              "subAt": 423.06
-            },
-            "rings": [
-              {
-                "label": "companionship",
-                "at": 432.78
-              },
-              {
-                "label": "support",
-                "at": 456.68
-              },
-              {
-                "label": "faith and character",
-                "at": 475.36
-              },
-              {
-                "label": "shared responsibility",
-                "at": 487.96
-              },
-              {
-                "label": "family",
-                "at": 506
-              }
-            ]
-          }
-        },
-        "cardAt": 536.54,
-        "words": [
+        "rings": [
           {
-            "text": "building",
-            "at": 538.92
+            "label": "companionship",
+            "at": 432.78
           },
           {
-            "text": "continuing effort",
-            "at": 542.58
+            "label": "support",
+            "at": 456.68
           },
           {
-            "text": "both spouses",
-            "at": 544.26
+            "label": "faith and character",
+            "at": 475.36
+          },
+          {
+            "label": "shared responsibility",
+            "at": 487.96
+          },
+          {
+            "label": "family",
+            "at": 506
           }
         ]
       }
@@ -1694,25 +1230,39 @@
       }
     },
     {
-      "type": "quietReflection",
       "id": "sec-06-02",
       "sectionId": "sec-06",
       "startSec": 553.2,
-      "endSec": 562.9,
+      "endSec": 564.9,
+      "type": "pullQuote",
       "props": {
-        "text": "The best amongst us are those who are best to their wives.",
-        "at": 557.02,
-        "attribution": "Prophet Muhammad (peace and blessings be upon him)"
+        "lines": [
+          {
+            "text": "The best amongst us are those",
+            "at": 557.02
+          },
+          {
+            "text": "who are best to their wives.",
+            "at": 559.14
+          }
+        ],
+        "emphasis": [],
+        "attribution": {
+          "text": "Prophet Muhammad (peace and blessings be upon him)",
+          "at": 553.66
+        },
+        "variant": "scripture",
+        "attributionFirst": true
       }
     },
     {
       "id": "sec-06-03",
       "sectionId": "sec-06",
-      "startSec": 562.9,
-      "endSec": 605,
+      "startSec": 564.9,
+      "endSec": 632.6,
       "type": "iceberg",
       "props": {
-        "peakAt": 563.22,
+        "peakAt": 565,
         "waterlineAt": 581.34,
         "massAt": 583.24,
         "above": [
@@ -1721,16 +1271,16 @@
             "at": 573.5
           },
           {
-            "text": "Professional achievements",
-            "at": 574.8
-          },
-          {
-            "text": "Generosity",
+            "text": "Generosity, public service",
             "at": 576.08
           },
           {
-            "text": "Public service",
-            "at": 577.02
+            "text": "Speaks politely to colleagues",
+            "at": 605.78
+          },
+          {
+            "text": "Shows respect to friends",
+            "at": 612.84
           }
         ],
         "below": [
@@ -1743,17 +1293,18 @@
             "at": 598.62
           },
           {
-            "text": "Disappointed",
-            "at": 600.54
+            "text": "Speaks harshly",
+            "at": 609.48
           },
           {
-            "text": "Under pressure",
-            "at": 601.54
+            "text": "Dismisses feelings",
+            "at": 614.82
           }
         ],
         "aboveLabel": {
-          "text": "in public",
-          "at": 565.58
+          "text": "what others see",
+          "at": 625.28,
+          "from": "in public"
         },
         "belowLabel": {
           "text": "at home",
@@ -1767,95 +1318,11 @@
           {
             "index": 1,
             "at": 597.96
-          }
-        ]
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-06-04",
-      "sectionId": "sec-06",
-      "startSec": 605,
-      "endSec": 617.7,
-      "props": {
-        "lines": [
-          {
-            "text": "Speaks politely to colleagues,",
-            "at": 605.78
           },
           {
-            "text": "but speaks harshly to their spouse.",
-            "at": 609.48
+            "index": null,
+            "at": 605.1
           },
-          {
-            "text": "Shows respect to friends and relatives,",
-            "at": 612.84
-          },
-          {
-            "text": "but dismisses their spouse's feelings.",
-            "at": 614.82
-          }
-        ],
-        "emphasis": [
-          "harshly",
-          "dismisses"
-        ],
-        "align": "left",
-        "scale": "h2",
-        "reveal": "ink"
-      }
-    },
-    {
-      "id": "sec-06-05",
-      "sectionId": "sec-06",
-      "startSec": 617.7,
-      "endSec": 632.6,
-      "type": "iceberg",
-      "props": {
-        "peakAt": 617.7,
-        "waterlineAt": 617.7,
-        "massAt": 617.7,
-        "above": [
-          {
-            "text": "Religious knowledge",
-            "at": 617.7
-          },
-          {
-            "text": "Professional achievements",
-            "at": 617.7
-          },
-          {
-            "text": "Generosity",
-            "at": 617.7
-          },
-          {
-            "text": "Public service",
-            "at": 617.7
-          }
-        ],
-        "below": [
-          {
-            "text": "Integrity",
-            "at": 627.24
-          },
-          {
-            "text": "Sincerity",
-            "at": 628.3
-          },
-          {
-            "text": "No audience",
-            "at": 631.24
-          }
-        ],
-        "aboveLabel": {
-          "text": "what others see",
-          "at": 625.28
-        },
-        "belowLabel": {
-          "text": "at home",
-          "at": 617.7
-        },
-        "focus": [
           {
             "index": 0,
             "at": 625.28
@@ -1953,74 +1420,20 @@
       "sectionId": "sec-06",
       "startSec": 664.7,
       "endSec": 670.4,
-      "type": "chapterRecap",
+      "type": "pullQuote",
       "props": {
-        "signature": {
-          "type": "iceberg",
-          "props": {
-            "peakAt": 565.58,
-            "waterlineAt": 581.34,
-            "massAt": 583.24,
-            "aboveLabel": {
-              "text": "in public",
-              "at": 565.58
-            },
-            "belowLabel": {
-              "text": "at home",
-              "at": 583.24
-            },
-            "above": [
-              {
-                "text": "Religious knowledge",
-                "at": 573.5
-              },
-              {
-                "text": "Professional achievements",
-                "at": 574.8
-              },
-              {
-                "text": "Generosity",
-                "at": 576.08
-              },
-              {
-                "text": "Public service",
-                "at": 577.02
-              }
-            ],
-            "below": [
-              {
-                "text": "Closest relationships",
-                "at": 585.42
-              },
-              {
-                "text": "Tired, frustrated",
-                "at": 598.62
-              },
-              {
-                "text": "Disappointed",
-                "at": 600.54
-              },
-              {
-                "text": "Under pressure",
-                "at": 601.54
-              }
-            ]
-          }
-        },
-        "cardAt": 664.84,
-        "words": [
+        "lines": [
           {
-            "text": "religious practice",
+            "text": "Religious practice and good character",
             "at": 665.32
           },
           {
-            "text": "good character",
-            "at": 666.44
-          },
-          {
-            "text": "reinforce one another",
-            "at": 667.48
+            "text": "should reinforce one another.",
+            "at": 667.2
           }
+        ],
+        "emphasis": [
+          "reinforce"
         ]
       }
     },
@@ -2108,7 +1521,7 @@
           },
           {
             "text": "Social media",
-            "at": 711.54
+            "at": 712.5
           }
         ],
         "caption": {
@@ -2165,7 +1578,8 @@
         ],
         "aboveLabel": {
           "text": "seemingly perfect",
-          "at": 716.64
+          "at": 716.64,
+          "from": "social media"
         },
         "belowLabel": {
           "text": "not seen",
@@ -2230,7 +1644,7 @@
           },
           {
             "text": "Social media",
-            "at": 711.54
+            "at": 712.5
           },
           {
             "text": "Changing roles",
@@ -2304,7 +1718,7 @@
           },
           {
             "text": "Social media",
-            "at": 711.54
+            "at": 712.5
           },
           {
             "text": "Changing roles",
@@ -2380,7 +1794,7 @@
               },
               {
                 "text": "Social media",
-                "at": 711.54
+                "at": 712.5
               },
               {
                 "text": "Changing roles",
@@ -2430,7 +1844,7 @@
       "id": "sec-08-01",
       "sectionId": "sec-08",
       "startSec": 809.6,
-      "endSec": 816.4,
+      "endSec": 817,
       "props": {
         "lines": [
           {
@@ -2443,7 +1857,7 @@
           },
           {
             "text": "is distinguishing between…",
-            "at": 815.6
+            "at": 815.32
           }
         ],
         "emphasis": [
@@ -2461,14 +1875,14 @@
     {
       "id": "sec-08-02",
       "sectionId": "sec-08",
-      "startSec": 816.4,
+      "startSec": 817,
       "endSec": 824.2,
       "type": "sortTrays",
       "props": {
         "trays": [
           {
             "label": "Islamic teachings",
-            "at": 816.98
+            "at": 817
           },
           {
             "label": "Cultural expectations",
@@ -2569,7 +1983,7 @@
         "focus": [
           {
             "index": 1,
-            "at": 842.88
+            "at": 841
           }
         ]
       }
@@ -2608,7 +2022,7 @@
       "id": "sec-08-07",
       "sectionId": "sec-08",
       "startSec": 866.8,
-      "endSec": 912.6,
+      "endSec": 914.4,
       "type": "sortTrays",
       "props": {
         "trays": [
@@ -2666,7 +2080,7 @@
         "focus": [
           {
             "index": 1,
-            "at": 870.14
+            "at": 867.22
           },
           {
             "index": 0,
@@ -2678,7 +2092,7 @@
           },
           {
             "index": 0,
-            "at": 902.42
+            "at": 901.98
           },
           {
             "index": null,
@@ -2691,7 +2105,7 @@
       "type": "kineticStatement",
       "id": "sec-08-08",
       "sectionId": "sec-08",
-      "startSec": 912.6,
+      "startSec": 914.4,
       "endSec": 922.7,
       "props": {
         "lines": [
@@ -2812,7 +2226,7 @@
           },
           {
             "index": null,
-            "at": 937.34
+            "at": 935.54
           }
         ]
       }
@@ -2849,7 +2263,7 @@
       "id": "sec-09-02",
       "sectionId": "sec-09",
       "startSec": 955.65,
-      "endSec": 961.1,
+      "endSec": 961.28,
       "type": "highlightLine",
       "props": {
         "lines": [
@@ -2873,13 +2287,13 @@
       "type": "kineticStatement",
       "id": "sec-09-03",
       "sectionId": "sec-09",
-      "startSec": 961.1,
+      "startSec": 961.28,
       "endSec": 970.9,
       "props": {
         "lines": [
           {
             "text": "One person may be naturally outgoing,",
-            "at": 961.2
+            "at": 961.28
           },
           {
             "text": "whilst the other is more reserved.",
@@ -3004,309 +2418,10 @@
       "id": "sec-09-08",
       "sectionId": "sec-09",
       "startSec": 993,
-      "endSec": 1010.2,
-      "type": "bridgePlanks",
-      "props": {
-        "cliffsAt": 994.24,
-        "planks": [
-          {
-            "text": "Respectful consultation",
-            "at": 997.74
-          },
-          {
-            "text": "Shared responsibilities",
-            "at": 1007.88
-          },
-          {
-            "text": "Mutual support",
-            "at": 1026.92
-          },
-          {
-            "text": "Honouring individuality",
-            "at": 1049.98
-          }
-        ],
-        "caption": {
-          "text": "meaningful discussion",
-          "at": 1001.84
-        },
-        "focus": [
-          {
-            "index": 0,
-            "at": 1000.1
-          },
-          {
-            "index": 1,
-            "at": 1007.88
-          }
-        ]
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-09-09",
-      "sectionId": "sec-09",
-      "startSec": 1010.2,
-      "endSec": 1016,
-      "props": {
-        "lines": [
-          {
-            "text": "Marriage involves practical commitments",
-            "at": 1010.32
-          },
-          {
-            "text": "and couples need to understand",
-            "at": 1012.02
-          },
-          {
-            "text": "how these responsibilities will be managed.",
-            "at": 1013.82
-          }
-        ],
-        "emphasis": [
-          "practical",
-          "understand"
-        ],
-        "align": "left",
-        "scale": "h2",
-        "reveal": "ink"
-      }
-    },
-    {
-      "id": "sec-09-10",
-      "sectionId": "sec-09",
-      "startSec": 1016,
-      "endSec": 1025.9,
-      "type": "highlightLine",
-      "props": {
-        "lines": [
-          {
-            "text": "This does not necessarily mean dividing every task equally,",
-            "at": 1016.16
-          },
-          {
-            "text": "it means developing arrangements that are",
-            "at": 1020.8
-          },
-          {
-            "text": "fair, understood and agreed upon.",
-            "at": 1022.82
-          }
-        ],
-        "highlight": {
-          "text": "fair, understood and agreed upon",
-          "at": 1022.82
-        },
-        "tint": "royal"
-      }
-    },
-    {
-      "id": "sec-09-11",
-      "sectionId": "sec-09",
-      "startSec": 1025.9,
-      "endSec": 1035.75,
-      "type": "bridgePlanks",
-      "props": {
-        "cliffsAt": 1025.9,
-        "planks": [
-          {
-            "text": "Respectful consultation",
-            "at": 997.74
-          },
-          {
-            "text": "Shared responsibilities",
-            "at": 1007.88
-          },
-          {
-            "text": "Mutual support",
-            "at": 1026.92
-          },
-          {
-            "text": "Honouring individuality",
-            "at": 1049.98
-          }
-        ],
-        "caption": {
-          "text": "supporting one another",
-          "at": 1030.34
-        },
-        "focus": [
-          {
-            "index": 1,
-            "at": 1025.9
-          },
-          {
-            "index": 2,
-            "at": 1026.92
-          }
-        ]
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-09-12",
-      "sectionId": "sec-09",
-      "startSec": 1035.75,
-      "endSec": 1048,
-      "props": {
-        "lines": [
-          {
-            "text": "For example, if one spouse wishes",
-            "at": 1035.84
-          },
-          {
-            "text": "to continue their education,",
-            "at": 1037.68
-          },
-          {
-            "text": "a supportive partner will consider",
-            "at": 1039.8
-          },
-          {
-            "text": "how that ambition can be accommodated",
-            "at": 1041.64
-          },
-          {
-            "text": "alongside their shared responsibilities.",
-            "at": 1044.4
-          }
-        ],
-        "emphasis": [
-          "supportive",
-          "accommodated"
-        ],
-        "align": "left",
-        "scale": "h2",
-        "reveal": "focus"
-      }
-    },
-    {
-      "id": "sec-09-13",
-      "sectionId": "sec-09",
-      "startSec": 1048,
-      "endSec": 1052.3,
-      "type": "bridgePlanks",
-      "props": {
-        "cliffsAt": 1048,
-        "planks": [
-          {
-            "text": "Respectful consultation",
-            "at": 997.74
-          },
-          {
-            "text": "Shared responsibilities",
-            "at": 1007.88
-          },
-          {
-            "text": "Mutual support",
-            "at": 1026.92
-          },
-          {
-            "text": "Honouring individuality",
-            "at": 1049.98
-          }
-        ],
-        "focus": [
-          {
-            "index": 2,
-            "at": 1048
-          },
-          {
-            "index": 3,
-            "at": 1049.98
-          }
-        ]
-      }
-    },
-    {
-      "id": "sec-09-14",
-      "sectionId": "sec-09",
-      "startSec": 1052.3,
-      "endSec": 1055.9,
-      "type": "statementCollision",
-      "props": {
-        "first": {
-          "text": "Being married",
-          "at": 1052.46
-        },
-        "script": {
-          "text": "does not mean",
-          "at": 1052.98
-        },
-        "second": {
-          "text": "losing your identity.",
-          "at": 1053.78
-        }
-      }
-    },
-    {
-      "id": "sec-09-15",
-      "sectionId": "sec-09",
-      "startSec": 1055.9,
-      "endSec": 1064.4,
-      "type": "wordStack",
-      "props": {
-        "lead": {
-          "text": "Both spouses remain individuals with their own",
-          "at": 1056.18
-        },
-        "words": [
-          {
-            "text": "Personalities",
-            "at": 1058.82
-          },
-          {
-            "text": "Interests",
-            "at": 1060.9
-          },
-          {
-            "text": "Strengths",
-            "at": 1062.02
-          },
-          {
-            "text": "Aspirations",
-            "at": 1062.54
-          }
-        ],
-        "variant": "row"
-      }
-    },
-    {
-      "id": "sec-09-16",
-      "sectionId": "sec-09",
-      "startSec": 1064.4,
-      "endSec": 1071.9,
-      "type": "highlightLine",
-      "props": {
-        "lines": [
-          {
-            "text": "Marriage should provide opportunities for growth",
-            "at": 1064.66
-          },
-          {
-            "text": "rather than requiring one person to disappear",
-            "at": 1066.9
-          },
-          {
-            "text": "into their expectations of another.",
-            "at": 1069.44
-          }
-        ],
-        "highlight": {
-          "text": "opportunities for growth",
-          "at": 1065.42
-        },
-        "tint": "sky"
-      }
-    },
-    {
-      "id": "sec-09-17",
-      "sectionId": "sec-09",
-      "startSec": 1071.9,
       "endSec": 1082.2,
       "type": "bridgePlanks",
       "props": {
-        "cliffsAt": 1071.9,
+        "cliffsAt": 994.24,
         "planks": [
           {
             "text": "Respectful consultation",
@@ -3329,11 +2444,33 @@
         "caption": {
           "text": "work together",
           "at": 1078.98
-        }
+        },
+        "focus": [
+          {
+            "index": 0,
+            "at": 1000.1
+          },
+          {
+            "index": 1,
+            "at": 1007.88
+          },
+          {
+            "index": 2,
+            "at": 1026.92
+          },
+          {
+            "index": 3,
+            "at": 1049.98
+          },
+          {
+            "index": null,
+            "at": 1072.1
+          }
+        ]
       }
     },
     {
-      "id": "sec-09-18",
+      "id": "sec-09-09",
       "sectionId": "sec-09",
       "startSec": 1082.2,
       "endSec": 1086.4,
@@ -3384,7 +2521,7 @@
           },
           {
             "text": "Valued",
-            "at": 1085.12
+            "at": 1084.9
           }
         ]
       }
@@ -3454,8 +2591,9 @@
       "endSec": 1111.2,
       "props": {
         "text": "Live with our spouses in kindness.",
-        "at": 1105.6,
-        "attribution": "Surah An-Nisa 4:19"
+        "at": 1108.4,
+        "attribution": "Based on Surah An-Nisa 4:19",
+        "attributionAt": 1104.3
       }
     },
     {
@@ -3490,107 +2628,6 @@
       "id": "sec-10-05",
       "sectionId": "sec-10",
       "startSec": 1117.9,
-      "endSec": 1142.9,
-      "type": "balanceScale",
-      "props": {
-        "left": {
-          "label": "Responsibility",
-          "at": 1123.62,
-          "items": [
-            {
-              "text": "Feelings",
-              "at": 1128.46
-            },
-            {
-              "text": "Boundaries",
-              "at": 1129.36
-            },
-            {
-              "text": "Dignity",
-              "at": 1130.06
-            },
-            {
-              "text": "Compassion",
-              "at": 1133.9
-            }
-          ]
-        },
-        "right": {
-          "label": "Control",
-          "at": 1141.36,
-          "items": []
-        },
-        "beamAt": 1118.38
-      }
-    },
-    {
-      "id": "sec-10-06",
-      "sectionId": "sec-10",
-      "startSec": 1142.9,
-      "endSec": 1152.7,
-      "type": "pullQuote",
-      "props": {
-        "lines": [
-          {
-            "text": "Marriage is not ownership.",
-            "at": 1143.06
-          },
-          {
-            "text": "Neither spouse has the right to use marriage",
-            "at": 1145.16
-          },
-          {
-            "text": "as an excuse for humiliation,",
-            "at": 1147.72
-          },
-          {
-            "text": "threats, violence or coercion.",
-            "at": 1149.7
-          }
-        ],
-        "emphasis": [
-          "ownership"
-        ]
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-10-07",
-      "sectionId": "sec-10",
-      "startSec": 1152.7,
-      "endSec": 1163.3,
-      "props": {
-        "lines": [
-          {
-            "text": "Preventing a spouse from maintaining",
-            "at": 1153.58
-          },
-          {
-            "text": "relationships with family and friends",
-            "at": 1155.86
-          },
-          {
-            "text": "as a means of isolating them",
-            "at": 1157.76
-          },
-          {
-            "text": "is not a healthy expression of care.",
-            "at": 1159.82
-          }
-        ],
-        "emphasis": [
-          "isolating",
-          "not"
-        ],
-        "align": "left",
-        "scale": "h2",
-        "reveal": "focus"
-      }
-    },
-    {
-      "id": "sec-10-08",
-      "sectionId": "sec-10",
-      "startSec": 1163.3,
       "endSec": 1188.5,
       "type": "balanceScale",
       "props": {
@@ -3642,7 +2679,7 @@
             }
           ]
         },
-        "beamAt": 1117,
+        "beamAt": 1118.38,
         "release": {
           "side": "right",
           "at": 1184.54
@@ -3650,7 +2687,7 @@
       }
     },
     {
-      "id": "sec-10-09",
+      "id": "sec-10-06",
       "sectionId": "sec-10",
       "startSec": 1188.5,
       "endSec": 1196.9,
@@ -3678,7 +2715,7 @@
       }
     },
     {
-      "id": "sec-10-10",
+      "id": "sec-10-07",
       "sectionId": "sec-10",
       "startSec": 1196.9,
       "endSec": 1203.6,
@@ -3707,7 +2744,7 @@
     },
     {
       "type": "kineticStatement",
-      "id": "sec-10-11",
+      "id": "sec-10-08",
       "sectionId": "sec-10",
       "startSec": 1203.6,
       "endSec": 1209.2,
@@ -3732,7 +2769,7 @@
       }
     },
     {
-      "id": "sec-10-12",
+      "id": "sec-10-09",
       "sectionId": "sec-10",
       "startSec": 1209.2,
       "endSec": 1220.2,
@@ -3786,7 +2823,7 @@
       }
     },
     {
-      "id": "sec-10-13",
+      "id": "sec-10-10",
       "sectionId": "sec-10",
       "startSec": 1220.2,
       "endSec": 1228.5,
@@ -3867,7 +2904,7 @@
       "id": "sec-11-01",
       "sectionId": "sec-11",
       "startSec": 1228.5,
-      "endSec": 1242.9,
+      "endSec": 1245,
       "type": "lessonMap",
       "props": {
         "title": {
@@ -3906,7 +2943,7 @@
     {
       "id": "sec-11-02",
       "sectionId": "sec-11",
-      "startSec": 1242.9,
+      "startSec": 1245,
       "endSec": 1256.3,
       "type": "foundationLayers",
       "props": {
@@ -3970,39 +3007,33 @@
             ]
           }
         ],
-        "groundAt": 1245.8
+        "groundAt": 1245,
+        "ghostAt": 1245.6
       }
     },
     {
+      "type": "kineticStatement",
       "id": "sec-11-03",
       "sectionId": "sec-11",
       "startSec": 1256.3,
       "endSec": 1262.4,
-      "type": "wordStack",
       "props": {
-        "lead": {
-          "text": "Respect means recognising your spouse's",
-          "at": 1256.54
-        },
-        "words": [
+        "lines": [
           {
-            "text": "Dignity",
+            "text": "Respect means recognising your spouse's",
+            "at": 1256.54
+          },
+          {
+            "text": "dignity, opinions, needs and feelings.",
             "at": 1258.78
-          },
-          {
-            "text": "Opinions",
-            "at": 1259.58
-          },
-          {
-            "text": "Needs",
-            "at": 1260.44
-          },
-          {
-            "text": "Feelings",
-            "at": 1261.06
           }
         ],
-        "variant": "row"
+        "emphasis": [
+          "dignity"
+        ],
+        "align": "left",
+        "scale": "h2",
+        "reveal": "rise"
       }
     },
     {
@@ -4258,42 +3289,74 @@
       "sectionId": "sec-11",
       "startSec": 1347.8,
       "endSec": 1365,
-      "type": "scenarioCard",
+      "type": "foundationLayers",
       "props": {
-        "ordinal": {
-          "text": "consider",
-          "at": 1348.02
-        },
-        "topic": {
-          "text": "Repair",
-          "at": 1348.56
-        },
-        "cardAt": 1347.9,
-        "situation": [
+        "courses": [
           {
-            "text": "A disagreement",
-            "at": 1350.16
+            "label": "Core foundation",
+            "at": 1247.98,
+            "items": [
+              {
+                "text": "Faith",
+                "at": 1250.12
+              },
+              {
+                "text": "Respect",
+                "at": 1250.92
+              },
+              {
+                "text": "Trust",
+                "at": 1251.74
+              }
+            ]
           },
           {
-            "text": "An insensitive comment",
-            "at": 1352.72
+            "label": "Action",
+            "at": 1270,
+            "items": [
+              {
+                "text": "Communication",
+                "at": 1280.36
+              },
+              {
+                "text": "Responsibility",
+                "at": 1291.86
+              },
+              {
+                "text": "Cooperation",
+                "at": 1301.3
+              }
+            ]
+          },
+          {
+            "label": "Grace and repair",
+            "at": 1308.54,
+            "items": [
+              {
+                "text": "Compassion",
+                "at": 1316.54
+              },
+              {
+                "text": "Patience",
+                "at": 1321.98
+              },
+              {
+                "text": "Appreciation",
+                "at": 1327.1
+              },
+              {
+                "text": "Forgiveness",
+                "at": 1332.26
+              }
+            ]
           }
         ],
-        "response": [
+        "focus": [
           {
-            "text": "Recognise the impact",
-            "at": 1356.66
-          },
-          {
-            "text": "Apologise sincerely",
-            "at": 1359.68
-          },
-          {
-            "text": "Make an effort not to repeat it",
-            "at": 1361.56
+            "index": 2,
+            "at": 1348.02
           }
-        ],
-        "responseLabel": "A healthy response"
+        ]
       }
     },
     {
@@ -4447,7 +3510,7 @@
       "id": "sec-12-03",
       "sectionId": "sec-12",
       "startSec": 1387.5,
-      "endSec": 1410.4,
+      "endSec": 1411.2,
       "type": "scenarioCard",
       "props": {
         "ordinal": {
@@ -4493,7 +3556,7 @@
     {
       "id": "sec-12-04",
       "sectionId": "sec-12",
-      "startSec": 1410.4,
+      "startSec": 1411.2,
       "endSec": 1419.2,
       "type": "pullQuote",
       "props": {
@@ -4795,7 +3858,7 @@
             "at": 1533.84
           }
         ],
-        "variant": "offset"
+        "variant": "column"
       }
     },
     {
@@ -4870,7 +3933,7 @@
         },
         "myth": {
           "text": "A spouse will always make you happy.",
-          "at": 1555.24
+          "at": 1554.14
         },
         "tearAt": 1561.56,
         "truth": {
@@ -4899,25 +3962,26 @@
       "sectionId": "sec-13",
       "startSec": 1574.2,
       "endSec": 1586,
-      "type": "statementCollision",
+      "type": "mythTruth",
       "props": {
-        "label": "The second myth",
-        "first": {
-          "text": "Successful couples",
-          "at": 1575.84
+        "index": {
+          "text": "second",
+          "at": 1574.6
         },
-        "script": {
-          "text": "never",
-          "at": 1576.96
+        "myth": {
+          "text": "Successful couples never disagree.",
+          "at": 1575.32
         },
-        "second": {
-          "text": "disagree",
-          "at": 1577.32
+        "tearAt": 1579.22,
+        "truth": {
+          "text": "Two individuals will naturally have different opinions and preferences.",
+          "at": 1581.44,
+          "label": "unrealistic"
         },
-        "caption": {
-          "text": "This is simply unrealistic",
-          "at": 1579.22
-        }
+        "past": [
+          "Always happy"
+        ],
+        "short": "Never disagree"
       }
     },
     {
@@ -4959,7 +4023,7 @@
         },
         "myth": {
           "text": "Our spouse should automatically know what we need.",
-          "at": 1594.76
+          "at": 1594.24
         },
         "tearAt": 1604.56,
         "truth": {
@@ -4977,40 +4041,23 @@
       "id": "sec-13-09",
       "sectionId": "sec-13",
       "startSec": 1610.5,
-      "endSec": 1615.7,
-      "type": "statementCollision",
-      "props": {
-        "label": "The fourth myth",
-        "first": {
-          "text": "Love",
-          "at": 1612.32
-        },
-        "script": {
-          "text": "alone",
-          "at": 1612.64
-        },
-        "second": {
-          "text": "is enough",
-          "at": 1613.06
-        },
-        "caption": {
-          "text": "Love is important, but…",
-          "at": 1614.13
-        }
-      }
-    },
-    {
-      "id": "sec-13-10",
-      "sectionId": "sec-13",
-      "startSec": 1615.7,
       "endSec": 1624.3,
-      "type": "wordStack",
+      "type": "mythTruth",
       "props": {
-        "lead": {
-          "text": "Lasting relationships also require",
-          "at": 1615.88
+        "index": {
+          "text": "fourth",
+          "at": 1611.02
         },
-        "words": [
+        "myth": {
+          "text": "Love alone is enough.",
+          "at": 1611.76
+        },
+        "tearAt": 1614.13,
+        "truth": {
+          "text": "Love is important, but lasting relationships also require:",
+          "at": 1614.64
+        },
+        "notes": [
           {
             "text": "Trust",
             "at": 1618.28
@@ -5024,11 +4071,20 @@
             "at": 1620.54
           },
           {
-            "text": "Responsibility and effort",
+            "text": "Responsibility",
             "at": 1621.78
+          },
+          {
+            "text": "Effort",
+            "at": 1623.12
           }
         ],
-        "variant": "column"
+        "past": [
+          "Always happy",
+          "Never disagree",
+          "Automatically know"
+        ],
+        "short": "Love alone"
       }
     },
     {
@@ -5044,7 +4100,7 @@
         },
         "myth": {
           "text": "Marriage will solve all our personal problems.",
-          "at": 1626.3
+          "at": 1625.88
         },
         "tearAt": 1631.8,
         "truth": {
@@ -5078,61 +4134,30 @@
       "id": "sec-13-12",
       "sectionId": "sec-13",
       "startSec": 1639.9,
-      "endSec": 1648.5,
-      "type": "highlightLine",
-      "props": {
-        "lines": [
-          {
-            "text": "Some individuals enter marriage",
-            "at": 1641.18
-          },
-          {
-            "text": "expecting their spouse to change completely.",
-            "at": 1642.94
-          },
-          {
-            "text": "Although people can grow and develop,",
-            "at": 1646.38
-          }
-        ],
-        "highlight": {
-          "text": "change completely",
-          "at": 1644.52
-        },
-        "tint": "royal"
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-13-13",
-      "sectionId": "sec-13",
-      "startSec": 1648.5,
       "endSec": 1655.4,
+      "type": "mythTruth",
       "props": {
-        "lines": [
-          {
-            "text": "Marriage should not begin",
-            "at": 1648.72
-          },
-          {
-            "text": "with the assumption that",
-            "at": 1650.18
-          },
-          {
-            "text": "we can transform another person",
-            "at": 1651.34
-          },
-          {
-            "text": "into someone entirely different.",
-            "at": 1653.26
-          }
+        "index": {
+          "text": "finally",
+          "at": 1640.42
+        },
+        "myth": {
+          "text": "Expecting their spouse to change completely.",
+          "at": 1641.18
+        },
+        "tearAt": 1646.38,
+        "truth": {
+          "text": "Marriage should not begin with the assumption that we can transform another person into someone entirely different.",
+          "at": 1648.72
+        },
+        "past": [
+          "Always happy",
+          "Never disagree",
+          "Automatically know",
+          "Love alone",
+          "Solve all problems"
         ],
-        "emphasis": [
-          "transform"
-        ],
-        "align": "left",
-        "scale": "h2",
-        "reveal": "ink"
+        "short": "Change completely"
       }
     },
     {
@@ -5150,12 +4175,12 @@
           "type": "mythTruth",
           "props": {
             "myth": {
-              "text": "Our spouse will change completely.",
+              "text": "Expecting their spouse to change completely.",
               "at": 0
             },
             "tearAt": 0,
             "truth": {
-              "text": "Honest conversations before marriage are so important.",
+              "text": "Marriage should not begin with the assumption that we can transform another person into someone entirely different.",
               "at": 0
             },
             "past": [
@@ -5195,7 +4220,7 @@
         "label": "Marriage",
         "first": {
           "text": "Not exactly the same",
-          "at": 1671.6
+          "at": 1669.1
         },
         "script": {
           "text": "it evolves",
@@ -5475,7 +4500,7 @@
       "id": "sec-14-10",
       "sectionId": "sec-14",
       "startSec": 1787,
-      "endSec": 1793.7,
+      "endSec": 1794.2,
       "type": "wordStack",
       "props": {
         "lead": {
@@ -5500,13 +4525,13 @@
             "at": 1792.62
           }
         ],
-        "variant": "offset"
+        "variant": "column"
       }
     },
     {
       "id": "sec-14-11",
       "sectionId": "sec-14",
-      "startSec": 1793.7,
+      "startSec": 1794.2,
       "endSec": 1800.6,
       "type": "pressuresShelter",
       "props": {
@@ -5595,67 +4620,6 @@
       "id": "sec-15-02",
       "sectionId": "sec-15",
       "startSec": 1806,
-      "endSec": 1829,
-      "type": "scenarioCard",
-      "props": {
-        "ordinal": {
-          "text": "first",
-          "at": 1806.32
-        },
-        "topic": {
-          "text": "Family time",
-          "at": 1807.84
-        },
-        "cardAt": 1806.1,
-        "situation": [
-          {
-            "text": "A couple disagree about visiting families",
-            "at": 1811.32
-          },
-          {
-            "text": "One: visit parents every weekend",
-            "at": 1816.58
-          },
-          {
-            "text": "Other: more time together as a couple",
-            "at": 1820.9
-          }
-        ],
-        "response": []
-      }
-    },
-    {
-      "id": "sec-15-03",
-      "sectionId": "sec-15",
-      "startSec": 1829,
-      "endSec": 1837.4,
-      "type": "highlightLine",
-      "props": {
-        "lines": [
-          {
-            "text": "Problems can arise if either person assumes",
-            "at": 1829.96
-          },
-          {
-            "text": "their own expectation should",
-            "at": 1832.92
-          },
-          {
-            "text": "automatically take priority.",
-            "at": 1834.58
-          }
-        ],
-        "highlight": {
-          "text": "automatically take priority.",
-          "at": 1834.58
-        },
-        "tint": "sky"
-      }
-    },
-    {
-      "id": "sec-15-04",
-      "sectionId": "sec-15",
-      "startSec": 1837.4,
       "endSec": 1862.6,
       "type": "scenarioCard",
       "props": {
@@ -5901,11 +4865,11 @@
       }
     },
     {
+      "type": "kineticStatement",
       "id": "sec-15-11b",
       "sectionId": "sec-15",
       "startSec": 1927,
       "endSec": 1931.6,
-      "type": "reflectionField",
       "props": {
         "lines": [
           {
@@ -5917,7 +4881,10 @@
             "at": 1929.16
           }
         ],
-        "ground": "oxblood"
+        "emphasis": [],
+        "align": "center",
+        "scale": "h2",
+        "reveal": "focus"
       }
     },
     {
@@ -6307,12 +5274,12 @@
             "meaningAt": 2086.78
           }
         ],
-        "baseAt": 2075.38,
         "lintelAt": 2084.2,
         "title": {
           "text": "Three foundations",
           "at": 2076.8
         },
+        "recall": true,
         "focus": [
           {
             "index": 0,
@@ -6325,10 +5292,6 @@
           {
             "index": 1,
             "at": 2092.5
-          },
-          {
-            "index": null,
-            "at": 2093.4
           }
         ]
       }
@@ -6402,6 +5365,10 @@
       "endSec": 2120.6,
       "type": "chapterRecap",
       "props": {
+        "title": {
+          "text": "Your learning journey",
+          "at": 2116.08
+        },
         "words": [],
         "items": [
           {
@@ -6470,7 +5437,7 @@
               }
             },
             "label": "The ecosystem",
-            "at": 2109.42
+            "at": 2109.6
           },
           {
             "signature": {
@@ -6526,131 +5493,7 @@
               }
             },
             "label": "Private character",
-            "at": 2110.14
-          },
-          {
-            "signature": {
-              "type": "pressuresShelter",
-              "props": {
-                "houseAt": 686.32,
-                "pressures": [
-                  {
-                    "text": "Rising living costs",
-                    "at": 694.18
-                  },
-                  {
-                    "text": "Housing expenses",
-                    "at": 695.9
-                  },
-                  {
-                    "text": "Financial stability",
-                    "at": 698.16
-                  },
-                  {
-                    "text": "Social media",
-                    "at": 711.54
-                  },
-                  {
-                    "text": "Changing roles",
-                    "at": 753.4
-                  },
-                  {
-                    "text": "Cultural differences",
-                    "at": 770.04
-                  }
-                ],
-                "values": [
-                  {
-                    "text": "Justice",
-                    "at": 788.62
-                  },
-                  {
-                    "text": "Compassion",
-                    "at": 789.48
-                  },
-                  {
-                    "text": "Responsibility",
-                    "at": 790.32
-                  },
-                  {
-                    "text": "Consultation",
-                    "at": 791.68
-                  }
-                ],
-                "foundationAt": 793.22
-              }
-            },
-            "label": "A changing world",
-            "at": 2110.86
-          },
-          {
-            "signature": {
-              "type": "sortTrays",
-              "props": {
-                "trays": [
-                  {
-                    "label": "Islamic teachings",
-                    "at": 816.98
-                  },
-                  {
-                    "label": "Cultural expectations",
-                    "at": 818.82
-                  },
-                  {
-                    "label": "Personal preferences",
-                    "at": 937.34
-                  }
-                ],
-                "cards": [
-                  {
-                    "text": "Expensive wedding",
-                    "tray": 1,
-                    "at": 845.08
-                  },
-                  {
-                    "text": "Status and reputation",
-                    "tray": 1,
-                    "at": 870.14
-                  },
-                  {
-                    "text": "Wealth and standing",
-                    "tray": 1,
-                    "at": 878.74
-                  },
-                  {
-                    "text": "Character",
-                    "tray": 0,
-                    "at": 887.7
-                  },
-                  {
-                    "text": "Faith",
-                    "tray": 0,
-                    "at": 889
-                  },
-                  {
-                    "text": "Compatibility",
-                    "tray": 0,
-                    "at": 889.6
-                  },
-                  {
-                    "text": "Expected roles at home",
-                    "tray": 1,
-                    "at": 897.56
-                  },
-                  {
-                    "text": "Rights and responsibilities",
-                    "tray": 0,
-                    "at": 903.8
-                  }
-                ],
-                "caption": {
-                  "text": "prevent misunderstandings",
-                  "at": 942.28
-                }
-              }
-            },
-            "label": "Faith or culture",
-            "at": 2111.58
+            "at": 2110.5
           },
           {
             "signature": {
@@ -6683,7 +5526,7 @@
               }
             },
             "label": "Partnership",
-            "at": 2112.3
+            "at": 2111.38
           },
           {
             "signature": {
@@ -6725,178 +5568,7 @@
               }
             },
             "label": "Amanah",
-            "at": 2113.02
-          },
-          {
-            "signature": {
-              "type": "foundationLayers",
-              "props": {
-                "courses": [
-                  {
-                    "label": "Core foundation",
-                    "at": 0,
-                    "items": [
-                      {
-                        "text": "Faith",
-                        "at": 0
-                      },
-                      {
-                        "text": "Respect",
-                        "at": 0
-                      },
-                      {
-                        "text": "Trust",
-                        "at": 0
-                      }
-                    ]
-                  },
-                  {
-                    "label": "Action",
-                    "at": 0,
-                    "items": [
-                      {
-                        "text": "Communication",
-                        "at": 0
-                      },
-                      {
-                        "text": "Responsibility",
-                        "at": 0
-                      },
-                      {
-                        "text": "Cooperation",
-                        "at": 0
-                      }
-                    ]
-                  },
-                  {
-                    "label": "Grace and repair",
-                    "at": 0,
-                    "items": [
-                      {
-                        "text": "Compassion",
-                        "at": 0
-                      },
-                      {
-                        "text": "Patience",
-                        "at": 0
-                      },
-                      {
-                        "text": "Appreciation",
-                        "at": 0
-                      },
-                      {
-                        "text": "Forgiveness",
-                        "at": 0
-                      }
-                    ]
-                  }
-                ],
-                "groundAt": 0
-              }
-            },
-            "label": "Qualities",
-            "at": 2113.74
-          },
-          {
-            "signature": {
-              "type": "scenarioCard",
-              "props": {
-                "ordinal": {
-                  "text": "third",
-                  "at": 1470.04
-                },
-                "cardAt": 1469.5,
-                "topic": {
-                  "text": "Accountability",
-                  "at": 1471.58
-                },
-                "situation": [
-                  {
-                    "text": "A hurtful comment during a disagreement",
-                    "at": 1475.22
-                  }
-                ],
-                "avoid": {
-                  "text": "Blame the other or minimise what happened",
-                  "at": 1478.56,
-                  "strikeAt": 1482.54
-                },
-                "response": [
-                  {
-                    "text": "Acknowledge the mistake",
-                    "at": 1482.66
-                  },
-                  {
-                    "text": "Apologise sincerely",
-                    "at": 1484.56
-                  },
-                  {
-                    "text": "Respond differently in future",
-                    "at": 1487.66
-                  }
-                ],
-                "outcome": {
-                  "text": "emotional maturity in action",
-                  "at": 1490.56
-                },
-                "past": [
-                  "Appreciation",
-                  "Disagreement"
-                ]
-              }
-            },
-            "label": "Character in action",
-            "at": 2114.46
-          },
-          {
-            "signature": {
-              "type": "mythTruth",
-              "props": {
-                "myth": {
-                  "text": "Our spouse will change completely.",
-                  "at": 0
-                },
-                "tearAt": 0,
-                "truth": {
-                  "text": "Honest conversations before marriage are so important.",
-                  "at": 0
-                },
-                "past": [
-                  "Always happy",
-                  "Never disagree",
-                  "Automatically know",
-                  "Love alone",
-                  "Solve all problems"
-                ],
-                "short": "Change completely"
-              }
-            },
-            "label": "Realistic expectations",
-            "at": 2115.18
-          },
-          {
-            "signature": {
-              "type": "pathLandscape",
-              "props": {
-                "lines": [
-                  {
-                    "text": "As life progresses,",
-                    "at": 1703.62
-                  },
-                  {
-                    "text": "circumstances change.",
-                    "at": 1705.4
-                  },
-                  {
-                    "text": "Careers develop; financial responsibilities may increase.",
-                    "at": 1707.32
-                  }
-                ],
-                "firstStepAt": 1703.76
-              }
-            },
-            "label": "Lifelong learning",
-            "at": 2115.9
+            "at": 2112.18
           },
           {
             "signature": {
@@ -7027,7 +5699,7 @@
               }
             },
             "label": "The mirror check",
-            "at": 2116.62
+            "at": 2113.06
           }
         ]
       }
@@ -7137,7 +5809,7 @@
       "id": "sec-16-28",
       "sectionId": "sec-16",
       "startSec": 2150.6,
-      "endSec": 2159.6,
+      "endSec": 2164.4,
       "type": "reflectionField",
       "props": {
         "lines": [
@@ -7158,21 +5830,11 @@
             "at": 2156.58
           }
         ],
-        "ground": "royal"
-      }
-    },
-    {
-      "type": "kineticStatement",
-      "id": "sec-16-29",
-      "sectionId": "sec-16",
-      "startSec": 2159.6,
-      "endSec": 2165.26,
-      "props": {
-        "lines": [
-          {
-            "text": "Ameen",
-            "at": 2159.76
-          },
+        "script": {
+          "text": "Ameen",
+          "at": 2159.76
+        },
+        "after": [
           {
             "text": "Assalamu alaikum",
             "at": 2160.8
@@ -7182,12 +5844,23 @@
             "at": 2161.9
           }
         ],
+        "ground": "royal"
+      }
+    },
+    {
+      "type": "kineticStatement",
+      "id": "sec-16-29",
+      "sectionId": "sec-16",
+      "startSec": 2164.4,
+      "endSec": 2168.26,
+      "props": {
+        "lines": [],
         "emphasis": [],
         "align": "center",
         "scale": "h2",
         "reveal": "focus",
         "signoffLogo": {
-          "at": 2163,
+          "at": 2164.9,
           "variant": "horizontal"
         }
       }
