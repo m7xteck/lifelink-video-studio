@@ -146,7 +146,7 @@
       "props": {
         "myth": {
           "text": "A spouse will always make you happy.",
-          "at": 1555.24
+          "at": 1554.14
         },
         "tearAt": 1561.56,
         "truth": {
@@ -177,27 +177,28 @@
     {
       "id": "sec-13-06",
       "sectionId": "sec-13",
-      "type": "statementCollision",
+      "type": "mythTruth",
       "startSec": 1574.2,
       "endSec": 1586.0,
       "props": {
-        "first": {
-          "text": "Successful couples",
-          "at": 1575.84
+        "myth": {
+          "text": "Successful couples never disagree.",
+          "at": 1575.32
         },
-        "script": {
-          "text": "never",
-          "at": 1576.96
+        "tearAt": 1579.22,
+        "truth": {
+          "text": "Two individuals will naturally have different opinions and preferences.",
+          "at": 1581.44,
+          "label": "unrealistic"
         },
-        "second": {
-          "text": "disagree",
-          "at": 1577.32
+        "index": {
+          "text": "second",
+          "at": 1574.6
         },
-        "caption": {
-          "text": "This is simply unrealistic",
-          "at": 1579.22
-        },
-        "label": "The second myth"
+        "past": [
+          "Always happy"
+        ],
+        "short": "Never disagree"
       }
     },
     {
@@ -235,7 +236,7 @@
       "props": {
         "myth": {
           "text": "Our spouse should automatically know what we need.",
-          "at": 1594.76
+          "at": 1594.24
         },
         "tearAt": 1604.56,
         "truth": {
@@ -256,42 +257,24 @@
     {
       "id": "sec-13-09",
       "sectionId": "sec-13",
-      "type": "statementCollision",
+      "type": "mythTruth",
       "startSec": 1610.5,
-      "endSec": 1615.7,
-      "props": {
-        "first": {
-          "text": "Love",
-          "at": 1612.32
-        },
-        "script": {
-          "text": "alone",
-          "at": 1612.64
-        },
-        "second": {
-          "text": "is enough",
-          "at": 1613.06
-        },
-        "caption": {
-          "text": "Love is important, but…",
-          "at": 1614.13
-        },
-        "label": "The fourth myth"
-      }
-    },
-    {
-      "id": "sec-13-10",
-      "sectionId": "sec-13",
-      "type": "wordStack",
-      "startSec": 1615.7,
       "endSec": 1624.3,
       "props": {
-        "variant": "column",
-        "lead": {
-          "text": "Lasting relationships also require",
+        "myth": {
+          "text": "Love alone is enough.",
+          "at": 1611.76
+        },
+        "tearAt": 1615.78,
+        "truth": {
+          "text": "Love is important, but lasting relationships also require:",
           "at": 1615.88
         },
-        "words": [
+        "index": {
+          "text": "fourth",
+          "at": 1611.02
+        },
+        "notes": [
           {
             "text": "Trust",
             "at": 1618.28
@@ -305,10 +288,20 @@
             "at": 1620.54
           },
           {
-            "text": "Responsibility and effort",
+            "text": "Responsibility",
             "at": 1621.78
+          },
+          {
+            "text": "Effort",
+            "at": 1623.12
           }
-        ]
+        ],
+        "past": [
+          "Always happy",
+          "Never disagree",
+          "Automatically know"
+        ],
+        "short": "Love alone"
       }
     },
     {
@@ -320,7 +313,7 @@
       "props": {
         "myth": {
           "text": "Marriage will solve all our personal problems.",
-          "at": 1626.3
+          "at": 1625.88
         },
         "tearAt": 1631.8,
         "truth": {
@@ -357,62 +350,31 @@
     {
       "id": "sec-13-12",
       "sectionId": "sec-13",
-      "type": "highlightLine",
+      "type": "mythTruth",
       "startSec": 1639.9,
-      "endSec": 1648.5,
-      "props": {
-        "lines": [
-          {
-            "text": "Some individuals enter marriage",
-            "at": 1641.18
-          },
-          {
-            "text": "expecting their spouse to change completely.",
-            "at": 1642.94
-          },
-          {
-            "text": "Although people can grow and develop,",
-            "at": 1646.38
-          }
-        ],
-        "highlight": {
-          "text": "change completely",
-          "at": 1644.52
-        },
-        "tint": "royal"
-      }
-    },
-    {
-      "id": "sec-13-13",
-      "sectionId": "sec-13",
-      "type": "kineticStatement",
-      "startSec": 1648.5,
       "endSec": 1655.4,
       "props": {
-        "lines": [
-          {
-            "text": "Marriage should not begin",
-            "at": 1648.72
-          },
-          {
-            "text": "with the assumption that",
-            "at": 1650.18
-          },
-          {
-            "text": "we can transform another person",
-            "at": 1651.34
-          },
-          {
-            "text": "into someone entirely different.",
-            "at": 1653.26
-          }
+        "myth": {
+          "text": "Expecting their spouse to change completely.",
+          "at": 1641.18
+        },
+        "tearAt": 1646.38,
+        "truth": {
+          "text": "Marriage should not begin with the assumption that we can transform another person into someone entirely different.",
+          "at": 1648.72
+        },
+        "index": {
+          "text": "finally",
+          "at": 1640.42
+        },
+        "past": [
+          "Always happy",
+          "Never disagree",
+          "Automatically know",
+          "Love alone",
+          "Solve all problems"
         ],
-        "emphasis": [
-          "transform"
-        ],
-        "align": "left",
-        "scale": "h2",
-        "reveal": "ink"
+        "short": "Change completely"
       }
     },
     {
@@ -430,12 +392,12 @@
           "type": "mythTruth",
           "props": {
             "myth": {
-              "text": "Our spouse will change completely.",
+              "text": "Expecting their spouse to change completely.",
               "at": 0
             },
             "tearAt": 0,
             "truth": {
-              "text": "Honest conversations before marriage are so important.",
+              "text": "Marriage should not begin with the assumption that we can transform another person into someone entirely different.",
               "at": 0
             },
             "past": [

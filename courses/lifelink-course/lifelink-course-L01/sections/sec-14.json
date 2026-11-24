@@ -16,7 +16,7 @@
         "label": "Marriage",
         "first": {
           "text": "Not exactly the same",
-          "at": 1671.6
+          "at": 1669.1
         },
         "second": {
           "text": "throughout life.",
@@ -162,18 +162,36 @@
         "left": {
           "title": "Initially",
           "points": [
-            { "text": "Considerable time together", "at": 1729.1 },
-            { "text": "Regular outings", "at": 1733.14 },
-            { "text": "Uninterrupted conversations", "at": 1736.08 }
+            {
+              "text": "Considerable time together",
+              "at": 1729.1
+            },
+            {
+              "text": "Regular outings",
+              "at": 1733.14
+            },
+            {
+              "text": "Uninterrupted conversations",
+              "at": 1736.08
+            }
           ],
           "at": 1728.4
         },
         "right": {
           "title": "Several years later",
           "points": [
-            { "text": "Demanding careers", "at": 1744.4 },
-            { "text": "Young children", "at": 1745.8 },
-            { "text": "Elderly parents needing support", "at": 1746.68 }
+            {
+              "text": "Demanding careers",
+              "at": 1744.4
+            },
+            {
+              "text": "Young children",
+              "at": 1745.8
+            },
+            {
+              "text": "Elderly parents needing support",
+              "at": 1746.68
+            }
           ],
           "at": 1739.3
         },
@@ -279,9 +297,9 @@
       "sectionId": "sec-14",
       "type": "wordStack",
       "startSec": 1787.0,
-      "endSec": 1793.7,
+      "endSec": 1794.2,
       "props": {
-        "variant": "offset",
+        "variant": "column",
         "lead": {
           "text": "Successful couples continue to",
           "at": 1787.44
@@ -310,7 +328,7 @@
       "id": "sec-14-11",
       "sectionId": "sec-14",
       "type": "pressuresShelter",
-      "startSec": 1793.7,
+      "startSec": 1794.2,
       "endSec": 1800.6,
       "props": {
         "houseAt": 1711.08,

@@ -11,7 +11,7 @@
    "id": "sec-11-01",
    "sectionId": "sec-11",
    "startSec": 1228.5,
-   "endSec": 1243.2,
+   "endSec": 1245.0,
    "props": {
     "title": {
      "text": "Our journey",
@@ -50,7 +50,7 @@
    "type": "foundationLayers",
    "id": "sec-11-02",
    "sectionId": "sec-11",
-   "startSec": 1243.2,
+   "startSec": 1245.0,
    "endSec": 1256.3,
    "props": {
     "courses": [
@@ -113,8 +113,8 @@
       ]
      }
     ],
-    "groundAt": 1243.3,
-    "ghostAt": 1245.8
+    "groundAt": 1245.0,
+    "ghostAt": 1245.6
    }
   },
   {
