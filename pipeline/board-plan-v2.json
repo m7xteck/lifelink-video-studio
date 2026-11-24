@@ -140,8 +140,16 @@
   "title": "Module 01 \u00b7 v2 variety & memory pass",
   "state": "working",
   "startedAt": "2026-11-24T07:47:00Z",
-  "note": "Video review + learner audit done: fixing their findings (shared animation fixes first, then chapter pairs), then render v005.",
+  "note": "All review findings fixed by 9 agents and merged (149 scenes; closing logo now holds 3 s). Last step before rendering: captions for the lesson map and pillars so nothing holds still too long. Then v005 renders on your Mac (\u224815\u201325 min) and here as a backup.",
   "evidence": [
+   {
+    "at": "2026-11-24T13:40:00Z",
+    "text": "Your Mac benchmark: 60 s of the lesson rendered in 25.4 s (21 s drawing on 14 workers), about 7\u20139\u00d7 faster than the cloud machine."
+   },
+   {
+    "at": "2026-11-24T13:55:00Z",
+    "text": "Revisions merged: iceberg, bridge, scale, scenario cards now continuous; blank frames filled; all six myths use the tearing slip; paraphrase labelled; logo hold 3 s. Type-check, section checks and rhythm check pass."
+   },
    {
     "at": "2026-11-24T12:50:00Z",
     "text": "Video review of all 36 min on real clips (3 Quality Directors) + learner audit: findings saved with timecodes and fixes (production-memory/lesson-notes/L01-v004-review-findings.md)."
