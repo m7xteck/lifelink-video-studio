@@ -159,8 +159,9 @@ def snapshot():
     stages = {}
     for p in plan["phases"]:
         mine = [a for a in agents.values() if a.get("phase") == p["phase"]]
-        stages[p["stage"]] = {"agentsTotal": p["total"], "agentsDone": sum(a["state"] == "done" for a in mine),
-                              "tokens": sum(a["tokens"] for a in mine), "etaAt": iso(stage_end[p["stage"]]) if stage_end[p["stage"]] else None}
+        prev = stages.get(p["stage"], {"agentsTotal": 0, "agentsDone": 0, "tokens": 0})  # several phases may share one stage
+        stages[p["stage"]] = {"agentsTotal": prev["agentsTotal"] + p["total"], "agentsDone": prev["agentsDone"] + sum(a["state"] == "done" for a in mine),
+                              "tokens": prev["tokens"] + sum(a["tokens"] for a in mine), "etaAt": iso(stage_end[p["stage"]]) if stage_end[p["stage"]] else None}
     for s in plan.get("after", []): stages[s["stage"]] = {"etaAt": iso(stage_end[s["stage"]])}
     for s_ in plan.get("after", []): stages[s_["stage"]]["state"] = next(j["state"] for j in jobs if j["stage"] == s_["stage"])
     alist = [agents[i] for i in dict.fromkeys(order)] + jobs

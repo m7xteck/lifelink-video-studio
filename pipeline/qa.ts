@@ -41,12 +41,15 @@ export const runQa = (opts: { course: string; lesson: string; video: string; rec
   const gaps = sc.slice(1).map((s, i) => ({ id: s.id, gap: +(s.startSec - sc[i].endSec).toFixed(3) })).filter((g) => Math.abs(g.gap) > 0.05);
   add({ id: "manifest.order", status: ordered ? "PASS" : "FAIL", detail: ordered ? "Scenes are in narration order" : "Scenes out of order" });
   add({ id: "manifest.coverage", status: gaps.length ? "FAIL" : "PASS", detail: gaps.length ? `Gaps/overlaps between scenes: ${JSON.stringify(gaps)}` : "Scenes cover the timeline without gaps", data: gaps });
+  const SIGNATURE_TYPES = new Set(["stepsDiagram", "threePillars", "ecosystemRings", "iceberg", "pressuresShelter", "sortTrays", "bridgePlanks", "balanceScale", "foundationLayers", "lessonMap", "chapterRecap", "scenarioCard", "mythTruth", "mirrorCheck"]);
   const lateText: string[] = [];
   for (const s of sc) {
     const ats: number[] = JSON.stringify(s.props).match(/"at":\s*[\d.]+/g)?.map((x) => Number(x.split(":")[1])) ?? [];
     for (const at of ats) {
       // a revisited stepsDiagram lists later steps that are not spoken yet: StepsDiagram never shows a step before its cue, so they are never on screen
-      if (at > s.endSec && s.type === "stepsDiagram") continue;
+      // Signature pictures (and recaps) list every part with its spoken cue so a returning picture can show earlier parts built and
+      // keep later parts hidden: a part whose cue falls outside this scene is either already built (shown all scene) or never shown.
+      if ((at > s.endSec || at < s.startSec) && SIGNATURE_TYPES.has(s.type)) continue;
       if (at < s.startSec - 0.01 || at > s.endSec) lateText.push(`${s.id}: cue ${at}s outside scene ${s.startSec}–${s.endSec}`);
       else if (s.endSec - at < ds.motion.minTextHoldSec) lateText.push(`${s.id}: cue at ${at}s is on screen < ${ds.motion.minTextHoldSec}s`);
     }

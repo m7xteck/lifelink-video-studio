@@ -57,6 +57,26 @@
     "Senior Motion Designer \u00b7 text layouts",
     "Senior Motion Designer \u00b7 myth, scenarios, mirror, recap"
    ]
+  },
+  {
+   "phase": "Video review",
+   "stage": "v2-videoqa",
+   "total": 3,
+   "defaultMin": 25,
+   "names": [
+    "Quality Director \u00b7 0:00\u201312:00",
+    "Quality Director \u00b7 12:00\u201324:00",
+    "Quality Director \u00b7 24:00\u201336:05"
+   ]
+  },
+  {
+   "phase": "Learner audit",
+   "stage": "v2-videoqa",
+   "total": 1,
+   "defaultMin": 30,
+   "names": [
+    "Learner auditor \u00b7 whole lesson"
+   ]
   }
  ],
  "pairs": [
@@ -81,11 +101,6 @@
    "startedAt": "2026-11-24T09:42:39Z"
   },
   {
-   "stage": "v2-videoqa",
-   "label": "Video review + learner audit",
-   "min": 60
-  },
-  {
    "stage": "v2-revise",
    "label": "Targeted revisions",
    "min": 60
@@ -100,8 +115,12 @@
   "title": "Module 01 \u00b7 v2 variety & memory pass",
   "state": "working",
   "startedAt": "2026-11-24T07:47:00Z",
-  "note": "Polish pass done; brand locked; your logo is in the opening and closing. Now rendering v004 (full render, then automatic checks), then video review + learner audit.",
+  "note": "v004 rendered and checked. Now: video review of all 36 minutes on real clips + an independent learner audit; then targeted fixes.",
   "evidence": [
+   {
+    "at": "2026-11-24T12:10:00Z",
+    "text": "v004 rendered (36:05) and checked: 14 pass, 1 warning. Loudness now \u221216.5 LUFS (pass), sync 5 ms, no black frames or flashes. Real items: 9 short text holds, one small label at 22:28; long still stretches to be judged in video review."
+   },
    {
     "at": "2026-11-24T09:30:00Z",
     "text": "Brand locked with your exact colours and logo; gentle limiter applied (narration measured at \u221216.5 LUFS, peaks \u22122.0 dB)."
