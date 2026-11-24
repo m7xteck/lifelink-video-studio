@@ -150,7 +150,7 @@ export const renderLesson = async (): Promise<RenderResult> => {
 
   if (manifest.audio) {
     const src = join(P.root, "public", manifest.audio);
-    const mastered = join(preview ? chunkDir : outDir, `narration_master_${startSec}_${durSec}.wav`);
+    const mastered = join(preview ? chunkDir : outDir, `narration_master${process.env.LIFELINK_LIMITER !== "0" ? "_lim" : ""}_${startSec}_${durSec}.wav`);
     if (!existsSync(mastered) || a.force) masterNarration(src, mastered, startSec, durSec);
     ff(["-v", "error", "-i", silent, "-i", mastered, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", durSec.toFixed(3), "-movflags", "+faststart", output]);
   } else {
@@ -172,12 +172,12 @@ export const renderLesson = async (): Promise<RenderResult> => {
 };
 
 /**
- * Non-destructive narration mastering.
- * Measures loudness (EBU R128) and applies ONE constant gain toward -16 LUFS, capped so
- * true peak stays ≤ -1.5 dBTP. No compression, no limiting, no trimming: the delivery's
- * natural dynamics and every pause are preserved sample-for-sample (apart from gain and
- * a 60 Hz rumble filter). If the cap stops us reaching -16 LUFS, the report says so.
- * Optional noise reduction only with LIFELINK_DENOISE=1 (requires client approval).
+ * Narration mastering. Measures loudness (EBU R128) and applies ONE constant gain to -16 LUFS.
+ * Default (client approved a gentle limiter on 2026-11-24, see decisions.md): a transparent peak limiter
+ * (4x oversampled, -2 dBFS ceiling ≈ -1.5 dBTP, 5 ms attack, 80 ms release) catches the few brief
+ * transients that previously capped the gain. No compression, no trimming; pauses untouched.
+ * LIFELINK_LIMITER=0 restores the old gain-only behaviour (gain capped by the true peak).
+ * Optional noise reduction only with LIFELINK_DENOISE=1.
  */
 const masterNarration = (src: string, out: string, startSec: number, durSec: number) => {
   const pre = ["highpass=f=60", ...(process.env.LIFELINK_DENOISE === "1" ? ["afftdn=nr=10:nf=-45"] : [])].join(",");
@@ -187,14 +187,16 @@ const masterNarration = (src: string, out: string, startSec: number, durSec: num
   const I = Number(json.input_i), TP = Number(json.input_tp);
   const silent = !Number.isFinite(I);
   const wanted = silent ? 0 : -16 - I;
-  const gainDb = silent ? 0 : Math.min(wanted, -1.5 - TP);
-  const af = `${pre},volume=${gainDb.toFixed(2)}dB,apad`;
+  const limiter = process.env.LIFELINK_LIMITER !== "0";
+  const gainDb = silent ? 0 : limiter ? wanted : Math.min(wanted, -1.5 - TP);
+  const lim = limiter && !silent && gainDb > -1.5 - TP ? ",aresample=192000,alimiter=limit=0.794:attack=5:release=80:level=disabled,aresample=48000" : "";
+  const af = `${pre},volume=${gainDb.toFixed(2)}dB${lim},apad`;
   // apad + output duration: if the video is a fraction of a frame longer than the recording, pad with silence (never cut).
   ff(["-v", "error", ...trim, "-i", src, "-af", af, "-t", durSec.toFixed(3), "-ar", "48000", "-ac", "2", "-c:a", "pcm_s16le", out]);
   writeFileSync(out.replace(/\.wav$/, ".loudness.json"), JSON.stringify({
     inputLUFS: I, inputTruePeak: TP, gainDb: +gainDb.toFixed(2), expectedLUFS: silent ? null : +(I + gainDb).toFixed(1),
-    peakLimited: gainDb < wanted - 0.05, filter: af,
-    note: gainDb < wanted - 0.05 ? "Peaks prevented full gain; a gentle limiter could raise loudness but needs approval (it alters dynamics)." : "Target reached with gain only.",
+    peakLimited: gainDb < wanted - 0.05, limiter: lim !== "", filter: af,
+    note: lim ? "Full gain to -16 LUFS; brief peaks caught by the approved gentle limiter." : gainDb < wanted - 0.05 ? "Peaks prevented full gain (limiter disabled)." : "Target reached with gain only.",
   }, null, 2));
 };
 
