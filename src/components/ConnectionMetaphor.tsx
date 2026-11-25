@@ -49,7 +49,7 @@ export const ConnectionMetaphor: React.FC<{ scene: SceneOf<"connectionMetaphor">
       </div>
       {sharedLabel && (
         <div style={{ position: "absolute", left: cx - R * 0.6, width: R * 1.2, top: cy - 22 * L.u, textAlign: "center", opacity: glow }}>
-          <div data-qa-text style={{ fontFamily: fonts.display, fontStyle: "italic", fontSize: L.size("h3"), color: colors.ink }}>{sharedLabel}</div>
+          <div data-qa-text style={{ fontFamily: fonts.display, fontSize: L.size("h3"), color: colors.ink }}>{sharedLabel}</div>
         </div>
       )}
       {caption && (

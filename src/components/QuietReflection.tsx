@@ -32,7 +32,7 @@ export const QuietReflection: React.FC<{ scene: SceneOf<"quietReflection"> }> = 
       <PaperGround color={P.paper} deep={D.paperShade} seed={37} />
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: `${L.safeY}px ${L.safeX * 1.6}px` }}>
         <SoftReveal at={at} dur={1.8} rise={6}>
-          <div data-qa-text style={{ fontFamily: fonts.display, fontStyle: "italic", fontSize: L.size("h2"), lineHeight: 1.25, color: colors.ink, textAlign: "center", maxWidth: L.portrait ? L.innerW : L.innerW * 0.62, textWrap: "balance" as React.CSSProperties["textWrap"] }}>
+          <div data-qa-text style={{ fontFamily: fonts.display, fontSize: L.size("h2"), lineHeight: 1.25, color: colors.ink, textAlign: "center", maxWidth: L.portrait ? L.innerW : L.innerW * 0.62, textWrap: "balance" as React.CSSProperties["textWrap"] }}>
             {text}
           </div>
         </SoftReveal>

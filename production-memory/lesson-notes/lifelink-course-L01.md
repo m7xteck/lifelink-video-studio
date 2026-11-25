@@ -38,3 +38,9 @@
 - Change 1 (all scenes): slow documentary push-in per scene in Lesson.tsx (constant rate ≤ 0.0006/s, ≤ 3.5 % per scene, eases in over 2 s, starts at 1.0). A global sine "breathe" was tried first and rejected: its turning points still froze for > 8 s (freezedetect on preview).
 - Change 2: balance scale pivot script "not ownership" inked at 1143.34 s (spoken). Fixed PivotWord word spacing (script space glyph ≈ 0 → "notownership").
 - Preview 1136–1160 s: no freezes ≥ 8 s (was 8.3 s+).
+
+## 2026-11-25 — v008 fixes from the v007 independent creative review (client: "do it on my mac")
+- Push-in kept: client chose "Keep push-in, allow it" (recorded as brand exception in decisions.md).
+- Fixed: synthetic italic removed (QuietReflection, ConnectionMetaphor) — brand italicAllowed:false; 34:56 "appears perfect." full stop; 35:00 "two individuals commit to…"; 35:20 recap iceberg thumbnail now uses the sec-06-03 labels (what others see / Tired, frustrated / Speaks harshly …).
+- Kept, with reason: dashed numbered outlines at 17:10 (bridge) and 21:51 (foundation) — added on the v004 learner audit's advice and cued on spoken counts ("four elements", "three areas"), so not placeholders; rings offset at 8:20 is the component's deliberate layered-paper design.
+- Render v008 on the client's Mac (MAC-RENDER.md step 5).
