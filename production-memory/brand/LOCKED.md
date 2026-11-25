@@ -42,3 +42,6 @@ Watermark: review copies show "Preview for approval"; only a master rendered aft
 - **Watermark rule approved:** stays on every render until the brand is fully locked (colour codes + logo artwork received).
 - **Narration limiter / noise reduction APPROVED** (no note). Limiter to standard loudness; noise reduction only where it audibly helps without altering the voice.
 - **Music / SFX:** changes requested — "very subtle sfx". Narration-only until a very subtle SFX sample is approved; no music.
+
+## Motion exception — approved 2026-11-25
+- Slow per-scene documentary push-in allowed (≤ 3.5 % scale per scene, constant rate, eases in). Client: "Keep push-in, allow it". All other zooms remain forbidden.

@@ -131,7 +131,7 @@
     }
   ],
   "motion": {
-    "$comment": "Motion language: 'paper and ink'. Elements move like heavy stationery (slide, settle, never bounce); words appear like ink (mask wipes). No zooms, spins, particles or elastic easing.",
+    "$comment": "Motion language: 'paper and ink'. Elements move like heavy stationery (slide, settle, never bounce); words appear like ink (mask wipes). No zooms, spins, particles or elastic easing — one client-approved exception (2026-11-25): a slow per-scene push-in, max 3.5% per scene (see production-memory/decisions.md).",
     "easing": {
       "enter": [
         0.25,
